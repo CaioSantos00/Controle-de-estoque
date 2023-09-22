@@ -1,0 +1,12 @@
+{
+    "name": "vendor/app",
+    "description": "só as coisas boas da vida",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\App\\": "src/"
+        }
+    },
+    "require": {
+        "monolog/monolog": "^2.9"
+    }
+}
