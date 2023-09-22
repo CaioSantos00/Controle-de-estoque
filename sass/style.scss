@@ -1,0 +1,43 @@
+@import "./pages/index.scss";
+@import "./mixins.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+$cor-branca: rgb(255, 255, 255);
+$cor-preta: rgb(0, 0, 0);
+$corHeaderFooter: rgb(255, 0, 0);
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Oswald', sans-serif;
+}
+
+a {
+
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $corHeaderFooter;
+}
+
+header ul{
+    display: flex;
+    align-items: center;
+}
+
+header li {
+    list-style: none;
+    margin: 0px 10px;
+}
+
+footer {
+    padding: 10px 0px;
+    background-color: $corHeaderFooter;
+    text-align: center;
+}
+
