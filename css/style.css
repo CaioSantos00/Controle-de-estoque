@@ -3,7 +3,7 @@
   background-image: url("../imgs/costas.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgb(0, 136, 255);
+  background-color: rgb(0, 0, 0);
 }
 
 #divBtnLanca {
@@ -32,7 +32,7 @@
 .divSeguraBtn {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-color: rgb(0, 136, 255);
+  background-color: rgb(0, 0, 0);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -53,7 +53,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(117, 114, 114);
 }
 
 header ul {
@@ -68,7 +68,7 @@ header li {
 
 footer {
   padding: 10px 0px;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(117, 114, 114);
   text-align: center;
 }
 
