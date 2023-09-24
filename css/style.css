@@ -39,6 +39,18 @@
   align-items: center;
 }
 
+.btnsPgInit {
+  font-size: 1.1em;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+
 body {
   margin: 0px;
   padding: 0px;

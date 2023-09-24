@@ -1,11 +1,8 @@
 @import "./pages/index.scss";
 @import "./mixins.scss";
+@import "./variaveis.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
-$cor-branca: rgb(255, 255, 255);
-$cor-preta: rgb(0, 0, 0);
-$corHeaderFooter: rgb(117, 114, 114);
 
 body {
     margin: 0px;

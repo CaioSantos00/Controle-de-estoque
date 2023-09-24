@@ -1,3 +1,6 @@
+@import "../mixins.scss";
+@import "../variaveis.scss";
+
 #divNaoSeiQualNomeDar {
     background-image: url("../imgs/costas.png");
     background-repeat: no-repeat;
@@ -36,4 +39,8 @@
     display: flex;
     justify-content: center;
     align-items: center;    
+}
+
+.btnsPgInit {
+    @include buttons(1.1em, $cor-branca, $cor-preta);
 }
