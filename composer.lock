@@ -181,7 +181,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "intervention/image": 15
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

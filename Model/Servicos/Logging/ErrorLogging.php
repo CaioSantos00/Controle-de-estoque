@@ -1,6 +1,6 @@
 <?php
-	namespace App\Servicos\Logging;
-
+	namespace App\Servicos\Logging;	
+	
 	class ErrorLogging{
 		const LOG_LOCATION = "ServerInfo/LogErros.txt";
 		const SEPARADOR_DE_ERROS = "<<<>>>";
@@ -8,7 +8,7 @@
 		static bool $logInstanciado;
 		
 		function __construct(){
-			$this->setLogErros();
+			$this->setLogErros();			
 		}		
 		private function setLogErros(){
 			if(empty($this->logDeErros)){

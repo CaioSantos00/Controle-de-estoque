@@ -16,6 +16,7 @@
 			";
 		}
 		function setDadosUsuario(array $dadosUsuario) :bool{
+			$resultado = false;
 			try{
 				$conexao = Conexao::getConexao();
 
@@ -44,8 +45,7 @@
 				return $resultado;
 			}
 		}
-		function setFotoUsuario(){
-			$diretorioAlvo = "../ArquivosSecundarios/FotosUsuarios/";
-			Image::salvarImagemDePerfilEnviada($this->idUsuario);
+		function setFotoUsuario() :bool{			
+			return Image::salvarImagemDePerfilEnviada($this->idUsuario);
 		}
 	}
