@@ -52,6 +52,35 @@
   transition: 0.5s;
 }
 
+#sectionProducts {
+  margin: 20px 0px;
+  display: grid;
+  grid-template-areas: "cardsProdu cardsProdu cardsProdu cardsProdu";
+  justify-content: center;
+  gap: 20px;
+}
+
+.cardsProdu {
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.divImgProdu {
+  margin: auto;
+  width: 280px;
+}
+.divImgProdu img {
+  width: 280px;
+  border-radius: 5px;
+}
+
+.precoProdu {
+  color: rgb(9, 255, 0);
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }

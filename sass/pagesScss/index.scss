@@ -43,5 +43,5 @@
 }
 
 .btnsPgInit {
-    @include buttons(1.1em, $cor-branca, $cor-preta);
+    @include buttons(1.1em, $corLinks, $corPreto);
 }
