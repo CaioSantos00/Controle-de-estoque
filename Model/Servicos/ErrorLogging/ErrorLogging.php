@@ -1,7 +1,7 @@
 <?php
-	namespace App\Servicos\Logging;	
+	namespace App\Servicos\ErrorLogging;	
 	
-	class LogDeErros{
+	class ErrorLogging{
 		const LOG_LOCATION = "ServerInfo/LogErros.txt";
 		const SEPARADOR_DE_ERROS = "<<<>>>";
 		public $logDeErros;

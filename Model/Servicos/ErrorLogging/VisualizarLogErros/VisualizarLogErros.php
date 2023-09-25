@@ -1,7 +1,7 @@
 <?php
-    namespace App\Servicos\Logging;
-
-    use App\Servicos\Logging\LogDeErros;
+    namespace App\Servicos\ErrorLogging\VisualizarLogErros;
+	
+	use App\Servicos\ErrorLogging\ErrorLogging;
 
     class VisualizacaoLogErros{            
         static function getErros() :string{
