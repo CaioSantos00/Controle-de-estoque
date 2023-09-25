@@ -31,13 +31,13 @@
 				$resultado = $queryExec == 1 ? true : false;
 			}
 			catch(PDOException $e){
-				Erro->setErro("Cadastro Usuario", $e->getMessage());
+				$GLOBALS['ERRO']->setErro("Cadastro Usuario", $e->getMessage());
 				if($conexao->inTransaction()) $conexao->rollBack();
 				
 				$resultado = false;
 			}
 			catch(Exception $e){
-				Erro->setErro("Conexão", "conexão usada no cadastro de um Usuário");
+				$GLOBALS['ERRO']->setErro("Conexão", "conexão usada no cadastro de um Usuário");
 				
 				$resultado = false;
 			}

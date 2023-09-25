@@ -34,7 +34,7 @@
 				
 			}
 			catch(Exception $ex){
-				Erro->setErro('Cadastro Usuario', "No envio da Foto do usuário, {$ex->getMessage()}");
+				$GLOBALS['ERRO']->setErro('Cadastro Usuario', "No envio da Foto do usuário, {$ex->getMessage()}");
 				$resultado = false;
 			}
 			finally{

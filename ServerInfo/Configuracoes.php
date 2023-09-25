@@ -1,8 +1,8 @@
 <?php
 	namespace Configuracoes;
 	
-	use App\Servicos\Logging\ErrorLogging as Erro;
+	use App\Servicos\ErrorLogging\LogDeErros as ErroHand;
 	
 	date_default_timezone_set('America/Sao_Paulo');
-	define('ERRO', new Erro()); //Define globalmente uma instancia da classe manipuladora de erros
+	$GLOBALS['ERRO'] = new ErroHand(); //Define globalmente uma instancia da classe manipuladora de erros
 

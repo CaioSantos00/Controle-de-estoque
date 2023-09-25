@@ -1,5 +1,9 @@
 <?php
 require "vendor/autoload.php";
 
-ERRO->setErro('nada', 'ainda');
+use App\Login\Login as Logar;
+
+$log = new Logar("felipe", "luiz");
+
+
 ?>

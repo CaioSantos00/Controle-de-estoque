@@ -16,7 +16,7 @@
 					ConexaoBanco::$Conexao = new PDO(...$opcoesDeConexao);
 				}
 				catch(PDOException $ex){
-					ERRO->setErro('Conexão', $ex->getMessage());
+					$GLOBALS['ERRO']->setErro('Conexão', $ex->getMessage());
 					throw new Exception('Conexao');
 				}
 				return ConexaoBanco::$Conexao;			
