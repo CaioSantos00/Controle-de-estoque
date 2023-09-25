@@ -15,6 +15,11 @@ a {
     text-decoration: none;
 }
 
+#logo {
+    width: 180px;
+    margin: 10px;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -28,11 +33,22 @@ header ul{
 }
 
 header li {
+    font-size: 1.2em;
     list-style: none;
     margin: 0px 10px;
 }
 
+header a{
+    color: $cor-branca;
+}
+
+
+header a:hover{
+    color: rgb(9, 255, 0);
+}
+
 footer {
+    color: $cor-branca;
     padding: 10px 0px;
     background-color: $corHeaderFooter;
     text-align: center;
