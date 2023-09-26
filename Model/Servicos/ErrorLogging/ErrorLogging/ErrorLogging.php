@@ -1,20 +1,20 @@
 <?php
-	namespace App\Servicos\ErrorLogging;	
-	
+	namespace App\Servicos\ErrorLogging\ErrorLogging;
+
 	class ErrorLogging{
 		const LOG_LOCATION = "ServerInfo/LogErros.txt";
 		const SEPARADOR_DE_ERROS = "<<<>>>";
 		public $logDeErros;
 		static bool $logInstanciado;
-		
+
 		function __construct(){
-			$this->setLogErros();			
-		}		
+			$this->setLogErros();
+		}
 		private function setLogErros(){
 			if(empty($this->logDeErros)){
 				$this->logDeErros = fopen(self::LOG_LOCATION, 'a');
 				//var_dump(scandir("./"));
-				self::$logInstanciado = true;				
+				self::$logInstanciado = true;
 				if(!$this->logDeErros) self::$logInstanciado = false;
 			}
 		}
@@ -26,15 +26,14 @@
 			);
 			return self::SEPARADOR_DE_ERROS.json_encode($linhaDeErro)."\n";
 		}
-		function setErro(string $onde, string $mensagem){			
-			if(self::$logInstanciado) fwrite($this->logDeErros, $this->criarLinhaDeErro($onde, $mensagem));			
+		function setErro(string $onde, string $mensagem){
+			if(self::$logInstanciado) fwrite($this->logDeErros, $this->criarLinhaDeErro($onde, $mensagem));
 		}
 
 		function __destruct(){
 			if(self::$logInstanciado){
-				fclose($this->logDeErros);
-				self::$logInstanciado = false;			
+				if(!fclose($this->logDeErros)) $this->setErro('Gerenciador de erros', 'O ponteiro de arquivo não fechou');
+				self::$logInstanciado = false;
 			}
 		}
 	}
-	

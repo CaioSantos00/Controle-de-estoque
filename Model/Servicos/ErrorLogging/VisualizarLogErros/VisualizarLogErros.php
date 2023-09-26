@@ -1,9 +1,9 @@
 <?php
     namespace App\Servicos\ErrorLogging\VisualizarLogErros;
 	
-	use App\Servicos\ErrorLogging\ErrorLogging;
+	use App\Servicos\ErrorLogging\ErrorLogging as LogDeErros;
 
-    class VisualizacaoLogErros{            
+    class VisualizarLogErros{            
         static function getErros() :string{
             $logErros = file_get_contents(LogDeErros::LOG_LOCATION); //Recebe os conteúdos crus do arquivo do log de Erros;
             
@@ -14,8 +14,7 @@
             
             $logErros = explode(LogDeErros::SEPARADOR_DE_ERROS,$logErros);
                 
-            foreach($logErros as $indice => $valor){
-                $logErros[$indice] = json_decode($valor);
-            }
+            foreach($logErros as $indice => $valor) $logErros[$indice] = json_decode($valor);
+            
         }
     }

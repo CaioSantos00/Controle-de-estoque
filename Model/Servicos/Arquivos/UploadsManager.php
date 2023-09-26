@@ -20,7 +20,7 @@
 				if($resultado === false) throw new Exception('na mudança de nome');				
 				
 				$imagem = Image::make($_FILES['fotoUsuario']['tmp_name']);
-				$imagem
+				$imagem 
 					->resize(300,300) //Redimensiona a imagem para um tamanho padrão
 					->encode("png", 70) //Define para uma extensão padrão e reduz a qualidade (para fins de compressão)
 					->save(); // Salvando na mesma instancia, alteramos a imagem original sem movê-la
@@ -40,5 +40,5 @@
 			finally{
 				return $resultado;
 			}
-		}
+		}		
 	}
