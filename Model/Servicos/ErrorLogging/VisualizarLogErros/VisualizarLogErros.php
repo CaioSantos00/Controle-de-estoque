@@ -1,14 +1,14 @@
 <?php
     namespace App\Servicos\ErrorLogging\VisualizarLogErros;
 	
-	use App\Servicos\ErrorLogging\ErrorLogging as LogDeErros;
+	use App\Servicos\ErrorLogging\ErrorLogging\ErrorLogging as LogDeErros;
 
     class VisualizarLogErros{            
         static function getErros() :string{
             $logErros = file_get_contents(LogDeErros::LOG_LOCATION); //Recebe os conteúdos crus do arquivo do log de Erros;
             
             if($logErros === false){
-                $GLOBALS['ERRO']->setErro('Visualização de erros', 'não deu para abrir o arquivo');
+                $GLOBALS['ERRO']->setErro('Visualização de erros', 'não deu para abrir o log de erros');
                 return [false];
             }
             
