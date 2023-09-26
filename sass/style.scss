@@ -15,7 +15,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: $corGreen;
+    background-color: $corHover;
     border-radius: 6px;
   }
 
@@ -31,13 +31,13 @@ a {
 }
 
 #logo {
-    width: 180px;
+    width: 160px;
     margin: 10px;
 }
 
 header {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-around;
     background-color: $corHeaderFooter;
 }
@@ -59,7 +59,7 @@ header a{
 
 
 header a:hover{
-    color: $corGreen;
+    color: $corHover;
 }
 
 footer {
