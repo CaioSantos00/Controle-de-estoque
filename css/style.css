@@ -81,6 +81,30 @@
   color: rgb(9, 255, 0);
 }
 
+#sectionSobre {
+  margin: 10vw;
+}
+
+.divGridSobre {
+  display: grid;
+  grid-template-areas: "divFotoSobre infoSobre";
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+}
+
+.infoSobre {
+  font-size: 1.3em;
+  text-align: justify;
+}
+
+.fotoSobre {
+  width: 350px;
+  height: 350px;
+  border-radius: 100%;
+  background-color: black;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
