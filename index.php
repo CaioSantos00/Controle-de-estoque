@@ -1,5 +1,8 @@
 <?php
 require "vendor/autoload.php";
 
-$GLOBALS['ERRO']->setErro('nada','ainda');
+use App\Servicos\ErrorLogging\VisualizarLogErros\VisualizarLogErros as VerLogErros;
 ?>
+
+
+<?= new VerLogErros() ?>
