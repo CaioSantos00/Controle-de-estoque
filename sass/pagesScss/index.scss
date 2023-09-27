@@ -8,3 +8,21 @@
     background-size: 100%;
     background-size: cover;
 }
+
+#divOrca {
+    margin: 1vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+#titleOrcamento {
+    font-size: 1.5em;
+}
+
+#btnOrca {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    @include buttons(1em, $corHover, $corLinks);
+
+}

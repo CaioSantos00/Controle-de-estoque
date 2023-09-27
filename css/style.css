@@ -7,6 +7,31 @@
   background-size: cover;
 }
 
+#divOrca {
+  margin: 1vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+#titleOrcamento {
+  font-size: 1.5em;
+}
+
+#btnOrca {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+
 #sectionProducts {
   margin: 20px 0px;
   display: grid;
