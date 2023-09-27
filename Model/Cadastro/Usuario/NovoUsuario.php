@@ -24,7 +24,6 @@
 
 				$queryExec = $conexao->prepare($this->queryParaExecutar);
 				$queryExec = $queryExec->execute($dadosUsuario);
-
 				$this->idUsuario = $conexao->lastInsertId();
 				$conexao->commit();
 

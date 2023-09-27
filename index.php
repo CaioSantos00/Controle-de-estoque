@@ -1,13 +1,19 @@
 <?php
-require "vendor/autoload.php";
+	require __DIR__."/vendor/autoload.php";
 
-use App\Servicos\ErrorLogging\VisualizarLogErros\VisualizarLogErros as VerLogErros;
-?>
-
-<p>
-	<?= new VerLogErros() ?>
-</p>
-<script>
-	let x = document.querySelector('p').innerText;
-	console.log(JSON.parse(x))
-</script>
+	use CoffeeCode\Router\Router as GerenciadorDeRotas;
+	$router = new GerenciadorDeRotas(URL_SITE);
+	
+	$router->namespace('Configuracoes\Rotas');
+	$router->group(null);
+	
+	$router->get("/", "Rotas::home");
+	
+	$router->group("ops");
+	$router->get("/{erro}", function($data){
+		echo "erro foi só o ".$data['erro'];
+	});
+	$router->dispatch();	
+	if($router->error()){
+		$router->redirect("/ops/{$router->error()}");
+	}

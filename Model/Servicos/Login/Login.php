@@ -24,9 +24,9 @@
 
         private function consultarBanco(string $query) :array{
             try{
-            $select = Conexao::getConexao()
-                ->prepare($query)
-                ->execute($this->dadosLogin);
+                $select = Conexao::getConexao()
+                    ->prepare($query)
+                    ->execute($this->dadosLogin);
             }
             catch(PDOException $ex){
                 $GLOBALS['ERRO']->setErro('Login de usuário', 'Falha no PDO, '.$ex->getMessage());

@@ -6,13 +6,8 @@
 		
 		public static function getConexao() :PDO{
 			if(empty(ConexaoBanco::Conexao)){								
-				try{
-					$opcoesDeConexao = [
-						'mysql:host=localhost;dbname=mmsx;',
-						'root',
-						'',
-						array(PDO::ATTR_PERSISTENT => TRUE)
-					];
+				try{					
+					$opcoesDeConexao = json_decode(DADOS_CONEXAO_BANCO);
 					ConexaoBanco::$Conexao = new PDO(...$opcoesDeConexao);
 				}
 				catch(PDOException $ex){
