@@ -2,9 +2,34 @@
 #fotoInit {
   width: 100%;
   height: 600px;
-  background-image: url("../imgs/fundo.jpg");
+  background-image: url("../imgs/testeFundo.png");
   background-size: 100%;
   background-size: cover;
+}
+
+#divOrca {
+  margin: 1vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+#titleOrcamento {
+  font-size: 1.5em;
+}
+
+#btnOrca {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1em;
+  background-color: #15ff00;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
 }
 
 #sectionProducts {
@@ -33,7 +58,7 @@
 }
 
 .precoProdu {
-  color: #0c409a;
+  color: #15ff00;
 }
 
 #sectionSobre {
@@ -41,6 +66,7 @@
 }
 
 .divGridSobre {
+  margin: 11vw;
   display: grid;
   grid-template-areas: "divFotoSobre infoSobre";
   align-items: center;
@@ -69,7 +95,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0c409a;
+  background-color: #15ff00;
   border-radius: 6px;
 }
 
@@ -90,7 +116,7 @@ a {
 
 header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-around;
   background-color: rgb(0, 0, 0);
 }
@@ -111,7 +137,7 @@ header a {
 }
 
 header a:hover {
-  color: #0c409a;
+  color: #15ff00;
 }
 
 footer {
