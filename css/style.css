@@ -32,6 +32,60 @@
   transition: 0.5s;
 }
 
+#divCardInit {
+  margin: 25px 0px;
+  display: grid;
+  grid-template-areas: "cardInit cardInit cardInit";
+  justify-content: center;
+  gap: 20px;
+}
+
+.cardInit {
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.divIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #0c409a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconAndTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+}
+
+.textCardInit {
+  text-transform: capitalize;
+  margin: 5px 0px;
+  text-align: center;
+}
+
+.btnCardInit {
+  width: 100%;
+  margin-top: 5px;
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+
 #sectionProducts {
   margin: 20px 0px;
   display: grid;

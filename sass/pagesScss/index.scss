@@ -16,7 +16,7 @@
 }
 
 #titleOrcamento {
-    font-size: 1.5em;
+        font-size: 1.5em;
 }
 
 #btnOrca {
@@ -25,4 +25,50 @@
     gap: 5px;
     @include buttons(1em, $corHover, $corLinks);
 
+}
+
+#divCardInit {
+    margin: 25px 0px;
+    display: grid;
+    grid-template-areas: 'cardInit cardInit cardInit';
+    justify-content: center;
+    gap: 20px;
+}
+
+.cardInit {
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: $corPreto;
+    color: $corLinks;
+}
+
+.divIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: $corHover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconAndTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+}
+
+.textCardInit {
+    text-transform: capitalize;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+.btnCardInit {
+    width: 100%;
+    margin-top: 5px;
+    @include buttons(1em, $corHover, $corLinks);
 }
