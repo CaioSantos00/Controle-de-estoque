@@ -15,7 +15,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: $corHover;
+    background-color: $corPrimaria;
     border-radius: 6px;
   }
 
@@ -54,18 +54,17 @@ header li {
 }
 
 header a{
-    color: $corLinks;
+    color: $corSecundaria;
 }
 
 
 header a:hover{
-    color: $corHover;
+    color: $corPrimaria;
 }
 
 footer {
-    color: $corLinks;
+    color: $corSecundaria;
     padding: 10px 0px;
     background-color: $corHeaderFooter;
     text-align: center;
 }
-
