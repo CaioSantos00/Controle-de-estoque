@@ -31,6 +31,9 @@
   outline: 0;
   transition: 0.5s;
 }
+#btnOrca:hover {
+  background-color: #2460c9;
+}
 
 #divCardInit {
   margin: 25px 0px;
@@ -85,6 +88,9 @@
   outline: 0;
   transition: 0.5s;
 }
+.btnCardInit:hover {
+  background-color: #2460c9;
+}
 
 #divConhecaInit {
   width: 100%;
@@ -104,6 +110,9 @@
   border-radius: 5px;
   outline: 0;
   transition: 0.5s;
+}
+#btnVenha:hover {
+  background-color: #2460c9;
 }
 #btnVenha:hover {
   background-color: #0c409a;
@@ -207,6 +216,9 @@
   outline: 0;
   transition: 0.5s;
   padding: 3px;
+}
+#btnsForms:hover {
+  background-color: #2460c9;
 }
 
 #titleForms {
