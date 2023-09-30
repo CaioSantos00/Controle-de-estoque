@@ -215,6 +215,15 @@
   text-align: center;
 }
 
+#divEsqueceBtnEntre {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#divEsqueceBtnEntre a {
+  color: rgb(255, 255, 255);
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }

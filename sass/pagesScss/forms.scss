@@ -37,3 +37,11 @@
     text-align: center;
 }
 
+#divEsqueceBtnEntre {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    a {
+        color: $corSecundaria;
+    }
+}
