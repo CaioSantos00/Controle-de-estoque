@@ -1,11 +1,11 @@
 <?php
-	namespace Controladores\Envios\RotasEnvioDados;
+	namespace Controladores\Rotas\RotasUser\UserRequests;
 	
 	use App\Cadastro\Usuario\NovoUsuario;
 	use App\Servicos\Login\Login;
 	
-	class RotasEnvioDados{
-		public function cadastro($data){
+	class UserRequests{
+		public function cadastro($data){			
 			if(!isset($_POST['Submit'])) return;
 			
 			$cadastro = new NovoUsuario();
@@ -22,8 +22,8 @@
 			);
 			echo json_encode($resultado);
 		}
-		
-		public function login(){
+			
+		public function login($data){
 			if(!isset($_POST['Submit'])) return;
 			$usuario = new Login($_POST['Email'], $_POST['Senha']);
 			echo $usuario->getResposta();

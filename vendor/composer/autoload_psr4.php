@@ -6,9 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     'Intervention\\MimeSniffer\\' => array($vendorDir . '/intervention/mimesniffer/src'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src'),
     'Intervention\\Gif\\' => array($vendorDir . '/intervention/gif/src'),
-    'Configuracoes\\' => array($baseDir . '/Configuracoes'),
+    'Controladores\\' => array($baseDir . '/Controller'),
+    'CoffeeCode\\Router\\' => array($vendorDir . '/coffeecode/router/src'),
     'App\\' => array($baseDir . '/Model'),
 );

@@ -1,14 +1,24 @@
 <?php
-	namespace Controladores\Rotas\RotasUser;
+	namespace Controladores\Rotas\RotasUser;	
+	
+	use League\Plates\Engine;
 	
 	class RotasUser{
+		private Engine $templates;
+		public function __construct(){
+			$this->templates = new Engine ('View/pages');
+			$this->templates->setFileExtension(null);			
+		}
 		public function home($data){
-			echo "mó fita";
+			echo $this->templates->render('../index.html');
 		}
 		public function login($data){
-			echo "tela de login";
+			echo $this->templates->render('login.html');
 		}
 		public function cadastro($data){
-			echo "tela de cadastro";
+			echo $this->templates->render('cadastro.html');
+		}
+		public function sobre($data){
+			echo $this->templates->render('sobre.html');
 		}
 	}

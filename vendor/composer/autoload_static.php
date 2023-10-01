@@ -11,6 +11,10 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
     );
 
     public static $prefixLengthsPsr4 = array (
+        'L' => 
+        array (
+            'League\\Plates\\' => 14,
+        ),
         'I' => 
         array (
             'Intervention\\MimeSniffer\\' => 25,
@@ -19,7 +23,8 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         ),
         'C' => 
         array (
-            'Configuracoes\\' => 14,
+            'Controladores\\' => 14,
+            'CoffeeCode\\Router\\' => 18,
         ),
         'A' => 
         array (
@@ -28,6 +33,10 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
     );
 
     public static $prefixDirsPsr4 = array (
+        'League\\Plates\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/plates/src',
+        ),
         'Intervention\\MimeSniffer\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/mimesniffer/src',
@@ -40,9 +49,13 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         array (
             0 => __DIR__ . '/..' . '/intervention/gif/src',
         ),
-        'Configuracoes\\' => 
+        'Controladores\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Configuracoes',
+            0 => __DIR__ . '/../..' . '/Controller',
+        ),
+        'CoffeeCode\\Router\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/coffeecode/router/src',
         ),
         'App\\' => 
         array (
@@ -51,8 +64,17 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
     );
 
     public static $classMap = array (
-        'App\\Servicos\\Logging\\ErrorLogging' => __DIR__ . '/../..' . '/Model/Servicos/Logging/ErrorLogging.php',
+        'App\\Servicos\\ErrorLogging\\ErrorLogging\\ErrorLogging' => __DIR__ . '/../..' . '/Model/Servicos/ErrorLogging/ErrorLogging/ErrorLogging.php',
+        'App\\Servicos\\ErrorLogging\\VisualizarLogErros\\VisualizarLogErros' => __DIR__ . '/../..' . '/Model/Servicos/ErrorLogging/VisualizarLogErros/VisualizarLogErros.php',
+        'App\\Servicos\\Login\\Login' => __DIR__ . '/../..' . '/Model/Servicos/Login/Login.php',
+        'App\\Utilizador\\IUtilizador' => __DIR__ . '/../..' . '/Model/Utilizador/IUtilizador.php',
+        'App\\Utilizador\\Usuario\\Usuario' => __DIR__ . '/../..' . '/Model/Utilizador/Usuario/Usuario.php',
+        'CoffeeCode\\Router\\Dispatch' => __DIR__ . '/..' . '/coffeecode/router/src/Dispatch.php',
+        'CoffeeCode\\Router\\Router' => __DIR__ . '/..' . '/coffeecode/router/src/Router.php',
+        'CoffeeCode\\Router\\RouterTrait' => __DIR__ . '/..' . '/coffeecode/router/src/RouterTrait.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Controladores\\Rotas\\RotasUser\\RotasUser' => __DIR__ . '/../..' . '/Controller/Rotas/RotasUser/RotasUser.php',
+        'Controladores\\Rotas\\RotasUser\\UserRequests\\UserRequests' => __DIR__ . '/../..' . '/Controller/Rotas/RotasUser/UserRequests/UserRequests.php',
         'Intervention\\Gif\\AbstractEntity' => __DIR__ . '/..' . '/intervention/gif/src/AbstractEntity.php',
         'Intervention\\Gif\\AbstractExtension' => __DIR__ . '/..' . '/intervention/gif/src/AbstractExtension.php',
         'Intervention\\Gif\\ApplicationExtension' => __DIR__ . '/..' . '/intervention/gif/src/ApplicationExtension.php',
@@ -145,6 +167,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'Intervention\\Image\\Drivers\\Gd\\Decoders\\ImageObjectDecoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Decoders/ImageObjectDecoder.php',
         'Intervention\\Image\\Drivers\\Gd\\Decoders\\RgbStringColorDecoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Decoders/RgbStringColorDecoder.php',
         'Intervention\\Image\\Drivers\\Gd\\Decoders\\TransparentColorDecoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Decoders/TransparentColorDecoder.php',
+        'Intervention\\Image\\Drivers\\Gd\\Encoders\\BmpEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Encoders/BmpEncoder.php',
         'Intervention\\Image\\Drivers\\Gd\\Encoders\\GifEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Encoders/GifEncoder.php',
         'Intervention\\Image\\Drivers\\Gd\\Encoders\\JpegEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Encoders/JpegEncoder.php',
         'Intervention\\Image\\Drivers\\Gd\\Encoders\\PngEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Encoders/PngEncoder.php',
@@ -175,6 +198,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'Intervention\\Image\\Drivers\\Gd\\Modifiers\\PadModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/PadModifier.php',
         'Intervention\\Image\\Drivers\\Gd\\Modifiers\\PixelateModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/PixelateModifier.php',
         'Intervention\\Image\\Drivers\\Gd\\Modifiers\\PlaceModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/PlaceModifier.php',
+        'Intervention\\Image\\Drivers\\Gd\\Modifiers\\RemoveAnimationModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/RemoveAnimationModifier.php',
         'Intervention\\Image\\Drivers\\Gd\\Modifiers\\ResizeDownModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/ResizeDownModifier.php',
         'Intervention\\Image\\Drivers\\Gd\\Modifiers\\ResizeModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/ResizeModifier.php',
         'Intervention\\Image\\Drivers\\Gd\\Modifiers\\RotateModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Gd/Modifiers/RotateModifier.php',
@@ -193,6 +217,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'Intervention\\Image\\Drivers\\Imagick\\Decoders\\ImageObjectDecoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Decoders/ImageObjectDecoder.php',
         'Intervention\\Image\\Drivers\\Imagick\\Decoders\\RgbStringColorDecoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Decoders/RgbStringColorDecoder.php',
         'Intervention\\Image\\Drivers\\Imagick\\Decoders\\TransparentColorDecoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Decoders/TransparentColorDecoder.php',
+        'Intervention\\Image\\Drivers\\Imagick\\Encoders\\BmpEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Encoders/BmpEncoder.php',
         'Intervention\\Image\\Drivers\\Imagick\\Encoders\\GifEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Encoders/GifEncoder.php',
         'Intervention\\Image\\Drivers\\Imagick\\Encoders\\JpegEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Encoders/JpegEncoder.php',
         'Intervention\\Image\\Drivers\\Imagick\\Encoders\\PngEncoder' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Encoders/PngEncoder.php',
@@ -223,6 +248,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\PadModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/PadModifier.php',
         'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\PixelateModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/PixelateModifier.php',
         'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\PlaceModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/PlaceModifier.php',
+        'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\RemoveAnimationModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/RemoveAnimationModifier.php',
         'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\ResizeDownModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/ResizeDownModifier.php',
         'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\ResizeModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/ResizeModifier.php',
         'Intervention\\Image\\Drivers\\Imagick\\Modifiers\\RotateModifier' => __DIR__ . '/..' . '/intervention/image/src/Drivers/Imagick/Modifiers/RotateModifier.php',
@@ -264,6 +290,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'Intervention\\Image\\Interfaces\\SizeInterface' => __DIR__ . '/..' . '/intervention/image/src/Interfaces/SizeInterface.php',
         'Intervention\\Image\\ModifierStack' => __DIR__ . '/..' . '/intervention/image/src/ModifierStack.php',
         'Intervention\\Image\\Traits\\CanBuildNewImage' => __DIR__ . '/..' . '/intervention/image/src/Traits/CanBuildNewImage.php',
+        'Intervention\\Image\\Traits\\CanCheckType' => __DIR__ . '/..' . '/intervention/image/src/Traits/CanCheckType.php',
         'Intervention\\Image\\Traits\\CanDecodeDataUri' => __DIR__ . '/..' . '/intervention/image/src/Traits/CanDecodeDataUri.php',
         'Intervention\\Image\\Traits\\CanHandleInput' => __DIR__ . '/..' . '/intervention/image/src/Traits/CanHandleInput.php',
         'Intervention\\Image\\Traits\\CanReadHtmlColorNames' => __DIR__ . '/..' . '/intervention/image/src/Traits/CanReadHtmlColorNames.php',
@@ -302,6 +329,24 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'Intervention\\MimeSniffer\\Types\\VideoMpeg' => __DIR__ . '/..' . '/intervention/mimesniffer/src/Types/VideoMpeg.php',
         'Intervention\\MimeSniffer\\Types\\VideoXmatroska' => __DIR__ . '/..' . '/intervention/mimesniffer/src/Types/VideoXmatroska.php',
         'Intervention\\MimeSniffer\\Types\\VideoXmsvideo' => __DIR__ . '/..' . '/intervention/mimesniffer/src/Types/VideoXmsvideo.php',
+        'League\\Plates\\Engine' => __DIR__ . '/..' . '/league/plates/src/Engine.php',
+        'League\\Plates\\Exception\\TemplateNotFound' => __DIR__ . '/..' . '/league/plates/src/Exception/TemplateNotFound.php',
+        'League\\Plates\\Extension\\Asset' => __DIR__ . '/..' . '/league/plates/src/Extension/Asset.php',
+        'League\\Plates\\Extension\\ExtensionInterface' => __DIR__ . '/..' . '/league/plates/src/Extension/ExtensionInterface.php',
+        'League\\Plates\\Extension\\URI' => __DIR__ . '/..' . '/league/plates/src/Extension/URI.php',
+        'League\\Plates\\Template\\Data' => __DIR__ . '/..' . '/league/plates/src/Template/Data.php',
+        'League\\Plates\\Template\\Directory' => __DIR__ . '/..' . '/league/plates/src/Template/Directory.php',
+        'League\\Plates\\Template\\FileExtension' => __DIR__ . '/..' . '/league/plates/src/Template/FileExtension.php',
+        'League\\Plates\\Template\\Folder' => __DIR__ . '/..' . '/league/plates/src/Template/Folder.php',
+        'League\\Plates\\Template\\Folders' => __DIR__ . '/..' . '/league/plates/src/Template/Folders.php',
+        'League\\Plates\\Template\\Func' => __DIR__ . '/..' . '/league/plates/src/Template/Func.php',
+        'League\\Plates\\Template\\Functions' => __DIR__ . '/..' . '/league/plates/src/Template/Functions.php',
+        'League\\Plates\\Template\\Name' => __DIR__ . '/..' . '/league/plates/src/Template/Name.php',
+        'League\\Plates\\Template\\ResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath.php',
+        'League\\Plates\\Template\\ResolveTemplatePath\\NameAndFolderResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath/NameAndFolderResolveTemplatePath.php',
+        'League\\Plates\\Template\\ResolveTemplatePath\\ThemeResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath/ThemeResolveTemplatePath.php',
+        'League\\Plates\\Template\\Template' => __DIR__ . '/..' . '/league/plates/src/Template/Template.php',
+        'League\\Plates\\Template\\Theme' => __DIR__ . '/..' . '/league/plates/src/Template/Theme.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
