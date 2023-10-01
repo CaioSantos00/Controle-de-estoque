@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+#fotoInit {
+  width: 100%;
+  height: 74vh;
+  background-image: url("../imgs/fundo.jpg");
+  background-size: 100%;
+  background-size: cover;
+}
+
+#divOrca {
+  margin: 1vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+#titleOrcamento {
+  font-size: 1.5em;
+}
+
+#btnOrca {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+#btnOrca:hover {
+  background-color: #2460c9;
+}
+
+#divCardInit {
+  margin: 25px 0px;
+  display: grid;
+  grid-template-areas: "cardInit cardInit cardInit";
+  justify-content: center;
+  gap: 20px;
+}
+
+.cardInit {
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.divIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #0c409a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconAndTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+}
+
+.textCardInit {
+  text-transform: capitalize;
+  margin: 5px 0px;
+  text-align: center;
+}
+
+.btnCardInit {
+  width: 100%;
+  margin-top: 5px;
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+.btnCardInit:hover {
+  background-color: #2460c9;
+}
+
+#divConhecaInit {
+  width: 100%;
+  height: 74vh;
+  background-image: url("../imgs/fundo2.jpg");
+  background-size: cover;
+  color: rgb(255, 255, 255);
+}
+
+#btnVenha {
+  font-size: 1.2em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+#btnVenha:hover {
+  background-color: #2460c9;
+}
+#btnVenha:hover {
+  background-color: #0c409a;
+}
+
+#divConhecaProdutos {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+#textMarkInit {
+  margin: 10px 0px;
+  font-size: 2em;
+}
+
+#sectionProducts {
+  margin: 20px 0px;
+  display: grid;
+  grid-template-areas: "cardsProdu cardsProdu cardsProdu cardsProdu";
+  justify-content: center;
+  gap: 20px;
+}
+
+.cardsProdu {
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.divImgProdu {
+  margin: auto;
+  width: 280px;
+}
+.divImgProdu img {
+  width: 280px;
+  border-radius: 5px;
+}
+
+.precoProdu {
+  color: #0c409a;
+}
+
+#sectionSobre {
+  margin: 10vw;
+}
+
+.divGridSobre {
+  display: grid;
+  grid-template-areas: "divFotoSobre infoSobre";
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+}
+
+.infoSobre {
+  font-size: 1.3em;
+  text-align: justify;
+}
+
+.fotoSobre {
+  width: 350px;
+  height: 350px;
+  border-radius: 100%;
+  background-color: black;
+}
+
+#form {
+  width: 350px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0);
+  gap: 10px;
+}
+
+#sectionForms {
+  display: flex;
+  justify-content: center;
+  margin: 10%;
+}
+
+.inputs {
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+}
+
+#btnsForms {
+  font-size: 1.2em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 3px;
+}
+#btnsForms:hover {
+  background-color: #2460c9;
+}
+
+#titleForms {
+  font-size: 1.6em;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+#divEsqueceBtnEntre {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+#divEsqueceBtnEntre a {
+  color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0c409a;
+  border-radius: 6px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Oswald", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+#logo {
+  width: 160px;
+  margin: 10px;
+}
+
+header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  background-color: rgb(0, 0, 0);
+}
+
+header ul {
+  display: flex;
+  align-items: center;
+}
+
+header li {
+  font-size: 1.2em;
+  list-style: none;
+  margin: 0px 10px;
+}
+
+header a {
+  color: rgb(255, 255, 255);
+}
+
+header a:hover {
+  color: #0c409a;
+}
+
+footer {
+  color: rgb(255, 255, 255);
+  padding: 10px 0px;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
