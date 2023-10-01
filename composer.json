@@ -4,8 +4,7 @@
     "description":"Tcc hiper-profissional",
     "autoload": {
         "files":[
-            "ServerInfo/Configuracoes.php",
-            "ServerInfo/Rotas.php"
+            "ServerInfo/Configuracoes.php"            
         ],
         "psr-4": {
             "App\\": "Model/",
