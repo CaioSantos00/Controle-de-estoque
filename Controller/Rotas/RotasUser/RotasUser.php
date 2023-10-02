@@ -22,6 +22,7 @@
 			echo $this->templates->render('pages/sobre.html');
 		}
 		public function estilos($data){
+			header('Content-type: text/css');
 			echo $this->templates->render('RecursosEstaticos/css/style.css');
 		}
 		public function img($data){
