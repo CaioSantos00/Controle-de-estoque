@@ -10,7 +10,7 @@
 			$this->templates->setFileExtension(null);			
 		}
 		public function home($data){
-			echo $this->templates->render('../index.html');
+			echo $this->templates->render('index.html');
 		}
 		public function login($data){
 			echo $this->templates->render('login.html');

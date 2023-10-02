@@ -1,7 +1,7 @@
 <?php
 	namespace ServerInfo;
 	
-	use App\Servicos\ErrorLogging\ErrorLogging\ErrorLogging as ErroHand;
+	use App\Servicos\ErrorLogging\ErrorLogging as ErroHand;
 	
 	date_default_timezone_set('America/Sao_Paulo'); //Localização atual da empresa	
 	

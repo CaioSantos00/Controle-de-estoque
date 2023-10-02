@@ -1,10 +1,9 @@
 <?php
-	namespace App\Servicos\ErrorLogging\ErrorLogging;
+	namespace App\Servicos\ErrorLogging;
 
 	class ErrorLogging{
 		const LOG_LOCATION = "ServerInfo/LogErros.txt";
-		const SEPARADOR_DE_ERROS = "<<<>>>";
-		private bool $travaAntiRecursividadeInfinita = true;
+		const SEPARADOR_DE_ERROS = "<<<>>>";		
 		public $logDeErros;
 		static bool $logInstanciado = false;
 
@@ -24,6 +23,11 @@
 			}			
 			return true;
 		}
+		function __toString(){
+            return json_encode(
+                $this->getErros()
+            );
+        }
 		function criarLinhaDeErro(string $onde, string $mensagem) :string{
 			$linhaDeErro = array(
 				"quando"	=> date('d-m-y \a\s h:i',strtotime('now')),
@@ -43,6 +47,16 @@
 			if($this->setLogErros()) $this->setErro($onde, $mensagem);
 		}
 
+        private function getErros() :array{
+            $logErros = file_get_contents(LogDeErros::LOG_LOCATION); //Recebe os conteúdos crus do arquivo do log de Erros;
+
+            if($logErros === false){
+                $this->setErro('Visualização de erros', 'Não deu para abrir o log de erros');
+                return ['agora','No Log de erros', 'não deu para abrir o log de erros'];
+            }
+
+            return explode(LogDeErros::SEPARADOR_DE_ERROS,$logErros);
+        }
 		function __destruct(){
 			if(self::$logInstanciado){
 				if(!fclose($this->logDeErros)) $this->setErro('Gerenciador de erros', 'O ponteiro de arquivo não fechou');

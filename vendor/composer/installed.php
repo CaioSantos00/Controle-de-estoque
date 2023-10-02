@@ -3,7 +3,7 @@
         'name' => 'felip/sistema-de-pedidos-tcc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ebeaa183f382cfbe23613b90b0dd1895954a8e51',
+        'reference' => '52f3bfb02418ee77879d68f757b8533900737588',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'felip/sistema-de-pedidos-tcc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ebeaa183f382cfbe23613b90b0dd1895954a8e51',
+            'reference' => '52f3bfb02418ee77879d68f757b8533900737588',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
