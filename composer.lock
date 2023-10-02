@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "171c5808be21a647d2225c5025a01190",
+    "content-hash": "a7ac9d5a83fbfe1d3054350253d0b12c",
     "packages": [
         {
             "name": "coffeecode/router",
@@ -109,22 +109,22 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.0.0-alpha.5",
+            "version": "3.0.0-alpha.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "996560fff28272470e71139df547198d21a61f78"
+                "reference": "764c6f3843e4a66b1e2e259a7fb2d43de65e47a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/996560fff28272470e71139df547198d21a61f78",
-                "reference": "996560fff28272470e71139df547198d21a61f78",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/764c6f3843e4a66b1e2e259a7fb2d43de65e47a4",
+                "reference": "764c6f3843e4a66b1e2e259a7fb2d43de65e47a4",
                 "shasum": ""
             },
             "require": {
                 "intervention/gif": "^3.0",
                 "intervention/mimesniffer": "^0.4.2",
-                "php": "^8"
+                "php": "^8.1"
             },
             "require-dev": {
                 "mockery/mockery": "^1.4",
@@ -160,7 +160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.0.0-alpha.5"
+                "source": "https://github.com/Intervention/image/tree/3.0.0-alpha.8"
             },
             "funding": [
                 {
@@ -172,7 +172,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-12T17:16:27+00:00"
+            "time": "2023-10-01T07:59:05+00:00"
         },
         {
             "name": "intervention/mimesniffer",
@@ -225,6 +225,71 @@
                 "source": "https://github.com/Intervention/mimesniffer/tree/0.4.2"
             },
             "time": "2020-12-29T09:20:18+00:00"
+        },
+        {
+            "name": "league/plates",
+            "version": "v3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/plates.git",
+                "reference": "ec07462f53d38dd4a3323e288c41bffe86e9098e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/plates/zipball/ec07462f53d38dd4a3323e288c41bffe86e9098e",
+                "reference": "ec07462f53d38dd4a3323e288c41bffe86e9098e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^8.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Plates\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Reinink",
+                    "email": "jonathan@reinink.ca",
+                    "role": "Developer"
+                },
+                {
+                    "name": "RJ Garcia",
+                    "email": "ragboyjr@icloud.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Plates, the native PHP template system that's fast, easy to use and easy to extend.",
+            "homepage": "https://platesphp.com",
+            "keywords": [
+                "league",
+                "package",
+                "templates",
+                "templating",
+                "views"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/plates/issues",
+                "source": "https://github.com/thephpleague/plates/tree/v3"
+            },
+            "time": "2023-01-19T12:24:09+00:00"
         }
     ],
     "packages-dev": [],
