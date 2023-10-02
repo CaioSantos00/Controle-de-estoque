@@ -4,16 +4,28 @@
 	use CoffeeCode\Router\Router as GerenciadorDeRotas;
 	$router = new GerenciadorDeRotas(URL_SITE);
 	
-	$router->namespace('Configuracoes\Rotas');
+	$router->namespace("Controladores\Rotas\RotasUser");
 	$router->group(null);
+	$router->get("/", "RotasUser:home");
+	$router->get("/login", "RotasUser:login");
+	$router->get("/cadastro", "RotasUser:cadastro");
+	$router->get('/sobre', "RotasUser:sobre");	
+	$router->get('/estilo', "RotasUser:estilos");	
+	$router->get('/img/{qual}', "RotasUser:img");	
+	//$router->get('/scripts/{qual}', "RotasUser:scripts");
 	
-	$router->get("/", "Rotas::home");
+	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");		
+	$router->group("usuario");
 	
+	$router->post("/login", "UserRequests:login");
+	$router->post("/cadastro", "UserRequests:cadastro");
+
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
 		echo "erro foi só o ".$data['erro'];
 	});
-	$router->dispatch();	
+	
+	$router->dispatch();
 	if($router->error()){
 		$router->redirect("/ops/{$router->error()}");
 	}
