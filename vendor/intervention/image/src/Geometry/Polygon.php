@@ -106,7 +106,7 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
      * @param mixed $offset
      * @return Point
      */
-    public function offsetGet($offset): mixed
+    public function offsetGet($offset)
     {
         return $this->points[$offset];
     }
@@ -300,9 +300,7 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
         }
 
         foreach ($this->points as $point) {
-            $point->setX(
-                intval($point->getX() - $diff)
-            );
+            $point->setX($point->getX() - $diff);
         }
 
         return $this;
@@ -333,9 +331,7 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
         }
 
         foreach ($this->points as $point) {
-            $point->setY(
-                intval($point->getY() - $diff),
-            );
+            $point->setY($point->getY() - $diff);
         }
 
         return $this;
@@ -354,24 +350,16 @@ class Polygon implements IteratorAggregate, Countable, ArrayAccess, DrawableInte
 
         foreach ($this->points as $point) {
             // translate point to pivot
-            $point->setX(
-                intval($point->getX() - $this->getPivot()->getX()),
-            );
-            $point->setY(
-                intval($point->getY() - $this->getPivot()->getY()),
-            );
+            $point->setX($point->getX() - $this->getPivot()->getX());
+            $point->setY($point->getY() - $this->getPivot()->getY());
 
             // rotate point
             $x = $point->getX() * $cos - $point->getY() * $sin;
             $y = $point->getX() * $sin + $point->getY() * $cos;
 
             // translate point back
-            $point->setX(
-                intval($x + $this->getPivot()->getX()),
-            );
-            $point->setY(
-                intval($y + $this->getPivot()->getY()),
-            );
+            $point->setX($x + $this->getPivot()->getX());
+            $point->setY($y + $this->getPivot()->getY());
         }
 
         return $this;

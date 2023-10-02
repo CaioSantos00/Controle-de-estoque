@@ -4,7 +4,6 @@ namespace Intervention\Image\Drivers\Imagick\Modifiers;
 
 use ImagickDraw;
 use Intervention\Image\Drivers\Abstract\Modifiers\AbstractDrawModifier;
-use Intervention\Image\Drivers\Imagick\Color;
 use Intervention\Image\Interfaces\ImageInterface;
 use Intervention\Image\Interfaces\ModifierInterface;
 
@@ -13,8 +12,7 @@ class DrawLineModifier extends AbstractDrawModifier implements ModifierInterface
     public function apply(ImageInterface $image): ImageInterface
     {
         $drawing = new ImagickDraw();
-        $color = $this->failIfNotClass($this->getBackgroundColor(), Color::class);
-        $drawing->setStrokeColor($color->getPixel());
+        $drawing->setStrokeColor($this->getBackgroundColor()->getPixel());
         $drawing->setStrokeWidth($this->line()->getWidth());
         $drawing->line(
             $this->line()->getStart()->getX(),

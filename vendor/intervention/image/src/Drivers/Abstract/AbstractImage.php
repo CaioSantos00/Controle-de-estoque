@@ -25,7 +25,7 @@ abstract class AbstractImage implements ImageInterface
     use CanHandleInput;
     use CanRunCallback;
 
-    public function eachFrame(callable $callback): ImageInterface
+    public function eachFrame(callable $callback): self
     {
         foreach ($this as $frame) {
             $callback($frame);
@@ -80,18 +80,6 @@ abstract class AbstractImage implements ImageInterface
         return $this->encode(
             $this->resolveDriverClass('Encoders\PngEncoder')
         );
-    }
-
-    public function toBitmap(): EncodedImage
-    {
-        return $this->encode(
-            $this->resolveDriverClass('Encoders\BmpEncoder')
-        );
-    }
-
-    public function toBmp(): EncodedImage
-    {
-        return $this->toBitmap();
     }
 
     public function greyscale(): ImageInterface
@@ -331,13 +319,6 @@ abstract class AbstractImage implements ImageInterface
     ): ImageInterface {
         return $this->modify(
             $this->resolveDriverClass('Modifiers\PadDownModifier', $width, $height, $background, $position)
-        );
-    }
-
-    public function removeAnimation(int $position = 0): ImageInterface
-    {
-        return $this->modify(
-            $this->resolveDriverClass('Modifiers\RemoveAnimationModifier', $position)
         );
     }
 

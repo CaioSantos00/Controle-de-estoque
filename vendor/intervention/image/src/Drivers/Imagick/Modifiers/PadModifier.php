@@ -6,6 +6,7 @@ use Imagick;
 use ImagickDraw;
 use Intervention\Image\Drivers\Abstract\Modifiers\AbstractPadModifier;
 use Intervention\Image\Drivers\Imagick\Color;
+use Intervention\Image\Exceptions\DecoderException;
 use Intervention\Image\Interfaces\ImageInterface;
 use Intervention\Image\Interfaces\ModifierInterface;
 use Intervention\Image\Interfaces\SizeInterface;
@@ -21,7 +22,11 @@ class PadModifier extends AbstractPadModifier implements ModifierInterface
     {
         $resize = $this->getResizeSize($image);
         $crop = $this->getCropSize($image);
-        $background = $this->failIfNotClass($this->handleInput($this->background), Color::class);
+        $background = $this->handleInput($this->background);
+
+        if (!is_a($background, Color::class)) {
+            throw new DecoderException('Unable to decode backgroud color.');
+        }
 
         foreach ($image as $frame) {
             // resize current core

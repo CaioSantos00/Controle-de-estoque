@@ -24,15 +24,15 @@ class Image extends AbstractImage implements ImageInterface, Iterator
         return $this->imagick;
     }
 
-    public function getFrame(int $position = 0): ?FrameInterface
+    public function getFrame(int $key = 0): ?FrameInterface
     {
-        foreach ($this->imagick as $core) {
-            if ($core->getIteratorIndex() == $position) {
-                return new Frame($core);
-            }
+        try {
+            $this->imagick->setIteratorIndex($key);
+        } catch (ImagickException $e) {
+            return null;
         }
 
-        return null;
+        return new Frame($this->imagick->current());
     }
 
     public function addFrame(FrameInterface $frame): ImageInterface
@@ -77,14 +77,14 @@ class Image extends AbstractImage implements ImageInterface, Iterator
         return $this->imagick->getNumberImages();
     }
 
-    public function current(): mixed
+    public function current()
     {
         $this->imagick->setIteratorIndex($this->iteratorIndex);
 
         return new Frame($this->imagick->current());
     }
 
-    public function key(): mixed
+    public function key()
     {
         return $this->iteratorIndex;
     }

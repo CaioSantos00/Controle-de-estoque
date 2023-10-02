@@ -5,21 +5,20 @@ namespace Intervention\Image\Drivers\Imagick\Modifiers;
 use ImagickDraw;
 use Intervention\Image\Drivers\Abstract\Modifiers\AbstractDrawModifier;
 use Intervention\Image\Drivers\Imagick\Color;
+use Intervention\Image\Exceptions\DecoderException;
 use Intervention\Image\Interfaces\ImageInterface;
 use Intervention\Image\Interfaces\ModifierInterface;
+use Intervention\Image\Interfaces\ColorInterface;
 
 class DrawRectangleModifier extends AbstractDrawModifier implements ModifierInterface
 {
     public function apply(ImageInterface $image): ImageInterface
     {
-        // setup
+        // setup rectangle
         $drawing = new ImagickDraw();
-        $background_color = $this->failIfNotClass($this->getBackgroundColor(), Color::class);
-        $border_color = $this->failIfNotClass($this->getBorderColor(), Color::class);
-
-        $drawing->setFillColor($background_color->getPixel());
+        $drawing->setFillColor($this->getBackgroundColor()->getPixel());
         if ($this->rectangle()->hasBorder()) {
-            $drawing->setStrokeColor($border_color->getPixel());
+            $drawing->setStrokeColor($this->getBorderColor()->getPixel());
             $drawing->setStrokeWidth($this->rectangle()->getBorderSize());
         }
 
@@ -36,5 +35,25 @@ class DrawRectangleModifier extends AbstractDrawModifier implements ModifierInte
         });
 
         return $image;
+    }
+
+    protected function getBackgroundColor(): ColorInterface
+    {
+        $color = parent::getBackgroundColor();
+        if (!is_a($color, Color::class)) {
+            throw new DecoderException('Unable to decode background color.');
+        }
+
+        return $color;
+    }
+
+    protected function getBorderColor(): ColorInterface
+    {
+        $color = parent::getBorderColor();
+        if (!is_a($color, Color::class)) {
+            throw new DecoderException('Unable to decode border color.');
+        }
+
+        return $color;
     }
 }

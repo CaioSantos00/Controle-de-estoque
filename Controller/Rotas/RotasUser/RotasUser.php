@@ -6,19 +6,32 @@
 	class RotasUser{
 		private Engine $templates;
 		public function __construct(){
-			$this->templates = new Engine ('View/pages');
+			$this->templates = new Engine ('View');
 			$this->templates->setFileExtension(null);			
 		}
 		public function home($data){
-			echo $this->templates->render('index.html');
+			echo $this->templates->render('pages/index.html');
 		}
 		public function login($data){
-			echo $this->templates->render('login.html');
+			echo $this->templates->render('pages/login.html');
 		}
 		public function cadastro($data){
-			echo $this->templates->render('cadastro.html');
+			echo $this->templates->render('pages/cadastro.html');
 		}
 		public function sobre($data){
-			echo $this->templates->render('sobre.html');
+			echo $this->templates->render('pages/sobre.html');
 		}
+		public function estilos($data){
+			echo $this->templates->render('RecursosEstaticos/css/style.css');
+		}
+		public function img($data){
+			echo $this->templates->render('RecursosEstaticos/imgs/'.$data['qual']);
+		}
+		//public function scripts($data){
+		//	switch($data['qual']){
+		//		case "inicio";
+		//			echo $this->templates->render*()
+		//			break;
+		//	}
+		//}
 	}

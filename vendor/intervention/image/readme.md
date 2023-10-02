@@ -20,10 +20,10 @@ Intervention Image is a **image handling and manipulation library written in PHP
 $manager = new ImageManager('gd')
 
 // open an image file
-$image = $manager->read('images/example.gif');
+$image = $manager->make('images/example.gif');
 
 // resize image instance
-$image->resize(height: 300);
+$image->resize(320, 240);
 
 // insert a watermark
 $image->place('images/watermark.png');
@@ -37,7 +37,7 @@ $encoded->save('images/example.jpg');
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >=8.0
 
 ## Supported Image Libraries
 
@@ -53,20 +53,6 @@ composer require intervention/image
 ## Getting started
 
 Learn the [basics](https://image.intervention.io/v3/basics/instantiation/) on how to use Intervention Image and more with the [official documentation](https://image.intervention.io/v3/).
-
-## Development & Testing
-
-With this package comes a Docker image to build a test suite and analysis container. To build this container you have to have Docker installed on your system. You can run all tests with this command.
-
-```bash
-docker-compose run --rm --build tests
-```
-
-Run the static analyzer on the code base.
-
-```bash
-docker-compose run --rm --build analysis
-```
 
 ## License
 
