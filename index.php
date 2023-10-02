@@ -10,7 +10,7 @@
 	$router->get("/login", "RotasUser:login");
 	$router->get("/cadastro", "RotasUser:cadastro");
 	$router->get('/sobre', "RotasUser:sobre");	
-	$router->get('/estilo', "RotasUser:estilos");	
+	$router->get('/estilo', "RotasUser:estilo");	
 	$router->get('/img/{qual}', "RotasUser:img");	
 	//$router->get('/scripts/{qual}', "RotasUser:scripts");
 	
