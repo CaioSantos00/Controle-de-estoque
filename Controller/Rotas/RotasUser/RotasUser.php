@@ -27,11 +27,7 @@
 		public function img($data){
 			echo $this->templates->render('RecursosEstaticos/imgs/'.$data['qual']);
 		}
-		//public function scripts($data){
-		//	switch($data['qual']){
-		//		case "inicio";
-		//			echo $this->templates->render*()
-		//			break;
-		//	}
-		//}
+		public function scripts($data){
+			echo $this->templates->render('RecursosEstaticos/scripts/'.$data['qual']);
+		}
 	}
