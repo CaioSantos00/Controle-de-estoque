@@ -205,6 +205,24 @@
   border: none;
 }
 
+.inputFile {
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+}
+
+.inputFile::file-selector-button {
+  background-color: rgb(255, 255, 255);
+  color: #0c409a;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+textarea {
+  resize: none;
+  height: 160px;
+}
+
 #btnsForms {
   font-size: 1.2em;
   background-color: #0c409a;
@@ -244,6 +262,7 @@
 
 #boxInfosPerfil {
   width: 300px;
+  margin: auto;
   padding: 4px 10px;
   display: flex;
   align-items: center;
@@ -298,6 +317,7 @@
 }
 
 .cardsFerramentas {
+  width: 200px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -309,6 +329,7 @@
 .cardsFerramentas a {
   color: rgb(255, 255, 255);
   margin-top: 5px;
+  background-color: #104bb1;
 }
 
 .divSvg {
