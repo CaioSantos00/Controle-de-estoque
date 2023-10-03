@@ -9,6 +9,7 @@
 			if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
 		}
 		function cadastro($data){
+			print_r($_FILES);
 			$cadastro = new User();
 			$dadosUsuario = [
 				$_POST['Nome'],

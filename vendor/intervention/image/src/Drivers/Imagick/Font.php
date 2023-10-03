@@ -8,6 +8,7 @@ use Intervention\Image\Drivers\Abstract\AbstractFont;
 use Intervention\Image\Exceptions\FontException;
 use Intervention\Image\Geometry\Polygon;
 use Intervention\Image\Geometry\Rectangle;
+use Intervention\Image\Interfaces\ColorInterface;
 
 class Font extends AbstractFont
 {
@@ -17,17 +18,26 @@ class Font extends AbstractFont
             throw new FontException('No font file specified.');
         }
 
-        $color = $this->failIfNotClass($this->getColor(), Color::class);
-
         $draw = new ImagickDraw();
         $draw->setStrokeAntialias(true);
         $draw->setTextAntialias(true);
         $draw->setFont($this->getFilename());
         $draw->setFontSize($this->getSize());
-        $draw->setFillColor($color->getPixel());
+        $draw->setFillColor($this->getColor()->getPixel());
         $draw->setTextAlignment(Imagick::ALIGN_LEFT);
 
         return $draw;
+    }
+
+    public function getColor(): ?ColorInterface
+    {
+        $color = parent::getColor();
+
+        if (!is_a($color, Color::class)) {
+            throw new FontException('Font is not compatible to current driver.');
+        }
+
+        return $color;
     }
 
     /**

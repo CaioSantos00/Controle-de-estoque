@@ -1,5 +1,5 @@
 <?php
-	namespace Cadastro\Usuario;
+	namespace App\Cadastro\Usuario;
 
 	use Servicos\Conexao\ConexaoBanco as Conexao;
 	use Servicos\Arquivos\UploadManager as Image;

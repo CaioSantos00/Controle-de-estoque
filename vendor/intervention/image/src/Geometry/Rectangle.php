@@ -177,8 +177,8 @@ class Rectangle extends Polygon implements SizeInterface, DrawableInterface
      * Calculate the relative position to another Size
      * based on the pivot point settings of both sizes.
      *
-     * @param  SizeInterface $rectangle
-     * @return PointInterface
+     * @param  Size   $size
+     * @return Point
      */
     public function getRelativePositionTo(SizeInterface $rectangle): PointInterface
     {

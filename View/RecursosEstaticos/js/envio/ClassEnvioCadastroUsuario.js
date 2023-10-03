@@ -9,10 +9,10 @@ class EnvioCadastroUsuario{
 			console.log("adicionar rodinha girando dizendo que ta carregando/enviando sla");
 		})
 		this.xhr.addEventListener("load", () => {
-			console.log(this.xhr.responseText)
-			console.log("adicionar setinha verdinha dizendo 'cadastrou certin, confrade' ou coisa do tipo");
 			//esteja preparado para fazer uma série de avisos a partir das
 			//possíveis respostas vindas do back
+			console.log(this.xhr.responseText)
+			console.log("adicionar setinha verdinha dizendo 'cadastrou certin, confrade' ou coisa do tipo");			
 		})
 		this.xhr.addEventListener("error", () => {
 			console.log("adicionar Xis vermelho dizendo 'deu errado meu nobre'");
