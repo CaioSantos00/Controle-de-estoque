@@ -14,7 +14,8 @@
 	$router->get('/sobre', "RotasUser:sobre");	
 	$router->get('/estilo', "RotasUser:estilo");
 	$router->get('/produtos', "RotasUser:produtos");
-	$router->get('/telaMensagens', "RotasUser:telaMensagens");		
+	$router->get('/telaMensagens', "RotasUser:telaMensagens");	
+	$router->get('/adm', "RotasUser:adm");			
 	$router->get('/imgs/{qual}', "RotasUser:imgs");	
 	//$router->get('/scripts/{qual}', "RotasUser:scripts");
 	

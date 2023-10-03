@@ -26,6 +26,10 @@
 		public function telaMensagens($data){
 			echo $this->templates->render('pages/telaMensagens.html');
 		}
+		
+		public function adm($data){
+			echo $this->templates->render('pagesAdm/painelPerfilAdm.html');
+		}
 		public function estilo($data){			
 			header("Content-type: text/css");
 			echo $this->templates->render('RecursosEstaticos/css/style.css');
