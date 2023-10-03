@@ -1,10 +1,10 @@
 <?php
-	namespace Servicos\Arquivos;
+	namespace App\Servicos\Arquivos;
 
 	use Intervention\Image\ImageManagerStatic as Image;
 
 	class UploadsManager{
-		static const $caminhoParaArvsSecund = "../../../ArquivosSecundarios";
+		const CAMINHO_ARQUIVOS_SECUNDARIOS = "arqvsSecundarios/";
 		static private bool $resultado = true;
 
 		private static function testarResultado(string $mensagemPraExcecao, bool $paraTestar = false){
@@ -13,25 +13,26 @@
 
 		static function salvarImagemDePerfilEnviada(string $idUsuario) :bool{
 			try{
-				$destinoDoArquivo = self::$caminhoParaArvsSecund."/FotosUsuarios/".$_FILES['fotosUsuarios']['tmp_name'];
-
-				self::$resultado = rename(
-					$_FILES['fotoUsuario']['tmp_name'],
-					$idUsuario //Renomeia o nome do arquivo para o Id do usuário
-				);
-
-				self::testarResultado('na mudança do nome da imagem');
-
-				$imagem = Image::make($_FILES['fotoUsuario']['tmp_name']);
-				$imagem
-					->resize(300,300) //Redimensiona a imagem para um tamanho padrão
-					->encode("png", 70) //Define para uma extensão padrão e reduz a qualidade (para fins de compressão)
-					->save(); // Salvando na mesma instancia, alteramos a imagem original sem movê-la
+				$destinoDoArquivo = self::CAMINHO_ARQUIVOS_SECUNDARIOS."FotosUsuarios/".$_FILES['fotoUsuario']['name'];
 
 				self::$resultado = move_uploaded_file(
 					$_FILES['fotoUsuario']['tmp_name'],
 					$destinoDoArquivo
 				);
+				self::testarResultado('no envio do arquivo para seu devido diretório');
+				
+				$novoNome = self::CAMINHO_ARQUIVOS_SECUNDARIOS."FotosUsuarios/".$idUsuario.".".explode('/',$_FILES['fotoUsuario']['type'])[1];
+				
+				self::$resultado = rename($destinoDoArquivo,$novoNome);
+				
+				self::testarResultado('na mudança do nome da imagem');
+
+				$destinoDoArquivo = self::CAMINHO_ARQUIVOS_SECUNDARIOS."FotosUsuarios/".$idUsuario;
+
+				$imagem = Image::make($novoNome)
+					->resize(300,300);//Redimensiona a imagem para um tamanho padrão
+					
+				$imagem->save($destinoDoArquivo,80, "png"); 
 
 				self::testarResultado('no envio do arquivo para seu diretório');
 			}
@@ -40,7 +41,7 @@
 				self::$resultado = false;
 			}
 			finally{
-				return $resultado;
+				return self::$resultado;
 			}
 		}
 	}

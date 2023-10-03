@@ -1,0 +1,2 @@
+<<<>>>{"quando":"03-10-23 as 11:33","onde":"Cadastro Usuario","mensagem":"SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `usuario.carrinho` failed for `mmsx`.`usuario`"}
+<<<>>>{"quando":"03-10-23 as 11:34","onde":"Cadastro Usuario","mensagem":"SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `usuario.carrinho` failed for `mmsx`.`usuario`"}

@@ -1,11 +1,11 @@
 <?php
 	namespace App\Cadastro\Usuario;
 
-	use Servicos\Conexao\ConexaoBanco as Conexao;
-	use Servicos\Arquivos\UploadManager as Image;
+	use App\Servicos\Conexao\ConexaoBanco as Conexao;
+	use App\Servicos\Arquivos\UploadsManager as Image;
 
 	class NovoUsuario{
-		private string $idUsuario;
+		public string $idUsuario;
 		private string $queryParaExecutar;
 		function __construct(){
 			$this->queryParaExecutar ="
@@ -15,36 +15,32 @@
 				(?,?,?,?,?)
 			";
 		}
-		function setDadosUsuario(array $dadosUsuario) :bool{
-			$resultado = false;
+		function setDadosUsuario(array $dadosUsuario) :array{						
 			try{
-				$conexao = Conexao::getConexao();
-
+				$resultado = true;
+				$conexao = Conexao::getConexao(); //Conecta
 				$conexao->beginTransaction();
-
-				$queryExec = $conexao->prepare($this->queryParaExecutar);
-				$queryExec = $queryExec->execute($dadosUsuario);
-				$this->idUsuario = $conexao->lastInsertId();
-				$conexao->commit();
-
-				$resultado = $queryExec == 1 ? true : false;
-			}
-			catch(PDOException $e){
-				$GLOBALS['ERRO']->setErro("Cadastro Usuario", $e->getMessage());
+					$queryExec = $conexao->prepare($this->queryParaExecutar);
+					$queryExec = $queryExec->execute($dadosUsuario);
+					$this->idUsuario = $conexao->lastInsertId();
+				$conexao->commit();				
+			}			
+			catch(\PDOException $e){
 				if($conexao->inTransaction()) $conexao->rollBack();
-				
+				$GLOBALS['ERRO']->setErro("Cadastro Usuario", $e->getMessage());				
 				$resultado = false;
 			}
-			catch(Exception $e){
+			catch(\Exception $e){
+				if($conexao->inTransaction()) $conexao->rollBack();
 				$GLOBALS['ERRO']->setErro("Conexão", "conexão usada no cadastro de um Usuário");
-				
 				$resultado = false;
 			}
 			finally{
-				return $resultado;
+				if($resultado) return [$resultado, $this->setFotoUsuario($this->idUsuario)];
+				return [$resultado];
 			}
 		}
-		function setFotoUsuario() :bool{			
-			return Image::salvarImagemDePerfilEnviada($this->idUsuario);
+		private function setFotoUsuario($idUsuario) :bool{
+			return Image::salvarImagemDePerfilEnviada($idUsuario);
 		}
 	}
