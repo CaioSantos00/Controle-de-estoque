@@ -32,7 +32,7 @@
 				$imagem = Image::make($novoNome)
 					->resize(300,300);//Redimensiona a imagem para um tamanho padrão
 					
-				$imagem->save($destinoDoArquivo,80, "png"); 
+				$imagem->save($destinoDoArquivo,80, "png"); //Salva com uma extensão padrão e qualidade reduzida
 
 				self::testarResultado('no envio do arquivo para seu diretório');
 			}
