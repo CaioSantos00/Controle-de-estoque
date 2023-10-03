@@ -9,7 +9,7 @@
 			$this->templates->setFileExtension(null);			
 		}
 		public function home($data){			
-			echo $this->templates->render('pages/index.html');
+			echo $this->templates->render('pages/inicio.html');
 		}
 		public function login($data){
 			echo $this->templates->render('pages/login.html');
@@ -20,11 +20,17 @@
 		public function sobre($data){
 			echo $this->templates->render('pages/sobre.html');
 		}
+		public function produtos($data){
+			echo $this->templates->render('pages/produtos.html');
+		}
+		public function telaMensagens($data){
+			echo $this->templates->render('pages/telaMensagens.html');
+		}
 		public function estilo($data){			
 			header("Content-type: text/css");
 			echo $this->templates->render('RecursosEstaticos/css/style.css');
 		}
-		public function img($data){
+		public function imgs($data){
 			echo $this->templates->render('RecursosEstaticos/imgs/'.$data['qual']);			
 		}/*
 		public function scripts($data){

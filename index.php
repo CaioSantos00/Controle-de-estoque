@@ -2,16 +2,20 @@
 	require __DIR__."/vendor/autoload.php";
 
 	use CoffeeCode\Router\Router as GerenciadorDeRotas;
-	$router = new GerenciadorDeRotas(URL_SITE);
 	
+	$router = new GerenciadorDeRotas(URL_SITE);	
 	$router->namespace("Controladores\Rotas\RotasUser");
 	$router->group(null);
-	$router->get("/", "RotasUser:home");
+	
+	$router->get("/", "RotasUser:home");		
+	$router->get("/inicio", "RotasUser:home");	
 	$router->get("/login", "RotasUser:login");
 	$router->get("/cadastro", "RotasUser:cadastro");
 	$router->get('/sobre', "RotasUser:sobre");	
-	$router->get('/estilo', "RotasUser:estilo");	
-	$router->get('/img/{qual}', "RotasUser:img");	
+	$router->get('/estilo', "RotasUser:estilo");
+	$router->get('/produtos', "RotasUser:produtos");
+	$router->get('/telaMensagens', "RotasUser:telaMensagens");		
+	$router->get('/imgs/{qual}', "RotasUser:imgs");	
 	//$router->get('/scripts/{qual}', "RotasUser:scripts");
 	
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");		
