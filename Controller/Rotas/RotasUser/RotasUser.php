@@ -28,7 +28,8 @@
 		public function img($data){
 			echo $this->templates->render('RecursosEstaticos/imgs/'.$data['qual']);
 		}
-		public function scripts($data){
-			echo $this->templates->render('RecursosEstaticos/scripts/'.$data['qual']);
+		public function script($data){
+			header('Content-type: application/javascript');			
+			echo $this->templates->render("RecursosEstaticos/js/{$data['contexto']}/{$data['nome']}");
 		}
 	}

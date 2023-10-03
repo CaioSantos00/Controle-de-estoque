@@ -4,11 +4,13 @@ namespace Intervention\Image\Drivers\Abstract;
 
 use Intervention\Image\Interfaces\ColorInterface;
 use Intervention\Image\Interfaces\FontInterface;
+use Intervention\Image\Traits\CanCheckType;
 use Intervention\Image\Traits\CanHandleInput;
 
 abstract class AbstractFont implements FontInterface
 {
     use CanHandleInput;
+    use CanCheckType;
 
     protected $size = 12;
     protected $angle = 0;
@@ -56,7 +58,7 @@ abstract class AbstractFont implements FontInterface
 
     public function hasFilename(): bool
     {
-        return is_file($this->filename);
+        return !is_null($this->filename) && is_file($this->filename);
     }
 
     public function color($color): FontInterface

@@ -11,8 +11,8 @@
 	$router->get("/cadastro", "RotasUser:cadastro");
 	$router->get('/sobre', "RotasUser:sobre");	
 	$router->get('/estilo', "RotasUser:estilos");	
-	$router->get('/img/{qual}', "RotasUser:img");	
-	//$router->get('/scripts/{qual}', "RotasUser:scripts");
+	$router->get('/img/{qual}', "RotasUser:img");		
+	$router->get('/script/{contexto}/{nome}', "RotasUser:script");
 	
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");		
 	$router->group("usuario");
@@ -21,7 +21,7 @@
 	$router->post("/cadastro", "UserRequests:cadastro");
 
 	$router->group("ops");
-	$router->get("/{erro}", function($data){
+	$router->get("/{erro}", function($data){		
 		echo "erro foi só o ".$data['erro'];
 	});
 	
