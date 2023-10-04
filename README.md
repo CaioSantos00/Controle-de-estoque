@@ -15,41 +15,43 @@
 <pre>
    Com auxílio da tecnologia, foi desenvolvido um sistema <b>ERP</b> para agilizar e padronizar todos esses processos.
   Em relação à gestão de estoque, foi feito uma interface clara e objetiva para os processos que antes eram feitos a mão. 
-  Já no sistema de pedidos, antes feitos por aplicativos de mensagens instantáneas (Whatsapp, Telegram, Mensenger ...) 
+  Já no sistema de pedidos, antes feitos por aplicativos de mensagens instantáneas (Whatsapp, Telegram, Mensenger...) 
   agora podem ser feitos acessando local próprio, gerando respostas padronizadas.
 </pre>
 
 ## ⚙ Microsserviços
-- Contabilidade
-  - Gestão de insumos
-  -   //   de matéria-prima
-  -   //   de cotações
-  -   //   de estoque
-- Pedidos
+ - Contabilidade 📈
+  - Gestão de:
+    - insumos
+    - matéria-prima
+    - cotações
+    - estoque
+- Pedidos 📦
   - Padronização de entrada/saída  
 
 
-## ✅Tecnologias utilizadas:
-- Front-end
+## ✅ Tecnologias utilizadas:
+- Front-end🖥
   - HTML
-  - SCSS/CSS
+  - SCSS    
+  - JavaScript    
+- Back-end 👨🏽‍💻
+  - PHP    
+  - SQL
   - JavaScript
-- Back-end
-  - PHP
-  - JavaScript
 
-
-### 1º semana 
-<p>
-  Na primeira semana foi organizado toda documentação, incluindo diagramação e prototipagens;
-</p>
-
-### 2º semana
-<p>
-  Na segunda semana iniciou-se a criação dos esboços HTML, a estruturação do banco de dados e a criação dos microsserviços;
-</p>
-
-### 3º semana
-<p>
-  Com as telas criadas, iniciou-se a implementação do padrão MVC, começando pelos gerenciadores de rotas, erros e templates;
-</p>
+## 📶 Organização das tarefas
+<pre>
+  Com um time formado por desenvolvedores Full-stack dividimos baseado-se nas afinidades de cada um:
+</pre>
+- [Caio](https://github.com/CaioSantos00)
+  - Front end
+    - Ux/Ui
+    - Prototipagem e estruturação das páginas HTML    
+    - Envio de _Requests_ via API para o Back-end
+- [Felipe](https://github.com/felipeDosProgramas)
+  - Back end
+    - Diagramação do software
+    - Organização dos End-points
+    - Estruturação dos dados
+    - Armazenamento e Segurança das informações      
