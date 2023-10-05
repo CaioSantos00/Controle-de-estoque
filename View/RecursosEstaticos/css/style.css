@@ -254,6 +254,19 @@ textarea {
   color: rgb(255, 255, 255);
 }
 
+#sectionError {
+  text-align: center;
+  margin: 5% 0%;
+}
+
+#titleError {
+  font-size: 1.5em;
+}
+
+#imgErro {
+  width: 50%;
+}
+
 #sectionPerfil {
   display: grid;
   justify-content: center;

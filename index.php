@@ -15,16 +15,22 @@
 	$router->get('/estilo', "RotasUser:estilo");
 	$router->get('/produtos', "RotasUser:produtos");
 	$router->get('/telaMensagens', "RotasUser:telaMensagens");	
-	$router->get('/adm', "RotasUser:adm");			
-	$router->get('/imgs/{qual}', "RotasUser:imgs");	
-	//$router->get('/scripts/{qual}', "RotasUser:scripts");
-	
+	$router->get('/adm', "RotasUser:adm");
+	$router->get('/telaError', "RotasUser:telaError");					
+	$router->get('/imgs/{qual}', "RotasUser:imgs");		
+	$router->get('/scripts/{cont}/{qual}', "RotasUser:scripts");	
+
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");		
 	$router->group("usuario");
 	
 	$router->post("/login", "UserRequests:login");
 	$router->post("/cadastro", "UserRequests:cadastro");
 
+	$router->namespace("Controladores\Rotas\RotasComponentes");
+	$router->group("componentes");		
+	$router->get('/header', "RotasComponentes:header");
+
+	
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
 		echo "erro foi só o ".$data['erro'];

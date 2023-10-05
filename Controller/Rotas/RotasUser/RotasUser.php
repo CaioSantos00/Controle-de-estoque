@@ -26,6 +26,9 @@
 		public function telaMensagens($data){
 			echo $this->templates->render('pages/telaMensagens.html');
 		}
+		public function telaError($data){
+			echo $this->templates->render('pages/telaErroUser.html');
+		}
 		
 		public function adm($data){
 			echo $this->templates->render('pagesAdm/painelPerfilAdm.html');
@@ -36,8 +39,8 @@
 		}
 		public function imgs($data){
 			echo $this->templates->render('RecursosEstaticos/imgs/'.$data['qual']);			
-		}/*
+		}
 		public function scripts($data){
-			echo $this->templates->render('RecursosEstaticos/scripts/'.$data['qual']);
-		}*/
+			echo $this->templates->render('RecursosEstaticos/js/'.$data['cont']."/".$data['qual']);
+		}
 	}
