@@ -2,11 +2,14 @@
 	namespace App\Cadastro\Usuario;
 
 	use App\Servicos\Conexao\ConexaoBanco as Conexao;
-	use App\Servicos\Arquivos\UploadsManager as Image;
+	use App\Servicos\Arquivos\SalvarImgPerfil\SalvarImgPerfil as SalvadorDeFoto;
+	use App\IModel;
 
-	class NovoUsuario{
+	class NovoUsuario implements Model{
 		public string $idUsuario;
 		private string $queryParaExecutar;
+		private array $resposta;
+		
 		function __construct(){
 			$this->queryParaExecutar ="
 				insert into `Usuario`
@@ -15,7 +18,7 @@
 				(?,?,?,?,?)
 			";
 		}
-		function setDadosUsuario(array $dadosUsuario) :array{						
+		function setDadosUsuario(array $dadosUsuario){
 			try{
 				$resultado = true;
 				$conexao = Conexao::getConexao(); //Conecta
@@ -23,11 +26,11 @@
 					$queryExec = $conexao->prepare($this->queryParaExecutar);
 					$queryExec = $queryExec->execute($dadosUsuario);
 					$this->idUsuario = $conexao->lastInsertId();
-				$conexao->commit();				
-			}			
+				$conexao->commit();
+			}
 			catch(\PDOException $e){
 				if($conexao->inTransaction()) $conexao->rollBack();
-				$GLOBALS['ERRO']->setErro("Cadastro Usuario", $e->getMessage());				
+				$GLOBALS['ERRO']->setErro("Cadastro Usuario", $e->getMessage());
 				$resultado = false;
 			}
 			catch(\Exception $e){
@@ -36,11 +39,16 @@
 				$resultado = false;
 			}
 			finally{
-				if($resultado) return [$resultado, $this->setFotoUsuario($this->idUsuario)];
-				return [$resultado];
+				if($resultado) $this->resposta =  [$resultado, $this->setFotoUsuario($this->idUsuario)];
+				$this->resposta = [$resultado];
 			}
 		}
 		private function setFotoUsuario($idUsuario) :bool{
-			return Image::salvarImagemDePerfilEnviada($idUsuario);
+			$image = new SalvadorDeFoto($idUsuario);
+			$image->salvarImagemEnviada();
+			return $image->getResposta();
+		}
+		function getResposta() :bool{
+			return json_encode($this->resposta);
 		}
 	}
