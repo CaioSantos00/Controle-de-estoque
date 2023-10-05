@@ -1,9 +1,10 @@
 <?php
-    namespace App\Servicos\Login;
+    namespace App\Login;
 
     use App\Servicos\Conexao\ConexaoBanco as Conexao;
-
-    class Login{
+    use App\Model;
+    
+    class Login implements Model{
         private array $dadosLogin;
         private string $query;
         private string $resposta;

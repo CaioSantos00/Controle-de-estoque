@@ -5,10 +5,12 @@
 	use App\Servicos\Login\Login;
 
 	class UserRequests{
-		function __construct(){			
+		private bool $logado;
+		function __construct(){
 			if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
+			if(isset($_COOKIE['login'])) $this->logado = true;
 		}
-		function cadastro($data){			
+		function cadastro($data) :void{
 			$cadastro = new User();
 			$dadosUsuario = [
 				$_POST['Nome'],
@@ -16,12 +18,12 @@
 				$_POST['Senha'],
 				$_POST['Telefone'],
 				0
-			];			
-			$resultado = $cadastro->setDadosUsuario($dadosUsuario);
-			echo json_encode($resultado);
+			];
+			$cadastro->setDadosUsuario($dadosUsuario);
+			echo $cadastro->getResposta();
 		}
 
-		function login($data){
+		function login($data) :void{
 			$usuario = new Login($_POST['Email'], $_POST['Senha']);
 			echo $usuario->getResposta();
 		}
