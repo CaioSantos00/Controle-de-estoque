@@ -29,9 +29,11 @@
 		public function telaError($data){
 			echo $this->templates->render('pages/telaErroUser.html');
 		}
-		
 		public function adm($data){
 			echo $this->templates->render('pagesAdm/painelPerfilAdm.html');
+		}
+		public function errosAdm($data){
+			echo $this->templates->render('pagesAdm/errosAdm.html');
 		}
 		public function estilo($data){			
 			header("Content-type: text/css");
