@@ -1,8 +1,9 @@
 class EnvioDadosUsuario{
-	constructor(formulario, botaoDeEnvio){
+	constructor(formulario, botaoDeEnvio, alvo){
 		this.xhr = new XMLHttpRequest();
 		this.formulario = formulario;
-		this.btnEnvio = botaoDeEnvio;		
+		this.btnEnvio = botaoDeEnvio;
+		this.alvo = alvo;
 	}
 	setOuvintesDeEventos(){		
 		this.btnEnvio.addEventListener("click", (e) => {
@@ -16,7 +17,7 @@ class EnvioDadosUsuario{
 		this.form.append('Submit', '');
 	}
 	sendForm(){
-		this.xhr.open("POST", "usuario/cadastro");
+		this.xhr.open("POST", `usuario/${cadastro}`);
 		this.xhr.send(this.form);
 	}
 }

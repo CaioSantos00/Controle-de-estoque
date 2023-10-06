@@ -3,7 +3,7 @@ import EnvioDadosUsuario from './Classes/ClassEnvioDadosUsuario.js';
 let form = document.getElementById('form'),
 	btnEnvio = document.getElementById('btnsForms');
 	
-let Envio = new EnvioDadosUsuario(form, btnEnvio);
+let Envio = new EnvioDadosUsuario(form, btnEnvio, "login");
 
 	Envio.xhr.addEventListener("progress", () => {
 		console.log("adicionar rodinha girando dizendo que ta carregando/enviando sla");
