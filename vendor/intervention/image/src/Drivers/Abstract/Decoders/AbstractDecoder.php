@@ -2,6 +2,7 @@
 
 namespace Intervention\Image\Drivers\Abstract\Decoders;
 
+use Exception;
 use Intervention\Image\Exceptions\DecoderException;
 use Intervention\Image\Interfaces\ColorInterface;
 use Intervention\Image\Interfaces\DecoderInterface;
@@ -39,5 +40,24 @@ abstract class AbstractDecoder implements DecoderInterface
     protected function inputType($input): AbstractType
     {
         return MimeSniffer::createFromString($input)->getType();
+    }
+
+    protected function decodeExifData(string $image_data): array
+    {
+        if (! function_exists('exif_read_data')) {
+            return [];
+        }
+
+        try {
+            $pointer = fopen('php://temp', 'rw');
+            fputs($pointer, $image_data);
+            rewind($pointer);
+            $data = @exif_read_data($pointer, null, true);
+            fclose($pointer);
+        } catch (Exception $e) {
+            $data = [];
+        }
+
+        return is_array($data) ? $data : [];
     }
 }

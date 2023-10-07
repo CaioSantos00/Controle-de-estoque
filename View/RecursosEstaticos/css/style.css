@@ -279,6 +279,27 @@ textarea {
   width: 60%;
 }
 
+#sectionErroAdm {
+  margin: 5%;
+}
+
+#boxInfoErro {
+  background-color: rgb(253, 179, 179);
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+}
+
+.inforErro {
+  color: rgb(233, 232, 232);
+  font-size: 0.9em;
+}
+
+.titleInforErro {
+  font-size: 1.1em;
+}
+
 #sectionPerfil {
   display: grid;
   justify-content: center;

@@ -25,6 +25,8 @@ abstract class AbstractImage implements ImageInterface
     use CanHandleInput;
     use CanRunCallback;
 
+    protected Collection $exif;
+
     public function eachFrame(callable $callback): ImageInterface
     {
         foreach ($this as $frame) {
@@ -92,6 +94,13 @@ abstract class AbstractImage implements ImageInterface
     public function toBmp(): EncodedImage
     {
         return $this->toBitmap();
+    }
+
+    public function toAvif(): EncodedImage
+    {
+        return $this->encode(
+            $this->resolveDriverClass('Encoders\AvifEncoder')
+        );
     }
 
     public function greyscale(): ImageInterface
@@ -339,6 +348,22 @@ abstract class AbstractImage implements ImageInterface
         return $this->modify(
             $this->resolveDriverClass('Modifiers\RemoveAnimationModifier', $position)
         );
+    }
+
+    public function setExif(array $data): ImageInterface
+    {
+        $this->exif = new Collection($data);
+
+        return $this;
+    }
+
+    public function getExif(?string $query = null): mixed
+    {
+        if (!isset($this->exif)) {
+            return new Collection();
+        }
+
+        return is_null($query) ? $this->exif : $this->exif->get($query);
     }
 
     public function destroy(): void

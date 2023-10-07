@@ -1,8 +1,19 @@
-# A class to detect mime types of given contents
+# PHP Media type (MIME) detector
 
 ![build](https://github.com/Intervention/mimesniffer/workflows/build/badge.svg)
 
-Detecting MIME Content-type in PHP is easy with [mime_content_type](https://www.php.net/manual/en/function.mime-content-type.php) or [Fileinfo](https://www.php.net/manual/en/book.fileinfo.php). But Fileinfo as an extension is sometimes not available on the server. The function `mime_content_type` wants a path to the filesystem as argument and doesn't process if we only have a string value. This package makes it easy to detect the mime types of the content of a given file or string, without any extension dependencies. Here's an example:
+Detecting MIME Content-type in PHP is easy with [mime_content_type](https://www.php.net/manual/en/function.mime-content-type.php) or [Fileinfo](https://www.php.net/manual/en/book.fileinfo.php). But Fileinfo as an extension is sometimes not available on the server. The function `mime_content_type` wants a path to the filesystem as argument and doesn't process if we only have a string value. This package makes it easy to detect the mime types of the content of a given file or string, without any extension dependencies. 
+
+## Installation
+
+Install the package easily via composer:
+
+```bash
+composer require intervention/mimesniffer
+```
+## Usage
+
+Here are some code samples, to show how the library is handled.
 
 ```php
 use Intervention\MimeSniffer\MimeSniffer;
@@ -63,6 +74,7 @@ $type = $sniffer->setFromFilename('images/image.jpg')->getType();
 - Scalable Vector Graphics (SVG)
 - Tagged Image File Format (TIFF)
 - Image encoded Photoshop Document file format (PSD)
+- AV1 Image File Format (AVIF)
 
 ### Archives
 
@@ -90,20 +102,26 @@ $type = $sniffer->setFromFilename('images/image.jpg')->getType();
 - application/octet-stream (default binary)
 - text/plain (default)
 
-## Installation
-
-Install the package easily via composer:
-
-```bash
-composer require intervention/mimesniffer
-```
-
 ## Contributing
 
 Contributions are welcome. Please note the following guidelines before submiting your pull request.
 
 - Follow [PSR-2](http://www.php-fig.org/psr/psr-2/) coding standards.
 - Write tests for new functions and added features
+
+## Development & Testing
+
+With this package comes a Docker image to build a test suite and analysis container. To build this container you have to have Docker installed on your system. You can run all tests with this command.
+
+```bash
+docker-compose run --rm --build tests
+```
+
+Run the static analyzer on the code base.
+
+```bash
+docker-compose run --rm --build analysis
+```
 
 ## License
 

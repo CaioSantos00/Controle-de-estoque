@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7ac9d5a83fbfe1d3054350253d0b12c",
+    "content-hash": "10ce37d5aa672dfca07297b27a2b0eb0",
     "packages": [
         {
             "name": "coffeecode/router",
@@ -109,21 +109,21 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.0.0-alpha.8",
+            "version": "3.0.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "764c6f3843e4a66b1e2e259a7fb2d43de65e47a4"
+                "reference": "153725e4f7ad4715dab53116de848a0c293d0aa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/764c6f3843e4a66b1e2e259a7fb2d43de65e47a4",
-                "reference": "764c6f3843e4a66b1e2e259a7fb2d43de65e47a4",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/153725e4f7ad4715dab53116de848a0c293d0aa7",
+                "reference": "153725e4f7ad4715dab53116de848a0c293d0aa7",
                 "shasum": ""
             },
             "require": {
                 "intervention/gif": "^3.0",
-                "intervention/mimesniffer": "^0.4.2",
+                "intervention/mimesniffer": "^0.5",
                 "php": "^8.1"
             },
             "require-dev": {
@@ -160,7 +160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.0.0-alpha.8"
+                "source": "https://github.com/Intervention/image/tree/3.0.0-beta.2"
             },
             "funding": [
                 {
@@ -172,27 +172,27 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-01T07:59:05+00:00"
+            "time": "2023-10-06T14:27:02+00:00"
         },
         {
             "name": "intervention/mimesniffer",
-            "version": "0.4.2",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/mimesniffer.git",
-                "reference": "50f6086af5fa3302ad362864bc5daef15ed702e8"
+                "reference": "699ea368f0215fcc50e90077c429a1835a202d0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/mimesniffer/zipball/50f6086af5fa3302ad362864bc5daef15ed702e8",
-                "reference": "50f6086af5fa3302ad362864bc5daef15ed702e8",
+                "url": "https://api.github.com/repos/Intervention/mimesniffer/zipball/699ea368f0215fcc50e90077c429a1835a202d0d",
+                "reference": "699ea368f0215fcc50e90077c429a1835a202d0d",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.11",
+                "phpstan/phpstan": "^1",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "library",
@@ -208,8 +208,8 @@
             "authors": [
                 {
                     "name": "Oliver Vogel",
-                    "email": "oliver@olivervogel.com",
-                    "homepage": "https://olivervogel.com/"
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io/"
                 }
             ],
             "description": "PHP MIME Type Sniffer",
@@ -222,9 +222,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/mimesniffer/issues",
-                "source": "https://github.com/Intervention/mimesniffer/tree/0.4.2"
+                "source": "https://github.com/Intervention/mimesniffer/tree/0.5.1"
             },
-            "time": "2020-12-29T09:20:18+00:00"
+            "time": "2023-10-03T15:19:44+00:00"
         },
         {
             "name": "league/plates",

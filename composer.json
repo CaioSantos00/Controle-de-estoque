@@ -15,6 +15,6 @@
     "require": {
         "intervention/image": "^3.0@alpha",
         "coffeecode/router" : "2.0.*",
-        "league/plates": "3.*"
+        "league/plates": "v3.x-dev"
     }
 }
