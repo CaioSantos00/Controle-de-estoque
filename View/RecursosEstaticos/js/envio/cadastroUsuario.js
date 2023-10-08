@@ -1,5 +1,3 @@
-import EnvioDadosUsuario from './ClassEnvioCadastroUsuario.js';
-
 let btnEnvio = document.getElementById('btnsForms');
 let formulario=document.getElementById('form');
 
@@ -17,3 +15,4 @@ let Envio = new EnvioDadosUsuario(formulario, btnEnvio, "cadastro");
 	Envio.xhr.addEventListener("error", () => {
 		console.log("adicionar Xis vermelho dizendo 'deu errado meu nobre'");
 	})
+	console.log("sdsds");

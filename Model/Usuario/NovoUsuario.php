@@ -1,9 +1,9 @@
 <?php
-	namespace App\Cadastro\Usuario;
-
+	namespace App\Usuario;
+	
+	use App\Interfaces\Model;
 	use App\Servicos\Conexao\ConexaoBanco as Conexao;
-	use App\Servicos\Arquivos\SalvarImgPerfil\SalvarImgPerfil as SalvadorDeFoto;
-	use App\IModel;
+	use App\Servicos\Arquivos\SalvarImgPerfil\SalvarImgPerfil as SalvadorDeFoto;	
 
 	class NovoUsuario implements Model{
 		public string $idUsuario;
@@ -38,17 +38,17 @@
 				$GLOBALS['ERRO']->setErro("Conexão", "conexão usada no cadastro de um Usuário");
 				$resultado = false;
 			}
-			finally{
-				if($resultado) $this->resposta =  [$resultado, $this->setFotoUsuario($this->idUsuario)];
+			finally{				
 				$this->resposta = [$resultado];
+				if($resultado) $this->resposta = [$resultado, $this->setFotoUsuario($this->idUsuario)];
 			}
 		}
 		private function setFotoUsuario($idUsuario) :bool{
 			$image = new SalvadorDeFoto($idUsuario);
-			$image->salvarImagemEnviada();
+			$image->executar();
 			return $image->getResposta();
 		}
-		function getResposta() :bool{
+		function getResposta(){
 			return json_encode($this->resposta);
 		}
 	}

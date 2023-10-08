@@ -1,5 +1,5 @@
 <?php
-	namespace App\Servicos\ErrorLogging;
+	namespace App\Servicos;
 
 	class ErrorLogging{
 		const LOG_LOCATION = "ServerInfo/LogErros.txt";
@@ -39,17 +39,10 @@
 				$this->criarLinhaDeErro($onde, $mensagem)
 			);
 			if(!$escrita) self::$erroFatal = true;
-		}
-        private function getErros() :array{
-            $logErros = file_get_contents(LogDeErros::LOG_LOCATION); //Recebe os conteúdos crus do arquivo do log de Erros;
-
-            if($logErros === false){
-                $this->setErro('Visualização de erros', 'Não deu para abrir o log de erros');
-                return ['agora','No Log de erros', 'não deu para abrir o log de erros'];
-            }
-
-            return explode(LogDeErros::SEPARADOR_DE_ERROS,$logErros);
-        }
+		}        
+		function cancela(Exception $e){
+			throw $e;	
+		}		
 		function __construct(){
 			$this->setLogErros();
 		}

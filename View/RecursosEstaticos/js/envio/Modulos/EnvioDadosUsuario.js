@@ -4,6 +4,8 @@ class EnvioDadosUsuario{
 		this.formulario = formulario;
 		this.btnEnvio = botaoDeEnvio;
 		this.alvo = alvo;
+		
+		this.setOuvintesDeEventos();
 	}
 	setOuvintesDeEventos(){		
 		this.btnEnvio.addEventListener("click", (e) => {
@@ -17,9 +19,7 @@ class EnvioDadosUsuario{
 		this.form.append('Submit', '');
 	}
 	sendForm(){
-		this.xhr.open("POST", `usuario/${cadastro}`);
+		this.xhr.open("POST", `usuario/${this.alvo}`);
 		this.xhr.send(this.form);
 	}
 }
-
-export default EnvioCadastroUsuario;

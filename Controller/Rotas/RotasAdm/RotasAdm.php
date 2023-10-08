@@ -1,11 +1,13 @@
 <?php
-	use App\Servicos\ErrorLogging\VisualizarLogErros\VisualizarLogErros as VerLogErros;
-
-	class RotasAdm{
-		private 
-		function verLogErros(){
-			if(isset($_POST['verTodos'])){
-				echo new VerLogErros();
-			}
+	namespace Controladores\Rotas\RotasAdm;
+	use Controladores\Rotas\Controlador;
+	
+	class RotasAdm extends Controlador{
+		function __construct(){
+			parent::__construct();
+			if(!isset($_COOKIE['TipoConta'])) exit("sai fora, Hacker!");			
 		}
+		function inicio($data){
+			parent::renderizar("pagesAdm/painelPerfilAdm.html");
+		}		
 	}

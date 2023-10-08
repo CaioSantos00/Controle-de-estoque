@@ -1,8 +1,8 @@
 <?php
 	namespace Controladores\Rotas\RotasUser\UserRequests;
 
-	use App\Cadastro\Usuario\NovoUsuario as User;
-	use App\Servicos\Login\Login;
+	use App\Usuario\NovoUsuario as User;
+	use App\Usuario\Login;
 
 	class UserRequests{
 		private bool $logado;
@@ -27,4 +27,5 @@
 			$usuario = new Login($_POST['Email'], $_POST['Senha']);
 			echo $usuario->getResposta();
 		}
+				
 	}

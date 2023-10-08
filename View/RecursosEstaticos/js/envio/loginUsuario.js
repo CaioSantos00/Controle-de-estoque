@@ -1,5 +1,3 @@
-import EnvioDadosUsuario from './Classes/ClassEnvioDadosUsuario.js';
-
 let form = document.getElementById('form'),
 	btnEnvio = document.getElementById('btnsForms');
 	

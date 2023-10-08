@@ -1,51 +1,50 @@
 <?php
     namespace App\Servicos\Arquivos\SalvarImgPerfil;
-
-    use Intervention\Image\ImageManagerStatic as Image;
+    
     use App\Servicos\Arquivos\UploadsManager;
-    use App\Model;
-
-    class SalvarImgPerfil extends UploadsManager implements Model{
+    use App\Interfaces\ServicoInterno;
+    
+    class SalvarImgPerfil extends UploadsManager implements ServicoInterno{
         private string $destinoDoArquivo;
         private string $idUsuario;
         private string $nomeParaSalvarArquivo;
 
-        function __construct($idUsuario){
+        function __construct(string $idUsuario){            
             $this->idUsuario = $idUsuario;
+            $this->destinoDoArquivo = $this->caminhoArqvsSecundarios."FotosUsuarios/".$_FILES['fotoUsuario']['name'];
         }
         private function moverParaDiretorio(){
-            parent::$resposta = move_uploaded_file(
+            $this->resposta = move_uploaded_file(
 				$_FILES['fotoUsuario']['tmp_name'],
 				$this->destinoDoArquivo
 			);
-			parent::testarResposta('no envio do arquivo para seu devido diretório');
+			$this->testarResposta('no envio do arquivo para seu devido diretório');
         }
         private function renomeiaParaIdDoDono(){            
-            $this->nomeParaSalvarArquivo = parent::$caminhoArqvsSecundarios."FotosUsuarios/".$this->idUsuario;
-			parent::$resposta = rename($this->destinoDoArquivo,$this->nomeParaSalvarArquivo);
-			parent::testarResposta('na mudança do nome da imagem');            
+            $this->nomeParaSalvarArquivo = $this->caminhoArqvsSecundarios."FotosUsuarios/".$this->idUsuario.".png";
+			$this->resposta = rename($this->destinoDoArquivo,$this->nomeParaSalvarArquivo);
+			$this->testarResposta('na mudança do nome da imagem');            
         }
-        private function salvaFormatoPadrao(){
-            $imagem = Image::make($this->nomeParaSalvarArquivo); //Gera instancia da Classe
-			$imagem->resize(300,300);//Redimensiona a imagem para um tamanho padrão
-			$imagem->save($this->destinoDoArquivo,80, "png"); //Salva com uma extensão padrão e qualidade reduzida
+        private function salvaFormatoPadrao(){            
+            $imagem = ($this->getInterventionImageInstance())->make($this->destinoDoArquivo); //Gera instancia da Classe
+            $imagem->scale(300, 300);//Redimensiona a imagem para um tamanho padrão
+            $imagem = $imagem->toPng(80);
+            $imagem->save($this->destinoDoArquivo);
 
-            parent::testarResposta('no envio do arquivo para seu diretório');
+            $this->testarResposta('no envio do arquivo para seu diretório');
         }
-        function salvarImagemEnviada(){
-			try{
-                $this->destinoDoArquivo = parent::$caminhoArqvsSecundarios."FotosUsuarios/".$_FILES['fotoUsuario']['name'];
-                $this->moverParaDiretorio();
-                $this->renomeiaParaIdDoDono($this->idUsuario);
-				$this->destinoDoArquivo = self::$caminhoArqvsSecundarios."FotosUsuarios/".$this->idUsuario;
+        function executar(){
+			try{                
+                $this->moverParaDiretorio();                				
                 $this->salvaFormatoPadrao();
+                $this->renomeiaParaIdDoDono();
 			}
 			catch(Exception $ex){
 				$GLOBALS['ERRO']->setErro('Cadastro Usuario', "No envio da Foto do usuário, {$ex->getMessage()}");
-				parent::$resposta = false;
+				$this->resposta = false;
 			}			
 		}
-        function getResposta() :string{
-            return parent::$resposta;
+        function getResposta() :bool{
+            return $this->resposta;
         }
     }

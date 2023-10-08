@@ -1,5 +1,5 @@
 <?php
-    namespace App\Login;
+    namespace App\Usuario;
 
     use App\Servicos\Conexao\ConexaoBanco as Conexao;
     use App\Model;
@@ -10,75 +10,65 @@
         private string $resposta;
         
         function __construct(string $email, string $senha){
-            $this->dadosLogin = array(
-                ":Email" => $email,
-                ":Senha" => $senha
-            );
+            $this->dadosLogin = [$email,$senha];
             $this->query = "
                 Select
                 `Id`, `TipoConta`, `Nome`
-                from `Usuarios`
+                from `usuario`
                 where
-                `Email` = :Email and `Senha` = :Senha
+                `Email` = ? and `Senha` = ?
             ";
         }
 
         private function consultarBanco(string $query) :array{
             try{
-                $select = Conexao::getConexao()
-                    ->prepare($query)
-                    ->execute($this->dadosLogin);
+                $select = Conexao::getConexao()->prepare($query);
+                
+                if(!$select->execute($this->dadosLogin)) throw new \Exception(", falhow na execução");
+                $select = $select->fetchAll();
             }
-            catch(PDOException $ex){
+            catch(\PDOException $ex){
                 $GLOBALS['ERRO']->setErro('Login de usuário', 'Falha no PDO, '.$ex->getMessage());
                 $this->resposta = "Sem Login, Erro interno";
                 $select = [];
             }
-            catch(Exception $e){
+            catch(\Exception $e){
                 $GLOBALS['ERRO']->setErro('Login de usuário', 'Falha na Conexão PDO'.$e->getMessage());
                 $this->resposta = "Sem Login, Erro interno";
                 $select = [];
             }
-            finally{
+            finally{                
                 return $select;
             }            
         }
-        private function setLoginCookie() :bool{
-            $cookieInstanciado = setcookie('login', bin2hex($this->dadosLogin['Id']), time()+60*60*24*30,'/','localhost');
-            
-            if($cookieInstanciado){
-                if(isset($_COOKIE['login'])){
-                    return true;
-                }
-                $this->resposta = "Usuario logado, mas não aceitou os cookies";
-                return false;
+        private function setLoginCookie() :string{                        
+            if(setcookie('login', bin2hex($this->dadosLogin[0]['Id']), time()+60*60*24*30,'/','localhost')){
+                if($this->dadosLogin[0]['TipoConta'] != "0") setcookie('TipoConta', bin2hex($this->dadosLogin[0]['TipoConta']), time()+60*60*24*30,'/','localhost');
+                return "logou certinho";
             }
-            $this->resposta = "Usuario logado, mas sem cookie settado, gerir no JS";            
-            return false;
+            return "Usuario logado, mas sem cookie settado, gerir no JS";            
         }        
-        private function verifyLogin() :bool{
-            $this->dadosLogin = $this->consultarBanco($this->query);
-            
+        private function verifyLogin() :string{
+            $this->dadosLogin = $this->consultarBanco($this->query);            
             $quantidade = count($this->dadosLogin);            
-            switch(true){
-                case $quantidade == 1;
-                    $retorno = $this->setLoginCookie();
-                    break;
+            if($quantidade == 1){
+                return $this->setLoginCookie();
+            }            
+            switch(true){                
                 case $quantidade > 1;
                     $GLOBALS['ERRO']->setErro('Login de usuário', 'Usuarios duplicados, verifique imediatamente');
-                    $retorno = false; 
+                    $retorno = "usuario duplicado"; 
                     break;
                 case $quantidade == 0 or $this->dadosLogin == [];
-                    $retorno = false;
+                    $retorno = "usuario não encontrado";
                     break;
                 default;
                     $GLOBALS['ERRO']->setErro('Login de usuário', 'Erro não identificado');
-                    $retorno = false;
+                    $retorno = "algo de errado aconteceu";
             }
             return $retorno;
         }
         function getResposta() :string{
-            if($this->verifyLogin()) return "{$this->resposta}";
-            return "Sem login";
+            return $this->verifyLogin();
         }
     }
