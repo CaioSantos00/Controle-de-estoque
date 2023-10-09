@@ -2,9 +2,12 @@
 	namespace Controladores\Rotas\RotasAdm\AdmRequests;	
 	
 	use App\Administracao\Produtos\Cadastro as CadastroProduto;
+	use App\Administracao\Produtos\Exclusao as ExclusaoProduto;
+	
 	class AdmRequests{
 		function __construct(){
 			if(!isset($_COOKIE['TipoConta'])) exit("sai fora, Hacker!");
+			if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
 		}
 		function cadastrarProduto($data){
 			$cadastro = new CadastroProduto(
@@ -15,5 +18,12 @@
 			$cadastro->setDadosSecundarios($_POST['dadosSecundarios']);
 			
 			$cadastro->executar();
+		}
+		function excluirProduto($data){
+			$exclusao = new ExclusaoProduto($_POST['idProduto']);
+			echo json_encode($exclusao->getResposta());
+		}
+		function consultarProdutos($data){
+			
 		}
 	}

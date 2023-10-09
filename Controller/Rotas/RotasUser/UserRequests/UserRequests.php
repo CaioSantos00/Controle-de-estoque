@@ -26,6 +26,5 @@
 		function login($data) :void{
 			$usuario = new Login($_POST['Email'], $_POST['Senha']);
 			echo $usuario->getResposta();
-		}
-				
+		}		
 	}

@@ -1,7 +1,7 @@
 <?php
 	namespace App\Usuario;
 	use App\Servicos\Conexao\ConexaoBanco as Conn;
-	use App\Servicos\Arquivos\PerfilUsuario\BuscarImagemPerfil as ImgPerfil;
+	use App\Servicos\Arquivos\PerfilUsuario\Buscar as ImgPerfil;
 	use App\Interfaces\Model;
 	
 	class Perfil implements Model{
@@ -27,7 +27,7 @@
 				$dados = $conn;
 				$dados
 					->prepare($this->querysParaChamar[0])
-					->execute([$this->idUsuario]);
+					->execute([$this->idUsuario])
 					->fetchAll();
 				$conn->commit();
 			}
@@ -45,7 +45,10 @@
 				return $dados;
 			}
 		}
-		function getResposta(){
-			
+		function getResposta() :string{
+			return json_encode([
+				$this->getImagemDePerfil(),
+				$this->getDadosDoBanco(Conn::getConexao())
+			]);
 		}
 	}

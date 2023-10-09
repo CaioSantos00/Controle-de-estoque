@@ -14,7 +14,7 @@
 			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;
 			
 			$this->caminhoDiretorioImgsProduto =
-				$this->caminhoArqvsSecundarios."Produtos/Fotos/".$this->idProduto;
+				"{$this->caminhoArqvsSecundarios}Produtos/Fotos/{$this->idProduto}";
 		}
 		
 		private function criaDiretorioFotosProduto(){		
@@ -53,6 +53,6 @@
 		function executar(){			
 			$this->criaDiretorioFotosProduto();
 			$this->salvarImagensPrincipais();
-			$this=>salvarImgsDeVariacoes();
+			$this->salvarImgsDeVariacoes();
 		}
 	}

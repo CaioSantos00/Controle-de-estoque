@@ -16,7 +16,7 @@
 				'root', //Usuário de conexão
 				'', //Senha
 				array(
-					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+					\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
 				) //Outras configurações
 			]
 		)

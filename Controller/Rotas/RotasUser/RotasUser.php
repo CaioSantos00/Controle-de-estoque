@@ -38,4 +38,7 @@
 			}
 			parent::renderizar("RecursosEstaticos/js/{$data['contexto']}/{$data['scriptPrincipal']}.js");
 		}
+		function logErros($data){
+			echo $GLOBALS['ERRO'];
+		}
 	}

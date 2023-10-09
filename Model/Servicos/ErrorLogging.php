@@ -47,9 +47,7 @@
 			$this->setLogErros();
 		}
 		function __toString(){
-            return json_encode(
-                $this->getErros()
-            );
+            return file_get_contents(self::LOG_LOCATION);
         }
 		function __destruct(){
 			if(self::$logInstanciado){

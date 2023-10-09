@@ -1,25 +1,28 @@
 <?php
 	namespace App\Administracao\Produtos;
 
-	use App\Interfaces;
+	use App\Interfaces\Model;
 	use App\Servicos\Conexao\ConexaoBanco as Conn;
 	use App\Servicos\Arquivos\Produtos\Imgs\Salvar;
 	use App\Servicos\Arquivos\Produtos\Descricoes\CriarDescricao;
 	use App\Servicos\Arquivos\Produtos\Classificacoes;
 
-	class Cadastro implements Model, ServicoInterno{
+	class Cadastro implements Model{
 		private array $dadosPrincipais;
 		private array $dadosSecundarios = [];
 		private array $querysInsercao;
 		private string $idProduto;
 		private string $descricaoGeralProduto;
+		private string $jsonDadosSecundarios;
 		
-		function __construct(string $nome, string $classificacoes, string $descricaoGeral){
+		function __construct(string $nome, string $classificacoes, string $descricaoGeral, string $jsonDadosSecundarios){
+			$this->descricaoGeralProduto = $descricaoGeral;
+			$this->jsonDadosSecundarios = $jsonDadosSecundarios;
+			
 			$this->dadosPrincipais = array(
 				"Nome" => $nome,
 				"Classificacoes" => $classificacoes
 			);
-			$this->descricaoGeralProduto = $descricaoGeral;
 			$this->querysInsercao = [
 				"Insert into `ProdutoPrimario`
 				(`Nome`, `Classificacoes`)
@@ -53,25 +56,36 @@
 			$salvadorImgs = new Salvar($this->idProduto, $this->dadosSecudarios);
 			$salvadorImgs->executar();
 		}
-		function setDadosSecundarios(string $jsonDadosSecundarios){			
-			Conn::getConexao()->beginTransaction();
-			try{
-				$dadosVariacoesCruas = json_decode($jsonDadosSecundarios);
-				foreach($dadosVariacoesCruas as $dado){
-					$this->dadosSecundarios[] = [
-						$this->salvarDadoSecundario(Conn::getConexao(), $dado['conteudos']),
-						$dado['identificadorInput']
-					];
-				}
+		private function setDadosSecundarios(string $jsonDadosSecundarios){			
+			Conn::getConexao()->beginTransaction();			
+			$dadosVariacoesCruas = json_decode($jsonDadosSecundarios);
+			foreach($dadosVariacoesCruas as $dado){
+				$this->dadosSecundarios[] = [
+					$this->salvarDadoSecundario(
+						Conn::getConexao(),
+						$dado['conteudos']
+					),
+					$dado['identificadorInput']
+				];
 			}
-			Conn::getConexao()->commit();
+			Conn::getConexao()->commit();			
 		}
 		
 		function getResposta(){
-
+			try{
+				$this->salvarDadosPrincipais(Conn::getConexao());
+				$this->salvarDescricaoPrincipal();
+				$thid->setDadosSecundarios($this->jsonDadosSecundarios);
+				$this->salvarImagens();
+			}
+			catch(\PDOException $ex){
+				$GLOBALS['ERRO']->setErro("Cadastro de produto", "na execução da query {$ex->getMessage()}");
+				
+			}
+			catch(\Exception $e){
+				$GLOBALS['ERRO']->setErro('Cadastro de produto', "na conexão do banco, {$ex->getMessage()}");
+				
+			}		
 		}
-		function executar(){
-			$this->salvarDadosPrincipais(Conn::getConexao());
-			$this->salvarDescricaoPrincipal();
-		}
+		
 	}

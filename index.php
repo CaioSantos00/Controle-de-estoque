@@ -14,7 +14,8 @@
 	$router->get('/img/{qual}', "RotasUser:img");			
 	$router->get('/script/{contexto}/{nome}', "RotasUser:script");
 	$router->get('/script/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}', "RotasUser:scriptModularizado");
-	
+	$router->get('/dosErro', 'RotasUser:logErros');	
+		
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");		
 	$router->group("usuario");	
 	$router->post("/login", "UserRequests:login");

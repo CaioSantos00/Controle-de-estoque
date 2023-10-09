@@ -1,10 +1,10 @@
 <?php
-    namespace App\Servicos\Arquivos\SalvarImgPerfil;
+    namespace App\Servicos\Arquivos\PerfilUsuario;
     
     use App\Servicos\Arquivos\UploadsManager;
     use App\Interfaces\ServicoInterno;
     
-    class SalvarImagemPerfil extends UploadsManager implements ServicoInterno{
+    class Salvar extends UploadsManager implements ServicoInterno{
         private string $destinoDoArquivo;
         private string $idUsuario;
         private string $nomeParaSalvarArquivo;
