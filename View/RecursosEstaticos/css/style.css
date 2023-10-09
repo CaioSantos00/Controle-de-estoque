@@ -254,6 +254,22 @@ textarea {
   color: rgb(255, 255, 255);
 }
 
+.btnsCria {
+  font-size: 1.2em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 3px;
+}
+.btnsCria:hover {
+  background-color: #2460c9;
+}
+
 #sectionError {
   text-align: center;
   margin: 5% 0%;
@@ -381,6 +397,35 @@ textarea {
 .divSvg {
   display: flex;
   justify-content: center;
+}
+
+.divEncaixaCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardsClassificacoes {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #185dd4;
+}
+
+.cardsVariacoes {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #185dd4;
+}
+
+.holdInputs {
+  display: flex;
+  gap: 5px;
+}
+
+.inputVari {
+  border: none;
+  border-radius: 5px;
+  width: 126px;
 }
 
 ::-webkit-scrollbar {

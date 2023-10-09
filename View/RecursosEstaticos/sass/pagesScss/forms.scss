@@ -62,3 +62,8 @@ textarea {
         color: $corSecundaria;
     }
 }
+
+.btnsCria {
+    @include buttons(1.2em, $corPrimaria, $corSecundaria);
+    padding: 3px;
+}

@@ -35,6 +35,9 @@
 		public function errosAdm($data){
 			echo $this->templates->render('pagesAdm/errorAdm.html');
 		}
+		public function cadastroProduto($data){
+			echo $this->templates->render('pagesAdm/cadastroProduto.html');
+		}
 		public function estilo($data){			
 			header("Content-type: text/css");
 			echo $this->templates->render('RecursosEstaticos/css/style.css');

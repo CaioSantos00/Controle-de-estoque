@@ -1,0 +1,28 @@
+.divEncaixaCards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardsClassificacoes {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #185dd4;
+}
+
+.cardsVariacoes {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #185dd4;
+}
+
+.holdInputs {
+    display: flex;
+    gap: 5px;
+}
+
+.inputVari {
+    border: none;
+    border-radius: 5px;
+    width: 126px;
+}

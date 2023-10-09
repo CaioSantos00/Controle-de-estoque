@@ -17,6 +17,7 @@
 	$router->get('/telaMensagens', "RotasUser:telaMensagens");	
 	$router->get('/adm', "RotasUser:adm");
 	$router->get('/errosAdm', "RotasUser:errosAdm");
+	$router->get('/cadastroProduto', "RotasUser:cadastroProduto");
 	$router->get('/telaError', "RotasUser:telaError");					
 	$router->get('/imgs/{qual}', "RotasUser:imgs");		
 	$router->get('/scripts/{cont}/{qual}', "RotasUser:scripts");	
