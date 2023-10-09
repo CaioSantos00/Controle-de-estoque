@@ -2,7 +2,7 @@
     namespace App\Usuario;
 
     use App\Servicos\Conexao\ConexaoBanco as Conexao;
-    use App\Model;
+    use App\Interfaces\Model;
     
     class Login implements Model{
         private array $dadosLogin;

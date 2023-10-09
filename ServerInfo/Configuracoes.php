@@ -15,7 +15,9 @@
 				'mysql:host=localhost;dbname=mmsx;', //Base
 				'root', //Usuário de conexão
 				'', //Senha
-				array(\PDO::ATTR_PERSISTENT => TRUE) //Outras configurações
+				array(
+					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+				) //Outras configurações
 			]
 		)
 	);

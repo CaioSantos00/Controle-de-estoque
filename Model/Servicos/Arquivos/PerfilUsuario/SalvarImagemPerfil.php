@@ -4,7 +4,7 @@
     use App\Servicos\Arquivos\UploadsManager;
     use App\Interfaces\ServicoInterno;
     
-    class SalvarImgPerfil extends UploadsManager implements ServicoInterno{
+    class SalvarImagemPerfil extends UploadsManager implements ServicoInterno{
         private string $destinoDoArquivo;
         private string $idUsuario;
         private string $nomeParaSalvarArquivo;

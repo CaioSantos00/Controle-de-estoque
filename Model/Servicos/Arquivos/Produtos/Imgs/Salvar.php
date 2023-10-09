@@ -1,10 +1,10 @@
 <?php
-	namespace App\Servicos\Arquivos\SalvarImgsProdutos;
+	namespace App\Servicos\Arquivos\Produtos\Imgs;
 	
 	use App\Servicos\Arquivos\UploadsManager;
 	use App\Interfaces\ServicoInterno;
 	
-	class SalvarImgsProdutos extends UploadsManager implements ServicoInterno{
+	class Salvar extends UploadsManager implements ServicoInterno{
 		private string $idProduto;
 		private string $caminhoDiretorioImgsProduto;
 		private array $identificadoresDeVariacoes;
