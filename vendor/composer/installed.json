@@ -20,7 +20,7 @@
             },
             "time": "2022-04-23T16:01:23+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "CoffeeCode\\Router\\": "src"
@@ -76,7 +76,7 @@
             },
             "time": "2022-06-21T08:11:36+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Intervention\\Gif\\": "src"
@@ -109,17 +109,17 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.0.0-beta.2",
-            "version_normalized": "3.0.0.0-beta2",
+            "version": "3.0.0-beta.4",
+            "version_normalized": "3.0.0.0-beta4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "153725e4f7ad4715dab53116de848a0c293d0aa7"
+                "reference": "d9f4c2440a5a4c302b144ea24534c4602cfd1a99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/153725e4f7ad4715dab53116de848a0c293d0aa7",
-                "reference": "153725e4f7ad4715dab53116de848a0c293d0aa7",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/d9f4c2440a5a4c302b144ea24534c4602cfd1a99",
+                "reference": "d9f4c2440a5a4c302b144ea24534c4602cfd1a99",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +132,7 @@
                 "phpstan/phpstan": "^1",
                 "phpunit/phpunit": "^9"
             },
-            "time": "2023-10-06T14:27:02+00:00",
+            "time": "2023-10-07T08:25:41+00:00",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -163,7 +163,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.0.0-beta.2"
+                "source": "https://github.com/Intervention/image/tree/3.0.0-beta.4"
             },
             "funding": [
                 {
@@ -201,7 +201,7 @@
             },
             "time": "2023-10-03T15:19:44+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Intervention\\MimeSniffer\\": "src"
@@ -263,7 +263,7 @@
                     "dev-master": "3.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "League\\Plates\\": "src"

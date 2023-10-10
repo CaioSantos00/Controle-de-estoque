@@ -109,16 +109,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.0.0-beta.2",
+            "version": "3.0.0-beta.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "153725e4f7ad4715dab53116de848a0c293d0aa7"
+                "reference": "d9f4c2440a5a4c302b144ea24534c4602cfd1a99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/153725e4f7ad4715dab53116de848a0c293d0aa7",
-                "reference": "153725e4f7ad4715dab53116de848a0c293d0aa7",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/d9f4c2440a5a4c302b144ea24534c4602cfd1a99",
+                "reference": "d9f4c2440a5a4c302b144ea24534c4602cfd1a99",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.0.0-beta.2"
+                "source": "https://github.com/Intervention/image/tree/3.0.0-beta.4"
             },
             "funding": [
                 {
@@ -172,7 +172,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-06T14:27:02+00:00"
+            "time": "2023-10-07T08:25:41+00:00"
         },
         {
             "name": "intervention/mimesniffer",
@@ -296,7 +296,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "intervention/image": 15
+        "intervention/image": 15,
+        "league/plates": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
