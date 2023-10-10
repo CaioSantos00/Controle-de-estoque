@@ -13,17 +13,16 @@
 		function __construct(string $idProduto){
 			$this->idProduto = $idProduto;
 		}
-		private function excluirImgs(){
+		private function excluirImgs() :bool{
 			$excluir = new Excluir($this->idProduto, "todasDeste");
-			$excluir->executar();
+			return $excluir->executar();
 		}
-		private function excluirDescricao(){
+		private function excluirDescricao() :bool{
 			$excluir = new ExcluirDescricao($this->idProduto);
 			return $excluir->executar();
 		}
-		private function executaQueries(){
-			try{
-				CB::getConexao()->beginTransaction();
+		private function executaQueries() :bool{
+			try{				
 					$this->querys[0]->execute([$this->idProduto]);
 					$this->querys[1]->execute([$this->idProduto]);
 				CB::getConexao()->commit();
@@ -31,14 +30,16 @@
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Exclusão de produto", "Na execução das queries: {$e->getMessage()}");
+				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
 				$retorno = false;
 			}
 			finally{
 				return $retorno;
 			}
 		}
-		private function preparaQueries(){
+		private function preparaQueries() :bool{
 			try{
+				CB::getConexao()->beginTransaction();
 				$this->querys = [
 					CB::getConexao()->prepare("delete * from `produtosecundario` where ´Id´ = ?"),
 					CB::getConexao()->prepare("delete * from `produtoprimario` where `Id` = ?")
@@ -47,13 +48,14 @@
 			}
 			catch(\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Exclusão de produto", "Na preparação das queries: {$e->getMessage()}");
+				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
 				$retorno = false;				
 			}
 			finally{
 				return $retorno;
 			}
 		}		
-		function getResposta(){
+		function getResposta() :array{
 			$resultados = [
 				$this->preparaQueries(),
 				$this->executaQueries(),
