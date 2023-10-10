@@ -42,7 +42,7 @@
 
 ## 📶 Organização das tarefas
 <pre>
-  Com um time formado por desenvolvedores Full-stack dividimos baseado-se nas afinidades de cada um:
+  Com um time formado por desenvolvedores, Full-stack dividimos baseado-se nas afinidades de cada um:
 </pre>
 - [Caio](https://github.com/CaioSantos00)
   - Front end
@@ -54,4 +54,49 @@
     - Diagramação do software
     - Organização dos End-points
     - Estruturação dos dados
-    - Armazenamento e Segurança das informações      
+    - Armazenamento e Segurança das informações
+
+
+_________
+   
+## 🆒 Organização semanal
+
+- 1ª semana
+  - Front-end:
+    - Organização do cronograma
+    - Diagrama de caso de uso
+    - Prototipagens de baixa fidelidade;
+  - Back-end
+    - Diagrama de rotas
+    - Diagrama de classes
+    - Diagramas MER/DER
+
+- 2ª semana
+  - Front-end:
+    - Identidade visual
+    - Modularização das páginas do usuário
+  - Back-end:
+    - Desenvolvimento do Log de erros
+    - Estruturação das tabelas do banco
+    - divisão das responsabilidades na camada Model
+    - Organização dos endpoints da aplicação na camada Controller
+    - Modelagens dos dados
+    - Desenvolvimento/implementação do CRUD de usuários
+
+- 3ª semana
+  - Front-end
+    - Finalização das páginas do usuário
+    - Arquituração das páginas de admin
+    - Organização das requisições assíncronas
+  - Back-end
+    - Desenvolvimento do Cadastro e Consulta de produtos
+    - Implantação do verificador de login
+    - Implementação do Log de erros
+
+- 4º semana
+  - Front-end
+    - Desenvolvimento das páginas de admin
+    - Implementação do front do Log de erros
+    - Prototipagens de alta fidelidade
+  - Back-end
+    - Camada de tratamento de erros no sistema de cadastro/consulta de produtos
