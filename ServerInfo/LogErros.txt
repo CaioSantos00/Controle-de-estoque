@@ -1,4 +1,5 @@
-<<<>>>{"quando":"06-10-23 as 09:32","onde":"Login de usu\u00e1rio","mensagem":"Falha no PDO, SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmsx.usuarios' doesn't exist"}
-<<<>>>{"quando":"06-10-23 as 09:37","onde":"Login de usu\u00e1rio","mensagem":"Falha no PDO, SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mmsx.usuarios' doesn't exist"}
-<<<>>>{"quando":"06-10-23 as 10:34","onde":"renderiza\u00e7\u00e3o de template","mensagem":"na chamada do template pages/cadasdtro.html, The template "pages/cadasdtro.html" could not be found at "View/pages/cadasdtro.html"."}
-<<<>>>{"quando":"06-10-23 as 10:34","onde":"renderiza\u00e7\u00e3o de template","mensagem":"na chamada do template RecursosEstaticos/gjs/envio/Modulos/EnvioDadosUsuario.js, The template "RecursosEstaticos/gjs/envio/Modulos/EnvioDadosUsuario.js" could not be found at "View/RecursosEstaticos/gjs/envio/Modulos/EnvioDadosUsuario.js"."}
+<<<>>>{
+  "quando": "2023-10-10 15:30:00",
+  "onde": "Localização A",
+  "Mensagem": "Mensagem 1"
+}

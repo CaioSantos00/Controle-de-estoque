@@ -8,8 +8,11 @@ async function requireError() {
         let x = response.split("<<<>>>")
         console.log(x)
         x.forEach(elemento => {
-            console.log(elemento)
-            JSON.parse(elemento)
+            if (elemento != '') {
+                console.log(elemento)
+                let objeto = JSON.parse(elemento)
+                console.log(objeto.quando)
+            }
         })
 }
 
