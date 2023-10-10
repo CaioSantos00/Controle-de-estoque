@@ -3,7 +3,6 @@ async function loadHeader() {
     const headerText = await resposta.text()
     const headerContainer = document.querySelector('.header-container');
      headerContainer.innerHTML = headerText;
-    console.log(headerText)
 }
 
 loadHeader()

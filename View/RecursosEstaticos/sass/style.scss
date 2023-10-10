@@ -28,6 +28,7 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Oswald', sans-serif;
+    min-height: 100vh;
 }
 
 a {
@@ -72,4 +73,7 @@ footer {
     padding: 10px 0px;
     background-color: $corHeaderFooter;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
