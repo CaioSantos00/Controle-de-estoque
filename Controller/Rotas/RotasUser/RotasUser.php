@@ -48,4 +48,7 @@
 		public function scripts($data){
 			echo $this->templates->render('RecursosEstaticos/js/'.$data['cont']."/".$data['qual']);
 		}
+		public function arquivoError($data){
+			echo $this->templates->render("../ServerInfo/LogErros.txt");
+		} 
 	}
