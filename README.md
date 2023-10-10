@@ -59,7 +59,7 @@
 
 _________
    
-## 🆒 Organização semanal
+## 📊 Organização semanal
 
 - 1ª semana
   - Front-end:
