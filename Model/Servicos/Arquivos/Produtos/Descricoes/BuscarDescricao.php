@@ -2,10 +2,13 @@
 	namespace App\Servicos\Arquivos\DescricoesProdutos;
 	
 	use App\Interfaces\ServicoInterno;
-	class BuscarDescricao implements ServicoInterno{
+	class BuscarDescricao implements ServicoInterno, Stringable{
 		private string $idProduto;
 		function __construct(string $idProduto){
 			$this->idProduto = $idProduto;
+		}
+		function __toString(){
+			return $this->executar();	
 		}
 		function executar() :string{
 			$descricao = file_get_contents("arqvsSecundarios/Produtos/Descricoes/{$this->idProduto}.txt");

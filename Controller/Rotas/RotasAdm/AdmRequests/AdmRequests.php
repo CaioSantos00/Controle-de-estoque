@@ -3,6 +3,8 @@
 	
 	use App\Administracao\Produtos\Cadastro as CadastroProduto;
 	use App\Administracao\Produtos\Exclusao as ExclusaoProduto;
+	use App\Produtos\ConsultaGeral as ConsultaProdutos;
+	use App\Produtos\ConsultaUnica as ConsultaProduto;
 	
 	class AdmRequests{
 		function __construct(){
@@ -24,6 +26,9 @@
 			echo json_encode($exclusao->getResposta());
 		}
 		function consultarProdutos($data){
-			
+			echo new ConsultaProdutos();
+		}
+		function consultarProduto($data){
+			echo new ConsultaProduto($data['id']);
 		}
 	}

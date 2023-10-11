@@ -8,13 +8,14 @@
 		private string $idProduto;
 		private string $caminhoDiretorioImgsProduto;
 		private array $identificadoresDeVariacoes;
+		private $marcaDagua;
 		
 		function __construct(string $idProduto, array $identificadoresDeVariacoes){
 			$this->idProduto = $idProduto;
-			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;
-			
+			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;			
 			$this->caminhoDiretorioImgsProduto =
 				"{$this->caminhoArqvsSecundarios}Produtos/Fotos/{$this->idProduto}";
+			$this->marcaDagua = $this->getInterventionImageInstance()->make("ServerInfo/marcaDagua.png")->resize(50,50);
 		}
 		
 		private function criaDiretorioFotosProduto(){		
@@ -48,8 +49,16 @@
 					$_FILES[$nomeInput]['tmp_name'][$x],
 					$caminhoVariacao.$_FILES[$nomeInput]['name'][$x]
 				);
+				$this->padronizarFoto($caminhoVariacao.$_FILES[$nomeInput]['name'][$x]);
 			}
-		}		
+		}
+		private function padronizarFoto(string $caminhoImg){
+			$img = $this->getInterventionImageInstance();
+			$img->make($caminhoImg);
+			$img->resize(350,350);
+			$img->insert($this->marcaDagua, 'bottom-right');
+			$img->save($caminhoImg, 80, 'jpg');
+		}
 		function executar(){			
 			$this->criaDiretorioFotosProduto();
 			$this->salvarImagensPrincipais();

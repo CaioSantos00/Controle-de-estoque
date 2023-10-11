@@ -39,7 +39,7 @@
 			CB::getConexao()->beginTransaction();
 				$query = CB::getConexao()->prepare($this->querys[1]);
 				foreach($paraAlterar as $linha){
-					if($query->execute($linha) === false) throw new Exception("deu errado na alteração do banco");
+					if($query->execute($linha) === false) throw new \Exception("deu errado na alteração do banco");
 				}
 			CB::getConexao()->commit();
 		}

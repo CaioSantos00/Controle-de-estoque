@@ -1,10 +1,10 @@
 <?php
-	namespace App\Usuario;
+	namespace App\Usuario\Perfil;
 	use App\Servicos\Conexao\ConexaoBanco as Conn;
 	use App\Servicos\Arquivos\PerfilUsuario\Buscar as ImgPerfil;
 	use App\Interfaces\Model;
 	
-	class Perfil implements Model{
+	class Perfil implements Model, Stringable{
 		private string $idUsuario;
 		private array $querysParaChamar;
 		
@@ -45,10 +45,13 @@
 				return $dados;
 			}
 		}
-		function getResposta() :string{
-			return json_encode([
+		function __toString(){
+			return json_encode($this->getResposta());
+		}
+		function getResposta() :array{
+			return [
 				$this->getImagemDePerfil(),
 				$this->getDadosDoBanco(Conn::getConexao())
-			]);
+			];
 		}
 	}

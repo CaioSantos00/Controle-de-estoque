@@ -2,8 +2,11 @@
 	namespace Controladores\Rotas\RotasUser\UserRequests;
 
 	use App\Usuario\NovoUsuario as User;
+	use App\Usuario\Perfil;
 	use App\Usuario\Login;
-
+	use App\Produtos\ConsultaGeral as CG;
+	use App\Produtos\ConsultaUnica as CU;
+	
 	class UserRequests{
 		private bool $logado;
 		function __construct(){
@@ -22,9 +25,17 @@
 			$cadastro->setDadosUsuario($dadosUsuario);
 			echo $cadastro->getResposta();
 		}
-
 		function login($data) :void{
 			$usuario = new Login($_POST['Email'], $_POST['Senha']);
 			echo $usuario->getResposta();
-		}		
+		}
+		function perfil($data) :void{
+			echo new Perfil($_COOKIE['login']);
+		}
+		function consultaGeral($data):void {
+			echo new CG;
+		}
+		function consultaUnica($data) :void{
+			echo new CU($data['id']);
+		}
 	}

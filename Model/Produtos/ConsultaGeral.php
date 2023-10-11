@@ -1,15 +1,17 @@
 <?php
     namespace App\Produtos;
-    
-    use App\Servicos\Conexao\ConexaoBanco as CB;
+
+    use App\Servicos\Arquivos\Produtos\Imgs\ConsultaUnica as CU;
     use App\Interfaces\Model;
+    use App\Interfaces\Consulta;
     
-    class ConsultaGeral implements Model{
-        function __construct(){
-            
-        }
-        
+    class ConsultaGeral extends Consulta implements Model, Stringable{
+                
         function getResposta(){
-            
+            $this->buscarDadosPrincipaisDoBanco(new CU);
         }
+        function __toString(){
+            return json_encode($this->getResposta());
+        }
+        private function setParametroConsultaPrincipal(){}
     }

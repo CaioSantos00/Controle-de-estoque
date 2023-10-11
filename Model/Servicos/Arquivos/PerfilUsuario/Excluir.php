@@ -9,8 +9,8 @@
 		function __construct(string $idUsuario){
             parent::__construct($idUsuario);
 		}
-        function executar(){
+        function executar() :bool{
             $foto = parent::executar();
-            if($foto != "") unlink($foto);
+            if($foto != "") return unlink($foto);
         }
     }

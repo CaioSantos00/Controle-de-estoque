@@ -12,20 +12,24 @@
 			switch($tipoOperacao){
 				case "todasDeste";
 					$this->imagens = parent::executar($idProduto);
-					break;				
+					break;
 			}
 		}
 		function setParametros(string|array $parametros){
 			if(is_array($parametros)) $this->imagens = $parametros;return;
-			$this->imagens[] = $parametros;
+			$tipoImg = explode("/", $parametros)[0];
+			$this->imagens[$tipoImg] = $parametros;
 		}
 		private function excluirImagens() :bool{
 			$resultados = [];
-			//foreach($this->imagens as $imagem){
-			//	$resultados[] = unlink("arqvsSecundarios/Produtos/{$this->idProduto}/{$imagem}");
-			//}
-			//foreach($resultados as $resultado) if(!$resultado) return false;
-			//return true;
+			foreach($this->imagens['Principais'] as $principais) $resultados[] = unlink("arqvsSecundarios/Produtos/{$this->idProduto}/Principais/{$principais}");
+			foreach($this->imagens['Secundarios'] as $principais){
+				$diretorio = array_diff(scandir("arqvsSecundarios/Produtos/{$this->idProduto}/Secundarias/{$principais}"), ['.','..']);
+				foreach($diretorio as $img) $resultados[] = unlink("arqvsSecundarios/Produtos/{$this->idProduto}/Secundarias/{$principais}/{}");
+			}
+			
+			foreach($resultados as $resultado) if(!$resultado) return false;
+			return true;
 		}
 		function executar() :bool{
 			return $this->excluirImagens();
