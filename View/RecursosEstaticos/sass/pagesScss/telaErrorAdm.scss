@@ -1,8 +1,11 @@
 #sectionErroAdm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin: 5%;
 }
 
-#boxInfoErro {
+.boxInfoErro {
     background-color: rgb(253, 179, 179);
     border: 1px solid red;
     padding: 10px;
