@@ -32,8 +32,6 @@ function criaElementos(date, local, mensagem) {
     sectionErroAdm.appendChild(boxInfoErro)
 }
 
-
-
 async function requireError() {
     const buscaResposta = await fetch('arquivoError')
         if (!buscaResposta.ok) {
