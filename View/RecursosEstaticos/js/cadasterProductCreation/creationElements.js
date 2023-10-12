@@ -18,7 +18,7 @@ function criaClassificacao() {
 
     let btnsConfirm = document.createElement('button')
     btnsConfirm.classList.add('btnsConfirm')
-    btnsConfirm.innerText = 'Cancelar'
+    btnsConfirm.innerText = 'Confirmar'
     cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm)
     divHoldClassifi.appendChild(cardsClassificacoes)
 }
