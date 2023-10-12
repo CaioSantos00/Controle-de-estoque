@@ -402,7 +402,7 @@ textarea {
   justify-content: center;
 }
 
-#divHoldClassifi {
+.divHoldCards {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -454,6 +454,9 @@ textarea {
 .btnsCancel:hover {
   background-color: #2460c9;
 }
+.btnsCancel:hover {
+  background-color: rgb(161, 16, 16);
+}
 
 .btnsConfirm {
   font-size: 0.9em;
@@ -469,6 +472,9 @@ textarea {
 }
 .btnsConfirm:hover {
   background-color: #2460c9;
+}
+.btnsConfirm:hover {
+  background-color: rgb(16, 161, 16);
 }
 
 .divTextAreaFile {

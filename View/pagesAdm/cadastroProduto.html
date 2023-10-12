@@ -29,22 +29,23 @@
           <select class="inputs">
           </select>
           <button id="criaClassi" class="btnsCria">Criar classificação</button>
-          <div  id="divHoldClassifi">
-            <div class="cardsClassificacoes">
+          <div  id="divHoldClassifi"  class="divHoldCards">
+            <!--<div class="cardsClassificacoes">
                 <input type="text" class="inputs"><button class="btnsCancel">Cancelar</button><button class="btnsConfirm">Confirmar</button>
-            </div>
+            </div>-->
           </div>
           <button id="criaVari" class="btnsCria">Criar Variação</button>
-          <div id="divHoldVari">
+          <div id="divHoldVari" class="divHoldCards">
             <div class="cardsVariacoes">
               <div class="holdInputs">
-                <input type="text" class="inputVari">
+                <input type="number" min="1" class="inputVari">
                 <input type="text" class="inputVari">
                 <button class="btnsCancel">Cancelar</button>
               </div>
               <div class="divTextAreaFile">
                 <textarea class="inputs variacoesTextArea"></textarea>
                 <input type="file" class="inputFile inputs">
+                <button  class="btnsConfirm">Salvar</button>
               </div>
             </div>
           </div>
