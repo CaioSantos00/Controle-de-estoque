@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="estilo">
     <script src="scripts/elementos/header.js" defer></script>
+    <script src="scripts/cadasterProductCreation/creationElements.js" defer></script>
 </head>
 <body>
     <header class="header-container"></header>
@@ -27,19 +28,19 @@
           <textarea class="inputs"></textarea>
           <select class="inputs">
           </select>
-          <button class="btnsCria">Criar classificação</button>
-          <div  class="divEncaixaCards">
+          <button id="criaClassi" class="btnsCria">Criar classificação</button>
+          <div  id="divHoldClassifi">
             <div class="cardsClassificacoes">
-                <input type="text" class="inputs"><button class="btnsVariacoesCancel">Cancelar</button><button class="btnsConfirmVariacoes">Confirmar</button>
+                <input type="text" class="inputs"><button class="btnsCancel">Cancelar</button><button class="btnsConfirm">Confirmar</button>
             </div>
           </div>
-          <button class="btnsCria">Criar Variação</button>
-          <div id="divVariacoes">
+          <button id="criaVari" class="btnsCria">Criar Variação</button>
+          <div id="divHoldVari">
             <div class="cardsVariacoes">
               <div class="holdInputs">
                 <input type="text" class="inputVari">
                 <input type="text" class="inputVari">
-                <button class="btnsVariacoesCancel">Cancelar</button>
+                <button class="btnsCancel">Cancelar</button>
               </div>
               <div class="divTextAreaFile">
                 <textarea class="inputs variacoesTextArea"></textarea>

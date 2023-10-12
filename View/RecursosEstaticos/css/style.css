@@ -402,7 +402,7 @@ textarea {
   justify-content: center;
 }
 
-.divEncaixaCards {
+#divHoldClassifi {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -439,7 +439,7 @@ textarea {
   margin: 10px 0px 0px;
 }
 
-.btnsVariacoesCancel {
+.btnsCancel {
   font-size: 0.9em;
   background-color: red;
   color: rgb(255, 255, 255);
@@ -451,11 +451,11 @@ textarea {
   transition: 0.5s;
   padding: 5px;
 }
-.btnsVariacoesCancel:hover {
+.btnsCancel:hover {
   background-color: #2460c9;
 }
 
-.btnsConfirmVariacoes {
+.btnsConfirm {
   font-size: 0.9em;
   background-color: green;
   color: rgb(255, 255, 255);
@@ -467,7 +467,7 @@ textarea {
   transition: 0.5s;
   padding: 5px;
 }
-.btnsConfirmVariacoes:hover {
+.btnsConfirm:hover {
   background-color: #2460c9;
 }
 
