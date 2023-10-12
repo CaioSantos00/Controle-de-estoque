@@ -28,11 +28,8 @@ function criarBotaoConfirmar(){
     return btnsConfirm;
 }
 function criaClassificacao() {
-    let cardsClassificacoes = criarDiv(),
-        inputsClassi = criarInput(),
-        btnsCancel = criarBotaoCancelar(), 
-        btnsConfirm = criarBotaoConfirmar();
-    cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm);
+    let cardsClassificacoes = criarDiv();                
+    cardsClassificacoes.append(criarInput(), criarBotaoCancelar(), criarBotaoConfirmar());
     return cardsClassificacoes;        
 }
 
