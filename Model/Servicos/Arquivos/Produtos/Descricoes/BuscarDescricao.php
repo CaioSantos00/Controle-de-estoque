@@ -1,8 +1,8 @@
 <?php	
-	namespace App\Servicos\Arquivos\DescricoesProdutos;
+	namespace App\Servicos\Arquivos\Produtos\Descricoes;
 	
 	use App\Interfaces\ServicoInterno;
-	class BuscarDescricao implements ServicoInterno, Stringable{
+	class BuscarDescricao implements ServicoInterno, \Stringable{
 		private string $idProduto;
 		function __construct(string $idProduto){
 			$this->idProduto = $idProduto;

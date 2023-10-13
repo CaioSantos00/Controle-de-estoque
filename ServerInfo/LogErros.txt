@@ -1,23 +1,6 @@
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste1","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste2","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste2","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste2","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste2","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste4","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste4","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste4","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:20","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:25","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:27","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:29","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:29","onde":"teste8","mensagem":"mensagem bacana"}
-<<<>>>{"quando":"09-10-23 as 09:34","onde":"teste8","mensagem":"mensagem bacana"}
+
+<<<>>>{"quando":"12-10-23 as 09:42","onde":"Descricao","mensagem":"falhou na busca do arquivo da 1"}
+<<<>>>{"quando":"12-10-23 as 09:46","onde":"Exclus\u00e3o de produto","mensagem":"Na execu\u00e7\u00e3o das queries: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from `produtosecundario` where \u00b4Id\u00b4 = '1'' at line 1"}
+<<<>>>{"quando":"12-10-23 as 09:46","onde":"Exclus\u00e3o de produto","mensagem":"Na execu\u00e7\u00e3o das queries: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from `produtosecundario` where \u00b4Id\u00b4 = '1'' at line 1"}
+<<<>>>{"quando":"12-10-23 as 09:47","onde":"Exclus\u00e3o de produto","mensagem":"Na execu\u00e7\u00e3o das queries: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from `produtosecundario` where \u00b4Id\u00b4 = '1'' at line 1"}
+<<<>>>{"quando":"12-10-23 as 09:48","onde":"Exclus\u00e3o de produto","mensagem":"Na execu\u00e7\u00e3o das queries: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from `produtosecundario` where \u00b4Id\u00b4 = '1'' at line 1"}

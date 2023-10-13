@@ -6,7 +6,7 @@
 	use App\Interfaces\ServicoInterno;
 	use App\Interfaces\Model;
 	
-	class ConsultarTodos implements ServicoInterno, Model, Stringable{
+	class ConsultarTodos implements ServicoInterno, Model, \Stringable{
 		private string $query = "select `Id`, `Nome`, `Email`, `Telefone` from `usuario`";
 		
 		function setParametros(string $parametros){
@@ -17,7 +17,7 @@
 				CB::getConexao()->beginTransaction();
 					$resultado = CB::getConexao()
 									->query($this->query);
-				CB::getConexao()->commit()
+				CB::getConexao()->commit();
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Consulta usuario", "na query: {$e->getMessage()}");
@@ -25,7 +25,7 @@
 				$resultado = [false];
 			}
 			finally{
-				return $resultado;
+				return [...$resultado];
 			}
 		}
 		function __toString(){

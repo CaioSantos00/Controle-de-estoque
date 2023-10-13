@@ -6,12 +6,11 @@
 
 	class Excluir extends ConsultaUnica implements ServicoInterno{
 		private array $imagens;
-		private string $idProduto;
 		function __construct(string $idProduto, string $tipoOperacao = ""){
 			$this->idProduto = $idProduto;
 			switch($tipoOperacao){
 				case "todasDeste";
-					$this->imagens = parent::executar($idProduto);
+					$this->imagens = parent::executar();
 					break;
 			}
 		}
@@ -22,10 +21,10 @@
 		}
 		private function excluirImagens() :bool{
 			$resultados = [];
-			foreach($this->imagens['Principais'] as $principais) $resultados[] = unlink("arqvsSecundarios/Produtos/{$this->idProduto}/Principais/{$principais}");
+			foreach($this->imagens['Principais'] as $principais) $resultados[] = unlink("arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Principais/{$principais}");
 			foreach($this->imagens['Secundarios'] as $principais){
-				$diretorio = array_diff(scandir("arqvsSecundarios/Produtos/{$this->idProduto}/Secundarias/{$principais}"), ['.','..']);
-				foreach($diretorio as $img) $resultados[] = unlink("arqvsSecundarios/Produtos/{$this->idProduto}/Secundarias/{$principais}/{}");
+				$diretorio = array_diff(scandir("arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$principais}"), ['.','..']);
+				foreach($diretorio as $img) $resultados[] = unlink("arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$principais}/{$img}");
 			}
 			
 			foreach($resultados as $resultado) if(!$resultado) return false;

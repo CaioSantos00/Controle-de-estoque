@@ -1,5 +1,5 @@
 <?php
-	namespace App\Servicos\Arquivos\DescricoesProdutos;
+	namespace App\Servicos\Arquivos\Produtos\Descricoes;
 	
 	use App\Interfaces\ServicoInterno;
 	class CriarDescricao implements ServicoInterno{

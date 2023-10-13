@@ -80,11 +80,11 @@
 			}
 			catch(\PDOException $ex){
 				$GLOBALS['ERRO']->setErro("Cadastro de produto", "na execução da query {$ex->getMessage()}");
-				
+				if(Conn::getConexao()->inTransaction())Conn::getConexao()->rollBack();
 			}
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro('Cadastro de produto', "na conexão do banco, {$ex->getMessage()}");
-				
+				if(Conn::getConexao()->inTransaction())Conn::getConexao()->rollBack();
 			}		
 		}
 		

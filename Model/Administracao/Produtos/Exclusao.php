@@ -4,7 +4,7 @@
 	use App\Interfaces\Model;
 	use App\Servicos\Conexao\ConexaoBanco as CB;
 
-	use App\Servicos\Produtos\Imgs\Excluir;
+	use App\Servicos\Arquivos\Produtos\Imgs\Excluir;
 	use App\Servicos\Produtos\Descricoes\ExcluirDescricao;
 
 	class Exclusao implements Model{

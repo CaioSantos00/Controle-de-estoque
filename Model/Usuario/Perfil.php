@@ -1,5 +1,5 @@
 <?php
-	namespace App\Usuario\Perfil;
+	namespace App\Usuario;
 	use App\Servicos\Conexao\ConexaoBanco as Conn;
 	use App\Servicos\Arquivos\PerfilUsuario\Buscar as ImgPerfil;
 	use App\Interfaces\Model;
@@ -10,12 +10,7 @@
 		
 		function __construct(string $cookieIdUsuario){
 			$this->idUsuario = hex2bin($cookieIdUsuario);
-			$this->querysParaChamar = [
-				"select
-				`Nome`, `Email`,`Telefone`, `Carrinho`, `TipoConta`
-				from `Usuario` where
-				`Id` = ?"
-			];
+			$this->querysParaChamar = ["select `Nome`, `Email`,`Telefone`, `Carrinho`, `TipoConta` from `Usuario` where `Id` = ?"];
 		}
 		private function getImagemDePerfil() :string{
 			$img = new ImgPerfil($this->idUsuario);
