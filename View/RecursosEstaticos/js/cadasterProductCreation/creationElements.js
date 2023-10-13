@@ -3,6 +3,18 @@ let divHoldClassifi = document.getElementById('divHoldClassifi')
 let divHoldVari = document.getElementById('divHoldVari')
 let criaVari = document.getElementById('criaVari')
 
+function criaBtnCancel(divPai ,divQualApagar) {
+    let btnsCancel = document.createElement('button')
+    btnsCancel.classList.add('btnsCancel')
+    btnsCancel.innerText = 'Cancelar'
+    btnsCancel.onclick = () => btnCancel(divPai ,divQualApagar)
+    return btnsCancel
+}
+
+function btnCancel(divPai, apagaDiv) {
+    divPai.removeChild(apagaDiv)
+}
+
 function criaClassificacao() {
     let cardsClassificacoes = document.createElement('div')
     cardsClassificacoes.classList.add('cardsClassificacoes')
@@ -12,9 +24,7 @@ function criaClassificacao() {
     inputsClassi.type = 'text'
     inputsClassi.name = ''
 
-    let btnsCancel = document.createElement('button')
-    btnsCancel.classList.add('btnsCancel')
-    btnsCancel.innerText = 'Cancelar'
+    let btnsCancel = criaBtnCancel(divHoldClassifi, cardsClassificacoes)
 
     let btnsConfirm = document.createElement('button')
     btnsConfirm.classList.add('btnsConfirm')
@@ -42,9 +52,7 @@ function criaVariacao() {
     inputPreco.type = ''
     inputPreco.name = ''
     inputPreco.classList.add('inputVari')
-    let btnsCancel = document.createElement('button')
-    btnsCancel.classList.add('btnsCancel')
-    btnsCancel.innerText = 'Cancelar'
+    let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes)
     holdInputs.append(inputQtd, inputPreco, btnsCancel)
 
     let divTextAreaFile = document.createElement('div')
