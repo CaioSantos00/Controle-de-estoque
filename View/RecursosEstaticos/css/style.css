@@ -319,6 +319,67 @@ textarea {
   font-size: 1.1em;
 }
 
+#divInputConsul {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#inputConsulta {
+  width: 100%;
+  margin: 30px;
+  padding: 5px;
+  outline: 0;
+  border: 3px solid #0c409a;
+  border-radius: 5px;
+}
+
+.divEditExclu {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btnsExclu {
+  width: 50%;
+  font-size: 1em;
+  background-color: rgb(231, 2, 2);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.btnsExclu:hover {
+  background-color: #2460c9;
+}
+.btnsExclu:hover {
+  background-color: rgb(255, 63, 63);
+}
+
+.btnsEdit {
+  width: 50%;
+  font-size: 1em;
+  background-color: green;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.btnsEdit:hover {
+  background-color: #2460c9;
+}
+.btnsEdit:hover {
+  background-color: rgb(0, 175, 0);
+}
+
 #sectionPerfil {
   display: grid;
   justify-content: center;
@@ -441,7 +502,7 @@ textarea {
 
 .btnsCancel {
   font-size: 0.9em;
-  background-color: red;
+  background-color: rgb(231, 2, 2);
   color: rgb(255, 255, 255);
   border: none;
   padding: 10px;

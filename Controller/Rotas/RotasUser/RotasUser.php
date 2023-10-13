@@ -38,6 +38,9 @@
 		public function cadastroProduto($data){
 			echo $this->templates->render('pagesAdm/cadastroProduto.html');
 		}
+		public function consultaProduct($data){
+			echo $this->templates->render('pagesAdm/consultaProduct.html');
+		}
 		public function estilo($data){			
 			header("Content-type: text/css");
 			echo $this->templates->render('RecursosEstaticos/css/style.css');

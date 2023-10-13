@@ -18,6 +18,7 @@
 	$router->get('/adm', "RotasUser:adm");
 	$router->get('/errosAdm', "RotasUser:errosAdm");
 	$router->get('/cadastroProduto', "RotasUser:cadastroProduto");
+	$router->get('/consultaProduct', "RotasUser:consultaProduct");
 	$router->get('/arquivoError', "RotasUser:arquivoError");
 	$router->get('/telaError', "RotasUser:telaError");					
 	$router->get('/imgs/{qual}', "RotasUser:imgs");		
