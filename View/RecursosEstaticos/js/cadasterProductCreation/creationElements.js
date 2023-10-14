@@ -3,6 +3,83 @@ let divHoldClassifi = document.getElementById('divHoldClassifi')
 let divHoldVari = document.getElementById('divHoldVari')
 let criaVari = document.getElementById('criaVari')
 
+function criaElemento(tag, nameClass) {
+    let elemento = document.createElement(tag)
+    elemento.classList.add([nameClass])
+    return elemento
+}
+
+function criaBtnCancel(divPai ,divQualApagar) {
+    let btnsCancel = document.createElement('button')
+    btnsCancel.classList.add('btnsCancel')
+    btnsCancel.innerText = 'Cancelar'
+    btnsCancel.onclick = () => btnCancel(divPai ,divQualApagar)
+    return btnsCancel
+}
+
+function btnCancel(divPai, apagaDiv) {
+    divPai.removeChild(apagaDiv)
+}
+
+function criaClassificacao() {
+    let cardsClassificacoes = criaElemento('div', 'cardsClassificacoes')
+    let inputsClassi = criaElemento('input', 'inputs')
+    inputsClassi.type = 'text'
+    inputsClassi.name = ''
+    let btnsCancel = criaBtnCancel(divHoldClassifi, cardsClassificacoes)
+    let btnsConfirm = criaElemento('button', 'btnsConfirm')
+    btnsConfirm.innerText = 'Confirmar'
+
+    cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm)
+    divHoldClassifi.appendChild(cardsClassificacoes)
+}
+
+btnCriaClassi.addEventListener('click', () => {
+    criaClassificacao()
+})
+
+function criaVariacao() {
+
+    let cardsVariacoes = criaElemento('div', 'cardsVariacoes')
+    let holdInputs = criaElemento('div', 'holdInputs')
+    let inputQtd = criaElemento('input', 'inputVari')
+    inputQtd.type = 'number'
+    inputQtd.min = 1
+    inputQtd.name = ''
+    
+    let inputPreco = criaElemento('input', 'inputVari')
+    inputPreco.type = ''
+    inputPreco.name = ''
+    let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes)
+    holdInputs.append(inputQtd, inputPreco, btnsCancel)
+
+    let divTextAreaFile = criaElemento('div', 'divTextAreaFile')
+    let variacoesTextArea = criaElemento('textarea', ['inputs', 'variacoesTextArea'])
+
+    let inputFile = criaElemento('input', ['inputFile', 'inputs'])
+    inputFile.type = 'file'
+    inputFile.name = ''
+    let buttonConfirm = criaElemento('button', 'btnsConfirm')
+    buttonConfirm.innerText = 'Salvar'
+    divTextAreaFile.append(variacoesTextArea, inputFile, buttonConfirm)
+    cardsVariacoes.append(holdInputs, divTextAreaFile)
+    divHoldVari.appendChild(cardsVariacoes)
+}
+
+criaVari.addEventListener('click', () => {
+    criaVariacao()
+})
+
+
+
+
+
+
+/*let btnCriaClassi = document.getElementById('criaClassi')
+let divHoldClassifi = document.getElementById('divHoldClassifi')
+let divHoldVari = document.getElementById('divHoldVari')
+let criaVari = document.getElementById('criaVari')
+
 function criaBtnCancel(divPai ,divQualApagar) {
     let btnsCancel = document.createElement('button')
     btnsCancel.classList.add('btnsCancel')
@@ -73,4 +150,4 @@ function criaVariacao() {
 
 criaVari.addEventListener('click', () => {
     criaVariacao()
-})
+})*/
