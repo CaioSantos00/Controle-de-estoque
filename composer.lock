@@ -109,22 +109,22 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.0.0-alpha.5",
+            "version": "3.0.0-beta.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "996560fff28272470e71139df547198d21a61f78"
+                "reference": "d9f4c2440a5a4c302b144ea24534c4602cfd1a99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/996560fff28272470e71139df547198d21a61f78",
-                "reference": "996560fff28272470e71139df547198d21a61f78",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/d9f4c2440a5a4c302b144ea24534c4602cfd1a99",
+                "reference": "d9f4c2440a5a4c302b144ea24534c4602cfd1a99",
                 "shasum": ""
             },
             "require": {
                 "intervention/gif": "^3.0",
-                "intervention/mimesniffer": "^0.4.2",
-                "php": "^8"
+                "intervention/mimesniffer": "^0.5",
+                "php": "^8.1"
             },
             "require-dev": {
                 "mockery/mockery": "^1.4",
@@ -160,7 +160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.0.0-alpha.5"
+                "source": "https://github.com/Intervention/image/tree/3.0.0-beta.4"
             },
             "funding": [
                 {
@@ -172,27 +172,27 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-12T17:16:27+00:00"
+            "time": "2023-10-07T08:25:41+00:00"
         },
         {
             "name": "intervention/mimesniffer",
-            "version": "0.4.2",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/mimesniffer.git",
-                "reference": "50f6086af5fa3302ad362864bc5daef15ed702e8"
+                "reference": "699ea368f0215fcc50e90077c429a1835a202d0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/mimesniffer/zipball/50f6086af5fa3302ad362864bc5daef15ed702e8",
-                "reference": "50f6086af5fa3302ad362864bc5daef15ed702e8",
+                "url": "https://api.github.com/repos/Intervention/mimesniffer/zipball/699ea368f0215fcc50e90077c429a1835a202d0d",
+                "reference": "699ea368f0215fcc50e90077c429a1835a202d0d",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.11",
+                "phpstan/phpstan": "^1",
                 "phpunit/phpunit": "^9.0"
             },
             "type": "library",
@@ -208,8 +208,8 @@
             "authors": [
                 {
                     "name": "Oliver Vogel",
-                    "email": "oliver@olivervogel.com",
-                    "homepage": "https://olivervogel.com/"
+                    "email": "oliver@intervention.io",
+                    "homepage": "https://intervention.io/"
                 }
             ],
             "description": "PHP MIME Type Sniffer",
@@ -222,9 +222,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/mimesniffer/issues",
-                "source": "https://github.com/Intervention/mimesniffer/tree/0.4.2"
+                "source": "https://github.com/Intervention/mimesniffer/tree/0.5.1"
             },
-            "time": "2020-12-29T09:20:18+00:00"
+            "time": "2023-10-03T15:19:44+00:00"
         },
         {
             "name": "league/plates",
@@ -302,5 +302,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

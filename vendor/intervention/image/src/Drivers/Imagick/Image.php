@@ -24,15 +24,15 @@ class Image extends AbstractImage implements ImageInterface, Iterator
         return $this->imagick;
     }
 
-    public function getFrame(int $key = 0): ?FrameInterface
+    public function getFrame(int $position = 0): ?FrameInterface
     {
-        try {
-            $this->imagick->setIteratorIndex($key);
-        } catch (ImagickException $e) {
-            return null;
+        foreach ($this->imagick as $core) {
+            if ($core->getIteratorIndex() == $position) {
+                return new Frame($core);
+            }
         }
 
-        return new Frame($this->imagick->current());
+        return null;
     }
 
     public function addFrame(FrameInterface $frame): ImageInterface
@@ -57,6 +57,7 @@ class Image extends AbstractImage implements ImageInterface, Iterator
 
     public function setLoops(int $count): ImageInterface
     {
+        $this->imagick = $this->imagick->coalesceImages();
         $this->imagick->setImageIterations($count);
 
         return $this;
@@ -77,14 +78,14 @@ class Image extends AbstractImage implements ImageInterface, Iterator
         return $this->imagick->getNumberImages();
     }
 
-    public function current()
+    public function current(): mixed
     {
         $this->imagick->setIteratorIndex($this->iteratorIndex);
 
         return new Frame($this->imagick->current());
     }
 
-    public function key()
+    public function key(): mixed
     {
         return $this->iteratorIndex;
     }

@@ -8,8 +8,6 @@ use ArrayIterator;
 use Countable;
 use Traversable;
 use IteratorAggregate;
-use RecursiveIteratorIterator;
-use RecursiveArrayIterator;
 
 class Collection implements CollectionInterface, IteratorAggregate, Countable
 {
@@ -96,33 +94,54 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
     }
 
     /**
-     * Return item with given key
+     * Return item at given position starting at 0
      *
      * @param  integer $key
      * @return mixed
      */
-    public function get(int $key = 0, $default = null)
+    public function getAtPosition(int $key = 0, $default = null)
     {
-        if (! array_key_exists($key, $this->items)) {
+        if ($this->count() == 0) {
             return $default;
         }
 
-        return $this->items[$key];
-    }
-
-    public function has(int $key): bool
-    {
-        return array_key_exists($key, $this->items);
-    }
-
-    public function query(string $query, $default = null)
-    {
-        $items = $this->getItemsFlat();
-        if (!array_key_exists($query, $items)) {
+        $positions = array_values($this->items);
+        if (! array_key_exists($key, $positions)) {
             return $default;
         }
 
-        return $items[$query];
+        return $positions[$key];
+    }
+
+    public function get(int|string $query, $default = null)
+    {
+        if ($this->count() == 0) {
+            return $default;
+        }
+
+        if (is_int($query) && array_key_exists($query, $this->items)) {
+            return $this->items[$query];
+        }
+
+        if (is_string($query) && strpos($query, '.') === false) {
+            return array_key_exists($query, $this->items) ? $this->items[$query] : $default;
+        }
+
+        $query = explode('.', $query);
+
+        $result = $default;
+        $items = $this->items;
+        foreach ($query as $key) {
+            if (!is_array($items) || !array_key_exists($key, $items)) {
+                $result = $default;
+                break;
+            }
+
+            $result = $items[$key];
+            $items = $result;
+        }
+
+        return $result;
     }
 
     public function map(callable $callback): self
@@ -130,6 +149,21 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
         $items = array_map(function ($item) use ($callback) {
             return $callback($item);
         }, $this->items);
+
+        return new self($items);
+    }
+
+    /**
+     * Run callback on each item of the collection an remove it if it does not return true
+     *
+     * @param callable $callback
+     * @return Collection
+     */
+    public function filter(callable $callback): self
+    {
+        $items = array_filter($this->items, function ($item) use ($callback) {
+            return $callback($item);
+        });
 
         return new self($items);
     }
@@ -145,23 +179,5 @@ class Collection implements CollectionInterface, IteratorAggregate, Countable
         }
 
         return $this;
-    }
-
-    private function getItemsFlat(): array
-    {
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveArrayIterator($this->items)
-        );
-
-        $items = [];
-        foreach ($iterator as $value) {
-            $keys = [];
-            foreach (range(0, $iterator->getDepth()) as $depth) {
-                $keys[] = $iterator->getSubIterator($depth)->key();
-            }
-            $items[join('.', $keys)] = $value;
-        }
-
-        return $items;
     }
 }

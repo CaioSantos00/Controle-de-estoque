@@ -27,12 +27,23 @@ class ImageManager
     }
 
     /**
+     * Create new animated image from sources
+     *
+     * @param  callable $callback
+     * @return ImageInterface
+     */
+    public function animate(callable $callback): ImageInterface
+    {
+        return $this->resolveDriverClass('ImageFactory')->newAnimation($callback);
+    }
+
+    /**
      * Create new image instance from source
      *
      * @param  mixed $source
      * @return ImageInterface
      */
-    public function make($source): ImageInterface
+    public function read($source): ImageInterface
     {
         return $this->resolveDriverClass('InputHandler')->handle($source);
     }
