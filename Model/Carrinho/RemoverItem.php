@@ -5,7 +5,7 @@
 	use App\Carrinho\SalvarNovo as SNCarrinho;
 	use App\Interfaces\Model;
 
-	class RemoverItem extends CCarrinho implements Model, Stringable{
+	class RemoverItem extends CCarrinho implements \Stringable{
 		private string $idVariacao;
 		private int $qtd;
 		function __construct(string $idUsuario, string $idVariacao, string|int $qtd = '-1'){
@@ -15,39 +15,44 @@
 		}
 		private function removeDoCarrinho() :array{
 			$carrinho = parent::getResposta();
+			$x = 0;
+			
 			foreach($carrinho as $linha){
 				if($linha->produto == $this->idVariacao){
-					return array_diff($carrinho, $linha);
+					$carrinhoReorganizado = array_diff($carrinho, $linha);
+					break;
 				}
-			}
-			return [false];
+			}			
+			return $carrinhoReorganizado;
 		}
 		private function decrementaDoCarrinho() :array{
 			$carrinho = parent::getResposta();
-			foreach($carrinho as $linha){
+			$linhasParaExcluir = [];
+			foreach($carrinho as $index => $linha){
 				if($linha->produto == $this->idVariacao){
-					$linha->quantidade -= $this->qtd > $linha->quantidade ? $linha->quantidade : $this->qtd;
-					if($linha->quantidade <= 0) $linha->quantidade = 0;
-					return $carrinho;
+					$linha->quantidade -= ($this->qtd > $linha->quantidade) ? (int) $linha->quantidade : $this->qtd;
+					if($linha->quantidade <= 0) $linhasParaExcluir[] = $index;
 				}
 			}
-			return [false];
+			foreach($linhasParaExcluir as $excluir){
+				unset($carrinho[$excluir]);
+			}
+			return $carrinho;
 		}
 		private function verificaAcaoAExecutar() :string{			
 			if($this->qtd == -1) return "removeDoCarrinho";
 			return "decrementaDoCarrinho";
 		}
 		private function salvarNoBanco() :bool{
-			$acao = $this->verificaAcaoAExecutar()
+			$acao = $this->verificaAcaoAExecutar();
 			$carrinho = $this->$acao();
-			if($carrinho[0] == false) return false;
 			$salvar = new SNCarrinho($carrinho, $this->idUsuario);
 			return $salvar->executar();
 		}
-		function getResposta() :bool{
-			return $this->salvarNoBanco();
+		function getResposta():array{
+			return [$this->salvarNoBanco()];
 		}
 		function __toString(){
-			return $this->getResposta();
+			return json_encode($this->getResposta());
 		}
 	}

@@ -41,7 +41,7 @@
 			try{
 				CB::getConexao()->beginTransaction();
 				$this->querys = [
-					CB::getConexao()->prepare("delete * from `produtosecundario` where ´Id´ = ?"),
+					CB::getConexao()->prepare("delete * from `produtosecundario` where `Id` = ?"),
 					CB::getConexao()->prepare("delete * from `produtoprimario` where `Id` = ?")
 				];
 				$retorno = true;

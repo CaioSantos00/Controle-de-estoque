@@ -4,31 +4,33 @@
 	use App\Carrinho;
 	
 	class CarrinhoRequests{
-		function __construct(){
-			if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
-			if(isset($_COOKIE['login'])) $this->logado = true;
-		}
+		//function __construct(){
+		//	if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
+		//	if(isset($_COOKIE['login'])) $this->logado = true;
+		//}
 		function adicionarItem($data){
-			$add = new AdicionarItem(
-				hex2bin($_COOKIE['login']),
+			$add = new Carrinho\AdicionarItem(
+				hex2bin($data['login']),
 				$data['idVariacao'],
 				$data['qtd']
 			);
 			echo $add;
 		}
 		function removerItem($data){
-			echo new RemoverItem(
-				hex2bin($_COOKIE['login']),
+			echo new Carrinho\RemoverItem(
+				hex2bin($data['login']),
 				$data['idVariacao'],
 				$data['qtd']
 			);
 		}
 		function consultar($data){
-			echo new Consultar(hex2bin($_COOKIE['login']));	
+			$carrinho =  new Carrinho\Consultar;
+			$carrinho->executar(hex2bin($data['login']));
+			echo $carrinho;
 		}
 		function finalizar($data){
-			echo new Finalizar(
-				hex2bin($_COOKIE['login'])
+			echo new Carrinho\Finalizar(
+				hex2bin($data['login'])
 			);
 		}
 	}

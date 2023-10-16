@@ -1,36 +1,42 @@
 <?php
 	namespace App\Carrinho;
-	
+
 	use App\Servicos\Conexao\ConexaoBanco as CB;
-	use App\Interfaces\ServicoInterno;
 	use App\Interfaces\Model;
-	
-	class Consultar implements Model,ServicoInterno, Stringable{
-		private string $query = "select `Carrinho` from `Usuario` where `Id` = ?";
+
+	class Consultar implements Model, \Stringable{
+		private string $query = "select `Carrinho` from `usuario` where `Id` = ?";
 		protected string $idUsuario;
 		private array $carrinho;
+		function __construct($idUsuario){
+			$this->idUsuario = $idUsuario;
+		}
 		function executar(string $idUsuario){
 			$this->idUsuario = $idUsuario;
 		}
-		private function consultarBanco() :array{
+		private function consultarBanco() :string{
 			try{
 				CB::getConexao()->beginTransaction();
-				$carrinho = CB::getConexao()->prepare($this->query)->execute($this->idUsuario);			
+				$carrinhos = CB::getConexao()->prepare($this->query);
+				$carrinhos->execute([$this->idUsuario]);
+				$retorno = $carrinhos->fetchAll()[0]['Carrinho'];
 				CB::getConexao()->commit();
 			}
-			catch(\Exception|\PDOException $e){
+			catch(\Exception $e){
 				if(CB::getConexao()->inTransaction()) CB::getConexao->rollBack();
-				$carrinho = [false];
+				$GLOBALS['ERRO']->setErro("Consulta de carrinho", $e->getMessage());
+				CB::getConexao()->commit();
+				$retorno = json_encode([]);
 			}
 			finally{
-				return array_shift($carrinho);
+				return $retorno;
 			}
 		}
 		function __toString(){
 			return json_encode($this->getResposta());
 		}
 		function getResposta() :array{
-			if(empty($this->carrinho)) $this->carrinho = $this->consultarBanco();
+			if(empty($this->carrinho)) $this->carrinho = json_decode($this->consultarBanco());
 			return $this->carrinho;
 		}
 	}

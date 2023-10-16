@@ -5,7 +5,7 @@
 	use App\Carrinho\Consultar as CCarrinho;
 	use App\Interfaces\Model;
 
-	class Finalizar implements Model, Stringable{
+	class Finalizar implements Model, \Stringable{
 		private string $carrinho;
 		private string $idUsuario;
 		private array $queries = [
@@ -25,7 +25,7 @@
 						->execute($parametros);
 				CB::getConexao()->commit();
 
-				if($resultado == 0) throw new Exception("Usuario não encontrado");
+				if($resultado == 0) throw new \Exception("Usuario não encontrado");
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Finalização de carrinho", "na execução da query: {$query}; {$e->getMessage()}");

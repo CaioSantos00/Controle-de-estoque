@@ -15,7 +15,7 @@
 		private function salvarNoBanco() :bool{
 			try{
 				CB::getConexao()->beginTransaction();
-					$resultado = CB::getConexao()->prepare($this->query)->execute([$this->carrinhoParaSalvar, $this->idUsuario])
+					$resultado = CB::getConexao()->prepare($this->query)->execute([$this->carrinhoParaSalvar, $this->idUsuario]);
 				CB::getConexao()->commit();
 
 				switch(true){
