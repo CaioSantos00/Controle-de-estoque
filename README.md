@@ -2,7 +2,7 @@
 
 ## ⏩Propósito
 <pre>
-  Modernização da gestão dos processos internos indústriais do setor automobilístico
+  Modernização da gestão dos processos interno indústriais do setor automobilístico
 </pre>
 
 ## ☹Problema
@@ -32,13 +32,17 @@
 
 ## ✅ Tecnologias utilizadas:
 - Front-end🖥
-  - HTML
-  - SCSS    
-  - JavaScript    
+  - [HTML5](https://www.w3schools.com/html/)
+  - [SCSS 1.68](https://sass-lang.com/)
+  - [JavaScript](https://www.w3schools.com/Js/)
 - Back-end 👨🏽‍💻
-  - PHP    
-  - SQL
-  - JavaScript
+  - [SQL](https://www.w3schools.com/sql/)
+  - [PHP 8.2.4](https://www.php.net/)
+    - [intervention/Image 3.0](https://image.intervention.io/v3)
+    - [coffecode/router 2.0.2](https://packagist.org/packages/coffeecode/router)
+    - [league/plates 3.5](https://packagist.org/packages/league/plates)
+    - [phpunit 10.4](https://docs.phpunit.de/en/10.4/installation.html)
+
 
 ## 📶 Organização das tarefas
 <pre>
