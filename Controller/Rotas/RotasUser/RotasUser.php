@@ -23,6 +23,10 @@
 		public function produtos($data){
 			echo $this->templates->render('pages/produtos.html');
 		}
+		
+		public function visualizarProduto($data){
+			echo $this->templates->render('pages/visualizarProduto.html');
+		}
 		public function telaMensagens($data){
 			echo $this->templates->render('pages/telaMensagens.html');
 		}

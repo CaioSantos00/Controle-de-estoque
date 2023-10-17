@@ -295,6 +295,24 @@ textarea {
   width: 60%;
 }
 
+#sectionVisuPro {
+  width: 600px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+#fotosProduto {
+  display: flex;
+  align-items: center;
+}
+
+#mudaImg {
+  width: 500px;
+}
+
 #sectionErroAdm {
   display: flex;
   flex-direction: column;

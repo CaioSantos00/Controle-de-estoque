@@ -14,6 +14,7 @@
 	$router->get('/sobre', "RotasUser:sobre");	
 	$router->get('/estilo', "RotasUser:estilo");
 	$router->get('/produtos', "RotasUser:produtos");
+	$router->get('/visualizarProduto', "RotasUser:visualizarProduto");
 	$router->get('/telaMensagens', "RotasUser:telaMensagens");	
 	$router->get('/adm', "RotasUser:adm");
 	$router->get('/errosAdm', "RotasUser:errosAdm");
