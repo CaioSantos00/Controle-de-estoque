@@ -296,7 +296,7 @@ textarea {
 }
 
 #sectionVisuPro {
-  width: 600px;
+  width: 550px;
   margin: 20px auto;
   display: flex;
   justify-content: center;
@@ -309,8 +309,99 @@ textarea {
   align-items: center;
 }
 
+.btnDireEsquer {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 4px;
+  margin: 0px 5px;
+}
+.btnDireEsquer:hover {
+  background-color: #2460c9;
+}
+
+#infosProduto {
+  padding: 0px 50px;
+}
+
 #mudaImg {
-  width: 500px;
+  width: 470px;
+}
+
+.titleVisuaPro {
+  font-size: 1.5em;
+}
+
+#divPrecoProduto {
+  color: #0c409a;
+}
+
+.linha {
+  width: 100%;
+  height: 3px;
+  background-color: #0c409a;
+}
+
+#descriptionProduct {
+  font-size: 1.2em;
+}
+
+#divQtds {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#qtdMaisMenos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  border: 2px solid #0c409a;
+  border-radius: 5px;
+  margin: 10px 0px;
+  font-size: 1em;
+}
+
+.btnsQtds {
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 4px;
+  border-radius: 0px;
+}
+.btnsQtds:hover {
+  background-color: #2460c9;
+}
+
+#btnAddCar {
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+}
+#btnAddCar:hover {
+  background-color: #2460c9;
 }
 
 #sectionErroAdm {

@@ -1,5 +1,5 @@
 #sectionVisuPro {
-    width: 600px;
+    width: 550px;
     margin: 20px auto;
     display: flex;
     justify-content: center;
@@ -12,6 +12,64 @@
     align-items: center;
 }
 
+.btnDireEsquer {
+    display: flex;
+    align-items: center;
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    padding: 4px;
+    margin: 0px 5px;
+}
+
+#infosProduto {
+    padding: 0px 50px;
+}
+
 #mudaImg {
-    width: 500px;
+    width: 470px;
+}
+
+.titleVisuaPro {
+    font-size: 1.5em;
+}
+
+#divPrecoProduto {
+    color: $corPrimaria;
+}
+
+.linha {
+    width: 100%;
+    height: 3px;
+    background-color: $corPrimaria;
+}
+
+#descriptionProduct {
+    font-size: 1.2em;
+}
+
+#divQtds {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#qtdMaisMenos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+    border: 2px solid $corPrimaria;
+    border-radius: 5px;
+    margin: 10px 0px;
+    font-size: 1em;
+}
+
+.btnsQtds {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    padding: 4px;
+    border-radius: 0px;
+}
+
+#btnAddCar {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    width: 100%;
 }
