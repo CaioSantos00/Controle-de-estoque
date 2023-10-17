@@ -52,7 +52,8 @@
   - Front end
     - Ux/Ui
     - Prototipagem e estruturação das páginas HTML    
-    - Envio de _Requests_ via API para o Back-end
+    - Envio de _Requests_ para API
+    - Consumo de API (Response) tratamento e exibição de dados 
 - [Felipe](https://github.com/felipeDosProgramas)
   - Back end
     - Diagramação do software
