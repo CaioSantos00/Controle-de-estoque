@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7ac9d5a83fbfe1d3054350253d0b12c",
+    "content-hash": "10ce37d5aa672dfca07297b27a2b0eb0",
     "packages": [
         {
             "name": "coffeecode/router",
@@ -296,7 +296,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "intervention/image": 15
+        "intervention/image": 15,
+        "league/plates": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

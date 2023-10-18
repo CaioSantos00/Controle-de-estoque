@@ -2,7 +2,7 @@
 #fotoInit {
   width: 100%;
   height: 74vh;
-  background-image: url("img/fundo.jpg");
+  background-image: url("imgs/fundo.jpg");
   background-size: 100%;
   background-size: cover;
 }
@@ -95,7 +95,7 @@
 #divConhecaInit {
   width: 100%;
   height: 74vh;
-  background-image: url("img/fundo2.jpg");
+  background-image: url("imgs/fundo2.jpg");
   background-size: cover;
   color: rgb(255, 255, 255);
 }
@@ -205,6 +205,24 @@
   border: none;
 }
 
+.inputFile {
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+}
+
+.inputFile::file-selector-button {
+  background-color: rgb(255, 255, 255);
+  color: #0c409a;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+textarea {
+  resize: none;
+  height: 160px;
+}
+
 #btnsForms {
   font-size: 1.2em;
   background-color: #0c409a;
@@ -236,6 +254,253 @@
   color: rgb(255, 255, 255);
 }
 
+.btnsCria {
+  font-size: 1.2em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 3px;
+}
+.btnsCria:hover {
+  background-color: #2460c9;
+}
+
+#sectionError {
+  text-align: center;
+  margin: 5% 0%;
+}
+
+#titleError {
+  color: #0c409a;
+  font-size: 1.6em;
+}
+
+@keyframes animationError {
+  0% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(5%);
+  }
+}
+#imgErro {
+  animation: animationError 2s infinite alternate;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 0.1, 0.3);
+  margin: 10px 0px;
+  width: 60%;
+}
+
+#sectionVisuPro {
+  width: 550px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+#fotosProduto {
+  display: flex;
+  align-items: center;
+}
+
+.btnDireEsquer {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 4px;
+  margin: 0px 5px;
+}
+.btnDireEsquer:hover {
+  background-color: #2460c9;
+}
+
+#infosProduto {
+  padding: 0px 50px;
+}
+
+#mudaImg {
+  width: 470px;
+}
+
+.titleVisuaPro {
+  font-size: 1.5em;
+}
+
+#divPrecoProduto {
+  color: #0c409a;
+}
+
+.linha {
+  width: 100%;
+  height: 3px;
+  background-color: #0c409a;
+}
+
+#divDescription {
+  cursor: pointer;
+  color: #0c409a;
+  margin: 10px 0px;
+  border: 2px solid #0c409a;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#descriptionProduct {
+  display: none;
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+#divQtds {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#qtdMaisMenos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  border: 2px solid #0c409a;
+  border-radius: 5px;
+  margin: 10px 0px;
+  font-size: 1em;
+}
+
+.btnsQtds {
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 4px;
+  border-radius: 0px;
+}
+.btnsQtds:hover {
+  background-color: #2460c9;
+}
+
+#btnAddCar {
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+}
+#btnAddCar:hover {
+  background-color: #2460c9;
+}
+
+#sectionErroAdm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 5%;
+}
+
+.boxInfoErro {
+  background-color: rgb(253, 179, 179);
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+}
+
+.inforErro {
+  color: rgb(233, 232, 232);
+  font-size: 0.9em;
+}
+
+.titleInforErro {
+  font-size: 1.1em;
+}
+
+#divInputConsul {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#inputConsulta {
+  width: 100%;
+  margin: 30px;
+  padding: 5px;
+  outline: 0;
+  border: 3px solid #0c409a;
+  border-radius: 5px;
+}
+
+.divEditExclu {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btnsExclu {
+  width: 50%;
+  font-size: 1em;
+  background-color: rgb(231, 2, 2);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.btnsExclu:hover {
+  background-color: #2460c9;
+}
+.btnsExclu:hover {
+  background-color: rgb(255, 63, 63);
+}
+
+.btnsEdit {
+  width: 50%;
+  font-size: 1em;
+  background-color: green;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.btnsEdit:hover {
+  background-color: #2460c9;
+}
+.btnsEdit:hover {
+  background-color: rgb(0, 175, 0);
+}
+
 #sectionPerfil {
   display: grid;
   justify-content: center;
@@ -244,6 +509,7 @@
 
 #boxInfosPerfil {
   width: 300px;
+  margin: auto;
   padding: 4px 10px;
   display: flex;
   align-items: center;
@@ -298,6 +564,7 @@
 }
 
 .cardsFerramentas {
+  width: 200px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -309,11 +576,94 @@
 .cardsFerramentas a {
   color: rgb(255, 255, 255);
   margin-top: 5px;
+  background-color: #104bb1;
 }
 
 .divSvg {
   display: flex;
   justify-content: center;
+}
+
+.divHoldCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardsClassificacoes {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #185dd4;
+}
+
+.cardsVariacoes {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #185dd4;
+}
+
+.holdInputs {
+  display: flex;
+  gap: 5px;
+}
+
+.inputVari {
+  border: none;
+  border-radius: 5px;
+  width: 126px;
+}
+
+.variacoesTextArea {
+  width: 97%;
+  margin: 10px 0px 0px;
+}
+
+.btnsCancel {
+  font-size: 0.9em;
+  background-color: rgb(231, 2, 2);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.btnsCancel:hover {
+  background-color: #2460c9;
+}
+.btnsCancel:hover {
+  background-color: rgb(161, 16, 16);
+}
+
+.btnsConfirm {
+  font-size: 0.9em;
+  background-color: green;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.btnsConfirm:hover {
+  background-color: #2460c9;
+}
+.btnsConfirm:hover {
+  background-color: rgb(16, 161, 16);
+}
+
+.divTextAreaFile {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-direction: column;
 }
 
 ::-webkit-scrollbar {
@@ -333,6 +683,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: "Oswald", sans-serif;
+  min-height: 100vh;
 }
 
 a {

@@ -2,7 +2,12 @@
 @import "./pagesScss/produtos.scss";
 @import "./pagesScss/sobre.scss";
 @import "./pagesScss/forms.scss";
+@import "./pagesScss/telaError.scss";
+@import "./pagesScss/visualisarProduto.scss";
+@import "./pagesScss/telaErrorAdm.scss";
+@import "./pagesScss/consultaProduct.scss";
 @import "./pagesScss/painelPerfil.scss";
+@import "./pagesScss/cadasterProduct.scss";
 @import "./mixins.scss";
 @import "./variaveis.scss";
 
@@ -25,6 +30,7 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Oswald', sans-serif;
+    min-height: 100vh;
 }
 
 a {

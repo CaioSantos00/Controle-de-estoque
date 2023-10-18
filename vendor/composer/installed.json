@@ -20,7 +20,7 @@
             },
             "time": "2022-04-23T16:01:23+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "CoffeeCode\\Router\\": "src"
@@ -76,7 +76,7 @@
             },
             "time": "2022-06-21T08:11:36+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Intervention\\Gif\\": "src"
@@ -134,7 +134,7 @@
             },
             "time": "2023-10-07T08:25:41+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Intervention\\Image\\": "src"
@@ -201,7 +201,7 @@
             },
             "time": "2023-10-03T15:19:44+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "Intervention\\MimeSniffer\\": "src"
@@ -263,7 +263,7 @@
                     "dev-master": "3.0-dev"
                 }
             },
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "psr-4": {
                     "League\\Plates\\": "src"

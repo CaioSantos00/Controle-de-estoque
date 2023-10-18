@@ -2,7 +2,6 @@
 #form {
     width: 350px;
     padding:  10px ;
-
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -22,6 +21,24 @@
     border-radius: 5px;
     padding: 5px;
     border: none;
+}
+
+.inputFile {
+    background-color: $corPrimaria;
+    color: $corSecundaria;
+}
+
+.inputFile::file-selector-button {
+    background-color: $corSecundaria;
+    color: $corPrimaria;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+textarea {
+    resize: none;
+    height: 160px
 }
 
 #btnsForms {
@@ -44,4 +61,9 @@
     a {
         color: $corSecundaria;
     }
+}
+
+.btnsCria {
+    @include buttons(1.2em, $corPrimaria, $corSecundaria);
+    padding: 3px;
 }
