@@ -350,7 +350,18 @@ textarea {
   background-color: #0c409a;
 }
 
+#divDescription {
+  cursor: pointer;
+  color: #0c409a;
+  margin: 10px 0px;
+  border: 2px solid #0c409a;
+  border-radius: 5px;
+  text-align: center;
+  overflow: hidden;
+}
+
 #descriptionProduct {
+  display: none;
   font-size: 1.2em;
 }
 

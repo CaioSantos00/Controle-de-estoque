@@ -42,7 +42,18 @@
     background-color: $corPrimaria;
 }
 
+#divDescription {
+    cursor: pointer;
+    color: $corPrimaria;
+    margin: 10px 0px;
+    border: 2px solid $corPrimaria;
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
 #descriptionProduct {
+    display: none;
     font-size: 1.2em;
 }
 
