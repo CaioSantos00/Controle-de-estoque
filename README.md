@@ -2,7 +2,7 @@
 
 ## ⏩Propósito
 <pre>
-  Modernização da gestão dos processos interno indústriais do setor automobilístico
+  Modernizar a gestão dos processos internos indústriais no setor automobilístico.
 </pre>
 
 ## ☹Problema
