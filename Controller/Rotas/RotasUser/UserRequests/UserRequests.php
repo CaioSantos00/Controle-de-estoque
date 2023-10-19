@@ -6,6 +6,7 @@
 	use App\Usuario\Login;
 	use App\Produtos\ConsultaGeral as CG;
 	use App\Produtos\ConsultaUnica as CU;
+	use App\Usuario\ExcluirPerfil as EP;
 	
 	class UserRequests{
 		private bool $logado;
@@ -31,6 +32,13 @@
 		}
 		function perfil($data) :void{
 			echo new Perfil($_COOKIE['login']);
+		}
+		function excluirPerfil($data){
+			$perfil = new EP($_POST['idUsuario']);
+			echo $perfil->executar();
+		}
+		function mensagem($data){
+			
 		}
 		function consultaGeral($data):void {
 			echo new CG;

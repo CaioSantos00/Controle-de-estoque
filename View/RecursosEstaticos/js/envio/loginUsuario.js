@@ -10,9 +10,18 @@ let Envio = new EnvioDadosUsuario(form, btnEnvio, "login");
 		//esteja preparado para fazer uma série de avisos a partir das
 		//possíveis respostas vindas do back
 		
+		switch(Envio.xhr.responseText){
+			case "logou certinho":
+				location.href = "home";
+				break;
+			case "usuario não encontrado":
+				console.log("sinto lhe dizer amigo");
+				break
+			default:
+				console.log("nada ainda")
+		}		
 		//To pensando em redirecionar direto pelo php pro index
-		console.log(Envio.xhr.responseText)
-		console.log("adicionar setinha verdinha dizendo 'cadastrou certin, confrade' ou coisa do tipo");			
+		console.log("adicionar setinha verdinha dizendo 'enviou certinho' ou coisa do tipo");
 	})
 	Envio.xhr.addEventListener("error", () => {
 		console.log("adicionar Xis vermelho dizendo 'deu errado meu nobre'");

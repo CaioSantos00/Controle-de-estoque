@@ -12,8 +12,7 @@
 		}		
 		protected function renderizar(string $nomeTemplate){
 			try{
-				$this->templateParaRenderizar = $this->templates->make($nomeTemplate);
-				echo $this->templateParaRenderizar->render();
+				echo $this->templates->render($nomeTemplate);
 			}
 			catch(\Exception $ex){
 				$GLOBALS['ERRO']->setErro("renderização de template", "na chamada do template {$nomeTemplate}, {$ex->getMessage()}");

@@ -6,32 +6,32 @@
     <title></title>
     <link rel="stylesheet" href="estilo" />
     <script src="scripts/elementos/header.js" defer></script>
+    <script src="scripts/modulos/envio/mensagemUsuario/EnvioDadosUsuario" defer></script>
   </head>
   <body>
     <header class="header-container"></header>
     <section id="sectionForms">
-      <form action.="" id="form">
+      <form id="form">
         <div id="titleForms">Mensagens</div>
         <input
           type="text"
-          name=""
-          placeholder="Digite "
+          name="Titulo"
+          placeholder="Titulo"
           class="inputs"
         />
 
         <input
           type="text"
-          name=""
-          placeholder="Digite "
+          name="SubTitulo"
+          placeholder="Digite o Sub-Titulo"
           class="inputs"
         />
         <input
           type="file"
-          name=""
-          placeholder="Digite "
+          name="FotosMensagem"
           class="inputs inputFile"
         />
-        <textarea name="" class="inputs"></textarea>
+        <textarea name="Conteudo" class="inputs" placeholder="Digite o Conteudo"></textarea>
         <div id="divEsqueceBtnEntre">
             <input type="submit" id="btnsForms" value="Enviar" />
         </div>
