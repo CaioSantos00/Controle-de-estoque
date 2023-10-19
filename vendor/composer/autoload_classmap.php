@@ -17,6 +17,7 @@ return array(
     'App\\Interfaces\\Consulta' => $baseDir . '/Model/Interfaces/Consulta.php',
     'App\\Interfaces\\Model' => $baseDir . '/Model/Interfaces/Model.php',
     'App\\Interfaces\\ServicoInterno' => $baseDir . '/Model/Interfaces/ServicoInterno.php',
+    'App\\Mensagem\\EnviarMensagem' => $baseDir . '/Model/Mensagem/EnviarMensagem.php',
     'App\\Produtos\\ConsultaGeral' => $baseDir . '/Model/Produtos/ConsultaGeral.php',
     'App\\Produtos\\ConsultaUnica' => $baseDir . '/Model/Produtos/ConsultaUnica.php',
     'App\\Produtos\\Variacoes\\ConsultaUnica' => $baseDir . '/Model/Produtos/Variacoes/ConsultaUnica.php',

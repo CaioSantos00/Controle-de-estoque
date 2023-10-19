@@ -83,6 +83,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'App\\Interfaces\\Consulta' => __DIR__ . '/../..' . '/Model/Interfaces/Consulta.php',
         'App\\Interfaces\\Model' => __DIR__ . '/../..' . '/Model/Interfaces/Model.php',
         'App\\Interfaces\\ServicoInterno' => __DIR__ . '/../..' . '/Model/Interfaces/ServicoInterno.php',
+        'App\\Mensagem\\EnviarMensagem' => __DIR__ . '/../..' . '/Model/Mensagem/EnviarMensagem.php',
         'App\\Produtos\\ConsultaGeral' => __DIR__ . '/../..' . '/Model/Produtos/ConsultaGeral.php',
         'App\\Produtos\\ConsultaUnica' => __DIR__ . '/../..' . '/Model/Produtos/ConsultaUnica.php',
         'App\\Produtos\\Variacoes\\ConsultaUnica' => __DIR__ . '/../..' . '/Model/Produtos/Variacoes/ConsultaUnica.php',
