@@ -6,6 +6,7 @@
 
 	$router->namespace("Controladores\Rotas\RotasUser");
 	$router->group(null);
+	$router->get("/", "RotasUser:home");
 	$router->get("/home", "RotasUser:home");
 	$router->get("/login", "RotasUser:login");
 	$router->get("/cadastro", "RotasUser:cadastro");
@@ -37,7 +38,7 @@
 	
 	$router->group("ops");
 	$router->get("/{erro}", function($data){		
-		echo "erro foi só o ".$data['erro'];
+		echo "erro ".$data['erro'];
 	});
 	$router->dispatch();
 	if($router->error()){
