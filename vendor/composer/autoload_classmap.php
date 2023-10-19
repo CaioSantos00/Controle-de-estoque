@@ -17,6 +17,7 @@ return array(
     'App\\Interfaces\\Consulta' => $baseDir . '/Model/Interfaces/Consulta.php',
     'App\\Interfaces\\Model' => $baseDir . '/Model/Interfaces/Model.php',
     'App\\Interfaces\\ServicoInterno' => $baseDir . '/Model/Interfaces/ServicoInterno.php',
+    'App\\Mensagem\\EnviarMensagem' => $baseDir . '/Model/Mensagem/EnviarMensagem.php',
     'App\\Produtos\\ConsultaGeral' => $baseDir . '/Model/Produtos/ConsultaGeral.php',
     'App\\Produtos\\ConsultaUnica' => $baseDir . '/Model/Produtos/ConsultaUnica.php',
     'App\\Produtos\\Variacoes\\ConsultaUnica' => $baseDir . '/Model/Produtos/Variacoes/ConsultaUnica.php',
@@ -332,5 +333,4 @@ return array(
     'League\\Plates\\Template\\ResolveTemplatePath\\ThemeResolveTemplatePath' => $vendorDir . '/league/plates/src/Template/ResolveTemplatePath/ThemeResolveTemplatePath.php',
     'League\\Plates\\Template\\Template' => $vendorDir . '/league/plates/src/Template/Template.php',
     'League\\Plates\\Template\\Theme' => $vendorDir . '/league/plates/src/Template/Theme.php',
-    'Testes\\login\\LoginTest' => $baseDir . '/Testes/login/LoginTest.php',
 );

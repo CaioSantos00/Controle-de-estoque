@@ -11,10 +11,6 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
     );
 
     public static $prefixLengthsPsr4 = array (
-        'T' => 
-        array (
-            'Testes\\' => 7,
-        ),
         'L' => 
         array (
             'League\\Plates\\' => 14,
@@ -37,10 +33,6 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
     );
 
     public static $prefixDirsPsr4 = array (
-        'Testes\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Testes',
-        ),
         'League\\Plates\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/plates/src',
@@ -83,6 +75,7 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'App\\Interfaces\\Consulta' => __DIR__ . '/../..' . '/Model/Interfaces/Consulta.php',
         'App\\Interfaces\\Model' => __DIR__ . '/../..' . '/Model/Interfaces/Model.php',
         'App\\Interfaces\\ServicoInterno' => __DIR__ . '/../..' . '/Model/Interfaces/ServicoInterno.php',
+        'App\\Mensagem\\EnviarMensagem' => __DIR__ . '/../..' . '/Model/Mensagem/EnviarMensagem.php',
         'App\\Produtos\\ConsultaGeral' => __DIR__ . '/../..' . '/Model/Produtos/ConsultaGeral.php',
         'App\\Produtos\\ConsultaUnica' => __DIR__ . '/../..' . '/Model/Produtos/ConsultaUnica.php',
         'App\\Produtos\\Variacoes\\ConsultaUnica' => __DIR__ . '/../..' . '/Model/Produtos/Variacoes/ConsultaUnica.php',
@@ -398,7 +391,6 @@ class ComposerStaticInitc2bc3690902a2ca174fd38f4cf1843fb
         'League\\Plates\\Template\\ResolveTemplatePath\\ThemeResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath/ThemeResolveTemplatePath.php',
         'League\\Plates\\Template\\Template' => __DIR__ . '/..' . '/league/plates/src/Template/Template.php',
         'League\\Plates\\Template\\Theme' => __DIR__ . '/..' . '/league/plates/src/Template/Theme.php',
-        'Testes\\login\\LoginTest' => __DIR__ . '/../..' . '/Testes/login/LoginTest.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

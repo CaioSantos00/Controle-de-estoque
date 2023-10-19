@@ -8,8 +8,7 @@
         ],
         "psr-4": {
             "App\\": "Model/",
-            "Controladores\\":"Controller/",
-            "Testes\\":"Testes/"
+            "Controladores\\":"Controller/"
         }
     },
     "minimum-stability": "dev",
