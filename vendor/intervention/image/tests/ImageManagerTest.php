@@ -1,50 +1,29 @@
 <?php
 
-namespace Intervention\Image\Tests;
-
 use Intervention\Image\ImageManager;
-use Intervention\Image\Interfaces\ImageInterface;
 
-/**
- * @covers \Intervention\Image\ImageManager
- */
-class ImageManagerTest extends TestCase
+class ImageManagerTest extends PHPUnit_Framework_TestCase
 {
+    public function tearDown()
+    {
+        Mockery::close();
+    }
+
     public function testConstructor()
     {
-        $manager = new ImageManager('foo');
-        $this->assertInstanceOf(ImageManager::class, $manager);
+        $config = array('driver' => 'foo', 'bar' => 'baz');
+        $manager = new ImageManager($config);
+        $this->assertEquals('foo', $manager->config['driver']);
+        $this->assertEquals('baz', $manager->config['bar']);
     }
 
-    /** @requires extension gd */
-    public function testCreateGd()
+    public function testConfigure()
     {
-        $manager = new ImageManager('gd');
-        $image = $manager->create(5, 4);
-        $this->assertInstanceOf(ImageInterface::class, $image);
-    }
-
-    /** @requires extension gd */
-    public function testReadGd()
-    {
-        $manager = new ImageManager('gd');
-        $image = $manager->read(__DIR__ . '/images/red.gif');
-        $this->assertInstanceOf(ImageInterface::class, $image);
-    }
-
-    /** @requires extension imagick */
-    public function testCreateImagick()
-    {
-        $manager = new ImageManager('imagick');
-        $image = $manager->create(5, 4);
-        $this->assertInstanceOf(ImageInterface::class, $image);
-    }
-
-    /** @requires extension imagick */
-    public function testReadImagick()
-    {
-        $manager = new ImageManager('imagick');
-        $image = $manager->read(__DIR__ . '/images/red.gif');
-        $this->assertInstanceOf(ImageInterface::class, $image);
+        $overwrite = array('driver' => 'none', 'bar' => 'none');
+        $config = array('driver' => 'foo', 'bar' => 'baz');
+        $manager = new ImageManager($overwrite);
+        $manager->configure($config);
+        $this->assertEquals('foo', $manager->config['driver']);
+        $this->assertEquals('baz', $manager->config['bar']);
     }
 }
