@@ -1,12 +1,13 @@
 <?php
 	namespace App\Servicos\Arquivos\Produtos\Classificacoes;
 		
-	class Classificacoes implements Stringable{
+	class Classificacoes implements \Stringable{
 		private string $arqvClassificacoes;
-		private array $classificacoesSalvas;
+		protected array $classificacoesSalvas;
 		function __construct(){			
 			$this->arqvClassificacoes = file_get_contents("arqvsSecundarios/Produtos/Classificacoes.txt");
-			$this->classificacoesSalvas = json_decode($this->arqvClassificacoes);
+			$arqv = json_decode($this->arqvClassificacoes);
+			$this->classificacoesSalvas = is_array($arqv) ? $arqv : [];
 		}
 		function __toString(){
 			return $this->arqvClassificacoes;

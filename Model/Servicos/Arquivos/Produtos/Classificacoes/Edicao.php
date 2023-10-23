@@ -19,12 +19,11 @@
 				"velho" => $paraEditar
 			);
 		}
-		private function getAllClassificacoesNoBanco() :array|bool{
+		private function getAllClassificacoesNoBanco() :\PDOStatement|bool{
 			try{
 				CB::getConexao()->beginTransaction();
 				$select = CB::getConexao()
 					->query($this->querys[0]);
-				CB::getConexao()->commit();
 			}
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na conexao da consulta: {$e->getMessage()}");
@@ -37,27 +36,31 @@
 				$select = false;
 			}
 			finally{
+				if(CB::getConexao()->inTransaction()) CB::getConexao()->commit();
 				return $select;
 			}
 		}
-		private function triagemProdutosComClassificacaoVelha(array $resultadoConsultaGeral){
+		private function triagemProdutosComClassificacaoVelha(\PDOStatement $resultadoConsultaGeral) :bool{
 			try{
 				CB::getConexao()->beginTransaction();
-				$query = CB::getConexao()->prepare($this->querys[1]);			
+				$query = CB::getConexao()->prepare($this->querys[1]);
 				foreach($resultadoConsultaGeral as $linha){
-					$resultado = $this->preparaValorParaAtualizacaoNoBanco(...$linha);
-					if(!$resultado) throw new \Exception("não deu para preparar");
+					$resultado = $this->preparaValorParaAtualizacaoNoBanco($linha['Id'], $linha['Classificacoes']);
+					if(!$resultado) continue;
 					if(!$this->atualizaNaTabelaAsClassificacoes($resultado, $query)) throw new \Exception("não atualizou");
 				}
-				CB::getConexao->commit();
-				return true;
+				$retorno = true;
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na triagem de produtos com classificação velha, {$e->getMessage()}");
-				return false;
+				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
+				$retorno = false;
+			}finally{
+				if(CB::getConexao()->inTransaction()) CB::getConexao()->commit();
+				return $retorno;
 			}
 		}
-		private function atualizaNaTabelaAsClassificacoes(array $parametros, \PDOStatement $conn){
+		private function atualizaNaTabelaAsClassificacoes(array $parametros, \PDOStatement $conn) :bool{
 			try{
 				if($conn->execute($parametros)) return true;
 				throw new \Exception("falhou na hora de executar a atualização no banco");
@@ -71,7 +74,7 @@
 				return false;
 			}
 		}
-		private function preparaValorParaAtualizacaoNoBanco(string $id, string $jsonClassificacoes){
+		private function preparaValorParaAtualizacaoNoBanco(string $id, string $jsonClassificacoes) :array|bool{
 			$velhos = json_decode($jsonClassificacoes);
 			$localClassVelha = array_search($this->dadosParaExecutar["velho"], $velhos);
 			//Verifica a existencia daquela classificação nesse produto
@@ -80,13 +83,22 @@
 			$velhos[$localClassVelha] = $this->dadosParaExecutar["novo"];
 			return [json_encode($velhos), $id];
 		}
-		function executar(){
-			$classificacoesNoBanco = $this->getAllClassificacoesNoBanco();
-			if(is_array($classificacoesNoBanco)){
-				if($this->triagemProdutosComClassificacaoVelha($classificacoesNoBanco)){
-					
+		private function atualizaValorNoArqvDeClassificacoes(){
+			foreach($this->classificacoesSalvas as $inde => $class){
+				if($class == $this->dadosParaExecutar['velho']){
+					$this->classificacoesSalvas[$inde] = $this->dadosParaExecutar['novo'];
+					return;
 				}
 			}
-			
+		}
+		function executar(){
+			$classificacoesNoBanco = $this->getAllClassificacoesNoBanco();
+			$this->atualizaValorNoArqvDeClassificacoes();
+			if(!is_bool($classificacoesNoBanco)){
+				if($this->triagemProdutosComClassificacaoVelha($classificacoesNoBanco)){
+					return "tudo certo";
+				}
+			}
+			return "algo deu errado";
 		}
 	}
