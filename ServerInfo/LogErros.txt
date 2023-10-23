@@ -1,33 +1,6 @@
-
-<<<>>>{"quando":"21-10-23 as 01:02","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:03","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:07","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:25","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:26","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:27","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:28","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:30","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:32","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 01:33","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 04:28","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 04:28","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 04:30","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 04:35","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 04:38","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"21-10-23 as 04:40","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"22-10-23 as 11:10","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:10","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:10","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:10","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:12","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:12","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:12","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:12","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:21","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:21","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:21","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:21","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:23","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:23","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
-<<<>>>{"quando":"22-10-23 as 11:23","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
-<<<>>>{"quando":"22-10-23 as 11:23","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
+<<<>>>{"quando":"23-10-23 as 03:08","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
+<<<>>>{"quando":"23-10-23 as 03:10","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
+<<<>>>{"quando":"23-10-23 as 01:12","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
+<<<>>>{"quando":"23-10-23 as 01:13","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
+<<<>>>{"quando":"23-10-23 as 01:14","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
+<<<>>>{"quando":"23-10-23 as 01:20","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}

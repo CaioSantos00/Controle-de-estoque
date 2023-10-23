@@ -10,10 +10,10 @@
 		function __construct(){
 			parent::__construct();
 		}
-		private function getClassificacoesDoBanco() :\PDOStatement|bool{
+		private function getClassificacoesDoBanco() :array|bool{
 			try{
 				CB::getConexao()->beginTransaction();
-				$resultado = CB::getConexao()->query($this->query);
+				$resultado = CB::getConexao()->query($this->query)->fetchAll();
 				
 				if(!$resultado) throw new \Exception("consulta falhou");
 			}
@@ -23,14 +23,14 @@
 				$resultado = false;
 			}
 			finally{
-				CB::getConexao()->commit();
+				if(CB::getConexao()->inTransaction()) CB::getConexao()->commit();
 				return $resultado;
 			}
 		}
-		private function comparaClassesDoBancoComArquivo(\PDOStatement $classificacoesBanco) :array{
-			$paraAdicionarNoArqv = [];
-			foreach($classificacoesBanco as $linhaClassificacoes){
-				$linha = json_decode($linhaClassificacoes);
+		private function comparaClassesDoBancoComArquivo(array $classificacoesBanco) :array{
+			$paraAdicionarNoArqv = [];			
+			foreach($classificacoesBanco as $linhaClassificacoes){			
+				$linha = json_decode($linhaClassificacoes['Classificacoes']);
 				foreach($linha as $classe){
 					if(!in_array($classe, $this->classificacoesSalvas)){
 						if(!in_array($classe, $paraAdicionarNoArqv)) $paraAdicionarNoArqv[] = $classe;
@@ -39,9 +39,9 @@
 			}
 			return $paraAdicionarNoArqv;
 		}
-		private function atualizaArquivo(bool|array $paraAdicionarNoArqv){
-			if(!$paraAdicionarNoArqv) return false;
-			$this->classificacoesSalvas = array_merge($this->classificacoesSalvas, $paraAdicionarNoArqv);
+		private function atualizaArquivo(array $paraAdicionarNoArqv) :bool{			
+			if(array_count_values($paraAdicionarNoArqv) == 0) return false;
+			$this->classificacoesSalvas = array_merge($this->classificacoesSalvas, $paraAdicionarNoArqv);			
 			return true;
 		}
 		function executar(){

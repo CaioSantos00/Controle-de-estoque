@@ -1,6 +1,8 @@
 <?php
 	namespace Testes\login;
 	
+	require "vendor/autoload.php";
+		
 	use App\Usuario\Login;
 	use \PHPUnit\Framework\TestCase;	
 	

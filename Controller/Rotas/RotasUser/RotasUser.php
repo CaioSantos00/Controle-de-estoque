@@ -38,7 +38,7 @@
 		}
 		public function elementos($data){
 			parent::renderizar("components/{$data['nome']}.html");
-		}
+		}		
 		public function scriptModularizado($data){
 			header('Content-type: application/javascript');			
 			$scripts = explode(',',$data['nomesDosModulosSeparadosPorVirgula']);			

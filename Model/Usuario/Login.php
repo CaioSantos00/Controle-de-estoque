@@ -41,9 +41,11 @@
                 return $select;
             }            
         }
-        private function setLoginCookie() :string{                        
-            if(setcookie('login', bin2hex($this->dadosLogin[0]['Id']), time()+60*60*24*30,'/','localhost')){
-                if($this->dadosLogin[0]['TipoConta'] != "0") setcookie('TipoConta', bin2hex($this->dadosLogin[0]['TipoConta']), time()+60*60*24*30,'/','localhost');
+        private function setLoginCookie() :string{
+			//cookie login setcookie('login', bin2hex($this->dadosLogin[0]['Id']), time()+60*60*24*30,'/','localhost')
+			//cookie adm setcookie('TipoConta', bin2hex($this->dadosLogin[0]['TipoConta']), time()+60*60*24*30,'/','localhost');
+            if(true){
+                if($this->dadosLogin[0]['TipoConta'] != "0") echo "é adm";
                 return "logou certinho";
             }
             return "Usuario logado, mas sem cookie settado, gerir no JS";            

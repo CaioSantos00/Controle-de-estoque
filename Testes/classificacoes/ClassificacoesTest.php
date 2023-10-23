@@ -8,20 +8,20 @@
 	class ClassificacoesTest extends TestCase{
 		public function testCadastrarNova() :void{
 			$teste = new ClassificacoesRequests();
-			$saida = $teste->cadastrar(["nome"=>"sucrilho"]);
+			$saida = $teste->cadastrar(["nome"=>"coisas"]);
 			
 			$this->assertEquals("cadastrou nova", $saida->saida);
 		}
 		public function testCadastraJaExistente() :void{
 			$teste = new ClassificacoesRequests();
-			$saida = $teste->cadastrar(["nome"=>"sucrilho"]);
+			$saida = $teste->cadastrar(["nome"=>"coisas"]);
 			
 			$this->assertEquals("ja tava cadastrado", $saida->saida);
 		}
 		public function testEditaUmaQueJaExiste() :void{
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->edicao([
-			"paraEditar" 	=> "não tão dahora",
+			"paraEditar" 	=> "coisas",
 			"novoValor" 	=> "dahora"
 			]);
 			
@@ -29,20 +29,18 @@
 		}
 		public function testExcluirClassificacao() :void{
 			$teste = new ClassificacoesRequests();
-			$saida = $teste->excluir(["paraExcluir"=>"dahora"]);
-			
+			$saida = $teste->excluir(["paraExcluir"=>"dahora"]);			
 			$this->assertEquals("tudo certo", $saida);			
 		}
 		public function testRetornarTodasClassificacoes() :void{
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->consultar([]);
-			
-			$this->assertEquals(json_encode(['sucrilho']), (string) $saida);
+			$this->assertEquals(json_encode(["dahora"]), (string) $saida);
 		}
-		public function testAtualizarArquivo() :void{
+		public function testAtualizarArquivo() :void{			
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->atualizarArqv([]);
 			
 			$this->assertEquals($saida, true);
-		}
+		}		
 	}

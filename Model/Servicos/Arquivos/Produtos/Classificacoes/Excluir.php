@@ -24,11 +24,10 @@
 			return $select;
 		}
 		private function resetarIndicesArrayBaseadoEmOutro(array $array1, array $array2){
-			$linhaDeClassesComIndicesResetados = [];
-			$x = 0;			
+			$x = 0; $linhaDeClassesComIndicesResetados = []; 
+			
 			$linhaDeClasses = array_diff($array1,[$array2]);
-			foreach($linhaDeClasses as $valor) $linhaDeClassesComIndicesResetados[$x++] = $valor;
-			print_r($linhaDeClassesComIndicesResetados);
+			foreach($linhaDeClasses as $valor) $linhaDeClassesComIndicesResetados[$x++] = $valor;				
 			return $linhaDeClassesComIndicesResetados;
 		}
 		private function encontraApenasOsComAClassificacao(\PDOStatement $resultadoConsulta) :array{

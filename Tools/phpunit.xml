@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="bootstrap.php">
+<phpunit>
 	<testsuites>
 		<testsuite name="login">
 			<directory>Testes/login</directory>
+		</testsuite>
+		<testsuite name="classificacoes">
+			<directory>Testes/classificacoes</directory>			
 		</testsuite>
 	</testsuites>
 </phpunit>
