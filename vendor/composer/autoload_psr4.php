@@ -7,9 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
-    'Intervention\\MimeSniffer\\' => array($vendorDir . '/intervention/mimesniffer/src'),
-    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src'),
-    'Intervention\\Gif\\' => array($vendorDir . '/intervention/gif/src'),
+    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Controladores\\' => array($baseDir . '/Controller'),
     'CoffeeCode\\Router\\' => array($vendorDir . '/coffeecode/router/src'),
     'App\\' => array($baseDir . '/Model'),

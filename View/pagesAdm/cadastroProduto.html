@@ -6,7 +6,8 @@
     <title></title>
     <link rel="stylesheet" href="estilo">
     <script src="scripts/elementos/header.js" defer></script>
-    <script src="scripts/cadasterProductCreation/creationElements.js" defer></script>
+    <script src="scripts/cadastroProduto/creationElements.js" defer></script>
+    <script src="scripts/modulos/cadastroProduto/envioDados/elementosDom" defer></script>
 </head>
 <body>
     <header class="header-container"></header>
@@ -15,15 +16,16 @@
           <div id="titleForms">Cadastrar Produto</div>
           <input
             type="text"
-            name=""
-            placeholder="Digite "
+            name="nome"
+            placeholder="Digite o nome do produto"
             class="inputs"
           />
           <input
             type="file"
-            name=""
-            placeholder="Digite "
+            name="fotosPrincipais"
             class="inputFile inputs"
+            multiple
+            required
           />
           <textarea class="inputs"></textarea>
           <select class="inputs">
