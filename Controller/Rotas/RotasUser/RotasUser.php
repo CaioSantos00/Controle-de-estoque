@@ -45,6 +45,10 @@
 		public function consultaProduct($data){
 			echo $this->templates->render('pagesAdm/consultaProduct.html');
 		}
+		
+		public function carrinho($data){
+			echo $this->templates->render('pages/carrinho.html');
+		}
 		public function estilo($data){			
 			header("Content-type: text/css");
 			echo $this->templates->render('RecursosEstaticos/css/style.css');

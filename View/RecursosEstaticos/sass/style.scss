@@ -8,6 +8,7 @@
 @import "./pagesScss/consultaProduct.scss";
 @import "./pagesScss/painelPerfil.scss";
 @import "./pagesScss/cadasterProduct.scss";
+@import "./pagesScss/carrinho.scss";
 @import "./mixins.scss";
 @import "./variaveis.scss";
 
@@ -23,6 +24,7 @@
 
   ::-webkit-scrollbar-thumb {
     background-color: $corPrimaria;
+
     border-radius: 6px;
   }
 
@@ -70,9 +72,20 @@ header a:hover{
     color: $corPrimaria;
 }
 
+main {
+    min-height: 100vh;
+}
+
 footer {
     color: $corSecundaria;
     padding: 10px 0px;
     background-color: $corHeaderFooter;
     text-align: center;
 }
+
+/*.footer {
+    position: fixed;
+     bottom: 0;
+      width: 100%;
+       margin-top: 30px;
+}*/

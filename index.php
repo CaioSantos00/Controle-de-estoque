@@ -22,6 +22,7 @@
 	$router->get('/consultaProduct', "RotasUser:consultaProduct");
 	$router->get('/arquivoError', "RotasUser:arquivoError");
 	$router->get('/telaError', "RotasUser:telaError");					
+	$router->get('/carrinho', "RotasUser:carrinho");					
 	$router->get('/imgs/{qual}', "RotasUser:imgs");		
 	$router->get('/scripts/{cont}/{qual}', "RotasUser:scripts");	
 

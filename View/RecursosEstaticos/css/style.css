@@ -666,6 +666,69 @@ textarea {
   flex-direction: column;
 }
 
+#sectionCar {
+  display: grid;
+  grid-template-areas: "divProdCar divFinalizaCompra";
+  gap: 20px;
+  margin: 20px;
+}
+
+.titleCars {
+  font-size: 1.5em;
+}
+
+.cardsCar {
+  display: flex;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.imgsCar {
+  width: 250px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.nomeProductCar {
+  font-size: 1.3em;
+}
+
+#divFinalizaCompra {
+  height: 13vh;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#divInfosFinaisPreco {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+#btnContinuar {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1em;
+  background-color: rgb(255, 255, 255);
+  color: #0c409a;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+}
+#btnContinuar:hover {
+  background-color: #2460c9;
+}
+#btnContinuar:hover {
+  background-color: rgb(255, 255, 255);
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }
@@ -721,11 +784,22 @@ header a:hover {
   color: #0c409a;
 }
 
+main {
+  min-height: 100vh;
+}
+
 footer {
   color: rgb(255, 255, 255);
   padding: 10px 0px;
   background-color: rgb(0, 0, 0);
   text-align: center;
 }
+
+/*.footer {
+    position: fixed;
+     bottom: 0;
+      width: 100%;
+       margin-top: 30px;
+}*/
 
 /*# sourceMappingURL=style.css.map */
