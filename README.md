@@ -129,3 +129,7 @@ _________
 
 > Back-end
 > > Camada de tratamento de erros no sistema de cadastro/consulta de produtos
+
+5º semana
+> Grupo
+> > Organização da Pré apresentação
