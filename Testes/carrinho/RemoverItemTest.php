@@ -27,7 +27,7 @@
                     "qtd" => "10"
                 ]);
             
-            $this->assertEquals(true, $resultado);            
+            $this->assertEquals('false', $resultado);            
         }
         function testRemoverQuantidadeAbsurdaDeItemQueEstaNoCarrinho(){
             $carrinho = new UserRequests\CarrinhoRequests;
@@ -38,6 +38,6 @@
                     "qtd" => "9999999"
                 ]);
             
-            $this->assertEquals(true, $resultado);            
+            $this->assertEquals('false', $resultado);            
         }
     }

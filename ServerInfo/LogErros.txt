@@ -305,3 +305,21 @@
 <<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
 <<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
 <<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":110}]"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":110}]"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"carrinho em json do cara","mensagem":"[]"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:50","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"carrinho em json do cara","mensagem":"[]"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"carrinho em json do cara","mensagem":"[]"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"carrinho em json do cara","mensagem":"[]"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:56","onde":"banco salvado","mensagem":"1"}

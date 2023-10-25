@@ -17,9 +17,7 @@
 					$carrinhos = CB::getConexao()->prepare($this->query);
 					$carrinhos->execute([$this->idUsuario]);					
 					$retorno = $carrinhos->fetchAll();
-					$GLOBALS['ERRO']->setErro("consulta do carrinho do home1", $retorno);
 					if($retorno != []) $retorno = json_decode($retorno[0]['Carrinho']);
-					$GLOBALS['ERRO']->setErro("consulta do carrinho do home2", $retorno);
 				CB::getConexao()->commit();
 			}
 			catch(\Exception|\PDOException $e){
@@ -37,7 +35,6 @@
 		}		
 		function getResposta(){
 			if(empty($this->carrinho)) $this->carrinho = $this->consultarBanco();
-			$GLOBALS['ERRO']->setErro("consulta do carrinho do home3", $this->carrinho);
 			return $this->carrinho;
 		}
 	}
