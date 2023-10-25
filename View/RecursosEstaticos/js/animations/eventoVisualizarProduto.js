@@ -9,3 +9,4 @@ divDescription.addEventListener('click', () => {
         descriptionProduct.style.display = 'none'
     }
 })
+
