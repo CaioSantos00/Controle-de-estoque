@@ -13,7 +13,9 @@
 			"insert into `carrinhosfinalizados`(`IdDono`, `Data`, `Conteudo`) values(?,?,?)"
 		];
 		function __construct(string $idUsuario){
-			$this->carrinho = (string) new CCarrinho($idUsuario);
+			$carrinho = new CCarrinho;
+			$carrinho->executar($idUsuario);
+			$this->carrinho = (string) $carrinho;
 			$this->idUsuario = $idUsuario;
 		}
 		private function executaQuery(string $query, array $parametros) :bool{

@@ -9,18 +9,14 @@
 	class LoginTest extends TestCase{
 		
 		public function testLoginCerto() :void{
-			$login = new Login("felipeluizmsouza@gmail.com","relinha123");
+			$login = new Login("felipeluizmsouza@gmail.com","relinha123", true);
 			$resultado = $login->getResposta();
-			
-			if(isset($_COOKIE['login']))
-				setcookie("login", $_COOKIE['login'],0);
-				
-			if(isset($_COOKIE['TipoConta'])) setcookie("TipoConta", $_COOKIE['TipoConta'],0);
+		
 			$this->assertSame("logou certinho", $resultado);
 		}
 		
 		public function testLoginErrado() :void{
-			$login = new Login("felipeluizmsouza@gmail.com","reli");
+			$login = new Login("felipeluizmsouza@gmail.com","reli", true);
 			$this->assertSame("usuario não encontrado", $login->getResposta());
 		}
 	}

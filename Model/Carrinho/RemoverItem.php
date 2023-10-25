@@ -1,10 +1,10 @@
 <?php
 	namespace App\Carrinho;
-
+	
 	use App\Carrinho\Consultar as CCarrinho;
 	use App\Carrinho\SalvarNovo as SNCarrinho;
 	use App\Interfaces\Model;
-
+	
 	class RemoverItem extends CCarrinho implements \Stringable{
 		private string $idVariacao;
 		private int $qtd;
@@ -49,8 +49,8 @@
 			$salvar = new SNCarrinho($carrinho, $this->idUsuario);
 			return $salvar->executar();
 		}
-		function getResposta():array{
-			return [$this->salvarNoBanco()];
+		function getResposta(){
+			return $this->salvarNoBanco();
 		}
 		function __toString(){
 			return json_encode($this->getResposta());

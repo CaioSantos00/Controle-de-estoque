@@ -24,7 +24,7 @@
 			}
 			return true;
 		}
-		function criarLinhaDeErro(string $onde, string $mensagem) :string{
+		function criarLinhaDeErro(string $onde, string|array $mensagem) :string{
 			$linhaDeErro = array(
 				"quando"	=> date('d-m-y \a\s h:i',strtotime('now')),
 				"onde"		=> $onde,
@@ -32,7 +32,7 @@
 			);
 			return self::SEPARADOR_DE_ERROS.json_encode($linhaDeErro)."\n";
 		}
-		function setErro(string $onde, string $mensagem){
+		function setErro(string $onde, string|array $mensagem){
 			if(!self::$logInstanciado) return;
 			$escrita = fwrite(
 				$this->logDeErros,

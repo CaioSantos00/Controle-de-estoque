@@ -1,6 +1,307 @@
-<<<>>>{"quando":"23-10-23 as 03:08","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"23-10-23 as 03:10","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"23-10-23 as 01:12","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"23-10-23 as 01:13","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"23-10-23 as 01:14","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
-<<<>>>{"quando":"23-10-23 as 01:20","onde":"cadastro classifica\u00e7\u00e3o","mensagem":"tentou cadastrar uma classifica\u00e7\u00e3o que j\u00e1 existe"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":50},{\"produto\":\"2\",\"quantidade\":1000}]","0":"[{\"produto\":\"1\",\"quantidade\":50},{\"produto\":\"2\",\"quantidade\":1000}]"}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":50},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":50},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":50},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":50},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":50},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]","0":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]"}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"item pra adicionar","mensagem":[]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado verificacao no banco","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado do delinquente","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]","0":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]"}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"item pra adicionar","mensagem":{"Qtd":"2500","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado verificacao no banco","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado do delinquente","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]","0":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]"}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":60},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":70},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":70},{\"produto\":\"2\",\"quantidade\":1000}]"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":70},{\"produto\":\"2\",\"quantidade\":1000}]","0":"[{\"produto\":\"1\",\"quantidade\":70},{\"produto\":\"2\",\"quantidade\":1000}]"}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":70},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":70},{"produto":"2","quantidade":1000}]}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":60},{\"produto\":\"2\",\"quantidade\":1000}]"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 12:59","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":60}]","0":"[{\"produto\":\"1\",\"quantidade\":60}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":60}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":60}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":60}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":60}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":60}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":70}]"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":70}]","0":"[{\"produto\":\"1\",\"quantidade\":70}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"item pra adicionar","mensagem":[]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado verificacao no banco","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado do delinquente","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":70}]","0":"[{\"produto\":\"1\",\"quantidade\":70}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"item pra adicionar","mensagem":{"Qtd":"2500","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado verificacao no banco","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado do delinquente","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":70}]","0":"[{\"produto\":\"1\",\"quantidade\":70}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":70}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":80}]}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":80}]"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:02","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":80}]","0":"[{\"produto\":\"1\",\"quantidade\":80}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":80}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":80}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":80}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":80}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":80}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":90}]"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":90}]","0":"[{\"produto\":\"1\",\"quantidade\":90}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"item pra adicionar","mensagem":[]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado verificacao no banco","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado do delinquente","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":90}]","0":"[{\"produto\":\"1\",\"quantidade\":90}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"item pra adicionar","mensagem":{"Qtd":"2500","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado verificacao no banco","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado do delinquente","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":90}]","0":"[{\"produto\":\"1\",\"quantidade\":90}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":90}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":100}]}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":100}]"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:03","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":100}]","0":"[{\"produto\":\"1\",\"quantidade\":100}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":100}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":100}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":100}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":100}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":100}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":110}]"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":110}]","0":"[{\"produto\":\"1\",\"quantidade\":110}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":[]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":110}]","0":"[{\"produto\":\"1\",\"quantidade\":110}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":{"Qtd":"2500","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":110}]","0":"[{\"produto\":\"1\",\"quantidade\":110}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":120}]"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":110}]"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":110}]","0":"[{\"produto\":\"1\",\"quantidade\":110}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":110}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":120}]"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":[]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"tentou adicionar no carrinho uma variacao que n\u00e3o existe"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":{"Qtd":"2500","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"tentou adicionar mais doque tem disponivel"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":130}]"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":130}]","0":"[{\"produto\":\"1\",\"quantidade\":130}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":120}]"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:05","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":130}]"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":130}]","0":"[{\"produto\":\"1\",\"quantidade\":130}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":120}]"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:13","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":130}]"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":130}]","0":"[{\"produto\":\"1\",\"quantidade\":130}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":120}]"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:21","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home4","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"item pra adicionar","mensagem":{"Qtd":"250","Disponibilidade":"1"}}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"resultado verificacao no banco","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"resultado do delinquente","mensagem":"ok"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"carrinho do delinquente","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"acao com o delinquente","mensagem":"incrementarItemExistente"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"resultado da acao com o delinquente","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":130}]"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"salvamento do banco","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":130}]","0":"[{\"produto\":\"1\",\"quantidade\":130}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":130}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"carrinho em json do cara","mensagem":"[{\"produto\":\"1\",\"quantidade\":120}]"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"id dele","mensagem":"6"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"banco salvado","mensagem":"1"}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home1","mensagem":[{"Carrinho":"[{\"produto\":\"1\",\"quantidade\":120}]","0":"[{\"produto\":\"1\",\"quantidade\":120}]"}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home2","mensagem":[{"produto":"1","quantidade":120}]}
+<<<>>>{"quando":"25-10-23 as 01:30","onde":"consulta do carrinho do home3","mensagem":[{"produto":"1","quantidade":120}]}

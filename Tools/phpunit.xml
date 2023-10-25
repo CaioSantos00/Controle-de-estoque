@@ -7,5 +7,13 @@
 		<testsuite name="classificacoes">
 			<directory>Testes/classificacoes</directory>			
 		</testsuite>
+		<testsuite name="carrinhoGeral">
+			<file>Testes/carrinho/CarrinhoTest.php</file>
+		</testsuite>		
+		<testsuite name="adicionarItemCarrinho">
+			<file>Testes/carrinho/AdicionarItemTest.php</file>
+		</testsuite>
+		<testsuite name="removerItemCarrinho">
+		</testsuite>
 	</testsuites>
 </phpunit>

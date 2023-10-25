@@ -8,8 +8,10 @@
         private array $dadosLogin;
         private string $query;
         private string $resposta;
+        private bool $testando = false;
         
-        function __construct(string $email, string $senha){
+        function __construct(string $email, string $senha, bool $testando = false){
+            $this->testando = $testando;
             $this->dadosLogin = [$email,$senha];
             $this->query = "
                 Select
@@ -42,10 +44,9 @@
             }            
         }
         private function setLoginCookie() :string{
-			//cookie login setcookie('login', bin2hex($this->dadosLogin[0]['Id']), time()+60*60*24*30,'/','localhost')
-			//cookie adm setcookie('TipoConta', bin2hex($this->dadosLogin[0]['TipoConta']), time()+60*60*24*30,'/','localhost');
-            if(true){
-                if($this->dadosLogin[0]['TipoConta'] != "0") echo "é adm";
+            if($this->testando) return "logou certinho";
+            if(setcookie('login', bin2hex($this->dadosLogin[0]['Id']), time()+60*60*24*30,'/','localhost')){
+                if($this->dadosLogin[0]['TipoConta'] != "0") setcookie('TipoConta', bin2hex($this->dadosLogin[0]['TipoConta']), time()+60*60*24*30,'/','localhost');
                 return "logou certinho";
             }
             return "Usuario logado, mas sem cookie settado, gerir no JS";            

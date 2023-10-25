@@ -22,20 +22,25 @@
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->edicao([
 			"paraEditar" 	=> "coisas",
-			"novoValor" 	=> "dahora"
+			"novoValor" 	=> "coisado"
 			]);
 			
 			$this->assertEquals("tudo certo", $saida);
 		}
-		public function testExcluirClassificacao() :void{
-			$teste = new ClassificacoesRequests();
-			$saida = $teste->excluir(["paraExcluir"=>"dahora"]);			
-			$this->assertEquals("tudo certo", $saida);			
-		}
 		public function testRetornarTodasClassificacoes() :void{
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->consultar([]);
-			$this->assertEquals(json_encode(["dahora"]), (string) $saida);
+			$this->assertEquals(json_encode(["coisado"]), (string) $saida);
+		}		
+		public function testExcluirClassificacao() :void{
+			$teste = new ClassificacoesRequests();
+			$saida = $teste->excluir(["paraExcluir"=>"coisado"]);			
+			$this->assertEquals("tudo certo", $saida);			
+		}
+		public function testRetornarNovamenteTodasClassificacoes() :void{
+			$teste = new ClassificacoesRequests();
+			$saida = $teste->consultar([]);
+			$this->assertEquals(json_encode([]), (string) $saida);
 		}
 		public function testAtualizarArquivo() :void{			
 			$teste = new ClassificacoesRequests();
