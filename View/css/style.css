@@ -842,6 +842,153 @@ textarea {
   border-radius: 5px;
 }
 
+@media screen and (max-width: 1300px) {
+  #sectionCar {
+    margin: 20px 200px;
+  }
+}
+@media screen and (max-width: 1117px) {
+  #sectionCar {
+    margin: 20px 150px;
+  }
+}
+@media screen and (max-width: 1117px) {
+  #sectionCar {
+    margin: 20px 80px;
+  }
+}
+@media screen and (max-width: 902px) {
+  .cardsProdu {
+    width: 180px;
+  }
+  .divImgProdu {
+    width: 180px;
+  }
+  .divImgProdu img {
+    width: 180px;
+  }
+}
+@media screen and (max-width: 601px) {
+  #sectionCar {
+    margin: 20px 60px;
+  }
+  .titleCars {
+    font-size: 1em;
+  }
+  .nomeProductCar {
+    font-size: 1em;
+  }
+  .divBtnsCar {
+    display: flex;
+    flex-direction: column;
+  }
+  .imgsCar {
+    width: 70px;
+  }
+  .titleMaisProdutos {
+    display: none;
+  }
+  #sectionProducts {
+    display: none;
+  }
+}
+#divInfoEndereco {
+  box-shadow: 0px 0px 10px 2px grey;
+  border-radius: 5px;
+  padding: 20px 20px 5px;
+}
+
+.titleEndereco {
+  font-size: 1.5em;
+}
+
+#formCadasterEndereco {
+  margin: 20px 0px;
+}
+
+.holdInputsInfos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputsEndereco {
+  margin: 5px 0px;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid #0c409a;
+  font-size: 1em;
+  padding: 3px;
+}
+
+.numberInput {
+  width: 80px;
+  border-radius: 5px;
+  border: 2px solid #0c409a;
+  font-size: 1em;
+  padding: 3px;
+}
+
+#btnSalvarEndere {
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+}
+#btnSalvarEndere:hover {
+  background-color: #2460c9;
+}
+
+#infosFinaisEndereco {
+  box-shadow: 0px 0px 10px 2px grey;
+  border-radius: 5px;
+  padding: 20px 20px 5px;
+}
+
+.holdInfosEnd {
+  display: flex;
+  gap: 10px;
+}
+
+#infosEnd {
+  margin: 10px;
+}
+
+#enderecoCompleto {
+  display: flex;
+  gap: 3px;
+}
+
+#divTitleEdit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#newEnde {
+  font-size: 1em;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#newEnde:hover {
+  background-color: #2460c9;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
 }

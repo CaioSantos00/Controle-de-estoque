@@ -1,0 +1,31 @@
+#infosFinaisEndereco {
+    box-shadow: 0px 0px 10px 2px grey;
+    border-radius: 5px;
+    padding: 20px 20px 5px;
+}
+
+.holdInfosEnd {
+    display: flex;
+    gap: 10px;
+}
+
+#infosEnd {
+    margin: 10px;
+}
+
+#enderecoCompleto {
+    display: flex;
+    gap: 3px;
+}
+
+#divTitleEdit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#newEnde {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    width: 100%;
+    margin-bottom: 10px;
+}
