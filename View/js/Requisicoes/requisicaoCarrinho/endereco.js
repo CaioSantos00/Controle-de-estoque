@@ -20,8 +20,10 @@ async function loadEndereco() {
     bairroEndereco.innerText = respostaBusca.endereco.bairro
     estadoEndereco.innerText = respostaBusca.endereco.estado
     cityEndereco.innerText = respostaBusca.endereco.cidade
-    } catch {
-        console.log('Erro')
+
+    //localStorage.setItem("nome", respostaBusca.nome)
+    } catch (qualErro){
+        console.log('Erro' + qualErro)
     }
 }
 
