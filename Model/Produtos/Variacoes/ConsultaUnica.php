@@ -2,19 +2,17 @@
 	namespace App\Produtos\Variacoes;
 	
 	use App\Servicos\Conexao\ConexaoBanco as CB;
-	use App\Interfaces\ServicoInterno as SI;
+	use App\Interfaces\ServicoInterno as ServicoInterno;
 	
-	class ConsultaUnica implements SI{
+	class ConsultaUnica implements ServicoInterno{
 		private string $idVariacao;
 		private array $dadosParaBuscar;
-		private string $query = "select >>><<< from `Produtosecundario` where `Id` = ";
+		private string $query = "select >>><<< from `Produtosecundario` where `Id` = ?";
 		function __construct(string $idVariacao, array $dadosParaBuscar){
 			$this->idVariacao = $idVariacao;
 			$this->dadosParaBuscar = $dadosParaBuscar;
 		}
 		private function prepararQuery() :string{
-			$this->query .= CB::getConexao()->quote($this->idVariacao);
-			
 			if($this->dadosParaBuscar[0] == "*") return str_replace(">>><<<","*",$this->query);
 			$parametros = "";
 			foreach($this->dadosParaBuscar as $dado){	
@@ -27,12 +25,13 @@
 			try{
 				$resultados = [];
 				CB::getConexao()->beginTransaction();
-					$resultados = CB::getConexao()->query($this->prepararQuery());
+					$resultados = CB::getConexao()->prepare($this->prepararQuery());
+					$resultados->execute([$this->idVariacao]);
 					$resultados = $resultados->fetchAll();
 				CB::getConexao()->commit();
 			}
 			catch(\Exception|\PDOException $e){
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
+				CB::voltaTudo();
 				$GLOBALS['ERRO']->setErro("Consulta variação", "na consulta de dados da variação {$this->idVariacao}, {$e->getMessage()}");
 				$resultados = [];
 			}

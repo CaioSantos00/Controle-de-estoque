@@ -5,6 +5,7 @@
 	use App\Carrinho\RemoverItem;
 	use App\Carrinho\Consultar;
 	use App\Carrinho\Finalizar;
+	use App\Produtos\Variacoes\ConsultaMultipla as CUVariacoes;
 	
 	class CarrinhoRequests{
 		//function __construct(){
@@ -17,7 +18,6 @@
 				$data['idVariacao'],
 				$data['qtd']
 			);
-			
 		}
 		function removerItem($data){
 			return (string) new RemoverItem(
@@ -27,13 +27,21 @@
 			);
 		}
 		function consultar($data){
-			$carrinho =  new Consultar;
-			$carrinho->executar(hex2bin($data['login']));
-			return (string) $carrinho;
+			$carrinho = new Consultar;
+			$consulta = new CUVariacoes();
+			
+			$carrinho = ($carrinho->executar(hex2bin($data['login'])))->getResposta();
+			
+			$retorno = [];
+			foreach($carrinho as $item){
+				$consulta->idVariacao = $item->produto;
+				$retorno[] = $consulta->executar();
+			}
+			return json_encode($retorno);
 		}
 		function finalizar($data){
 			return (string) Finalizar(
-				hex2bin($data['login'])
+				$data['login']
 			);
 		}
 	}

@@ -16,5 +16,11 @@
 			}
 			return ConexaoBanco::$Conexao;
 		}
+		public static function voltaTudo(){
+			if(ConexaoBanco::$Conexao->inTransaction()){
+				ConexaoBanco::$Conexao->rollBack();
+				ConexaoBanco::$Conexao->commit();
+			}
+		}
 	}
 ?>
