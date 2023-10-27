@@ -10,6 +10,7 @@ let nomeCompleto = document.getElementById('nomeCompleto'),
     numero = document.getElementById('numero'),
     btnSalvarEndere = document.getElementById('btnSalvarEndere')
 
+
 async function editEndereco() {
     const resposta = await fetch('http://localhost/Sites/Repositorios/tcc/Sistema-de-pedidos-TCC/View/js/jsonEndereco.json')
     if (!resposta.ok) {
@@ -24,6 +25,7 @@ async function editEndereco() {
     bairro.value = respostaBusca.endereco.bairro
     estado.value = respostaBusca.endereco.estado
     cidade.value = respostaBusca.endereco.cidade
+    cep.value = respostaBusca.endereco.cep
     } catch (errorQual) {
         console.log('Erro' + errorQual)
     }
