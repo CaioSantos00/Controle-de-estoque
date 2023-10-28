@@ -29,3 +29,32 @@
     width: 100%;
     margin-bottom: 10px;
 }
+
+#divProductsFinais {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px 2px grey;
+    border-radius: 5px;
+    padding: 20px 20px 5px;
+    margin: 20px 0px;
+}
+
+#divProdCar {
+    margin: 10px 0px;
+}
+
+#precoTotalFim {
+    color: $corPrimaria;
+}
+
+#divInformacoesFinais {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    font-size: 1.2em;
+}
+
+#btnFim {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+}

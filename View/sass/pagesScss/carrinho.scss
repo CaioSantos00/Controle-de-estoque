@@ -56,17 +56,20 @@
     border-bottom: 2px solid $corSecundaria;
 }
 
-#btnContinuar {
-    width: 50%;
+a #btnCon {
+    width: 100%;
+    margin: 5px 0px;
     @include buttons(1em, $corSecundaria, $corPrimaria);
+    padding: 4px;
     &:hover {
         background-color: $corSecundaria;
     }
 }
 
 #btnCancelarCompra {
-    width: 50%;
+    width: 100%;
     @include buttons(1em, $btnsCancel, $corSecundaria);
+    padding: 4px;
     &:hover {
         background-color: rgb(255, 100, 100);
     }
@@ -88,6 +91,7 @@
 }
 
 .btnExcluCar {
+    width: 100%;
     @include buttons(1em, $btnsCancel, $corSecundaria);
     padding: 6px;
     &:hover {
@@ -95,26 +99,15 @@
     }
 }
 
-.qtdMaisMenosCar {
-    display: flex;
-    align-items: center;
-    border: 2px solid  $corSecundaria;
+.qtdInputs {
+    width: 100%;
+    width: 60px;
     border-radius: 5px;
-}
-
-.qtdValueCar {
-    margin: 0px 5px;
-}
-
-.btnsQtdsCar {
-    background-color: $corSecundaria;
+    padding: 3px;
     border: none;
-    padding: 5px 5px;
 }
 
 #divHoldBtnsFim {
-    display: flex;
-    gap: 10px;
     margin-top: 10px;
 }
 
@@ -190,6 +183,9 @@
     .nomeProductCar {
         font-size: 1em;
     }
+    .precoCar {
+        font-size: 1em;
+    }
     .divBtnsCar {
         display: flex;
         flex-direction: column;
@@ -202,5 +198,30 @@
     }
     #sectionProducts {
         display: none;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    #sectionCar {
+        margin: 20px 20px;
+    }
+    .titleCars {
+        font-size: 0.9em;
+    }
+    .nomeProductCar {
+        font-size: 0.9em;
+    }
+    
+    .precoCar {
+        font-size: 0.9em;
+    }
+    
+    .btnExcluCar {
+        font-size: 0.9em;
+        padding: 4px;
+        &:hover {
+            background-color: rgb(253, 64, 64);
+        }
     }
 }
