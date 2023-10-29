@@ -11,6 +11,7 @@
   margin: 1vw;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 #titleOrcamento {
@@ -94,7 +95,6 @@
 
 #divConhecaInit {
   width: 100%;
-  height: 74vh;
   background-image: url("../imgs/fundo2.jpg");
   background-size: cover;
   color: rgb(255, 255, 255);
@@ -116,6 +116,10 @@
 }
 #btnVenha:hover {
   background-color: #0c409a;
+}
+
+#linkBtn {
+  width: 250px;
 }
 
 #divConhecaProdutos {
@@ -1046,6 +1050,140 @@ a #btnCon:hover {
   background-color: #2460c9;
 }
 
+@media screen and (max-width: 1115px) {
+  #divCardInit {
+    gap: 10px;
+  }
+  .cardInit {
+    width: 200px;
+    padding: 15px;
+  }
+  .divIcon {
+    width: 30px;
+    height: 30px;
+  }
+  .iconAndTitle {
+    gap: 5px;
+    font-size: 1.2em;
+  }
+  .textCardInit {
+    font-size: 1em;
+  }
+  .btnCardInit {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 1em;
+    background-color: #0c409a;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: 0;
+    transition: 0.5s;
+  }
+  .btnCardInit:hover {
+    background-color: #2460c9;
+  }
+}
+@media screen and (max-width: 740px) {
+  .cardInit {
+    width: 160px;
+    padding: 10px;
+  }
+  .divIcon {
+    width: 25px;
+    height: 25px;
+  }
+  .iconAndTitle {
+    font-size: 1em;
+  }
+  .textCardInit {
+    display: none;
+  }
+  .btnCardInit {
+    margin-top: 6px;
+    padding: 5px;
+  }
+  #divOrca {
+    margin: 2vw;
+  }
+  #titleOrcamento {
+    font-size: 1.3em;
+  }
+  #btnOrca {
+    padding: 6px;
+  }
+  #btnOrca svg {
+    width: 20px;
+    height: 20px;
+  }
+  #fotoInit {
+    height: 60vh;
+  }
+}
+@media screen and (max-width: 625px) {
+  #divCardInit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 50px;
+  }
+  .cardInit {
+    width: auto;
+  }
+  .iconAndTitle {
+    font-size: 1.3em;
+  }
+  .divIcon {
+    width: 30px;
+    height: 30px;
+  }
+  .textCardInit {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  #divOrca {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 30px;
+  }
+  #titleOrcamento {
+    font-size: 1.4em;
+  }
+  #btnOrca {
+    font-size: 1.3em;
+    padding: 8px;
+  }
+  #fotoInit {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 420px) {
+  #divCardInit {
+    margin: 20px 30px;
+  }
+  #titleOrcamento {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  #btnOrca {
+    font-size: 1.1em;
+    padding: 8px;
+  }
+  #fotoInit {
+    height: 35vh;
+  }
+  #textMarkInit {
+    font-size: 1.4em;
+  }
+  #btnVenha {
+    font-size: 1em;
+    padding: 6px;
+  }
+}
 ::-webkit-scrollbar {
   width: 2px;
 }
