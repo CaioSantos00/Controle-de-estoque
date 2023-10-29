@@ -16,5 +16,8 @@
 		<testsuite name="removerItemCarrinho">
 			<file>Testes/carrinho/RemoverItemTest.php</file>
 		</testsuite>
+		<testsuite name="consultarCarrinho">
+			<file>Testes/carrinho/ConsultarTest.php</file>
+		</testsuite>
 	</testsuites>
 </phpunit>

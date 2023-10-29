@@ -20,7 +20,8 @@
 			$this->idUsuario = $idUsuario;
 			$this->consultaMultipla = new CMVariacoes(false, true);
 			
-			$this->carrinho = (new CCarrinho)->executar($idUsuario);
+			$this->carrinho = new CCarrinho;
+			$this->carrinho->executar($idUsuario);
 		}
 		private function executaQuery(string $query, array $parametros) :bool{
 			try{
@@ -46,10 +47,11 @@
 		private function verificacaoItemUnico(\stdClass $item) :bool|string{
 			$this->consultaMultipla->idVariacao = $item->produto;
 			$dadosItem = $this->consultaMultipla->executar();
+			$GLOBALS['ERRO']->setErro("finalizar", json_encode($item));
 			if(is_bool($dadosItem)) throw new \Exception("não preparou a consulta");
 			return match(true){
-				($dadoItem['qtd'] < $item->qtd) => "tentou pedir mais doque tem",
-				($dadoItem['disponibilidade'] == "0") => "produto indisponivel",
+				($dadosItem[0]["qtd"] < $item->quantidade) => "tentou pedir mais doque tem",
+				($dadosItem[0]["disponibilidade"] == "0") => "produto indisponivel",
 				default => true
 			};
 		}

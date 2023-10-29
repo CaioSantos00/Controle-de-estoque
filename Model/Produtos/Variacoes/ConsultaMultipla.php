@@ -8,35 +8,36 @@
         private \PDOStatement $queryPreparada;
         public string $idVariacao;
         private string $queryString = 'select `parentId`, `especificacoes`, `preco/peca`, `qtd` from `produtosecundario` where `Id` = ?';
-        private array $condicoesQuery = [
-            "temQuery" => false,
-            "tentouInstanciar" => false
-        ];
+        private \stdClass $condicoesQuery;
         function __construct(bool $soDisponiveis = true, bool $getDisponibilidades = false){
             if($soDisponiveis) $this->queryString .= " and `disponibilidade` = 1";
-            if($getDisponibilidades) $this->queryString[57] = ",`disponibilidade`";
+            if($getDisponibilidades) $this->queryString = str_replace("`qtd`","`qtd`,`disponibilidade`", $this->queryString);
+            $this->condicoesQuery = new \stdClass;
+                $this->condicoesQuery->temQuery = false;
+                $this->condicoesQuery->tentouInstanciar = false;
         }
         private function preparaQuery(bool $disponiveis = true, bool $getDisponiveis = false){
-            if($this->condicoesQuery["tentouInstanciar"]) return;
             try{
+                if($this->condicoesQuery->tentouInstanciar) return;
+                
                 CB::getConexao()->beginTransaction();
                     $query = CB::getConexao()->prepare($this->queryString);
                     if(is_bool($query)) throw new \Exception("falhou quando foi preparar query");
                     $this->queryPreparada = $query;
-                    $this->condicoesQuery["temQuery"] = true;
+                    $this->condicoesQuery->temQuery = true;
                 CB::getConexao()->commit();
             }
             catch(\Exception|\PDOException $e){
                 CB::voltaTudo();
                 $GLOBALS['ERRO']->setErro("consulta multipla", $e->getMessage());
-                $this->condicoesQuery["tentouInstanciar"] = true;
+                $this->condicoesQuery->tentouInstanciar = true;
                 throw new \Exception("não preparou a query");
             }
         }
         function executar(){
             try{
                 $dados = false;
-                if(!$this->temQuery) $this->preparaQuery();
+                if(!$this->condicoesQuery->temQuery) $this->preparaQuery();
                 $this->queryPreparada->execute([$this->idVariacao]);
                 $dados = $this->queryPreparada->fetchAll();
             }

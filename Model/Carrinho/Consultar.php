@@ -7,16 +7,18 @@
 	class Consultar implements Model, \Stringable{
 		private string $query = "select `Carrinho` from `usuario` where `Id` = ?";
 		protected string $idUsuario;
-		private array $carrinho;		
+		private array $carrinho;
 		function executar(string $idUsuario){
 			$this->idUsuario = $idUsuario;
+			if(empty($this->carrinho)) $this->carrinho = $this->consultarBanco();
 		}
 		private function consultarBanco() :array{
-			try{				
+			try{
+				$retorno = [];
 				CB::getConexao()->beginTransaction();
 					$carrinhos = CB::getConexao()->prepare($this->query);
-					$carrinhos->execute([$this->idUsuario]);					
-					$retorno = $carrinhos->fetchAll();
+					if($carrinhos->execute([$this->idUsuario]) != 0)
+						$retorno = $carrinhos->fetchAll();
 					if($retorno != []) $retorno = json_decode($retorno[0]['Carrinho']);
 				CB::getConexao()->commit();
 			}
@@ -32,9 +34,8 @@
 		}
 		function __toString(){
 			return json_encode($this->getResposta());
-		}		
+		}
 		function getResposta(){
-			if(empty($this->carrinho)) $this->carrinho = $this->consultarBanco();
 			return $this->carrinho;
 		}
 	}

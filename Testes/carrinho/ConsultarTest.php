@@ -9,7 +9,9 @@
     class ConsultarTest extends TestCase{
         
         function testConsultaNormal(){
-            $consulta = (new Consultar())->executar("6");
+            $consulta = new Consultar;
+            $consulta->executar("36");
             
+            $this->assertEquals((string) $consulta, "[]");
         }
     }

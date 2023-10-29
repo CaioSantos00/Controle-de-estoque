@@ -8,19 +8,15 @@
 		private string $carrinhoParaSalvar;
 		private string $idUsuario;
 		private string $query = "update `Usuario` set `Carrinho` = ? where `Id` = ?";
-		function __construct(array $carrinhoParaSalvar, string $idUsuario){
-			$this->carrinhoParaSalvar = json_encode($carrinhoParaSalvar);
-			$GLOBALS['ERRO']->setErro("carrinho em json do cara", $this->carrinhoParaSalvar);
-			$GLOBALS['ERRO']->setErro("id dele", $idUsuario);
-			$this->idUsuario = $idUsuario;
+		function __construct(array $carrinhoParaSalvar, int|string $idUsuario){
+			$this->carrinhoParaSalvar = json_encode($carrinhoParaSalvar);			
+			$this->idUsuario = (string) $idUsuario;
 		}
 		private function salvarNoBanco() :bool{
 			try{
 				CB::getConexao()->beginTransaction();
 					$resultado = CB::getConexao()->prepare($this->query)->execute([$this->carrinhoParaSalvar, $this->idUsuario]);
-				CB::getConexao()->commit();
-
-				$GLOBALS['ERRO']->setErro("banco salvado", $resultado);
+				CB::getConexao()->commit();				
 				switch(true){
 					case $resultado === false;
 						throw new \Exception("não ocorreu a query");
