@@ -25,7 +25,7 @@
                     "qtd" => "50"
                 ]);
 
-            $this->assertEquals("1", $resultado);
+            $this->assertEquals("1", $resultado);   
         }
         function testRemoverItem(){
             $carrinho = new UserRequests\CarrinhoRequests;
@@ -54,5 +54,6 @@
             $carrinho = new SalvarNovo([], $this->idUsuario);
             
             $this->assertEquals(true, $carrinho->executar());
-        }        
+        }       
+        
     }

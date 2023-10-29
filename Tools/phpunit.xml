@@ -18,6 +18,12 @@
 		</testsuite>
 		<testsuite name="consultarCarrinho">
 			<file>Testes/carrinho/ConsultarTest.php</file>
+        </testsuite>
+        <testsuite name="finalizarCarrinho">
+            <file>Testes/carrinho/finalizarTest.php</file>
+        </testsuite>
+		<testsuite name="adicionarEndereco">
+			<file>Testes/enderecos/CadastrarTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
