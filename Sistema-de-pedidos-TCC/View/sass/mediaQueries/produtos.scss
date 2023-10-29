@@ -1,0 +1,40 @@
+@media screen and (max-width: 1200px) {
+    #sectionProducts {
+        grid-template-areas: 'cardsProdu cardsProdu cardsProdu';
+    }
+
+    .cardsProdu {
+        width: 180px;
+    }
+    
+    .divImgProdu {
+        width: 180px;
+        img {
+            width: 180px;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #sectionProducts {
+        grid-template-areas: 'cardsProdu cardsProdu';
+    }
+}
+
+
+@media screen and (max-width: 455px) {
+    #sectionProducts {
+        grid-template-areas: 'cardsProdu';
+    }
+
+    .cardsProdu {
+        width: 250px;
+    }
+    
+    .divImgProdu {
+        width: 250px;
+        img {
+            width: 250px;
+        }
+    }
+}

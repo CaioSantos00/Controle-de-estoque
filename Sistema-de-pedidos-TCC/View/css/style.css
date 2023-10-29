@@ -822,10 +822,6 @@ a #btnCon:hover {
   font-size: 1.4em;
 }
 
-#sectionProducts {
-  display: flex;
-}
-
 .cardsProdu {
   width: 250px;
 }
@@ -839,80 +835,6 @@ a #btnCon:hover {
   border-radius: 5px;
 }
 
-@media screen and (max-width: 1300px) {
-  #sectionCar {
-    margin: 20px 200px;
-  }
-}
-@media screen and (max-width: 1117px) {
-  #sectionCar {
-    margin: 20px 150px;
-  }
-}
-@media screen and (max-width: 1117px) {
-  #sectionCar {
-    margin: 20px 80px;
-  }
-}
-@media screen and (max-width: 902px) {
-  .cardsProdu {
-    width: 180px;
-  }
-  .divImgProdu {
-    width: 180px;
-  }
-  .divImgProdu img {
-    width: 180px;
-  }
-}
-@media screen and (max-width: 601px) {
-  #sectionCar {
-    margin: 20px 60px;
-  }
-  .titleCars {
-    font-size: 1em;
-  }
-  .nomeProductCar {
-    font-size: 1em;
-  }
-  .precoCar {
-    font-size: 1em;
-  }
-  .divBtnsCar {
-    display: flex;
-    flex-direction: column;
-  }
-  .imgsCar {
-    width: 70px;
-  }
-  .titleMaisProdutos {
-    display: none;
-  }
-  #sectionProducts {
-    display: none;
-  }
-}
-@media screen and (max-width: 420px) {
-  #sectionCar {
-    margin: 20px 20px;
-  }
-  .titleCars {
-    font-size: 0.9em;
-  }
-  .nomeProductCar {
-    font-size: 0.9em;
-  }
-  .precoCar {
-    font-size: 0.9em;
-  }
-  .btnExcluCar {
-    font-size: 0.9em;
-    padding: 4px;
-  }
-  .btnExcluCar:hover {
-    background-color: rgb(253, 64, 64);
-  }
-}
 #divInfoEndereco {
   box-shadow: 0px 0px 10px 2px grey;
   border-radius: 5px;
@@ -1182,6 +1104,99 @@ a #btnCon:hover {
   #btnVenha {
     font-size: 1em;
     padding: 6px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  #sectionCar {
+    margin: 20px 200px;
+  }
+}
+@media screen and (max-width: 1117px) {
+  #sectionCar {
+    margin: 20px 150px;
+  }
+}
+@media screen and (max-width: 1117px) {
+  #sectionCar {
+    margin: 20px 80px;
+  }
+}
+@media screen and (max-width: 601px) {
+  #sectionCar {
+    margin: 20px 60px;
+  }
+  .titleCars {
+    font-size: 1em;
+  }
+  .nomeProductCar {
+    font-size: 1em;
+  }
+  .precoCar {
+    font-size: 1em;
+  }
+  .divBtnsCar {
+    display: flex;
+    flex-direction: column;
+  }
+  .imgsCar {
+    width: 70px;
+  }
+  .titleMaisProdutos {
+    display: none;
+  }
+}
+@media screen and (max-width: 420px) {
+  #sectionCar {
+    margin: 20px 20px;
+  }
+  .titleCars {
+    font-size: 0.9em;
+  }
+  .nomeProductCar {
+    font-size: 0.9em;
+  }
+  .precoCar {
+    font-size: 0.9em;
+  }
+  .btnExcluCar {
+    font-size: 0.9em;
+    padding: 4px;
+  }
+  .btnExcluCar:hover {
+    background-color: rgb(253, 64, 64);
+  }
+}
+@media screen and (max-width: 1200px) {
+  #sectionProducts {
+    grid-template-areas: "cardsProdu cardsProdu cardsProdu";
+  }
+  .cardsProdu {
+    width: 180px;
+  }
+  .divImgProdu {
+    width: 180px;
+  }
+  .divImgProdu img {
+    width: 180px;
+  }
+}
+@media screen and (max-width: 700px) {
+  #sectionProducts {
+    grid-template-areas: "cardsProdu cardsProdu";
+  }
+}
+@media screen and (max-width: 455px) {
+  #sectionProducts {
+    grid-template-areas: "cardsProdu";
+  }
+  .cardsProdu {
+    width: 250px;
+  }
+  .divImgProdu {
+    width: 250px;
+  }
+  .divImgProdu img {
+    width: 250px;
   }
 }
 ::-webkit-scrollbar {

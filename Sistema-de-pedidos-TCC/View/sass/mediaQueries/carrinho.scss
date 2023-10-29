@@ -1,0 +1,70 @@
+
+@media screen and (max-width:1300px) {
+    #sectionCar {
+        margin: 20px 200px;
+    }
+}
+
+
+@media screen and (max-width:1117px) {
+    #sectionCar {
+        margin: 20px 150px;
+    }
+}
+
+
+@media screen and (max-width:1117px) {
+    #sectionCar {
+        margin: 20px 80px;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    #sectionCar {
+        margin: 20px 60px;
+    }
+    .titleCars {
+        font-size: 1em;
+    }
+    .nomeProductCar {
+        font-size: 1em;
+    }
+    .precoCar {
+        font-size: 1em;
+    }
+    .divBtnsCar {
+        display: flex;
+        flex-direction: column;
+    }
+    .imgsCar {
+        width: 70px;
+    }
+    .titleMaisProdutos {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    #sectionCar {
+        margin: 20px 20px;
+    }
+    .titleCars {
+        font-size: 0.9em;
+    }
+    .nomeProductCar {
+        font-size: 0.9em;
+    }
+    
+    .precoCar {
+        font-size: 0.9em;
+    }
+    
+    .btnExcluCar {
+        font-size: 0.9em;
+        padding: 4px;
+        &:hover {
+            background-color: rgb(253, 64, 64);
+        }
+    }
+}
