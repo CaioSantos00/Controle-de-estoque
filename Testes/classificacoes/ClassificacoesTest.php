@@ -6,6 +6,12 @@
 	use \PHPUnit\Framework\TestCase;
 	
 	class ClassificacoesTest extends TestCase{
+		public function limpaArquivo() {
+			$this->testAtualizarArquivo();
+			$teste = new ClassificacoesRequests();
+			$saida = $teste->consultar([]);
+			$this->assertEquals(json_encode([]), (string) $saida);
+		}
 		public function testCadastrarNova() :void{
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->cadastrar(["nome"=>"coisas"]);
