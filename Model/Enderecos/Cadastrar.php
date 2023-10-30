@@ -10,8 +10,8 @@
         protected array $dadosEndereco;
         public array $dadosVerificar = [];
 		private string $query = "insert into `enderecos`
-		(`IdDono`,  `nomeEndereco`, `Cep`, `Cidade`, `Rua`, `Bairro`, `Numero`,
-		`DataCriacao`, `InstrucoesEntrega`, `dataModificacao`)
+		(`iddono`,  `nomeendereco`, `cep`, `cidade`, `rua`, `bairro`, `numero`,
+		`datacriacao`, `instrucoesentrega`, `datamodificacao`)
 		values(?,?,?,?,?,?,?,?,?,?)";
 		
 		function __construct(string $idDono, string $nomeEndereco, array $dadosEndereco){
@@ -21,43 +21,53 @@
 			
 
 		}
-		private function trataDadosRecebidos(){
+		private function trataDadosRecebidos() :bool{
             array_walk($this->dadosEndereco,'trim'); //remove espaços em branco envolta de todas as strings
 
-            if(preg_match("/[0-9]{5}-[0-9]{3}/", $this->dadosEndereco['Cep']) === false){
+            $dadosErrados = false;
+            if(preg_match("/[0-9]{5}-[0-9]{3}/", $this->dadosEndereco["Cep"]) === 0){
                 $this->dadosVerificar[] = "Cep";
-            }                    
-            
+                $dadosErrados = true;
+            }                                
+
             if(preg_match("/[0-9]+/", $this->dadosEndereco['Cidade']) === 1){
-                $this->dadosVerificar[] = 'Cidade';
-            }
-            
+
+                $this->dadosVerificar[] = "Cidade";                
+                $dadosErrados = true;
+            }            
+
+            array_walk($this->dadosEndereco, function(&$valor, $index){
+                if(preg_match('/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|=]/i', $valor) === 1){
+
+ 
+                    $this->dadosVerificar[] ="{$valor}";                        
+                    $dadosErrados = true;
+                    return;
+                }
+            });  
+            return $dadosErrados;
+        }
+        private function organizaDadosParaEnvio(){
 			$this->dadosEndereco = [
 				$this->idDono, $this->nomeEndereco,
-				$cep,$cidade,
+				$this->dadosEndereco['Cep'],$this->dadosEndereco['Cidade'],
                 $this->dadosEndereco['Rua'],$this->dadosEndereco['Bairro'],
 				$this->dadosEndereco['Numero'], date("d.m.y \\ g:i"),
 				$this->dadosEndereco['InstrucoesEntrega'],date("d.m.y \\ g:i")				
             ];
-            array_walk($this->dadosEndereco, function(&$valor, $index){
-                $dado = (preg_match('/[!@#$%^&*()_+{}\[\]:;<>,.?~\\\-|=]/', $valor) === 1)
-                    ? ""
-                    : $valor;
-
-                $valor = $dado;
-            });  
-		}
+        }
 		private function insereNoBanco() :bool{
-			try{
-				$resultado = false;
-				CB::getConexao()->beginTransaction();
+            try{                
+                $resultado = true;
+                $this->organizaDadosParaEnvio();
+                CB::getConexao()->beginTransaction();
 					$query = CB::getConexao()->prepare($this->query);
-					$resultado = $query->execute($this->dadosEndereco) == 1 ? true : false;
+				$query->execute($this->dadosEndereco);
 				CB::getConexao()->commit();
 			}
-			catch(\Exception $e){
+			catch(\Exception|\PDOException $e){
 				CB::voltaTudo();
-				$GLOBALS['ERRO']->setErro("cadastro endereco", $e->getMessage());
+				$GLOBALS['ERRO']->setErro("cadastro endereco", "{$e->getMessage()} no usuario {$this->idDono}");
 				$resultado = false;
 			}
 			finally{
@@ -65,10 +75,9 @@
 			}
 		}
 		function getResposta(){
-            $this->trataDadosRecebidos();           
-            $retorno = ($this->dadosVerificar != []) 
-                ? json_encode($this->dadosVerificar)
-                : $this->insereNoBanco();
-            return $retorno;
+            if($this->trataDadosRecebidos()){           
+                return json_encode($this->dadosVerificar);
+            }
+            return $this->insereNoBanco(); 
 		}
 	}
