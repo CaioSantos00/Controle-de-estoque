@@ -15,13 +15,14 @@
             $this->idUsuario = $idUsuario;
         }
 
-        private function consultarBanco() :array|string{            
+        private function consultarBanco() :array{            
             try{
                 $resultado = [];
                 CB::getConexao()->beginTransaction();
                 $query = CB::getConexao()->prepare($this->query);
-                $query->execute([$this->idUsuario]);
-                $resultado = $query->fetchAll();
+		$query->execute([$this->idUsuario]);
+		$resultadoConsulta = $query->fetchAll();
+		$resultado = $resultadoConsulta === [] ? ["sem enderecos cadastrados"] : $resultadoConsulta;
                 CB::getConexao()->commit();
             }
             catch(\PDOException|\Exception $ex){

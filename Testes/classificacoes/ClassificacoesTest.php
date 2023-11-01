@@ -6,7 +6,7 @@
 	use \PHPUnit\Framework\TestCase;
 	
 	class ClassificacoesTest extends TestCase{
-		public function limpaArquivo() {
+		public function testLimpaArquivo() {
 			$this->testAtualizarArquivo();
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->consultar([]);
