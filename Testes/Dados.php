@@ -2,6 +2,7 @@
     namespace Testes;
 
     class Dados{
+
         public string $idUsuario = "36";
         private \stdClass $dado;
         function __construct(){

@@ -3,10 +3,15 @@
     require "vendor/autoload.php";
 
     use App\Enderecos\Excluir;
+    use App\Enderecos\Cadastrar;
     use PHPUnit\Framework\Testcase;
     use Testes\Dados;
     class ExcluirTest extends Testcase{
-        private \stdClass $dados;
+        private \stdClass $dados;       
+
+        function testCadastraParaTestes(){
+            
+        }
         function testExcluirEnderecoNormal(){
             $this->dados = (new Dados())->endereco();
             $exclusao = new Excluir(
@@ -21,7 +26,7 @@
             $exclusao = new Excluir(
                 $this->dados->idUsuario,
                 [$this->dados->errado]
-            )
+            );
         }
         function testExcluirMultiplosEnderecosCertos(){                                                                    
             $this->dados = (new Dados)->endereco();
