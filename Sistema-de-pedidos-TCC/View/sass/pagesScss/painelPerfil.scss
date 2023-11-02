@@ -45,6 +45,7 @@
 #divFerramentas {
     margin: 20px 0px;
     display: grid;
+    justify-content: center;
     grid-template-areas: 'cardsFerramentas cardsFerramentas cardsFerramentas';
     gap: 10px;
 }
