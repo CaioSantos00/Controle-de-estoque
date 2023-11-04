@@ -37,7 +37,7 @@
             }            
 
             array_walk($this->dadosEndereco, function(&$valor, $index){
-                if(preg_match('/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|=]/i', $valor) === 1){
+                if(preg_match('/[!@#$%^&*()_+{}\[\]:;<>~\\|=]/i', $valor) === 1){
 
  
                     $this->dadosVerificar[] ="{$valor}";                        
