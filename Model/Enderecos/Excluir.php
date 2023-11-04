@@ -16,28 +16,28 @@
 		}
 		private function excluiDoBanco() :bool{
 			try{
-				$resultado = false;
+				$resultado = true;
 				CB::getConexao()->beginTransaction();
-				$query = CB::getConexao()->prepare($this->query);				
+				$query = CB::getConexao()->prepare($this->query);
 				foreach($this->idsEnderecos as $endereco){					
-					$query->execute([$this->idUsuario, $endereco]);
-					$result = CB::getConexao()->rowCount();
+					$query->execute([$this->idUsuario, $endereco]);					
+					$result = $query->rowCount();					
 					if($result == 0){
 					   	$this->temIdErrado = true;
-						$this->idsErrados[] = $endereco;	
-					}				
+						$this->idsErrados[] = $endereco;					
+					}
 				}
-				CB::getConexao()->commit();
-				$resultado = $this->temIdErrado ? false : true;
+				CB::getConexao()->commit();				
 			}
-			catch(\PDOException $ex){				
+			catch(\PDOException $ex){
 				$GLOBALS['ERRO']->setErro("excluir endereco", $ex->getMessage());
 				$resultado = false;
 				CB::voltaTudo();
 			}
-			catch(\Exception $e){			
+			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("excluir endereco", $e->getMessage());
 				$resultado = false;
+				CB::voltaTudo();
 			}
 			finally{
 				return $resultado;

@@ -18,8 +18,8 @@
 		}
 		public static function voltaTudo(){
 			if(ConexaoBanco::$Conexao->inTransaction()){
-				ConexaoBanco::$Conexao->rollBack();
-				ConexaoBanco::$Conexao->commit();
+				ConexaoBanco::$Conexao->rollBack();				
+				$GLOBALS['ERRO']->setErro("Conexão", "alguma conexão prescisou voltar");
 			}
 		}
 	}

@@ -20,9 +20,9 @@
                 $resultado = [];
                 CB::getConexao()->beginTransaction();
                 $query = CB::getConexao()->prepare($this->query);
-		$query->execute([$this->idUsuario]);
-		$resultadoConsulta = $query->fetchAll();
-		$resultado = $resultadoConsulta === [] ? ["sem enderecos cadastrados"] : $resultadoConsulta;
+        		if(!$query->execute([$this->idUsuario])) throw new \Exception("execução da query falhou");
+		        $resultadoConsulta = $query->fetchAll();
+        		$resultado = $resultadoConsulta === [] ? ["sem enderecos cadastrados"] : $resultadoConsulta;
                 CB::getConexao()->commit();
             }
             catch(\PDOException|\Exception $ex){
