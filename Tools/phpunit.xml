@@ -31,5 +31,8 @@
 		<testsuite name="excluirEndereco">
 			<file>Testes/enderecos/ExcluirTest.php</file>
 		</testsuite>
+		<testsuite name="editarEndereco">
+			<file>Testes/enderecos/EditarTest.php</file>
+		</testsuite>
 	</testsuites>
 </phpunit>

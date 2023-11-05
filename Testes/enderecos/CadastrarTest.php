@@ -16,9 +16,9 @@
 			"Numero" => "1160",
 			"InstrucoesEntrega" => "deixar no vizinho e na rua de baixo"			
 		];
-		function testCadastrarEnderecoNormal(){
+		function testCadastrarEnderecoNormal(){			
 			$cadastro = new Cadastrar(
-				Dados->idUsuario,
+				Dados::$idUsuario,
 				"casa",
 				$this->dadosEnvio
 			);
@@ -27,7 +27,7 @@
         function testImpedirDeCadastrarEnderecoComCepErrado(){
             $this->dadosEnvio["Cep"] = "11740000";
             $cadastro = new Cadastrar(
-                Dados->idUsuario,
+                Dados::$idUsuario,
                 "casa",
                 $this->dadosEnvio
             );
@@ -37,7 +37,7 @@
         function testImpedirDeCadastrarComCidadeErrada(){
             $this->dadosEnvio["Cidade"] = "ruaRuim123";
             $cadastro = new Cadastrar(
-                Dados->idUsuario,
+                Dados::$idUsuario,
                 "casa",
                 $this->dadosEnvio
             );
@@ -46,7 +46,7 @@
         function testImpedirDeCadastrarStringComCharEspecial(){
             $this->dadosEnvio["InstrucoesEntrega"] = "ru!ARuim$";
             $cadastro = new Cadastrar(
-                Dados->idUsuario,
+                Dados::$idUsuario,
                 "casa",
                 $this->dadosEnvio
             );

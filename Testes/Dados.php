@@ -1,13 +1,12 @@
 <?php
     namespace Testes;
 
-    class Dados{
-
-        public string $idUsuario = "36";
+    class Dados{        
+        public static string $idUsuario = "36";
         private \stdClass $dado;
         function __construct(){
             $this->dado = new \stdClass;
-            $this->dado->idUsuario = $this->idUsuario;
+            $this->dado->idUsuario = self::$idUsuario;
         }
         function endereco(){
             //dados usados na exclusao de enderecos;
@@ -18,5 +17,18 @@
             $this->dado->misturados = ["0","1","44","3","45"];
             $this->dado->erradosDosMisturados = ["0","1","3"];
         return $this->dado;
+        }
+        function edicaoEndereco(){
+            $this->dado->IdCerto = "50";
+            $this->dado->dadosCertos = [
+                "nome" => "nome editado",
+                "cep" => "11750-000",
+                "cidade" => "rua dos editados",
+                "rua" => "numero zero",
+                "bairro" => "vila losty",
+                "numero" => "1190",
+                "dadosEntrega" =>  "entrega naode tem edição",
+            ];
+            return $this->dado;
         }
     }

@@ -17,9 +17,7 @@
 		function __construct(string $idDono, string $nomeEndereco, array $dadosEndereco){
 			$this->idDono = $idDono;
 			$this->nomeEndereco = $nomeEndereco;
-			$this->dadosEndereco = $dadosEndereco;
-			
-
+			$this->dadosEndereco = $dadosEndereco;			
 		}
 		private function trataDadosRecebidos() :bool{
             array_walk($this->dadosEndereco,'trim'); //remove espaços em branco envolta de todas as strings
@@ -29,20 +27,14 @@
                 $this->dadosVerificar[] = "Cep";
                 $dadosErrados = true;
             }                                
-
             if(preg_match("/[0-9]+/", $this->dadosEndereco['Cidade']) === 1){
-
                 $this->dadosVerificar[] = "Cidade";                
                 $dadosErrados = true;
             }            
-
-            array_walk($this->dadosEndereco, function(&$valor, $index){
+            array_walk($this->dadosEndereco, function(&$valor, $index) use (&$dadosErrados){
                 if(preg_match('/[!@#$%^&*()_+{}\[\]:;<>~\\|=]/i', $valor) === 1){
-
- 
-                    $this->dadosVerificar[] ="{$valor}";                        
-                    $dadosErrados = true;
-                    return;
+                    $this->dadosVerificar[] = $index;                                            
+					$dadosErrados = true;
                 }
             });  
             return $dadosErrados;
