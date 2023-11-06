@@ -39,7 +39,7 @@
                 $this->salvaFormatoPadrao();
                 $this->renomeiaParaIdDoDono();
 			}
-			catch(Exception $ex){
+			catch(\Exception $ex){
 				$GLOBALS['ERRO']->setErro('Cadastro Usuario', "No envio da Foto do usuário, {$ex->getMessage()}");
 				$this->resposta = false;
 			}			

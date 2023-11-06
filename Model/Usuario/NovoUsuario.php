@@ -3,7 +3,7 @@
 	
 	use App\Interfaces\Model;
 	use App\Servicos\Conexao\ConexaoBanco as Conexao;
-	use App\Servicos\Arquivos\PerfilUsuario\SalvarImagemPerfil as SalvadorDeFoto;	
+	use App\Servicos\Arquivos\PerfilUsuario\Salvar as SalvadorDeFoto;	
 
 	class NovoUsuario implements Model{
 		public string $idUsuario;

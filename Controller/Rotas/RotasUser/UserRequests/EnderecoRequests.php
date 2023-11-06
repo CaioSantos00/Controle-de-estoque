@@ -4,14 +4,14 @@
 	use App\Enderecos\Cadastrar;
 	use App\Enderecos\Editar;
 	use App\Enderecos\Excluir;	
-
+    
 	class EnderecoRequests{
 		private string $idUsuario;
 		function __construct(){
 			$this->idUsuario = $_COOKIE['user'];
 		}
 		function cadastrar($data){
-			$cadastro = new Cadastro(
+		    $cadastro = new Cadastrar(
 				$this->idUsuario,
 				$data['idEndereco'],
 				$data['dadosEndereco']
@@ -19,7 +19,7 @@
 			echo $cadastro->getResposta();
 		}
 		function consultar($data){
-			$consulta = new Consulta(
+		    $consulta = new Consultar(
 				$this->idUsuario	
 			);
 			echo $consulta->getResposta();

@@ -40,7 +40,7 @@
 			);
 			if(!$escrita) self::$erroFatal = true;
 		}        
-		function cancela(Exception $e){
+		function cancela(\Exception $e){
 			throw $e;	
 		}		
 		function __construct(){

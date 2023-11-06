@@ -4,7 +4,7 @@
 	require "vendor/autoload.php";
 		
 	use Controladores\Rotas\RotasUser\UserRequests;
-	use \PHPUnit\Framework\TestCase;	
+    use \PHPUnit\Framework\TestCase;
 	
     class AdicionarItemTest extends TestCase{
         function testAdicionarItemNormalmente(){

@@ -4,7 +4,7 @@
 	use App\Servicos\Arquivos\PerfilUsuario\Buscar as ImgPerfil;
 	use App\Interfaces\Model;
 	
-	class Perfil implements Model, Stringable{
+	class Perfil implements Model, \Stringable{
 		private string $idUsuario;
 		private array $querysParaChamar;
 		

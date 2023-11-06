@@ -10,7 +10,17 @@
 	class Cadastro implements Model{
 		private array $dadosPrincipais;
 		private array $dadosSecundarios = [];
-		private array $querysInsercao;
+		private array $querysInsercao= [
+		    "Insert into `ProdutoPrimario`
+				(`Nome`, `Classificacoes`)
+				values
+				(:Nome ,:Classificacoes)"
+		    ,
+		    "Insert into `ProdutoSecundario`
+				(`ParentId`, `Preco`, `Qtd`, `Disponibilidade`, `Descricao`)
+				values
+				(?,?,?,?,?)"
+		];
 		private string $idProduto;
 		private string $descricaoGeralProduto;
 		private string $jsonDadosSecundarios;
@@ -22,18 +32,7 @@
 			$this->dadosPrincipais = array(
 				"Nome" => $nome,
 				"Classificacoes" => $classificacoes
-			);
-			$this->querysInsercao = [
-				"Insert into `ProdutoPrimario`
-				(`Nome`, `Classificacoes`)
-				values
-				(:Nome ,:Classificacoes)"
-			,
-				"Insert into `ProdutoSecundario`
-				(`ParentId`, `Preco`, `Qtd`, `Disponibilidade`, `Descricao`)
-				values
-				(?,?,?,?,?)"
-			];
+			);			
 		}
 		private function salvarDescricaoPrincipal() :bool{
 			$salvador = new CriarDescricao($this->idProduto, $this->descricaoGeralProduto);
@@ -41,16 +40,18 @@
 		}
 		private function salvarDadosPrincipais(\PDO $conn){
 			$query = $conn
-				->prepare($this->querysInsercao[0])
-				->execute($this->dadosPrincipais);
-			$this->idProduto = $conn->lastInsertId();
+			        ->prepare($this->querysInsercao[0])
+				    ->execute($this->dadosPrincipais);
+			
+			if($query) $this->idProduto = $conn->lastInsertId();			
 		}
 		private function salvarDadoSecundario(\PDO $conn, array $dado) :string{
-			$conn
-				->prepare($this->querysInsercao[1])
-				->execute([$this->idProduto, ...$dado]);
-
-			return Conn::getConexao()->lastInsertId();
+		    $query = 
+    			$conn
+    				->prepare($this->querysInsercao[1])
+    				->execute([$this->idProduto, ...$dado]);
+            
+			return $query ? Conn::getConexao()->lastInsertId() : "";
 		}
 		private function salvarImagens(){
 			$salvadorImgs = new Salvar($this->idProduto, $this->dadosSecudarios);
@@ -75,7 +76,7 @@
 			try{
 				$this->salvarDadosPrincipais(Conn::getConexao());
 				$this->salvarDescricaoPrincipal();
-				$thid->setDadosSecundarios($this->jsonDadosSecundarios);
+				$this->setDadosSecundarios($this->jsonDadosSecundarios);
 				$this->salvarImagens();
 			}
 			catch(\PDOException $ex){
@@ -83,9 +84,8 @@
 				if(Conn::getConexao()->inTransaction())Conn::getConexao()->rollBack();
 			}
 			catch(\Exception $e){
-				$GLOBALS['ERRO']->setErro('Cadastro de produto', "na conexão do banco, {$ex->getMessage()}");
+				$GLOBALS['ERRO']->setErro('Cadastro de produto', "na conexão do banco, {$e->getMessage()}");
 				if(Conn::getConexao()->inTransaction())Conn::getConexao()->rollBack();
 			}		
 		}
-		
 	}

@@ -1,1 +1,2 @@
 
+<<<>>>{"quando":"06-11-23 as 02:01","onde":"finalizar","mensagem":"{\"produto\":\"1\",\"quantidade\":50}"}

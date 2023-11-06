@@ -36,10 +36,7 @@
 		function excluirPerfil($data){
 			$perfil = new EP($_POST['idUsuario']);
 			echo $perfil->executar();
-		}
-		function mensagem($data){
-			
-		}
+		}		
 		function consultaGeral($data):void {
 			echo new CG;
 		}

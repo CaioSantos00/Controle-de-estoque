@@ -18,7 +18,7 @@
 			return false;
 		}
 		private function excluirArquivo() :bool{
-			return unlink("arqvsSecundarios/Produtos/Descricoes/{$this->nomeDoArquivoDeDescricao}")
+			return unlink("arqvsSecundarios/Produtos/Descricoes/{$this->nomeDoArquivoDeDescricao}");
 		}
 		function executar() :bool{
 			if($this->verificarSeDescricaoExiste()) return $this->excluirArquivo();
