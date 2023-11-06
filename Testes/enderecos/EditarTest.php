@@ -17,16 +17,16 @@
 			);			
 			$resposta = $edicao->getResposta();
 			$this->assertSame(true,$resposta);
-		}
+			}
 		function testImpedirDeEditarComDadosErrados(){
 			$dados = (new Dados())->edicaoEndereco();
-			$dados->dadosCertos["cep"] = "177777777777";
+			$dados->dadosCertos["cep"] = "1777777777";
 			$edicao = new Editar(
 				Dados::$idUsuario,
 				$dados->IdCerto,
 				$dados->dadosCertos
 			);			
 			$resposta = $edicao->getResposta();
-			$this->assertSame(["177777777777"],$resposta);
+			$this->assertSame(["cep"],$resposta);
 		}
 	}

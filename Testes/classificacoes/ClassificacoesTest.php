@@ -27,8 +27,8 @@
 		public function testEditaUmaQueJaExiste() :void{
 			$teste = new ClassificacoesRequests();
 			$saida = $teste->edicao([
-			"paraEditar" 	=> "coisas",
-			"novoValor" 	=> "coisado"
+				"paraEditar" 	=> "coisas",
+				"novoValor" 	=> "coisado"
 			]);
 			
 			$this->assertEquals("tudo certo", $saida);

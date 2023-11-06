@@ -19,21 +19,21 @@
 			$this->idEndereco = $idEndereco;
 			$this->dadosEndereco = $dadosEndereco;
 		}
-		private function testarString(string $teste, string $variavel, bool $invertido = false){
+		private function testarString(string $teste, string $variavel,string $nomeDado, bool $invertido = false){
 			$testando = 1;
 			if($invertido) $testando = 0;
-			if(preg_match($teste,$variavel) === $testando) $this->dadosErrados[] = $variavel;
+			if(preg_match($teste,$variavel) === $testando) $this->dadosErrados[] = $nomeDado;
 			return;
 		}
 		private function validaDadosParaEnvio(){
-			$this->testarString('/([0-9]{5}-[0-9]{3})+/', $this->dadosEndereco['cep'], true);
-			$this->testarString('/[0-9]+/',$this->dadosEndereco['cidade']);
-			$this->testarString('/\D+/', $this->idUsuario);
-			$this->testarString('/\D+/', $this->idEndereco);
+			$this->testarString('/([0-9]{5}-[0-9]{3})+/', $this->dadosEndereco['cep'],"cep", true);
+			$this->testarString('/[0-9]+/',$this->dadosEndereco['cidade'], "cidade");
+			$this->testarString('/\D+/', $this->idUsuario, "idUsuario");
+			$this->testarString('/\D+/', $this->idEndereco, "idEndereco");
 
 			foreach($this->dadosEndereco as $indice => $valor){
 				$this->dadosEndereco[$indice] = trim($valor);
-				$this->testarString('/[!@#$%^&*()_+{}\[\]:;<>~\\|=]/i', $valor);				
+				$this->testarString('/[!@#$%^&*()_+{}\[\]:;<>~\\|=]/i', $valor, $indice);				
 			}
 			if(count($this->dadosErrados) > 0) throw new \Exception("tem dado errado");
 		}
@@ -65,8 +65,9 @@
 			try{
 				$query = CB::getConexao()->prepare($this->query);
 				$dados = $this->preparaParaEnviar();
+				$resultado = true;
 				if(is_bool($dados)) throw new \Exception("deu errado na validação");
-				$resultado = $query->execute($dados);
+				if(!$query->execute($dados)) throw new \Exception("falhou na execução da query");
 				if($query->rowCount() === 0) throw new \Exception("não alterou nada");
 			}
 			catch(\PDOException $e){

@@ -8,14 +8,7 @@
 	
 	class CadastrarTest extends TestCase{
 		private string $idUsuario = "36";
-		private array $dadosEnvio = [
-			"Cep" => "11740-000",
-			"Cidade" => "Itanhaém",
-			"Rua" => "av lydia",
-			"Bairro" => "Loty",
-			"Numero" => "1160",
-			"InstrucoesEntrega" => "deixar no vizinho e na rua de baixo"			
-		];
+
 		function testCadastrarEnderecoNormal(){			
 			$cadastro = new Cadastrar(
 				Dados::$idUsuario,

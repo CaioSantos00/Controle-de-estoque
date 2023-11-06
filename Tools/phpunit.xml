@@ -34,5 +34,8 @@
 		<testsuite name="editarEndereco">
 			<file>Testes/enderecos/EditarTest.php</file>
 		</testsuite>
+		<testsuite name="geralEndereco">
+			<directory>Testes/enderecos</directory>
+		</testsuite>
 	</testsuites>
 </phpunit>

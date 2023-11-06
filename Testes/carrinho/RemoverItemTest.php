@@ -6,7 +6,7 @@
 	use Controladores\Rotas\RotasUser\UserRequests;
 	use \PHPUnit\Framework\TestCase;
     
-    class RemoverItem extends TestCase{
+    class RemoverItemTest extends TestCase{
         function testRemoverItemQueEstaNoCarrinho(){
             $carrinho = new UserRequests\CarrinhoRequests;
             $resultado = $carrinho

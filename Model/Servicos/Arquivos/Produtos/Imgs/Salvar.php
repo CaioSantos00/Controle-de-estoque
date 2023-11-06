@@ -15,7 +15,9 @@
 			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;			
 			$this->caminhoDiretorioImgsProduto =
 				"{$this->caminhoArqvsSecundarios}Produtos/Fotos/{$this->idProduto}";
-			$this->marcaDagua = $this->getInterventionImageInstance()->make("ServerInfo/marcaDagua.png")->resize(50,50);
+			$this->marcaDagua = $this->getInterventionImageInstance
+				("ServerInfo/marcaDagua.png")
+				->resize(50,50);
 		}
 		
 		private function criaDiretorioFotosProduto(){		
@@ -53,8 +55,7 @@
 			}
 		}
 		private function padronizarFoto(string $caminhoImg){
-			$img = $this->getInterventionImageInstance();
-			$img->make($caminhoImg);
+			$img = $this->getInterventionImageInstance($caminhoImg);
 			$img->resize(350,350);
 			$img->insert($this->marcaDagua, 'bottom-right');
 			$img->save($caminhoImg, 80, 'jpg');
