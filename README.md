@@ -133,3 +133,14 @@ _________
 5º semana
 > Grupo
 > > Organização da Pré apresentação
+> > Apresentação
+
+6º semana
+> Front-end
+> > Revisão dos designes das telas de adm
+> > 
+> > Refatoração das interatividades do usuario
+
+> Back-end
+> > Finalização dos testes integrados
+> >
