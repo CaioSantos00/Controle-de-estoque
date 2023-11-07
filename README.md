@@ -133,6 +133,7 @@ _________
 5º semana
 > Grupo
 > > Organização da Pré apresentação
+> > 
 > > Apresentação
 
 6º semana
@@ -143,4 +144,11 @@ _________
 
 > Back-end
 > > Finalização dos testes integrados
+
+7º semana
+> Front-end
+> > Modularização dos scripts de adm
 > >
+
+> Back-end
+> > otimização dos endpoints para faciltar a reutilização e extensibilidade
