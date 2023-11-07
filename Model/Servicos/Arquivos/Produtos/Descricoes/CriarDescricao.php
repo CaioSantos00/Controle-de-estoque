@@ -1,7 +1,8 @@
 <?php
 	namespace App\Servicos\Arquivos\Produtos\Descricoes;
-	
+
 	use App\Interfaces\ServicoInterno;
+
 	class CriarDescricao implements ServicoInterno{
 		private string $idProduto;
 		private string $descricao;
@@ -9,7 +10,7 @@
 			$this->idProduto = $idProduto;
 			$this->descricao = $descricao;
 		}
-		private function criaArquivo(string $descricao) :bool{			
+		private function criaArquivo(string $descricao) :bool{
 			if(file_put_contents('arqvsSecundarios/Produtos/Descricoes/{$this->idProduto}.txt', $descricao) === false) return false;
 			return true;
 		}
