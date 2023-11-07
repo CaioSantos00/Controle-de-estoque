@@ -1341,30 +1341,6 @@ a #btnCon:hover {
     grid-template-areas: "cardPedido";
   }
 }
-::-webkit-scrollbar {
-  width: 2px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgb(0, 0, 0);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #0c409a;
-  border-radius: 6px;
-}
-
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Oswald", sans-serif;
-  min-height: 100vh;
-}
-
-a {
-  text-decoration: none;
-}
-
 #logo {
   width: 160px;
   margin: 10px;
@@ -1396,6 +1372,54 @@ header a:hover {
   color: #0c409a;
 }
 
+#menuHam {
+  display: none;
+}
+
+@media screen and (max-width: 555px) {
+  #navPc {
+    display: none;
+  }
+  #menuHam {
+    display: block;
+    padding: 0;
+    margin-top: 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  #logo {
+    width: 130px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+  }
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0c409a;
+  border-radius: 6px;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Oswald", sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
 main {
   min-height: 100vh;
 }
@@ -1406,12 +1430,5 @@ footer {
   background-color: rgb(0, 0, 0);
   text-align: center;
 }
-
-/*.footer {
-    position: fixed;
-     bottom: 0;
-      width: 100%;
-       margin-top: 30px;
-}*/
 
 /*# sourceMappingURL=style.css.map */

@@ -18,6 +18,7 @@
 @import "./mediaQueries/painelPerfil.scss";
 @import "./pagesScss/telaPedidos.scss";
 @import "./mediaQueries/telaPedidos.scss";
+@import "./menu.scss";
 @import "./mixins.scss";
 @import "./variaveis.scss";
 
@@ -49,38 +50,6 @@ a {
     text-decoration: none;
 }
 
-#logo {
-    width: 160px;
-    margin: 10px;
-}
-
-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    background-color: $corHeaderFooter;
-}
-
-header ul{
-    display: flex;
-    align-items: center;
-}
-
-header li {
-    font-size: 1.2em;
-    list-style: none;
-    margin: 0px 10px;
-}
-
-header a{
-    color: $corSecundaria;
-}
-
-
-header a:hover{
-    color: $corPrimaria;
-}
-
 main {
     min-height: 100vh;
 }
@@ -91,10 +60,3 @@ footer {
     background-color: $corHeaderFooter;
     text-align: center;
 }
-
-/*.footer {
-    position: fixed;
-     bottom: 0;
-      width: 100%;
-       margin-top: 30px;
-}*/
