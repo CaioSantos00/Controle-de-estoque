@@ -41,14 +41,14 @@
 	$router->get('/scripts/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}', "RotasAdm:scriptModularizado");
 	
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
-	$router->group("admin/envio");
-	$router->post("/cadastroProduto", "AdmRequests:cadastrarProduto");
+	$router->group("envio");	
+	$router->post("/cadastrarProduto", "AdmRequests:cadastrarProduto");
 	
 	$router->group("ops");
 	$router->get("/{erro}", function($data){		
 		echo "erro ".$data['erro'];
 	});
 	$router->dispatch();
-	if($router->error()){
+	if($router->error()){	    
 		$router->redirect("/ops/{$router->error()}");
 	}	

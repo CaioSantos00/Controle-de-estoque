@@ -24,12 +24,11 @@ function btnCancel(divPai, apagaDiv) {
 function criaClassificacao() {
     let cardsClassificacoes = criaElemento('div', 'cardsClassificacoes')
     let inputsClassi = criaElemento('input', 'inputs')
-    inputsClassi.type = 'text'
-    inputsClassi.name = ''
-    let btnsCancel = criaBtnCancel(divHoldClassifi, cardsClassificacoes)
+    	inputsClassi.type = 'text'    	
+    let btnsCancel = criaBtnCancel(divHoldClassifi, cardsClassificacoes)    
     let btnsConfirm = criaElemento('button', 'btnsConfirm')
-    btnsConfirm.innerText = 'Confirmar'
-
+    	btnsConfirm.innerText = 'Confirmar'
+    	btnsConfirm.onclick = () => 
     cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm)
     divHoldClassifi.appendChild(cardsClassificacoes)
 }
@@ -43,13 +42,13 @@ function criaVariacao() {
     let cardsVariacoes = criaElemento('div', 'cardsVariacoes')
     let holdInputs = criaElemento('div', 'holdInputs')
     let inputQtd = criaElemento('input', 'inputVari')
-    inputQtd.type = 'number'
-    inputQtd.min = 1
-    inputQtd.name = ''
+    	inputQtd.type = 'number'
+    	inputQtd.min = 1
+    	inputQtd.name = ''
     
     let inputPreco = criaElemento('input', 'inputVari')
-    inputPreco.type = ''
-    inputPreco.name = ''
+    	inputPreco.type = ''
+    	inputPreco.name = ''
     let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes)
     holdInputs.append(inputQtd, inputPreco, btnsCancel)
 
@@ -57,10 +56,11 @@ function criaVariacao() {
     let variacoesTextArea = criaElemento('textarea', ['inputs', 'variacoesTextArea'])
 
     let inputFile = criaElemento('input', ['inputFile', 'inputs'])
-    inputFile.type = 'file'
-    inputFile.name = ''
+    	inputFile.type = 'file'
+    	inputFile.name = ''
     let buttonConfirm = criaElemento('button', 'btnsConfirm')
-    buttonConfirm.innerText = 'Salvar'
+    	buttonConfirm.innerText = 'Salvar'
+    
     divTextAreaFile.append(variacoesTextArea, inputFile, buttonConfirm)
     cardsVariacoes.append(holdInputs, divTextAreaFile)
     divHoldVari.appendChild(cardsVariacoes)

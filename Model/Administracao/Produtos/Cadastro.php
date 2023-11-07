@@ -42,8 +42,8 @@
 			$query = $conn
 			        ->prepare($this->querysInsercao[0])
 				    ->execute($this->dadosPrincipais);
-			
-			if($query) $this->idProduto = $conn->lastInsertId();			
+
+			$this->idProduto = $query ? $conn->lastInsertId() : "0";
 		}
 		private function salvarDadoSecundario(\PDO $conn, array $dado) :string{
 		    $query = 

@@ -14,6 +14,7 @@
 			if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
 		}*/
 		function cadastrarProduto($data){
+			print_r($_POST);
 			$cadastro = new CadastroProduto(
 				$_POST['nome'],
 				$_POST['classificacoes'],
