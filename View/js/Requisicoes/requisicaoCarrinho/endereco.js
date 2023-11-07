@@ -7,11 +7,23 @@ const nomeEndereco = document.getElementById('nomeEndereco'),
       cityEndereco = document.getElementById('cityEndereco'),
       aEdit = document.getElementById('aEdit')
 
+      async function busca() {
+        const resposta = await fetch('http://localhost/Sites/Repositorios/tcc/Sistema-de-pedidos-TCC/View/js/jsonEndereco.json')
+        if (!resposta.ok) {
+            console.log("Erro de Solicitação !");
+            return;
+        }
+        const respostaBusca = await resposta.text();
+        sessionStorage.setItem("requisicao", respostaBusca);
+        //console.log(sessionStorage.getItem("requisicao"))
+      }
+
+      busca()
       aEdit.addEventListener('click', ()=>{
-        
+        console.log('E')
       })
       
-      function enviaDadosFront(respostaBusca){
+      /*function enviaDadosFront(respostaBusca){
           try{
               respostaBusca = JSON.parse(respostaBusca)
               sessionStorage.setItem("requisicao", respostaBusca.nome);
@@ -40,4 +52,4 @@ const nomeEndereco = document.getElementById('nomeEndereco'),
     } catch (qualErro){
         console.log('Erro' + qualErro)
     }
-})()
+})()*/
