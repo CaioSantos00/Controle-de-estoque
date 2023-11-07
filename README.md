@@ -139,8 +139,10 @@ _________
 6º semana
 > Front-end
 > > Revisão dos designes das telas de adm
-> > 
+> >
 > > Refatoração das interatividades do usuario
+> > 
+> > Tela de pedidos
 
 > Back-end
 > > Finalização dos testes integrados
@@ -149,6 +151,9 @@ _________
 > Front-end
 > > Modularização dos scripts de adm
 > >
+> > Responsividade da tela de pedidos
 
 > Back-end
 > > otimização dos endpoints para faciltar a reutilização e extensibilidade
+> >
+> > implementação do bootstrap nos testes de unidade
