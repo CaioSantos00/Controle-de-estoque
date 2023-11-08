@@ -5,22 +5,17 @@ function extrairFotosInput(input){
 }
 
 function coletarDadoVariacao(variacao){
-  console.log(variacao)
-  let elementos1 = Array.from(variacao.firstChild.getElementsByClassName("inputVari"));
-  let elementos2 = Array.from(variacao.lastChild.getElementsByClassName("inputs"));
-  console.log(elementos1)
-  console.log(elementos2)
-  let dados = {}, fotos = [];
+  let elementos1 = Array.from(variacao.firstChild.getElementsByClassName("inputVari")),
+      elementos2 = Array.from(variacao.lastChild.getElementsByClassName("inputs")),
+      dados = {};
       dados.preco = elementos1[0].value;
       dados.nome = elementos1[1].value;
       dados.descricao = elementos2[0].value;
       dados.fotos = extrairFotosInput(elementos2[1]);
-
   return dados;
 }
 function coletarDadosVariacoes(){
   let variacoes = divHoldVari.getElementsByClassName("cardsVariacoes"), qtd = variacoes.length, dadosVariacoes = [];
-  console.log(variacoes)
   for(let x = 0;x != qtd; x++)
      dadosVariacoes.push(coletarDadoVariacao(variacoes[x]));
 
