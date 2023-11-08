@@ -8,9 +8,8 @@ const nomeEndereco = document.getElementById('nomeEndereco'),
     aEdit = document.getElementById('aEdit')
 
 function enviaDadosFront(respostaBusca) {
-    try {
-        respostaBusca = JSON.parse(respostaBusca)
-        sessionStorage.setItem("requisicao", respostaBusca);
+    try {        
+        respostaBusca = JSON.parse(respostaBusca)        
         nomeEndereco.innerText = respostaBusca.nome
         telEndereco.innerText = respostaBusca.telefone
         ruaEndereco.innerText = respostaBusca.endereco.rua
@@ -29,10 +28,11 @@ async function busca() {
     if (!resposta.ok) {
         console.log("Erro de Solicitação !");
         return;
-    }
+    }    
     const respostaBusca = await resposta.text();
+    console.log(respostaBusca)
     sessionStorage.setItem("requisicao", respostaBusca);
-    //console.log(sessionStorage.getItem("requisicao"))
+    console.log(JSON.parse(sessionStorage.getItem("requisicao")))
     enviaDadosFront(respostaBusca)
 }
 
