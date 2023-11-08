@@ -1,6 +1,6 @@
 <?php
 	namespace Controladores\Rotas\RotasAdm\AdmRequests;
-	
+
 	use App\Servicos\Arquivos\Produtos\Classificacoes\Cadastro;
 	use App\Servicos\Arquivos\Produtos\Classificacoes\Edicao;
 	use App\Servicos\Arquivos\Produtos\Classificacoes\Excluir;
@@ -12,23 +12,23 @@
 			//if(!isset($_COOKIE['TipoConta'])) exit("sai pra lá hacker");
 		}
 		function cadastrar($data){
-			$cadastro = new Cadastro($data['nome']);
-			return $cadastro;
+			$cadastro = new Cadastro($_POST['nome']);
+			echo $cadastro;
 		}
 		function edicao($data){
-			$edicao = new Edicao($data['paraEditar'],$data['novoValor']);
-			return $edicao->executar();
+			$edicao = new Edicao($_POST['paraEditar'],$_POST['novoValor']);
+			echo $edicao->executar();
 		}
 		function excluir($data){
-			$exclusao = new Excluir($data['paraExcluir']);
-			return $exclusao->executar();
+			$exclusao = new Excluir($_POST['paraExcluir']);
+			echo $exclusao->executar();
 		}
 		function consultar($data){
 			$consulta = new Classificacoes();
-			return $consulta;
+			echo $consulta;
 		}
 		function atualizarArqv($data){
 			$atualizacao = new AtualizarArqv();
-			return $atualizacao->executar();
+			echo $atualizacao->executar();
 		}
 	}
