@@ -16,6 +16,7 @@
     "require": {
         "intervention/image": "2.0.*",
         "coffeecode/router" : "2.0.*",
-        "league/plates": "3.*"
+        "league/plates": "3.*",
+        "matthiasmullie/minify": "dev-master"
     }
 }

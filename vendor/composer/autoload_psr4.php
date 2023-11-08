@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Testes\\' => array($baseDir . '/Testes'),
+    'MatthiasMullie\\PathConverter\\' => array($vendorDir . '/matthiasmullie/path-converter/src'),
+    'MatthiasMullie\\Minify\\' => array($vendorDir . '/matthiasmullie/minify/src'),
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Controladores\\' => array($baseDir . '/Controller'),

@@ -9,9 +9,10 @@
 		function __construct(){
 			$this->templates = new Engine('View');
 			$this->templates->setFileExtension(null);
-		}		
-		protected function renderizar(string $nomeTemplate){
+		}
+		protected function renderizar(string $nomeTemplate, $estatico = false){
 			try{
+				if($estatico) return $this->templates->render($nomeTemplate);
 				echo $this->templates->render($nomeTemplate);
 			}
 			catch(\Exception $ex){

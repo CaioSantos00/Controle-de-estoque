@@ -15,7 +15,6 @@ btnCriaClassi.addEventListener('click', () => {
 })
 
 function criaVariacao() {
-
     let cardsVariacoes = criaElemento('div', 'cardsVariacoes')
     let holdInputs = criaElemento('div', 'holdInputs')
     let inputQtd = criaElemento('input', 'inputVari')
