@@ -1,7 +1,7 @@
 let opcoesRequisicoes = {
   "cadastro":(nomeDela) => {
     return [
-    'envio/cadastrarClassificacao', {
+    '/Sistema-de-pedidos-TCC/envio/cadastrarClassificacao', {
     method: "POST",
     headers:{
       "Content-type": "application/json"
@@ -10,7 +10,7 @@ let opcoesRequisicoes = {
   }]},
   "edicao":(paraEditar, novoValor) => {
     return [
-    "envio/editarClassificacao",{
+    "/Sistema-de-pedidos-TCC/envio/editarClassificacao",{
       method:"POST",
       headers:{
         "Content-type": "application/json"

@@ -1,51 +1,63 @@
 function criaClassificacao() {
-    let cardsClassificacoes = criaElemento('div', 'cardsClassificacoes')
-    let inputsClassi = criaElemento('input', 'inputs')
-    	inputsClassi.type = 'text'
-    let btnsCancel = criaBtnCancel(divHoldClassifi, cardsClassificacoes)
-    let btnsConfirm = criaElemento('button', 'btnsConfirm')
-    	btnsConfirm.innerText = 'Confirmar'
-    	btnsConfirm.onclick = () => console.log("bah")
-    cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm)
-    divHoldClassifi.appendChild(cardsClassificacoes)
+    let cardsClassificacoes = criaElemento('div', 'cardsClassificacoes');
+    let inputsClassi = criaElemento('input', 'inputs');
+    	inputsClassi.type = 'text';
+    let btnsCancel = criaBtnCancel(divHoldClassifi, cardsClassificacoes);
+    let btnsConfirm = criaElemento('button', 'btnsConfirm');
+    	btnsConfirm.innerText = 'Confirmar';
+    	btnsConfirm.onclick = async () => {
+        console.log(inputsClassi.value)
+        console.log(await salvarClassificacao(inputsClassi.value));
+      }
+    cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm);
+    divHoldClassifi.appendChild(cardsClassificacoes);
 }
-
-btnCriaClassi.addEventListener('click', () => {
-    criaClassificacao()
-})
-
 function criaVariacao() {
-    let cardsVariacoes = criaElemento('div', 'cardsVariacoes')
-    let holdInputs = criaElemento('div', 'holdInputs')
-    let inputQtd = criaElemento('input', 'inputVari')
-    	inputQtd.type = 'number'
-    	inputQtd.min = 1
-    	inputQtd.name = ''
+    let cardsVariacoes = criaElemento('div', 'cardsVariacoes');
+    let holdInputs = criaElemento('div', 'holdInputs');
+    let inputQtd = criaElemento('input', 'inputVari');
+    	inputQtd.type = 'number';
+    	inputQtd.min = 1;
+    	inputQtd.name = '';
 
-    let inputPreco = criaElemento('input', 'inputVari')
-    	inputPreco.type = ''
-    	inputPreco.name = ''
-    let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes)
-    holdInputs.append(inputQtd, inputPreco, btnsCancel)
+    let inputPreco = criaElemento('input', 'inputVari');
+    	inputPreco.type = '';
+    	inputPreco.name = '';
+    let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes);
+    holdInputs.append(inputQtd, inputPreco, btnsCancel);
 
-    let divTextAreaFile = criaElemento('div', 'divTextAreaFile')
-    let variacoesTextArea = criaElemento('textarea', ['inputs', 'variacoesTextArea'])
+    let divTextAreaFile = criaElemento('div', 'divTextAreaFile');
+    let variacoesTextArea = criaElemento('textarea', ['inputs', 'variacoesTextArea']);
 
-    let inputFile = criaElemento('input', ['inputFile', 'inputs'])
-    	inputFile.type = 'file'
-    	inputFile.name = ''
-    let buttonConfirm = criaElemento('button', 'btnsConfirm')
-    	buttonConfirm.innerText = 'Salvar'
+    let inputFile = criaElemento('input', ['inputFile', 'inputs']);
+    	inputFile.type = 'file';
+    	inputFile.name = '';
+    let buttonConfirm = criaElemento('button', 'btnsConfirm');
+    	buttonConfirm.innerText = 'Salvar';
 
-    divTextAreaFile.append(variacoesTextArea, inputFile, buttonConfirm)
-    cardsVariacoes.append(holdInputs, divTextAreaFile)
-    divHoldVari.appendChild(cardsVariacoes)
+    divTextAreaFile.append(variacoesTextArea, inputFile, buttonConfirm);
+    cardsVariacoes.append(holdInputs, divTextAreaFile);
+    divHoldVari.appendChild(cardsVariacoes);
 }
 
 criaVari.addEventListener('click', () => {
-    criaVariacao()
-})
+    criaVariacao();
+});
 
+btnCriaClassi.addEventListener('click', () => {
+    criaClassificacao();
+});
+
+(async () => {
+  try{
+    let opcoes = await consultarClassificacoes();
+    opcoes = JSON.parse(opcoes);      
+    console.log(opcoes)//COLOCAR ESSAS CLASSIFICACOES NO SELECT
+  }
+  catch(e){
+    console.log(e)
+  }
+})()
 
 
 

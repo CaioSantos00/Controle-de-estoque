@@ -9,24 +9,25 @@ class eventos {
 	}
 	erro(e){
 		console.log("deu erro")
-	}		
+	}
 }
 function preparaFormulario(arrayJsons){
 	let form = new FormData();
 		arrayJsons.forEach((cada) => {
 			form.append(cada.chave, cada.valor)
-		})	
+		})
 	return form;
 }
 function envia(dados, eventos){
 	let xhr = new XMLHttpRequest();
-		xhr.addEventListener("progress",eventos.carregando);
-		xhr.addEventListener("load", eventos.carregado);
-		xhr.addEventListener("erro", eventos.erro);
-		xhr.open("POST", "/Sistema-de-pedidos-TCC/envio/cadastrarProduto");
-		xhr.send(
-			preparaFormulario(dados)
-		);
+			xhr.addEventListener("progress",eventos.carregando);
+			xhr.addEventListener("load", eventos.carregado);
+			xhr.addEventListener("erro", eventos.erro);
+			xhr.setRequestHeader("Content-type", "multipart/form-data");
+			xhr.open("POST", "/Sistema-de-pedidos-TCC/envio/cadastrarProduto");
+			xhr.send(
+				preparaFormulario(dados)
+			);
 }
 /*
 let ev = new eventos;

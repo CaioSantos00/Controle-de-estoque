@@ -2,6 +2,7 @@ let btnCriaClassi = document.getElementById('criaClassi');
 let divHoldClassifi = document.getElementById('divHoldClassifi');
 let divHoldVari = document.getElementById('divHoldVari');
 let criaVari = document.getElementById('criaVari');
+let selectClassis = document.getElementById('selectClassis');
 
 function btnCancel(divPai, apagaDiv) {
     divPai.removeChild(apagaDiv);
@@ -18,4 +19,7 @@ function criaElemento(tag, nameClass) {
     let elemento = document.createElement(tag);
     elemento.classList.add([nameClass]);
     return elemento;
+}
+function atualizaClassificacoes(){
+  
 }

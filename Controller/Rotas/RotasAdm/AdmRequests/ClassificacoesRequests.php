@@ -9,17 +9,23 @@
 
 	class ClassificacoesRequests{
 		function __construct(){
-			//if(!isset($_COOKIE['TipoConta'])) exit("sai pra lá hacker");
+			if(!isset($_COOKIE['TipoConta'])) exit("sai pra lá hacker");
 		}
 		function cadastrar($data){
+			if(!isset($_SERVER['CONTENT_TYPE'])) exit("sai pra la hacker");
+			$_POST = json_decode(trim(file_get_contents("php://input")), true);
 			$cadastro = new Cadastro($_POST['nome']);
 			echo $cadastro;
 		}
 		function edicao($data){
+			if(!isset($_SERVER['CONTENT_TYPE'])) exit("sai pra la hacker");
+			$_POST = json_decode(trim(file_get_contents("php://input")), true);
 			$edicao = new Edicao($_POST['paraEditar'],$_POST['novoValor']);
 			echo $edicao->executar();
 		}
 		function excluir($data){
+			if(!isset($_SERVER['CONTENT_TYPE'])) exit("sai pra la hacker");
+			$_POST = json_decode(trim(file_get_contents("php://input")), true);
 			$exclusao = new Excluir($_POST['paraExcluir']);
 			echo $exclusao->executar();
 		}

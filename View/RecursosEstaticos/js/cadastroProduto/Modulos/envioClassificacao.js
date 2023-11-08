@@ -17,8 +17,5 @@ async function excluirClassificacao(paraExcluir){
   return resposta == "tudo certo" ? true : false;
 }
 async function consultarClassificacoes(){
-  return await fetchBack(['envio/consultarClassificacoes'])
-}
-async function atualizarArqvClassificacoes(){
-  return await fetchBack(['envio/atualizarClassificacoes']);
+  return await fetchBack(['/Sistema-de-pedidos-TCC/envio/consultarClassificacoes'])
 }
