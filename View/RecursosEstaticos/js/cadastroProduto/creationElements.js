@@ -30,8 +30,9 @@ function criaVariacao() {
     let variacoesTextArea = criaElemento('textarea', ['inputs', 'variacoesTextArea']);
 
     let inputFile = criaElemento('input', ['inputFile', 'inputs']);
-    	inputFile.type = 'file';
-    	inputFile.name = '';
+    	  inputFile.type = 'file';
+    	  inputFile.name = '';
+        inputFile.multiple = true;
     let buttonConfirm = criaElemento('button', 'btnsConfirm');
     	buttonConfirm.innerText = 'Salvar';
 
@@ -51,7 +52,7 @@ btnCriaClassi.addEventListener('click', () => {
 (async () => {
   try{
     let opcoes = await consultarClassificacoes();
-    opcoes = JSON.parse(opcoes);      
+    opcoes = JSON.parse(opcoes);
     console.log(opcoes)//COLOCAR ESSAS CLASSIFICACOES NO SELECT
   }
   catch(e){
