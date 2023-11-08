@@ -1326,6 +1326,26 @@ a #btnCon:hover {
   background-color: #2460c9;
 }
 
+#sectionDetails {
+  margin: 20px 280px;
+}
+
+.titleDetalhes {
+  padding: 10px;
+  background-color: #0c409a;
+  color: rgb(255, 255, 255);
+}
+
+#divAlgumasInfos {
+  display: grid;
+  grid-template-areas: "boxPrima boxSecond";
+}
+
+.borderBoxs {
+  padding: 10px;
+  border: 1px solid rgb(211, 211, 211);
+}
+
 @media screen and (max-width: 1115px) {
   #holdTodosPedidos {
     grid-template-areas: "cardPedido cardPedido cardPedido";
