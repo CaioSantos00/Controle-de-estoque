@@ -558,7 +558,7 @@ textarea {
   background-color: #2460c9;
 }
 #btnEditPerfil:hover {
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(187, 186, 186);
 }
 
 #divFerramentas {
@@ -892,7 +892,7 @@ a #btnCon:hover {
 }
 
 #infosFinaisEndereco {
-  box-shadow: 0px 0px 10px 2px grey;
+  box-shadow: 0px 0px 10px 2px rgb(187, 186, 186);
   border-radius: 5px;
   padding: 20px 20px 5px;
 }
@@ -1343,7 +1343,45 @@ a #btnCon:hover {
 
 .borderBoxs {
   padding: 10px;
-  border: 1px solid rgb(211, 211, 211);
+  border: 1px solid rgb(187, 186, 186);
+}
+
+#detalhesCarrinho {
+  margin-top: 20px;
+}
+
+#holdInfosCar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+#finalizarPedido {
+  font-size: 1em;
+  background-color: green;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  width: 100%;
+}
+#finalizarPedido:hover {
+  background-color: #2460c9;
+}
+#finalizarPedido:hover {
+  background-color: rgb(34, 161, 34);
+}
+
+#precoTotal {
+  box-shadow: 0px 0px 10px 2px rgb(187, 186, 186);
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 8px;
+  font-size: 1.3em;
 }
 
 @media screen and (max-width: 1115px) {
