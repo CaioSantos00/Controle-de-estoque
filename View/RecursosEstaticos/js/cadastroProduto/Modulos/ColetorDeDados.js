@@ -29,6 +29,8 @@ function coletarDadosPrincipais(){
   ];
   return retorno;
 }
+
+// só prescisa chamar a função coletarDadosFront() para recuparar todos os dados
 function coletarDadosFront(){
     return {
       "principais":coletarDadosPrincipais(),

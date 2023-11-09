@@ -1,4 +1,4 @@
-class eventos {
+class Eventos {
 	carregando(e){
 		console.log("carregando")
 	}
