@@ -5,11 +5,11 @@
 			<directory>Testes/login</directory>
 		</testsuite>
 		<testsuite name="classificacoes">
-			<directory>Testes/classificacoes</directory>			
+			<directory>Testes/classificacoes</directory>
 		</testsuite>
 		<testsuite name="carrinhoGeral">
 			<file>Testes/carrinho/CarrinhoTest.php</file>
-		</testsuite>		
+		</testsuite>
 		<testsuite name="adicionarItemCarrinho">
 			<file>Testes/carrinho/AdicionarItemTest.php</file>
 		</testsuite>
@@ -36,6 +36,9 @@
 		</testsuite>
 		<testsuite name="geralEndereco">
 			<directory>Testes/enderecos</directory>
+		</testsuite>
+		<testsuite name="geralMensagens">
+			<file> Testes/mensagens/MensagensTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>

@@ -1,7 +1,7 @@
 <?php
     namespace Testes;
 
-    class Dados{        
+    class Dados{
         public static string $idUsuario = "36";
         private \stdClass $dado;
         function __construct(){
@@ -38,7 +38,7 @@
 			"Rua" => "av lydia",
 			"Bairro" => "Loty",
 			"Numero" => "1160",
-			"InstrucoesEntrega" => "deixar no vizinho e na rua de baixo"			
-		]; 
-        }
+			"InstrucoesEntrega" => "deixar no vizinho e na rua de baixo"
+		];
+        }        
     }
