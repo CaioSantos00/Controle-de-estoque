@@ -1445,15 +1445,22 @@ header a:hover {
   .nav-response {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    top: 0;
     background-color: #0c409a;
   }
-  header ul {
+  .nav-response ul {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .nav-response li {
+    margin: 0px 0;
   }
   #menuHam {
     z-index: 1000;
