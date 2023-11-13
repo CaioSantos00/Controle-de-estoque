@@ -1244,7 +1244,7 @@ a #btnCon:hover {
   margin: 30px;
 }
 
-#pedidoInput {
+.inputsConsultas {
   width: 100%;
   padding: 5px;
   outline: 0;
@@ -1324,6 +1324,10 @@ a #btnCon:hover {
 }
 .btnMaisDetails:hover {
   background-color: #2460c9;
+}
+
+.statusMensagens {
+  padding-top: 5px;
 }
 
 #sectionDetails {
