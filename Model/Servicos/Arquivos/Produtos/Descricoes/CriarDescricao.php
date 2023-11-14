@@ -11,7 +11,7 @@
 			$this->descricao = $descricao;
 		}
 		private function criaArquivo(string $descricao) :bool{
-			if(file_put_contents('arqvsSecundarios/Produtos/Descricoes/{$this->idProduto}.txt', $descricao) === false) return false;
+			if(file_put_contents("arqvsSecundarios/Produtos/Descricoes/{$this->idProduto}.txt", $descricao) === false) return false;
 			return true;
 		}
 		function executar() :bool{

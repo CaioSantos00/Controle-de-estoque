@@ -14,7 +14,7 @@
       $envio = new EnviarMensagem("36", "a mlh dela", false);
       $this->assertTrue($envio->getResposta());
     }
-    function testEnviarMensagemComArquivos(){
-      $_FILES['imgs']['tmp_name'][0]
+    function testConsultarMensagemSemArquivos(){
+      $envio = new ConsultarM
     }
   }

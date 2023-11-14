@@ -13,7 +13,7 @@
       }
       function testConsultarUmaDescricao(){
         $descricao = new D\BuscarDescricao("150150150");
-        $this->asserSame("uma descrição ótima para testar", (string) $descricao);
+        $this->assertSame("uma descrição ótima para testar", (string) $descricao);
       }
       function testEditarUmaDescricao(){
         $descricao = new D\EditarDescricao("150150150", "uma descrição ótima para editar");

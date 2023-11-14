@@ -9,7 +9,8 @@
 		
 		function __construct(string $idProduto, string $novoConteudo){
 			$this->idProduto = $idProduto;
-		}
+			$this->novoConteudo = $novoConteudo;
+		}		
 		private function salvarNovaDescricao(){
 			if(file_put_contents("arqvsSecundarios/Produtos/Descricoes/{$this->idProduto}.txt",$this->novoConteudo) === false){
 				return false;

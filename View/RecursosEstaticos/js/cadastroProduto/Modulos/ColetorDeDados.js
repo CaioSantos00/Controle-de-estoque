@@ -6,13 +6,14 @@ function extrairFotosInput(input){
 
 function coletarDadoVariacao(variacao){
   let elementos1 = Array.from(variacao.firstChild.getElementsByClassName("inputVari")),
-      elementos2 = Array.from(variacao.lastChild.getElementsByClassName("inputs")),
-      dados = {};
-      dados.preco = elementos1[0].value;
-      dados.nome = elementos1[1].value;
-      dados.descricao = elementos2[0].value;
-      dados.fotos = extrairFotosInput(elementos2[1]);
-  return dados;
+      elementos2 = Array.from(variacao.lastChild.getElementsByClassName("inputs"));
+
+    return [
+      {"chave":"preco", "valor":elementos1[0].value},
+      {"chave":"nome","valor": elementos1[1].value},
+      {"chave":"descricao", "valor": elementos2[0].value},
+      {"chave":"fotos", "valor": extrairFotosInput(elementos2[1])}
+    ]
 }
 function coletarDadosVariacoes(){
   let variacoes = divHoldVari.getElementsByClassName("cardsVariacoes"), qtd = variacoes.length, dadosVariacoes = [];

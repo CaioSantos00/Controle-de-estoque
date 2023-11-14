@@ -5,7 +5,7 @@
 	class ExcluirDescricao implements ServicoInterno{
 		private string $nomeArquivoDescricao;
 		function __construct(string $idProduto){
-			$this->nomeDoArquivoDeDescricao = $idProduto.".txt";
+			$this->nomeArquivoDescricao = $idProduto.".txt";
 		}
 		private function verificarSeDescricaoExiste() :bool{
 			$todasDescricoes = array_diff(
@@ -13,12 +13,12 @@
 				['.','..']
 			);
 			foreach($todasDescricoes as $descricao){
-				if($descricao == $this->nomeDoArquivoDeDescricao) return true;
+				if($descricao == $this->nomeArquivoDescricao) return true;
 			}
 			return false;
 		}
 		private function excluirArquivo() :bool{
-			return unlink("arqvsSecundarios/Produtos/Descricoes/{$this->nomeDoArquivoDeDescricao}");
+			return unlink("arqvsSecundarios/Produtos/Descricoes/{$this->nomeArquivoDescricao}");
 		}
 		function executar() :bool{
 			if($this->verificarSeDescricaoExiste()) return $this->excluirArquivo();
