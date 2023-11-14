@@ -5,10 +5,12 @@
     use App\Interfaces\Model;
 
     class ExcluirMensagem implements Model{
-      private string $idUsuario;
       public string $idMensagem;
-      function __construct(string $idUsuario){
+      private string $idUsuario;
+      private string $query;
+      function __construct(string $idUsuario, string $idMensagem){
         $this->idUsuario = $idUsuario;
+        $this->idMensagem = $idMensagem;
       }
       private function apagarArqvs(){
 

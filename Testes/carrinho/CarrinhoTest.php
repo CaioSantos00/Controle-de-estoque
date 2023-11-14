@@ -4,16 +4,14 @@
 	require "vendor/autoload.php";
 
 	use Controladores\Rotas\RotasUser\UserRequests;
-    use App\Carrinho\Consultar;
-    use App\Carrinho\Finalizar;
-    use App\Carrinho\SalvarNovo;
-	use \PHPUnit\Framework\TestCase;
+  use \PHPUnit\Framework\TestCase;
+  use App\Carrinho\{Consultar,Finalizar,SalvarNovo};
 
     class CarrinhoTest extends TestCase{
         private string $idUsuario = "36";
         function testEsvaziarCarrinho(){
             $carrinho = new SalvarNovo([], $this->idUsuario);
-            
+
             $this->assertEquals(true, $carrinho->executar());
         }
         function testAdicionarItem(){
@@ -25,7 +23,7 @@
                     "qtd" => "50"
                 ]);
 
-            $this->assertEquals("1", $resultado);   
+            $this->assertEquals("1", $resultado);
         }
         function testRemoverItem(){
             $carrinho = new UserRequests\CarrinhoRequests;
@@ -52,8 +50,8 @@
         }
         function testEsvaziarCarrinhoDenovo(){
             $carrinho = new SalvarNovo([], $this->idUsuario);
-            
+
             $this->assertEquals(true, $carrinho->executar());
-        }       
-        
+        }
+
     }
