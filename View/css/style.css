@@ -1346,6 +1346,7 @@ a #btnCon:hover {
 }
 
 .borderBoxs {
+  text-transform: capitalize;
   padding: 10px;
   border: 1px solid rgb(187, 186, 186);
 }
@@ -1388,6 +1389,16 @@ a #btnCon:hover {
   font-size: 1.3em;
 }
 
+.nomeProductCarDetails {
+  font-size: 1.2em;
+}
+
+.imgsCarDetails {
+  width: 80px;
+  margin-right: 8px;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 1115px) {
   #holdTodosPedidos {
     grid-template-areas: "cardPedido cardPedido cardPedido";
@@ -1401,6 +1412,24 @@ a #btnCon:hover {
 @media screen and (max-width: 570px) {
   #holdTodosPedidos {
     grid-template-areas: "cardPedido";
+  }
+}
+@media screen and (max-width: 951px) {
+  #divAlgumasInfos {
+    grid-template-areas: "boxPrima";
+  }
+  #sectionDetails {
+    margin: 20px 100px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #sectionDetails {
+    margin: 20px 20px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .nomeProductCarDetails {
+    font-size: 1em;
   }
 }
 #logo {

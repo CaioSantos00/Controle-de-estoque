@@ -14,6 +14,7 @@
 }
 
 .borderBoxs {
+    text-transform: capitalize;
     padding: 10px;
     border: 1px solid $corHoverCinza;
 }
@@ -43,4 +44,14 @@
     margin: 10px 0px;
     padding: 8px;
     font-size: 1.3em;
+}
+
+.nomeProductCarDetails {
+    font-size: 1.2em;
+}
+
+.imgsCarDetails {
+    width: 80px;
+    margin-right: 8px;
+    border-radius: 5px;
 }

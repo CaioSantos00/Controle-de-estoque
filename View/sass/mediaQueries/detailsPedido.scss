@@ -1,0 +1,21 @@
+@media screen and (max-width: 951px){
+    #divAlgumasInfos {
+        grid-template-areas: 'boxPrima';
+    }
+    #sectionDetails {
+        margin: 20px 100px;
+    }
+    
+}
+
+@media screen and (max-width: 500px){
+    #sectionDetails {
+        margin: 20px 20px;
+    }   
+}
+
+@media screen and (max-width: 350px){
+    .nomeProductCarDetails {
+        font-size: 1em;
+    }
+}
