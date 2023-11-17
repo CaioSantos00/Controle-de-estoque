@@ -339,6 +339,8 @@ textarea {
 
 #mudaImg {
   width: 470px;
+  height: 470px;
+  border-radius: 8px;
 }
 
 .titleVisuaPro {
@@ -1430,6 +1432,51 @@ a #btnCon:hover {
 @media screen and (max-width: 350px) {
   .nomeProductCarDetails {
     font-size: 1em;
+  }
+}
+@media screen and (max-width: 555px) {
+  #sectionVisuPro {
+    width: 380px;
+  }
+  #mudaImg {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+  }
+  .titleVisuaPro {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 400px) {
+  #sectionVisuPro {
+    width: 350px;
+  }
+  #mudaImg {
+    width: 265px;
+    height: 265px;
+    border-radius: 8px;
+  }
+  .titleVisuaPro {
+    font-size: 1.1em;
+  }
+  #infosProduto {
+    padding: 0px 20px;
+  }
+}
+@media screen and (max-width: 352px) {
+  #sectionVisuPro {
+    width: 300px;
+  }
+  #mudaImg {
+    width: 225px;
+    height: 225px;
+    border-radius: 8px;
+  }
+  .titleVisuaPro {
+    font-size: 1.1em;
+  }
+  #infosProduto {
+    padding: 0px 10px;
   }
 }
 #logo {
