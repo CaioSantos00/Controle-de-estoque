@@ -450,16 +450,8 @@ textarea {
 #divInputConsul {
   display: flex;
   justify-content: center;
-  width: 100%;
-}
-
-#inputConsulta {
-  width: 100%;
-  margin: 30px;
-  padding: 5px;
-  outline: 0;
-  border: 3px solid #0c409a;
-  border-radius: 5px;
+  gap: 5px;
+  padding: 25px;
 }
 
 .divEditExclu {
@@ -1238,14 +1230,6 @@ a #btnCon:hover {
     grid-template-areas: "cardsFerramentas";
   }
 }
-#divInputConsulPedido {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin: 30px;
-}
-
 .inputsConsultas {
   width: 100%;
   padding: 5px;

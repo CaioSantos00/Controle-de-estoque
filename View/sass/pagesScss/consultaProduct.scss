@@ -1,16 +1,8 @@
 #divInputConsul {
     display: flex;
     justify-content: center;
-    width: 100%;
-}
-
-#inputConsulta {
-    width: 100%;
-    margin: 30px;
-    padding: 5px;
-    outline: 0;
-    border: 3px solid $corPrimaria;
-    border-radius: 5px;
+    gap: 5px;
+    padding: 25px;
 }
 
 .divEditExclu {
