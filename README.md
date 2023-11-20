@@ -157,3 +157,7 @@ _________
 > > otimização dos endpoints para faciltar a reutilização e extensibilidade
 > >
 > > implementação do bootstrap nos testes de unidade
+
+8º semana
+> Front-end
+> > Revisão da Reponsividade das Telas
