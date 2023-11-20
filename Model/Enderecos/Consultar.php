@@ -18,16 +18,13 @@
         private function consultarBanco() :array{            
             try{
                 $resultado = [];
-                CB::getConexao()->beginTransaction();
                 $query = CB::getConexao()->prepare($this->query);
         		if(!$query->execute([$this->idUsuario])) throw new \Exception("execução da query falhou");
 		        $resultadoConsulta = $query->fetchAll();
         		$resultado = $resultadoConsulta === [] ? ["sem enderecos cadastrados"] : $resultadoConsulta;
-                CB::getConexao()->commit();
             }
             catch(\PDOException|\Exception $ex){
                 $GLOBALS['ERRO']->setErro("consulta de endereco", $ex->getMessage());
-                CB::voltaTudo();
                 $resultado = [];
             }              
             finally{

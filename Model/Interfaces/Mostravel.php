@@ -1,4 +1,4 @@
 <?php
   namespace App\Interfaces;
 
-  interface Showable{}
+  interface Mostravel{}

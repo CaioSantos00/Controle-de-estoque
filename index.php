@@ -6,7 +6,7 @@
 
 	require_once "Controller/URL/Usuario.php";
 	require_once "Controller/URL/Admin.php";
-
+	
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
 		echo "erro ".$data['erro'];

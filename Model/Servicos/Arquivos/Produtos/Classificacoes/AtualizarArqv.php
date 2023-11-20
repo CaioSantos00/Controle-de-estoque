@@ -12,18 +12,14 @@
 		}
 		private function getClassificacoesDoBanco() :array|bool{
 			try{
-				CB::getConexao()->beginTransaction();
-				$resultado = CB::getConexao()->query($this->query)->fetchAll();
-				
+				$resultado = CB::getConexao()->query($this->query)->fetchAll();				
 				if(!$resultado) throw new \Exception("consulta falhou");
 			}
 			catch(\Exception|\PDOException $e){
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
 				$GLOBALS['ERRO']->setErro("atualização arqv classificacoes", "na busca de todas as classificacoes do banco, {$e->getMessage()}");
 				$resultado = false;
 			}
 			finally{
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->commit();
 				return $resultado;
 			}
 		}

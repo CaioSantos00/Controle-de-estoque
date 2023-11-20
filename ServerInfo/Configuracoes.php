@@ -7,7 +7,7 @@
 
 	$GLOBALS['ERRO'] = new ErroHand(); //Define globalmente uma instancia da classe manipuladora de erros
 
-	define('URL_SITE', 'http://localhost/Sistema-de-pedidos-TCC/');
+	define('URL_SITE', 'http://localhost:3030/');
 
 	define('DADOS_CONEXAO_BANCO',
 		json_encode(

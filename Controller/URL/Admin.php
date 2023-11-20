@@ -9,11 +9,6 @@
 		header("location: /Sistema-de-pedidos-TCC/admin");
 	});
 
-	$router->get('/estilo', "RotasAdm:estilos");
-	$router->get('/componentes/{nome}',"RotasAdm:elementos");
-	$router->get('/imgs/{qual}', "RotasAdm:img");
-	$router->get('/scripts/{contexto}/{nome}', "RotasAdm:script");
-	$router->get('/scripts/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}', "RotasAdm:scriptModularizado");
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");

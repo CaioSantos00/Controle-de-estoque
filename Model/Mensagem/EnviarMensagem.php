@@ -34,7 +34,7 @@
 		private function salvarImagens(){
 			$salvar = new SI($this->idUsuario, $this->idMensagem);
 			return $salvar->executar();
-		}
+		}		
 		function getResposta(){
 			if($this->salvarNoBanco()){
 				$this->idMensagem = CB::getConexao()->lastInsertId();

@@ -40,5 +40,8 @@
 		<testsuite name="geralMensagens">
 			<file> Testes/mensagens/MensagensTest.php</file>
 		</testsuite>
+		<testsuite name="geralUsuario">
+			<file> Testes/usuario/ConsultaTest.php</file>
+		</testsuite>
 	</testsuites>
 </phpunit>

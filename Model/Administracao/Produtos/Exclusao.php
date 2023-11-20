@@ -23,8 +23,8 @@
 		}
 		private function executaQueries() :bool{
 			try{				
-					$this->querys[0]->execute([$this->idProduto]);
-					$this->querys[1]->execute([$this->idProduto]);
+				$this->querys[0]->execute([$this->idProduto]);
+				$this->querys[1]->execute([$this->idProduto]);
 				CB::getConexao()->commit();
 				$retorno = true;
 			}
@@ -41,8 +41,8 @@
 			try{
 				CB::getConexao()->beginTransaction();
 				$this->querys = [
-					CB::getConexao()->prepare("delete * from `produtosecundario` where `Id` = ?"),
-					CB::getConexao()->prepare("delete * from `produtoprimario` where `Id` = ?")
+					CB::getConexao()->prepare("delete from `produtosecundario` where `Id` = ?"),
+					CB::getConexao()->prepare("delete from `produtoprimario` where `Id` = ?")
 				];
 				$retorno = true;
 			}

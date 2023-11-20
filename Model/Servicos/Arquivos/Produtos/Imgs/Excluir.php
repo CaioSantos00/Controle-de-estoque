@@ -27,8 +27,7 @@
 				foreach($diretorio as $img) $resultados[] = unlink("arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$principais}/{$img}");
 			}
 			
-			foreach($resultados as $resultado) if(!$resultado) return false;
-			return true;
+			return !in_array(false, $resultados)
 		}
 		function executar() :bool{
 			return $this->excluirImagens();

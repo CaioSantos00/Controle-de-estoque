@@ -6,38 +6,39 @@
 	
 	class Perfil implements Model, \Stringable{
 		private string $idUsuario;
-		private array $querysParaChamar;
+		private array $querysParaChamar = ["select `Nome`, `Email`,`Telefone`, `Carrinho`, `TipoConta` from `Usuario` where `Id` = ?"];
 		
-		function __construct(string $cookieIdUsuario){
-			$this->idUsuario = hex2bin($cookieIdUsuario);
-			$this->querysParaChamar = ["select `Nome`, `Email`,`Telefone`, `Carrinho`, `TipoConta` from `Usuario` where `Id` = ?"];
+		function __construct(string $cookieIdUsuario, bool $feito = true){
+			$this->idUsuario = $feito
+				? hex2bin($cookieIdUsuario)
+				: $cookieIdUsuario;			
 		}
 		private function getImagemDePerfil() :string{
-			$img = new ImgPerfil($this->idUsuario);
-			return $img->executar();
-		}
-		private function getDadosDoBanco(\PDO $conn) :array{
+			$img = (new ImgPerfil($this->idUsuario))->executar();			
+			return $img != "" ? $img : "imagem não encontrada";
+		}		
+		private function getDadosDoBanco(\PDO $conn) :array|string{
 			try{
 				$conn->beginTransaction();
-				$dados = $conn;
-				$dados
-					->prepare($this->querysParaChamar[0])
-					->execute([$this->idUsuario])
-					->fetchAll();
+				$dados = $conn->prepare($this->querysParaChamar[0]);
+				$dados->execute([$this->idUsuario]);				
+				$dados = $dados->fetchAll();				
 				$conn->commit();
 			}
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro('Conexão Perfil',"na busca de dados, {$e->getMessage()}");
 				if($conn->inTransaction()) $conn->rollBack();
-				$dados = [false];
+				$dados = false;
 			}
 			catch(\PDOException $e){
 				$GLOBALS['ERRO']->setErro('Conexão Perfil',"na busca de dados pro perfil, {$e->getMessage()}");
 				if($conn->inTransaction()) $conn->rollBack();
-				$dados = [false];
+				$dados = false;
 			}
 			finally{
-				return $dados;
+				return (is_array($dados) and count($dados) > 0)
+					? $dados
+					: "perfil não encontrado";
 			}
 		}
 		function __toString(){

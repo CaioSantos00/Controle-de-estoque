@@ -2,16 +2,20 @@
   namespace App\Mensagem\Consultar;
 
   use App\Servicos\Conexao\ConexaoBanco as CB;
-  use App\Interfaces\ServicoInterno;
-  use App\Exceptions\Showable;
+  use App\Exceptions\UserException;
+  use App\Interfaces\{
+    ServicoInterno,
+    Mostravel
+  };
 
   class Especifica implements ServicoInterno{
     public array $arquivos;
     public array $mensagem;
+    public bool $temArqvs;
     public string $erro;
     private string $idMensagem;
-    private string $query = "select `parentId`,`conteudo`,`DataEnvio` from `mensagens` where `Id` = ?";
     private string $diretorio;
+    private string $query = "select `parentId`,`conteudo`,`DataEnvio` from `mensagens` where `Id` = ?";
     function __construct(string $idMensagem){
       $this->idMensagem = $idMensagem;
       $this->diretorio = "arqvsSecundarios/Mensagens/".$this->idMensagem;
@@ -23,8 +27,8 @@
         $query->execute([$this->idMensagem]);
         $resposta = $query->fetchAll();
       }
-      catch(\Exception $e){
-        $respota = false;
+      catch(\PDOException|\Exception $e){
+        $resposta = false;
         CB::voltaTudo();
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());
       }
@@ -33,7 +37,8 @@
       }
     }
     private function temArquivos() :bool{
-      return is_dir($this->diretorio);
+      if(empty($this->temArquivos)) $this->temArquivos = is_dir($this->diretorio);
+      return $this->temArqvs;
     }
     private function getArquivos() :array{
       return array_diff(
@@ -43,17 +48,23 @@
     }
     function executar(){
       try{
-        if(!$this->temArquivos()) throw new Showable("não tem arquivos");
-        $this->arquivos = $this->getArquivos();
+        $resposta = true;
         $mensagem = $this->getDadosBanco();
-        if(is_bool($mensagem)) throw new Showable("não encontrada");
-        $this->mensagem = $mensagem;
+        if(is_bool($mensagem)) throw new \Exception("não encontrada");
+        $this->mensagem = $mensagem;        
+        if(!$this->temArquivos()) throw new UserException("não tem arquivos");
+        $this->arquivos = $this->getArquivos();
       }
       catch(Showable $ex){
         $this->erro = $ex->getMessage();
       }
-      catch(\Exception $e){
+      catch(\Exception|\PDOException $e){
+        $resposta = false;        
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());
+        $this->erro = "erro interno";
+      }
+      finally{
+        return $resposta;
       }
     }
   }

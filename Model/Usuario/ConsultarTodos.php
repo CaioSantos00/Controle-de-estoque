@@ -8,30 +8,30 @@
 	
 	class ConsultarTodos implements ServicoInterno, Model, \Stringable{
 		private string $query = "select `Id`, `Nome`, `Email`, `Telefone` from `usuario`";
+		private array $resposta;
 		
 		function setParametros(string $parametros){
 			$this->query = "select {$parametros} from `usuario`";
 		}
-		function executar() :array{
+		function executar(){
 			try{
-				CB::getConexao()->beginTransaction();
-					$resultado = CB::getConexao()
-									->query($this->query);
-				CB::getConexao()->commit();
+				$resultado = CB::getConexao()
+					->query($this->query)
+					->fetchAll();
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Consulta usuario", "na query: {$e->getMessage()}");
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
 				$resultado = [false];
 			}
 			finally{
-				return [...$resultado];
+				return $resultado;
 			}
 		}
 		function __toString(){
 			return json_encode($this->getResposta());
 		}
 		function getResposta(){
-			return $this->executar();
+			if(empty($this->resposta)) $this->resposta = $this->executar();
+			return $this->resposta;
 		}
 	}
