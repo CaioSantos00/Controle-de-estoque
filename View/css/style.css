@@ -896,15 +896,6 @@ a #btnCon:hover {
   gap: 10px;
 }
 
-#infosEnd {
-  margin: 10px;
-}
-
-#enderecoCompleto {
-  display: flex;
-  gap: 3px;
-}
-
 #divTitleEdit {
   display: flex;
   align-items: center;

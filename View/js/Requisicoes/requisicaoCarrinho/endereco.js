@@ -12,10 +12,10 @@ function enviaDadosFront(respostaBusca) {
         respostaBusca = JSON.parse(respostaBusca)        
         nomeEndereco.innerText = respostaBusca.nome
         telEndereco.innerText = respostaBusca.telefone
-        ruaEndereco.innerText = respostaBusca.endereco.rua
-        numberEndereco.innerText = respostaBusca.endereco.numero
-        bairroEndereco.innerText = respostaBusca.endereco.bairro
-        estadoEndereco.innerText = respostaBusca.endereco.estado
+        ruaEndereco.innerText = respostaBusca.endereco.rua + ','
+        numberEndereco.innerText = respostaBusca.endereco.numero + ','
+        bairroEndereco.innerText = respostaBusca.endereco.bairro + ','
+        estadoEndereco.innerText = respostaBusca.endereco.estado + ','
         cityEndereco.innerText = respostaBusca.endereco.cidade
     }
     catch (e) {
