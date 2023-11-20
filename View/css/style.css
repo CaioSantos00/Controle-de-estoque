@@ -968,6 +968,16 @@ a #btnCon:hover {
   background-color: #2460c9;
 }
 
+#sectionMensagens {
+  margin: 20px 280px;
+}
+
+#fotosMensagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1115px) {
   #divCardInit {
     gap: 10px;
@@ -1463,6 +1473,59 @@ a #btnCon:hover {
     padding: 0px 10px;
   }
 }
+@media screen and (max-width: 1115px) {
+  .bodyMensagem #mudaImg {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .bodyMensagem #sectionMensagens {
+    margin: 20px 150px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .bodyMensagem #sectionMensagens {
+    margin: 20px 80px;
+  }
+}
+@media screen and (max-width: 555px) {
+  .bodyMensagem #sectionMensagens {
+    margin: 20px 50px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .bodyMensagem #mudaImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+  }
+  .bodyMensagem #mensagem {
+    font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 400px) {
+  .bodyMensagem #sectionMensagens {
+    margin: 20px;
+  }
+  .bodyMensagem #mudaImg {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .bodyMensagem #sectionMensagens {
+    margin: 10px;
+  }
+  .bodyMensagem #mudaImg {
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+  }
+}
+
 #logo {
   width: 160px;
   margin: 10px;
