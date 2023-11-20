@@ -978,6 +978,54 @@ a #btnCon:hover {
   align-items: center;
 }
 
+#sectionMyCompras {
+  margin: 20px 280px;
+}
+
+#holdCardsPedidos {
+  display: grid;
+  gap: 10px;
+}
+
+.buyAgain {
+  font-size: 1em;
+  background-color: green;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+.buyAgain:hover {
+  background-color: #2460c9;
+}
+.buyAgain:hover {
+  background-color: rgb(0, 194, 0);
+}
+
+.holdProducts {
+  display: grid;
+  gap: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  #sectionMyCompras {
+    margin: 20px 100px;
+  }
+}
+@media screen and (max-width: 540px) {
+  #sectionMyCompras {
+    margin: 20px 50px;
+  }
+}
+@media screen and (max-width: 490px) {
+  #sectionMyCompras {
+    margin: 20px 10px;
+  }
+}
 @media screen and (max-width: 1115px) {
   #divCardInit {
     gap: 10px;
