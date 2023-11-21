@@ -35,7 +35,9 @@
 		public function EditarEndereco($data){
 			parent::renderizar('pages/editarEndereco.html');
 		}
-
+		public function MinhasMensagems($data){
+			parent::renderizar('pagesUser/mensagens.html');
+		}
 		public function FinalCarrinho($data){
 			parent::renderizar('pages/fimCarrinho.html');
 		}

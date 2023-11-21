@@ -6,33 +6,32 @@
     <title>Mensagem</title>
     <link rel="stylesheet" href="/estaticos/estilo" />
     <script src="/estaticos/js/elementos/header.js" defer></script>
+    <script src="/estaticos/js/modulos/envio/mensagemUsuario/EnvioDadosUsuario" defer></script>
   </head>
   <body>
     <header class="header-container"></header>
     <main>
     <section id="sectionForms">
-      <form action.="" id="form">
+      <form id="form">
         <div id="titleForms">Mensagens</div>
         <input
           type="text"
-          name=""
-          placeholder="Nome"
+          name="Motivo"
+          placeholder="Motivo"
           class="inputs"
-        />
-
-        <input
-          type="text"
-          name=""
-          placeholder="Motivo da mensagem "
-          class="inputs"
-        />
+          required
+        />        
         <input
           type="file"
-          name="imgs"
-          placeholder="Digite "
+          name="imgs[]"
           class="inputs inputFile"
+          multiple          
         />
-        <textarea name="" class="inputs" placeholder="Descrição"></textarea>
+        <textarea 
+          name="Conteudo" 
+          class="inputs"
+          placeholder="Conteúdo"
+        ></textarea>
         <div id="divEsqueceBtnEntre">
             <input type="submit" id="btnsForms" value="Enviar" />
         </div>

@@ -22,7 +22,7 @@
 				$this->idMensagens = $query->fetchAll();
 				if(count($this->idMensagens) == 0) throw new UserException("sem mensagens desse usuario");
 			}
-			catch(Mostravel $e){
+			catch(UserException $e){
 				$this->msgErro = $e->getMessage();
 				$resultado = false;
 			}
@@ -54,9 +54,14 @@
 		}
 		function getResposta(){
 			if(!$this->getIdsMensagensDoUsuario()) return $this->msgErro;
-			$resposta = [];
-			foreach($idMensagens as $id){
-				$resposta[$id] = $this->getDadosMensagem($id);
+			$resposta = [];			
+			foreach($this->idMensagens as $id){								
+				$msg = $this->getDadosMensagem($id[0]);
+				$resposta[] = !$msg["temErro"]
+					? ($msg["temArqvs"]
+						? [$msg["mensagem"], $msg["arquivos"]]
+						: $msg["mensagem"])
+					: 0;
 			}
 			return $resposta;
 		}

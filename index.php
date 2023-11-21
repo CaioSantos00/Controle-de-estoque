@@ -19,7 +19,8 @@
 	$router->get('/Carrinho', "RotasUser:Carrinho");
 	$router->get('/EditarEndereco', "RotasUser:EditarEndereco");
 	$router->get('/FinalCarrinho', "RotasUser:FinalCarrinho");
-	
+	$router->get('/MinhasMensagens', "RotasUser:MinhasMensagems");
+	//------------------------------------------------------------------------------------------------------------------------------------
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
 	$router->get('/estilo', "RotasEstaticas:estilos");
@@ -39,7 +40,8 @@
 	$router->group("usuario");
 	$router->post("/login", "UserRequests:login");
 	$router->post("/cadastro", "UserRequests:cadastro");
-	$router->post("/mensagem", "UserRequests:mensagem");
+	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
+	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 
 	$router->namespace("Controladores\Rotas\RotasAdm");
@@ -47,10 +49,7 @@
 	$router->get("/", "RotasAdm:inicio");  
 	$router->get("/cadastro", "RotasAdm:cadastroProduto");
 	$router->get("/consulta", "RotasAdm:consultaProduto");
-	$router->get("/erros", "RotasAdm:consultaErros");
-	$router->get("/admin", function(){
-		header("location: /Sistema-de-pedidos-TCC/admin");
-	});
+	$router->get("/erros", "RotasAdm:consultaErros");	
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");
@@ -60,7 +59,7 @@
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
 	$router->get("/consultarClassificacoes", "ClassificacoesRequests:consultar");
 	$router->get("/atualizarClassificacoes", "ClassificacoesRequests:atualizarArqv");
-
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
 		echo "erro ".$data['erro'];

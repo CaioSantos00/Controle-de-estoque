@@ -3,10 +3,7 @@
 
   use App\Servicos\Conexao\ConexaoBanco as CB;
   use App\Exceptions\UserException;
-  use App\Interfaces\{
-    ServicoInterno,
-    Mostravel
-  };
+  use App\Interfaces\ServicoInterno;
 
   class Especifica implements ServicoInterno{
     public array $arquivos;
@@ -14,11 +11,11 @@
     public bool $temArqvs;
     public string $erro;
     private string $idMensagem;
-    private string $diretorio;
+    private string $diretorio = "arqvsSecundarios/Mensagens/";
     private string $query = "select `parentId`,`conteudo`,`DataEnvio` from `mensagens` where `Id` = ?";
     function __construct(string $idMensagem){
       $this->idMensagem = $idMensagem;
-      $this->diretorio = "arqvsSecundarios/Mensagens/".$this->idMensagem;
+      $this->diretorio .= $this->idMensagem;
     }
     private function getDadosBanco() :array|bool{
       try{
@@ -37,7 +34,7 @@
       }
     }
     private function temArquivos() :bool{
-      if(empty($this->temArquivos)) $this->temArquivos = is_dir($this->diretorio);
+      if(empty($this->temArqvs)) $this->temArqvs = is_dir($this->diretorio);
       return $this->temArqvs;
     }
     private function getArquivos() :array{
@@ -55,7 +52,7 @@
         if(!$this->temArquivos()) throw new UserException("não tem arquivos");
         $this->arquivos = $this->getArquivos();
       }
-      catch(Showable $ex){
+      catch(UserException $ex){
         $this->erro = $ex->getMessage();
       }
       catch(\Exception|\PDOException $e){
