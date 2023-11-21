@@ -25,4 +25,21 @@
 		public function telaMsgs($data){
 			parent::renderizar('pages/telaMensagens.html');
 		}
+		public function Error($data){
+			parent::renderizar('pages/telaErroUser.html');
+		}
+		public function Carrinho($data){
+			parent::renderizar('pages/carrinho.html');
+		}
+		
+		public function EditarEndereco($data){
+			parent::renderizar('pages/editarEndereco.html');
+		}
+
+		public function FinalCarrinho($data){
+			parent::renderizar('pages/fimCarrinho.html');
+		}
+		public function visualizarProduto($data){
+			parent::renderizar('pages/visualizarProduto.html');
+		}
 	}

@@ -35,7 +35,7 @@ if (dados) {
 } else {
   (async () => {
     const resposta = await fetch(
-      "http://localhost/Sites/Repositorios/tcc/Sistema-de-pedidos-TCC/View/js/jsonEndereco.json"
+      "estaticos/js/jsonEndereco.json"
     );
     const respostaBusca = await resposta.text();
     if (!resposta.ok) {

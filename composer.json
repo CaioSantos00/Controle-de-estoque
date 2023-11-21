@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "require": {
         "intervention/image": "2.0.*",
-        "coffeecode/router" : "2.0.*",
+        "coffeecode/router" : "dev-master",
         "league/plates": "3.*",
         "matthiasmullie/minify": "dev-master"
     }
