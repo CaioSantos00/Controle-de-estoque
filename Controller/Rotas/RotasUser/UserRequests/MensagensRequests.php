@@ -26,6 +26,6 @@
         }
         function consultarMensagens($data){
             $consulta = new CMUEscfo(hex2bin($_COOKIE['login']));
-            print_r($consulta->getResposta());
+            echo json_encode($consulta->getResposta());
         }
     }

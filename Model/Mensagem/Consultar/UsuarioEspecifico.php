@@ -57,11 +57,15 @@
 			$resposta = [];			
 			foreach($this->idMensagens as $id){								
 				$msg = $this->getDadosMensagem($id[0]);
+				print_R($msg["mensagem"]);
+				echo "<hr>";
+				/*
 				$resposta[] = !$msg["temErro"]
 					? ($msg["temArqvs"]
 						? [$msg["mensagem"], $msg["arquivos"]]
 						: $msg["mensagem"])
 					: 0;
+				*/					
 			}
 			return $resposta;
 		}
