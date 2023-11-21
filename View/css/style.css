@@ -1307,6 +1307,7 @@ a #btnCon:hover {
   display: grid;
   grid-template-areas: "cardPedido cardPedido cardPedido cardPedido";
   justify-content: center;
+  align-items: center;
   gap: 10px;
   margin: 30px 0px;
 }
