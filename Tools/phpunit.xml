@@ -42,6 +42,9 @@
 		</testsuite>
 		<testsuite name="geralUsuario">
 			<file> Testes/usuario/ConsultaTest.php</file>
+		</testsuite>		
+		<testsuite name="produtoConsulta">
+			<file> Testes/produto/ConsultaTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
