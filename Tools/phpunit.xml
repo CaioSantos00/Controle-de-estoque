@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit verbose="true">
+	<testsuites>
+		<testsuite name="login">
+			<directory>Testes/login</directory>
+		</testsuite>
+		<testsuite name="classificacoes">
+			<directory>Testes/classificacoes</directory>
+		</testsuite>
+		<testsuite name="carrinhoGeral">
+			<file>Testes/carrinho/CarrinhoTest.php</file>
+		</testsuite>
+		<testsuite name="adicionarItemCarrinho">
+			<file>Testes/carrinho/AdicionarItemTest.php</file>
+		</testsuite>
+		<testsuite name="removerItemCarrinho">
+			<file>Testes/carrinho/RemoverItemTest.php</file>
+		</testsuite>
+		<testsuite name="consultarCarrinho">
+			<file>Testes/carrinho/ConsultarTest.php</file>
+        </testsuite>
+        <testsuite name="finalizarCarrinho">
+            <file>Testes/carrinho/finalizarTest.php</file>
+        </testsuite>
+		<testsuite name="adicionarEndereco">
+			<file>Testes/enderecos/CadastrarTest.php</file>
+        </testsuite>
+        <testsuite name="consultarEndereco">
+            <file>Testes/enderecos/ConsultarTest.php</file>
+		</testsuite>
+		<testsuite name="excluirEndereco">
+			<file>Testes/enderecos/ExcluirTest.php</file>
+		</testsuite>
+		<testsuite name="editarEndereco">
+			<file>Testes/enderecos/EditarTest.php</file>
+		</testsuite>
+		<testsuite name="geralEndereco">
+			<directory>Testes/enderecos</directory>
+		</testsuite>
+		<testsuite name="geralMensagens">
+			<file> Testes/mensagens/MensagensTest.php</file>
+		</testsuite>
+		<testsuite name="geralUsuario">
+			<file> Testes/usuario/ConsultaTest.php</file>
+		</testsuite>		
+		<testsuite name="produtoConsulta">
+			<file> Testes/produto/ConsultaTest.php</file>
+		</testsuite>
+	</testsuites>
+</phpunit>

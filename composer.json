@@ -1,0 +1,22 @@
+{
+    "name": "felip/sistema-de-pedidos-tcc",
+    "license": "MIT",
+    "description":"Tcc hiper-profissional",
+    "autoload": {
+        "files":[
+            "ServerInfo/Configuracoes.php"            
+        ],
+        "psr-4": {
+            "App\\": "Model/",
+            "Controladores\\":"Controller/",
+            "Testes\\":"Testes/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "intervention/image": "2.0.*",
+        "coffeecode/router" : "2.0.*",
+        "league/plates": "3.*",
+        "matthiasmullie/minify": "dev-master"
+    }
+}
