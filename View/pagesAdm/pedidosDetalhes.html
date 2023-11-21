@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/elementos/header.js" defer></script>
+    <script src="../js/elementos/nomesProdutos.js" defer></script>
+</head>
+<body>
+    <header class="header-container"></header>
+    <section id="sectionDetails">
+       <div id="detalhesPedidos">
+        <div class="titleDetalhes">Detalhes do Pedido</div>
+        <div id="divAlgumasInfos">
+            <div id="boxPrima" class="borderBoxs">
+                <div>Cliente: <span id="nomeCliente">Caio Santos</span></div>
+                <div>Telefone: <span  id="telCliente">13 9999-9999</span></div>
+                <div >Número do Pedido: <span id="numeroPedido">55</span></div>
+                <div >Data do Pedido: <span id="dataPedido">11/11/1111</span></div>
+            </div>
+            <div id="boxSecond" class="borderBoxs">
+                <div >Rua: <span id="ruaCliente">rua timóteo garcia lamas</span></div>
+                <div>Número: <span id="numberCasa">499</span></div>
+                <div >Bairro: <span id="bairroCliente">Nova Itanhaém</span></div>
+                <div >Cidade: <span id="cidadeCliente">Itanhaém</span></div>
+            </div>
+        </div>
+       </div>
+
+       <div id="detalhesCarrinho">
+        <div class="titleDetalhes">Detalhes do Carrinho</div>
+        <div id="holdInfosCar">
+        <a href=""><div class="cardsCar">
+                    <div  class="infosProductCar">
+                        <img src="../imgs/amortece.webp" alt="" class="imgsCarDetails">
+                        <div>
+                        <div class="nomeProductCarDetails">Anel ice cravejado em zircônias</div>
+                        <div class="qtdFimCar">Quantidade: 23</div>
+                        <div class="precoCar">Preço: R$0000.00</div>
+                        <div class="precoCar">Preço Final: R$0000.00</div>
+                        </div>
+                    </div> 
+                </div></a>
+                <a href=""><div class="cardsCar">
+                    <div  class="infosProductCar">
+                        <img src="../imgs/amortece.webp" alt="" class="imgsCarDetails">
+                        <div>
+                        <div class="nomeProductCarDetails">Anel ice cravejado em zircônias</div>
+                        <div class="qtdFimCar">Quantidade: 23</div>
+                        <div class="precoCar">Preço por unidade: R$0000.00</div>
+                        <div class="precoCar">Preço Final: R$0000.00</div>
+                        </div>
+                    </div> 
+                </div>
+            </a>
+        </div>
+       </div>
+
+       <div id="precoTotal">Preço total: R$<span>1000.00</span></div>
+       <button id="finalizarPedido">Finalizar Pedido</button>
+    </section>
+</body>
+</html>

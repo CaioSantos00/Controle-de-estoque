@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Endereço</title>    
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/elementos/header.js" defer></script>
+    <script src="../js/Requisicoes/requisicaoCarrinho/editarEndereco.js" defer></script>
+</head>
+<body>
+    <header class="header-container"></header>
+    <main>
+        <section id="sectionCar"> 
+            <div id="divInfoEndereco">
+                <div class="titleEndereco">Editar Endereço</div>
+                <div id="formCadasterEndereco">
+                    <div class="holdInputsInfos">
+                        <input type="text" placeholder="Nome Completo" class="inputsEndereco" id="nomeCompleto">
+                        <input type="text" placeholder="Telefone" class="inputsEndereco" id="telefone">
+                    </div>                    
+                    <div class="holdInputsInfos">
+                        <input type="text" placeholder="Estado" class="inputsEndereco" id="estado">
+                        <input type="text" placeholder="Cidade" class="inputsEndereco" id="cidade">
+                    </div>
+                    <div class="holdInputsInfos">
+                        <input type="text" placeholder="Bairro" class="inputsEndereco" id="bairro">
+                        <input type="number" placeholder="CEP" class="numberInput"  min="0" id="cep"> 
+                    </div>
+                    <div  class="holdInputsInfos">
+                        <input type="text" placeholder="Digite nome da rua" class="inputsEndereco" id="rua">
+                        <input type="number" placeholder="Número" class="numberInput" min="0" id="numero">
+                    </div>
+                    <button id="btnSalvarEndere">Salvar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+     <footer class="footer">Copyright ©</footer>
+</body>
+</html>

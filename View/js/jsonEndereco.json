@@ -1,0 +1,12 @@
+    {
+      "nome": "Caio dos Santos Oliveira",
+      "telefone": "13 997841230",
+      "endereco": {
+        "rua": "Rua Timóteo Garcia Lamas",
+        "numero": "499",
+        "bairro": "Nova Itanhaém",
+        "cidade": "Itanhaém",
+        "estado": "São Paulo",
+        "cep": "11740000"
+      }
+    }

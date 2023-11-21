@@ -1,0 +1,68 @@
+@import "./pagesScss/index.scss";
+@import "./pagesScss/produtos.scss";
+@import "./pagesScss/sobre.scss";
+@import "./pagesScss/forms.scss";
+@import "./pagesScss/telaError.scss";
+@import "./pagesScss/visualisarProduto.scss";
+@import "./pagesScss/telaErrorAdm.scss";
+@import "./pagesScss/consultaProduct.scss";
+@import "./pagesScss/painelPerfil.scss";
+@import "./pagesScss/cadasterProduct.scss";
+@import "./pagesScss/carrinho.scss";
+@import "./pagesScss/carEndereco.scss";
+@import "./pagesScss/fimCarrinho.scss";
+@import "./pagesScss/detailsMensagens.scss";
+@import "./pagesScss/myCompras.scss";
+@import "./mediaQueries/inicio.scss";
+@import "./mediaQueries/carrinho.scss";
+@import "./mediaQueries/produtos.scss";
+@import "./mediaQueries/sobre.scss";
+@import "./mediaQueries/painelPerfil.scss";
+@import "./pagesScss/telaPedidos.scss";
+@import "./pagesScss/detailsPedido.scss";
+@import "./mediaQueries/telaPedidos.scss";
+@import "./mediaQueries/detailsPedido.scss";
+@import "./mediaQueries/visualisarProduto.scss";
+@import "./mediaQueries/detailsMensagens.scss";
+@import "./menu.scss";
+@import "./mixins.scss";
+@import "./variaveis.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: $corPreto;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $corPrimaria;
+
+    border-radius: 6px;
+  }
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Oswald', sans-serif;
+    min-height: 100vh;
+}
+
+a {
+
+    text-decoration: none;
+}
+
+main {
+    min-height: 100vh;
+}
+
+footer {
+    color: $corSecundaria;
+    padding: 10px 0px;
+    background-color: $corHeaderFooter;
+    text-align: center;
+}

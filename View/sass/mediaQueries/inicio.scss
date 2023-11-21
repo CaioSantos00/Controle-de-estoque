@@ -1,0 +1,154 @@
+@media screen and (max-width:1115px) {
+    #divCardInit {
+        gap: 10px;
+    }
+    
+    .cardInit {
+        width: 200px;
+        padding: 15px;
+    }
+    
+    .divIcon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .iconAndTitle {
+        gap: 5px;
+        font-size: 1.2em;
+    }
+    
+    .textCardInit {
+        font-size: 1em;
+    }
+    
+    .btnCardInit {
+        width: 100%;
+        margin-top: 5px;
+        @include buttons(1em, $corPrimaria, $corSecundaria);
+    }
+}
+
+@media screen and (max-width:740px) {    
+    .cardInit {
+        width: 160px;
+        padding: 10px;
+    }
+    
+    .divIcon {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .iconAndTitle {
+        font-size: 1em;
+    }
+    
+    .textCardInit {
+        display: none;
+    }
+    
+    .btnCardInit {
+        margin-top: 6px;
+        padding: 5px;
+    }
+    
+    #divOrca {
+        margin: 2vw;
+    }
+    
+    #titleOrcamento {
+        font-size: 1.3em;
+    }
+    
+    #btnOrca {
+        padding: 6px;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    #fotoInit {
+        height: 60vh;
+    }
+}
+
+
+@media screen and (max-width: 625px) {    
+    #divCardInit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 20px 50px;
+    }
+    .cardInit {
+        width: auto;
+    }
+
+    .iconAndTitle {
+        font-size: 1.3em;
+    }
+
+    
+    .divIcon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .textCardInit {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #divOrca {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 10px 30px;
+    }
+
+    #titleOrcamento {
+        font-size: 1.4em;
+    }
+    
+    #btnOrca {
+        font-size: 1.3em;
+        padding: 8px;
+    }
+
+    #fotoInit {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 420px) {    
+    #divCardInit {
+        margin: 20px 30px;
+    }
+
+    #titleOrcamento {
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    
+    #btnOrca {
+        font-size: 1.1em;
+        padding: 8px;
+    }
+
+    #fotoInit {
+        height: 35vh;
+    }
+
+    #textMarkInit {
+        font-size: 1.4em;
+    }
+
+    #btnVenha {
+        font-size: 1em;
+        padding: 6px;
+}
+}

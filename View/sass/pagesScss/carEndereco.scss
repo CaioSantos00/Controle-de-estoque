@@ -1,0 +1,42 @@
+#divInfoEndereco {
+    box-shadow: 0px 0px 10px 2px grey;
+    border-radius: 5px;
+    padding: 20px 20px 5px;
+}
+
+.titleEndereco {
+    font-size: 1.5em;
+}
+
+#formCadasterEndereco {
+    margin: 20px 0px;
+}
+
+.holdInputsInfos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputsEndereco {
+    margin: 5px 0px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid $corPrimaria;
+    font-size: 1em;
+    padding: 3px;
+}
+
+.numberInput {
+    width: 80px;
+    border-radius: 5px;
+    border: 2px solid $corPrimaria;
+    font-size: 1em;
+    padding: 3px;
+}
+
+#btnSalvarEndere {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    width: 100%;
+}

@@ -1,0 +1,23 @@
+#sectionErroAdm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 5%;
+}
+
+.boxInfoErro {
+    background-color: rgb(253, 179, 179);
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    color: $corSecundaria;
+}
+
+.inforErro {
+    color: rgb(233, 232, 232);
+    font-size: 0.9em;
+}
+
+.titleInforErro {
+    font-size: 1.1em;
+}

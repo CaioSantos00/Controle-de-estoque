@@ -1,0 +1,17 @@
+@media screen and (max-width:1115px) {
+    #holdTodosPedidos {
+        grid-template-areas: 'cardPedido cardPedido cardPedido';
+    }
+}
+
+@media screen and (max-width:850px) {
+    #holdTodosPedidos {
+        grid-template-areas: 'cardPedido cardPedido';
+    }
+}
+
+@media screen and (max-width:570px) {
+    #holdTodosPedidos {
+        grid-template-areas: 'cardPedido';
+    }
+}

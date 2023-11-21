@@ -1,0 +1,64 @@
+.inputsConsultas {
+    width: 100%;
+    padding: 5px;
+    outline: 0;
+    border: 3px solid $corPrimaria;
+    border-radius: 5px;
+}
+
+#btnBuscaPedido {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    padding: 6px;
+}
+
+#holdTodosPedidos {
+    display: grid;
+    grid-template-areas: 'cardPedido cardPedido cardPedido cardPedido';
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0px;
+}
+
+.cardPedido {
+    width: 250px;
+    background-color: $corHeaderFooter;
+    color: $corSecundaria;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.bolinhaStatusVerde {
+    width: 10px;
+    height: 10px;
+    background-color: $bolinhaStatusBom;
+    border-radius: 100%;
+    box-shadow: 0px 0px 3px 1px $bolinhaStatusBom;
+    margin-top: 4px;
+}
+
+.bolinhaStatusRed {
+    width: 10px;
+    height: 10px;
+    background-color: $bolinhaStatusRuim;
+    border-radius: 100%;
+    box-shadow: 0px 0px 3px 1px $bolinhaStatusRuim;
+    margin-top: 4px;
+}
+
+.situacaoPedido {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btnMaisDetails {
+    @include buttons(1em, $corPrimaria, $corSecundaria);
+    width: 100%;
+    padding: 6px;
+    margin: 10px 0px 0px;
+}
+
+.statusMensagens {
+    padding-top: 5px;
+}

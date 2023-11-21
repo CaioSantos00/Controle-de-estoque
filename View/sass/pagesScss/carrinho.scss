@@ -1,0 +1,134 @@
+#sectionCar {
+    margin: 20px 280px;
+}
+
+#divGridInfosCar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#divProdCar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.titleCars {
+    font-size: 1.5em;
+}
+
+.cardsCar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $corPrimaria;
+    color: $corSecundaria;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.infosProductCar{
+    display: flex;
+    align-items: center;
+}
+
+.imgsCar {
+    width: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.nomeProductCar {
+    font-size: 1.3em;
+}
+
+#divFinalizaCompra {  
+    background-color: $corPrimaria;
+    color: $corSecundaria;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#divInfosFinaisPreco{ 
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $corSecundaria;
+}
+
+a #btnCon {
+    width: 100%;
+    margin: 5px 0px;
+    @include buttons(1em, $corSecundaria, $corPrimaria);
+    padding: 4px;
+    &:hover {
+        background-color: $corSecundaria;
+    }
+}
+
+#btnCancelarCompra {
+    width: 100%;
+    @include buttons(1em, $btnsCancel, $corSecundaria);
+    padding: 4px;
+    &:hover {
+        background-color: rgb(255, 100, 100);
+    }
+}
+
+
+.holdInfosImgs {
+    display: flex;  
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.divBtnsCar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btnExcluCar {
+    width: 100%;
+    @include buttons(1em, $btnsCancel, $corSecundaria);
+    padding: 6px;
+    &:hover {
+        background-color: rgb(253, 64, 64);
+    }
+}
+
+.qtdInputs {
+    width: 100%;
+    width: 60px;
+    border-radius: 5px;
+    padding: 3px;
+    border: none;
+}
+
+#divHoldBtnsFim {
+    margin-top: 10px;
+}
+
+#divVejaMais {
+    margin: 20px 0px;
+}
+
+.titleMaisProdutos {
+    font-size: 1.4em;
+}
+
+.cardsProdu {
+    width: 250px;
+}
+
+
+.divImgProdu {
+    margin: auto;
+    width: 250px;
+    img {
+        width: 250px;
+        border-radius: 5px;
+    }
+}

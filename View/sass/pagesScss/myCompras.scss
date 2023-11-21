@@ -1,0 +1,39 @@
+#sectionMyCompras {
+    margin: 20px 280px;
+}
+
+#holdCardsPedidos {
+    display: grid;
+    gap: 10px;
+}
+
+.buyAgain {
+    @include buttons(1em, $btnsConfirm, $corSecundaria);
+    padding: 5px;
+    &:hover {
+        background-color: $bolinhaStatusBom;
+    }
+}
+
+.holdProducts {
+    display: grid;
+    gap: 10px;
+}
+
+@media screen and (max-width:950px){
+    #sectionMyCompras {
+        margin: 20px 100px;
+    }
+}
+
+@media screen and (max-width:540px){
+    #sectionMyCompras {
+        margin: 20px 50px;
+    }
+}
+
+@media screen and (max-width:490px){
+    #sectionMyCompras {
+        margin: 20px 10px;
+    }
+}

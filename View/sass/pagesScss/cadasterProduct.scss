@@ -1,0 +1,59 @@
+.divHoldCards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardsClassificacoes {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #185dd4;
+}
+
+.cardsVariacoes {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #185dd4;
+}
+
+.holdInputs {
+    display: flex;
+    gap: 5px;
+}
+
+.inputVari {
+    border: none;
+    border-radius: 5px;
+    width: 126px;
+}
+
+.variacoesTextArea {
+    width: 97%;
+    margin: 10px 0px 0px;
+}
+
+.btnsCancel {
+    @include buttons(0.9em, $btnsCancel, $corSecundaria);
+    padding: 5px;
+    &:hover {
+        background-color: rgb(161, 16, 16);
+    }
+}
+
+.btnsConfirm {
+    @include buttons(0.9em, $btnsConfirm, $corSecundaria);
+    padding: 5px;
+    &:hover {
+        background-color: rgb(16, 161, 16);
+    }
+}
+
+.divTextAreaFile {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-direction: column;
+}
