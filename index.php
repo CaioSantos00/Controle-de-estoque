@@ -40,7 +40,7 @@
 	$router->post("/login", "UserRequests:login");
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->post("/mensagem", "UserRequests:mensagem");
-
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");

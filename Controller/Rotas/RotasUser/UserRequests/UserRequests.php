@@ -27,10 +27,11 @@
 			echo $cadastro->getResposta();
 		}
 		function login($data) :void{
+			if(!isset($_POST['Email']) or !isset($_POST['Senha'])) exit("Bela tentativa, hacker...");
 			$usuario = new Login($_POST['Email'], $_POST['Senha']);
 			echo $usuario->getResposta();
 		}
-		function perfil($data) :void{
+		function perfil($data) :void{			
 			echo new Perfil($_COOKIE['login']);
 		}
 		function excluirPerfil($data){
