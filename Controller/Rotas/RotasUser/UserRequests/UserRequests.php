@@ -14,6 +14,16 @@
 			if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
 			if(isset($_COOKIE['login'])) $this->logado = true;
 		}
+		private function verificarExiste(string|array $dados) :bool{
+			if(is_array($dados)){
+				foreach($dados as $dado){
+					if(!isset($dado)) return false;
+				}
+				return true;
+			}
+			if(!isset($dados)) return false;
+			return true;
+		}
 		function cadastro($data) :void{
 			$cadastro = new User();
 			$dadosUsuario = [
@@ -35,6 +45,12 @@
 			echo new Perfil($_COOKIE['login']);
 		}
 		function excluirPerfil($data){
+			if(
+				!isset($_POST['idUsuario'])
+					or
+				$_POST['idUsuario'] != $_COOKIE['LOGIN']
+			)
+			   	exit("Bela tentativa, hacker...");
 			$perfil = new EP($_POST['idUsuario']);
 			echo $perfil->executar();
 		}		
