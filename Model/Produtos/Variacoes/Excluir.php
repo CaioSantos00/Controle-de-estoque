@@ -1,6 +1,7 @@
 <?php
     namespace App\Produto\Variacoes;
 
+    use App\Servicos\Conexao\ConexaoBanco as CB;
     use App\Interfaces\Model;
     use App\Exceptions\UserException;
 
