@@ -24,6 +24,13 @@
 			}
         }
         function executar(){
-            $this->gerarMarcaDagua($this->getInterventionImageInstance());
+            try {
+                $this->gerarMarcaDagua($this->getInterventionImageInstance());
+                $this->moveImagem();
+            } catch (\Exception $e){
+                $GLOBALS['ERRO']->setErro("adição de imagem em produto", $e->getMessage());
+                return false;
+            }
+
         }
     }
