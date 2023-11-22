@@ -27,10 +27,10 @@
             try {
                 $this->gerarMarcaDagua($this->getInterventionImageInstance());
                 $this->moveImagem();
+                return true;
             } catch (\Exception $e){
                 $GLOBALS['ERRO']->setErro("adição de imagem em produto", $e->getMessage());
                 return false;
             }
-
         }
     }

@@ -9,12 +9,10 @@
         use PadronizarFoto;
         private string $idProduto;
         private string $idVariacao;
-
         function __construct(string $idVariacao, string $idProduto){
             $this->idProduto = $idProduto;
             $this->idVariacao = $idVariacao;
         }
-
         private function salvarImgs(string $nomeInput){
             $qtdFotos = count($_FILES[$nomeInput]['tmp_name']);
             $caminhoVariacao = "arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$this->idVariacao}/";
@@ -26,7 +24,6 @@
 				$this->padronizarFoto($caminhoVariacao.$_FILES[$nomeInput]['name'][$x], $this->getInterventionImageInstance());
 			}
         }
-
         function executar(){
             try{
                 $retorno = true;

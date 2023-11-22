@@ -5,7 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "e3f9e068ec532359ecc3ddd2e78b6de7",
-    "packages": [
+    "packages": [        
         {
             "name": "coffeecode/router",
             "version": "dev-master",
