@@ -7,6 +7,9 @@
 		<testsuite name="classificacoes">
 			<directory>Testes/classificacoes</directory>
 		</testsuite>
+		<testsuite name="edicaoClassificacao">
+			<file>Testes/classificacoes/SoEdicaoTest.php</file>
+		</testsuite>
 		<testsuite name="carrinhoGeral">
 			<file>Testes/carrinho/CarrinhoTest.php</file>
 		</testsuite>
@@ -42,7 +45,7 @@
 		</testsuite>
 		<testsuite name="geralUsuario">
 			<file> Testes/usuario/ConsultaTest.php</file>
-		</testsuite>		
+		</testsuite>
 		<testsuite name="produtoConsulta">
 			<file> Testes/produto/ConsultaTest.php</file>
 		</testsuite>
