@@ -67,9 +67,9 @@
 			$resposta = $this->verificaExclusaoNoBanco();
 			return $resposta["status"] == "terminou"
 				? $this->excluirImgs()
-				 	? $this->excluirDescricao()
+				 	? ($this->excluirDescricao()
 						? true
-						: "não foi a descrição"
+						: "não foi a descrição")
 					: "não foi as imagens nem a descrição"
 				: "não foi nada";				
 		}

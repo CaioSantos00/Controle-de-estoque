@@ -1,26 +1,24 @@
 <?php
 	namespace App\Servicos\Arquivos\Produtos\Imgs;
-	
+
 	use App\Servicos\Arquivos\UploadsManager;
 	use App\Interfaces\ServicoInterno;
-	
+	use App\Traits\PadronizarFoto;
+
 	class Salvar extends UploadsManager implements ServicoInterno{
+		use PadronizarFoto;
 		private string $idProduto;
 		private string $caminhoDiretorioImgsProduto;
 		private array $identificadoresDeVariacoes;
-		private $marcaDagua;
-		
+
 		function __construct(string $idProduto, array $identificadoresDeVariacoes){
 			$this->idProduto = $idProduto;
-			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;			
+			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;
 			$this->caminhoDiretorioImgsProduto =
 				"{$this->caminhoArqvsSecundarios}Produtos/Fotos/{$this->idProduto}";
-			$this->marcaDagua = $this->getInterventionImageInstance
-				("ServerInfo/marcaDagua.png")
-				->resize(50,50);
 		}
-		
-		private function criaDiretorioFotosProduto(){		
+
+		private function criaDiretorioFotosProduto(){
 			mkdir($this->caminhoDiretorioImgsProduto);
 			mkdir($this->caminhoDiretorioImgsProduto."/Principais");
 			mkdir($this->caminhoDiretorioImgsProduto."/Secundarias");
@@ -45,22 +43,17 @@
 			$caminhoVariacao .= "/";
 			$nomeInput = "fotosSecundarias".$nroIdentificadorInput;
 			$qtdFotos = count($_FILES[$nomeInput]['tmp_name']);
-		
+
 			for($x = 0;$x != $qtdFotos;$x++){
 				move_uploaded_file(
 					$_FILES[$nomeInput]['tmp_name'][$x],
 					$caminhoVariacao.$_FILES[$nomeInput]['name'][$x]
 				);
-				$this->padronizarFoto($caminhoVariacao.$_FILES[$nomeInput]['name'][$x]);
+				$this->padronizarFoto($caminhoVariacao.$_FILES[$nomeInput]['name'][$x], $this->getInterventionImageInstance());
 			}
 		}
-		private function padronizarFoto(string $caminhoImg){
-			$img = $this->getInterventionImageInstance($caminhoImg);
-			$img->resize(350,350);
-			$img->insert($this->marcaDagua, 'bottom-right');
-			$img->save($caminhoImg, 80, 'jpg');
-		}
-		function executar(){			
+		function executar(){
+			$this->gerarMarcaDagua( $this->getInterventionImageInstance());
 			$this->criaDiretorioFotosProduto();
 			$this->salvarImagensPrincipais();
 			$this->salvarImgsDeVariacoes();
