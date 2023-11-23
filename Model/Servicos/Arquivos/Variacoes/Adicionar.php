@@ -9,6 +9,7 @@
         use PadronizarFoto;
         private string $idProduto;
         private string $idVariacao;
+        public string $nomeInput;
         function __construct(string $idVariacao, string $idProduto){
             $this->idProduto = $idProduto;
             $this->idVariacao = $idVariacao;
@@ -21,14 +22,17 @@
 					$_FILES[$nomeInput]['tmp_name'][$x],
 					$caminhoVariacao.$_FILES[$nomeInput]['name'][$x]
 				);
-				$this->padronizarFoto($caminhoVariacao.$_FILES[$nomeInput]['name'][$x], $this->getInterventionImageInstance());
+				$this->padronizarFoto(
+                    $caminhoVariacao.$_FILES[$nomeInput]['name'][$x],
+                    $this->getInterventionImageInstance()
+                );
 			}
         }
         function executar(){
             try{
                 $retorno = true;
                 $this->gerarMarcaDagua($this->getInterventionImageInstance());
-                $this->salvarImgs();
+                $this->salvarImgs($this->nomeInput);
             }
             catch(\Exception $e){
                 $GLOBALS['ERRO']->setErro("Adicionar arquivos a variação específica", $e->getMessage());
