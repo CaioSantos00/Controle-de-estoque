@@ -52,8 +52,9 @@
 		private function executarQuerys() :bool|string{
 			try{
 				$resultado = true;
-				$dados = $this->getTodosDoBanco();
-				$dadosComClassificacaoAlteravel = $this->encontraApenasOsComAClassificacao($dados);
+				$dadosDoBanco = $this->getTodosDoBanco();
+				$dadosComClassificacaoAlteravel =
+					$this->encontraApenasOsComAClassificacao($dadosDoBanco);
 				$this->alteraOsQuePrescisa($dadosComClassificacaoAlteravel);
 				$this->alteraArquivo();
 			}

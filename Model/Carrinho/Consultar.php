@@ -1,4 +1,4 @@
-- <?php
+<?php
 	namespace App\Carrinho;
 
 	use App\Servicos\Conexao\ConexaoBanco as CB;
@@ -15,15 +15,15 @@
 		private function consultarBanco() :array{
 			try{
 				$retorno = [];
-				CB::getConexao()->beginTransaction();
-					$carrinhos = CB::getConexao()->prepare($this->query);
-					if($carrinhos->execute([$this->idUsuario]) != 0)
-						$retorno = $carrinhos->fetchAll();
-					if($retorno != []) $retorno = json_decode($retorno[0]['Carrinho']);
-				CB::getConexao()->commit();
+				$carrinhos = CB::getConexao()->prepare($this->query);
+				$carrinhos->execute([$this->idUsuario]);
+				$carrinhos = $carrinhos->fetchAll();
+				$retorno = count($carrinhos) > 0
+					? json_decode($carrinhos[0]['Carrinho'], 1)
+					: [];
 			}
-			catch(\Exception|\PDOException $e){
-				if(CB::getConexao()->inTransaction()) CB::getConexao->rollBack();
+			catch(\Exception $e){
+				CB::voltaTudo();
 				$GLOBALS['ERRO']->setErro("Consulta de carrinho", $e->getMessage());
 				CB::getConexao()->commit();
 				$retorno = [];
