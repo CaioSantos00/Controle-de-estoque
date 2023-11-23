@@ -21,6 +21,21 @@
 		function consultaErros($data){
 			parent::renderizar("pagesAdm/errorAdm.html");
 		}
+		function pedidos($data){
+			parent::renderizar("pagesAdm/pedidos.html");
+		}
+		function detalhesPedidos($data){
+			parent::renderizar("pagesAdm/pedidosDetalhes.html");
+		}
+		function mensagens($data){
+			parent::renderizar("pagesAdm/mensagens.html");
+		}
+		function detalhesMensagens($data){
+			parent::renderizar("pagesAdm/detailsMensagens.html");
+		}
+		function consultarUsuario($data){
+			parent::renderizar("pagesAdm/consultaUser.html");
+		}
 			/*
 			$minificador = new M\JS();
 			$scripts = explode(',',$data['nomesDosModulosSeparadosPorVirgula']);

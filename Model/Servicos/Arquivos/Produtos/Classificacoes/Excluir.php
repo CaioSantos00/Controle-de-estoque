@@ -33,7 +33,7 @@
 		private function encontraApenasOsComAClassificacao(\PDOStatement $resultadoConsulta) :array{
 			$paraAlterar = [];
 			foreach($resultadoConsulta as $linha){
-				$classes = json_decode($linha['Classificacoes']);
+				$classes = json_decode($linha['Classificacoes'], true);
 				foreach($classes as $classi){
 					if($classi == $this->classificacaoParaExcluir) {
 						$paraAlterar[] = [$this->resetarIndicesArrayBaseadoEmOutro($classes, $classi), $linha['Id']];
@@ -43,9 +43,7 @@
 			return $paraAlterar;
 		}
 		private function alteraArquivo(){
-			$this->classificacoesSalvas = array_diff(
-				$this->classificacoesSalvas, [$this->classificacaoParaExcluir]
-			);
+			$this->classificacoesSalvas = array_values(array_diff($this->classificacoesSalvas, [$this->classificacaoParaExcluir]));
 		}
 		private function alteraOsQuePrescisa(array $paraAlterar){
 			CB::getConexao()->beginTransaction();
@@ -66,10 +64,7 @@
 			}
 			catch(\PDOException|\Exception $ex){
 				$GLOBALS['ERRO']->setErro("Excluir Classificações", "nas das querys, {$ex->getMessage()}");
-				if(CB::getConexao()->inTransaction()){
-					CB::getConexao()->rollBack();
-					CB::getConexao()->commit();
-				}
+				CB::voltaTudo();
 				$resultado = false;
 			}
 			finally{

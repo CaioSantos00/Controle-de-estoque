@@ -14,6 +14,7 @@
 			if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
 		}*/
 		function cadastrarProduto($data){			
+			/*
 			$cadastro = new CadastroProduto(
 				$_POST['nome'],
 				$_POST['classificacoes'],
@@ -22,6 +23,7 @@
 			$cadastro->setDadosSecundarios($_POST['dadosSecundarios']);
 
 			echo $cadastro->executar();
+			*/
 		}
 		function excluirProduto($data){
 			$exclusao = new ExclusaoProduto(1);
