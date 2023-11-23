@@ -38,6 +38,16 @@
 		public function MinhasMensagems($data){
 			parent::renderizar('pagesUser/mensagens.html');
 		}
+		public function DetalhesMensagens($data){
+			parent::renderizar('pagesUser/detailsMensagens.html');
+		}
+		public function MinhasCompras($data){
+			parent::renderizar('pagesUser/myCompras.html');
+		}
+		
+		public function MeuPerfil($data){
+			parent::renderizar('pagesUser/painelPerfilUser.html');
+		}
 		public function FinalCarrinho($data){
 			parent::renderizar('pages/fimCarrinho.html');
 		}

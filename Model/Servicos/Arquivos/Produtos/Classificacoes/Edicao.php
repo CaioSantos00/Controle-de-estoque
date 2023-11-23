@@ -6,14 +6,13 @@
 	use App\Servicos\Conexao\ConexaoBanco as CB;
 
 	class Edicao extends Classificacoes implements ServicoInterno{
-		private array $querys;
+		private array $querys = [
+			"select `Id`,`Classificacoes` from `produtoPrimario`",
+			"update `produtoprimario` set `Classificacoes` = ? where `Id` = ?"
+		];
 		private array $dadosParaExecutar;
 		function __construct(string $paraEditar, string $novoValor){
-			parent::__construct();
-			$this->querys = [
-				"select `Id`,`Classificacoes` from `produtoPrimario`",
-				"update `produtoprimario` set `Classificacoes` = ? where `Id` = ?"
-			];
+			parent::__construct();			
 			$this->dadosParaExecutar = array(
 				"novo" => $novoValor,
 				"velho" => $paraEditar
@@ -21,22 +20,18 @@
 		}
 		private function getAllClassificacoesNoBanco() :\PDOStatement|bool{
 			try{
-				CB::getConexao()->beginTransaction();
 				$select = CB::getConexao()
 					->query($this->querys[0]);
 			}
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na conexao da consulta: {$e->getMessage()}");
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
 				$select = false;
 			}
 			catch(\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na execução da query de consulta: {$e->getMessage()}");
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
 				$select = false;
 			}
 			finally{
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->commit();
 				return $select;
 			}
 		}
@@ -50,13 +45,13 @@
 					if(!$this->atualizaNaTabelaAsClassificacoes($resultado, $query)) throw new \Exception("não atualizou");
 				}
 				$retorno = true;
+				CB::getConexao()->commit();
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na triagem de produtos com classificação velha, {$e->getMessage()}");
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
+				CB::voltaTudo();
 				$retorno = false;
-			}finally{
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->commit();
+			}finally{				
 				return $retorno;
 			}
 		}

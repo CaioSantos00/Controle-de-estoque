@@ -20,6 +20,9 @@
 	$router->get('/EditarEndereco', "RotasUser:EditarEndereco");
 	$router->get('/FinalCarrinho', "RotasUser:FinalCarrinho");
 	$router->get('/MinhasMensagens', "RotasUser:MinhasMensagems");
+	$router->get('/MinhasCompras', "RotasUser:MinhasCompras");
+	$router->get('/DetalhesMensagens', "RotasUser:DetalhesMensagens");
+	$router->get('/MeuPerfil', "RotasUser:MeuPerfil");
 	//------------------------------------------------------------------------------------------------------------------------------------
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
@@ -47,9 +50,16 @@
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
 	$router->get("/", "RotasAdm:inicio");  
-	$router->get("/cadastro", "RotasAdm:cadastroProduto");
+	$router->get("/cadastroProduto", "RotasAdm:cadastroProduto");
 	$router->get("/consulta", "RotasAdm:consultaProduto");
+	$router->get("/pedidos", "RotasAdm:pedidos");
+	$router->get("/detalhesPedidos", "RotasAdm:detalhesPedidos");
+	$router->get("/mensagens", "RotasAdm:mensagens");
+	$router->get("/detalhesMensagens", "RotasAdm:detalhesMensagens");
+	$router->get("/consultarUsuario", "RotasAdm:consultarUsuario");
 	$router->get("/erros", "RotasAdm:consultaErros");	
+
+
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");
@@ -59,6 +69,7 @@
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
 	$router->get("/consultarClassificacoes", "ClassificacoesRequests:consultar");
 	$router->get("/atualizarClassificacoes", "ClassificacoesRequests:atualizarArqv");
+	
 /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
