@@ -60,6 +60,7 @@ function criaClassificacao() {
 
     cardsClassificacoes.append(inputsClassi, btnsCancel, btnsConfirm)
     divHoldClassifi.appendChild(cardsClassificacoes)
+    }
 }
 
 btnCriaClassi.addEventListener('click', () => {
@@ -178,11 +179,11 @@ async function editarClassificacao(antigo, novo) {
         let opcoes = await consultarClassificacoes();
         opcoes = JSON.parse(opcoes);
         opcoes.forEach((e) => {
-            selectClassi.append(criaOption(e))
+            selectClassi.append(criaOption(e));
         });
-        console.log(opcoes)
+        console.log(opcoes);
     }
-    catch (e) {
-        console.log(e)
+    catch(e){
+        console.log(e);
     }
 })()
