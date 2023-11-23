@@ -6,11 +6,10 @@
 	abstract class Consulta{
 		protected array $queriesConsulta = [
 			"select `Id`, `Nome`, `Classificacoes` from `ProdutoPrimario`",
-            "select `Id`, `Preco`, `Qtd`, `Disponibilidade`, `Descricao` from `produtosecundario` where `Id` = "
+            "select `Id`, `Preco`, `Qtd`, `Disponibilidade`, `Descricao` from `produtosecundario` where `Id` = ?"
 		];
 		protected function buscarDadosPrincipaisDoBanco(ServicoInterno $consultaImagens) :array|bool{
             try{
-                CB::getConexao()->beginTransaction();
                     $primarios = CB::getConexao()->query($this->queriesConsulta[0]);
 					$resultados = [];
                     foreach($primarios as $primario){
@@ -21,10 +20,8 @@
                         );
 						$resultados[] = $resultado;
                     }
-                CB::getConexao()->commit();
             }
             catch(\Exception|\PDOException $ex){
-                if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack();
                 $GLOBALS['ERRO']->setErro("Consulta produto", "na busca dos dados no banco, {$ex->getMessage()}");
                 $resultados = false;
             }
@@ -33,12 +30,12 @@
             }
         }
 		private function getDadosSecundariosDoBanco(string $idPrincipal){
-			$secundarios = CB::getConexao()->query($this->queriesConsulta[1]."$idPrincipal");
-			if(is_bool($secundarios)) throw new \Exception("não consultou os dados secundarios, $idPrincipal");
+			$secundarios = CB::getConexao()->prepare($this->queriesConsulta[1]);
+			$secundarios->execute([$idPrincipal]);
 			$secundarios = $secundarios->fetchAll();
 			$dadosSecundarios = [];
 			foreach($secundarios as $secundario) $dadosSecundarios[] = $this->organizaDadosSecundarios($secundario);
-			
+
 			return $dadosSecundarios;
 		}
 		private function organizaDadosPrimarios(array $primarioInteiro) :array{
