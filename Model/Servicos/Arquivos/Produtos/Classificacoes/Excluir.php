@@ -16,12 +16,10 @@
 			];
 			$this->classificacaoParaExcluir = $qual;
 		}
-		private function getTodosDoBanco() :\PDOStatement{
-			CB::getConexao()->beginTransaction();
+		private function getTodosDoBanco() :array{
 				$select = CB::getConexao()->query($this->querys[0]);
 				if(is_bool($select)) throw new \Exception("na consulta de classificacoes no banco");
-			CB::getConexao()->commit();
-			return $select;
+			return $select->fetchAll();
 		}
 		private function resetarIndicesArrayBaseadoEmOutro(array $array1, array $array2){
 			$x = 0; $linhaDeClassesComIndicesResetados = [];
@@ -30,7 +28,7 @@
 			foreach($linhaDeClasses as $valor) $linhaDeClassesComIndicesResetados[$x++] = $valor;
 			return $linhaDeClassesComIndicesResetados;
 		}
-		private function encontraApenasOsComAClassificacao(\PDOStatement $resultadoConsulta) :array{
+		private function encontraApenasOsComAClassificacao(array $resultadoConsulta) :array{
 			$paraAlterar = [];
 			foreach($resultadoConsulta as $linha){
 				$classes = json_decode($linha['Classificacoes'], true);
