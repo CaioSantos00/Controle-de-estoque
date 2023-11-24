@@ -9,11 +9,11 @@
 		private string $query = "select * from `carrinhosfinalizados`";
 		
 		private function consultarCarrinhos() :array{
-			CB::getConexao()->beginTransaction();
-				$retorno = CB::getConexao()->query($this->query);
-			CB::getConexao()->commit();
+			$retorno = CB::getConexao()->query($this->query);
 			
-			return ($retorno === false) ? [] : [...$retorno];
+			return ($retorno === false)
+				? []
+				: $retorno->fetchAll();
 		}
 		private function getDadosDonoCarrinho(string $idUsuario) :array{
 			$dono = (new Perfil(bin2hex($carrinho['IdDono'])))->getResposta();
