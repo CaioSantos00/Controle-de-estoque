@@ -44,10 +44,12 @@
                 return $select;
             }
         }
-        private function setLoginCookie() :string{
-            if($this->testando) return "logou certinho";
-            if(setcookie('login', bin2hex($this->dadosLogin[0]['Id']), time()+60*60*24*30,'/','localhost')){
-                if($this->dadosLogin[0]['TipoConta'] != "0") setcookie('TipoConta', bin2hex($this->dadosLogin[0]['TipoConta']), time()+60*60*24*30,'/','localhost');
+        private function setLoginCookie(string $id, string $tipoConta) :string{
+            if($this->testando)
+                return "logou certinho";
+            if(setcookie('login', bin2hex($id), time()+60*60*24*30,'/','localhost')){
+                if($tipoConta != "0")
+                    setcookie('TipoConta', bin2hex($tipoConta), time()+60*60*24*30,'/','localhost');
                 return "logou certinho";
             }
             return "Usuario logado, mas sem cookie settado, gerir no JS";
@@ -56,7 +58,7 @@
             $dados = $this->consultarBanco($this->query);
             foreach ($dados as $value)
                 if(password_verify($this->senha, $value['Senha']))
-                    return $this->setLoginCookie();
+                    return $this->setLoginCookie($value['Id'], $value['TipoConta']);
             return "usuario não encontrado";
         }
         function getResposta() :string{
