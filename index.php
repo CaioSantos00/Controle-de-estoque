@@ -45,11 +45,12 @@
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
 	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
+	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
-	$router->get("/", "RotasAdm:inicio");  
+	$router->get("/", "RotasAdm:inicio");
 	$router->get("/cadastroProduto", "RotasAdm:cadastroProduto");
 	$router->get("/consulta", "RotasAdm:consultaProduto");
 	$router->get("/pedidos", "RotasAdm:pedidos");
@@ -59,7 +60,7 @@
 	$router->get("/consultarUsuario", "RotasAdm:consultarUsuario");
 	$router->get("/cadastrarClassificacao", "RotasAdm:cadastroClassificacao");
 	$router->get("/consultaClassificacao", "RotasAdm:consultaClass");
-	$router->get("/erros", "RotasAdm:consultaErros");	
+	$router->get("/erros", "RotasAdm:consultaErros");
 
 
 

@@ -1,12 +1,13 @@
 <?php
 	namespace Controladores\Rotas\RotasUser\UserRequests;
-	
+
+	use App\Carrinho\ConsultarFinalizadosEspecificos as CFEspecifico;
 	use App\Carrinho\AdicionarItem;
 	use App\Carrinho\RemoverItem;
 	use App\Carrinho\Consultar;
 	use App\Carrinho\Finalizar;
 	use App\Produtos\Variacoes\ConsultaMultipla as CUVariacoes;
-	
+
 	class CarrinhoRequests{
 		//function __construct(){
 		//	if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
@@ -29,9 +30,9 @@
 		function consultar($data){
 			$carrinho = new Consultar;
 			$consulta = new CUVariacoes();
-			
+
 			$carrinho = ($carrinho->executar(hex2bin($data['login'])))->getResposta();
-			
+
 			$retorno = [];
 			foreach($carrinho as $item){
 				$consulta->idVariacao = $item->produto;
@@ -43,5 +44,12 @@
 			return (string) Finalizar(
 				$data['login']
 			);
+		}
+		function finalizados($data){
+			$ca = (new CFEspecifico(hex2bin($_COOKIE['login'])))->getResposta();
+			$resul = [];
+			foreach($ca as $item)
+				$resul[] = $item[0];
+			print_r($resul);
 		}
 	}

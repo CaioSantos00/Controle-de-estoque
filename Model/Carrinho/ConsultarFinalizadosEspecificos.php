@@ -2,10 +2,10 @@
     namespace App\Carrinho;
 
     use App\Produtos\Variacoes\ConsultaUnica as CUVariacao;
-    use App\Servicos\Arquivos\Variacoes\Consulta as CIVariacao;
+    use App\Servicos\Arquivos\Variacoes\Consultar as CIVariacao;
     use App\Servicos\Conexao\ConexaoBanco as CB;
-    use App\Interfaces\Model;
-
+    use App\Interfaces\{Model,ServicoInterno};
+    use App\Produtos\ConsultaUnica as CUProduto;
     class ConsultarFinalizadosEspecificos implements Model{
         private string $idUsuario;
         private ServicoInterno $buscarImagens;
@@ -14,7 +14,7 @@
 
         function __construct(string $idUsuario){
             $this->idUsuario = $idUsuario;
-            $this->buscarImagens = new CIVariacoes;
+            $this->buscarImagens = new CIVariacao;
         }
         private function consultarBanco() :bool|array{
             try{
@@ -30,7 +30,7 @@
                 return $resultado;
             }
         }
-        private organizaConsultaDoBanco(array $consultaBanco) :array{
+        private function organizaConsultaDoBanco(array $consultaBanco) :array{
             $linhasRetorno = [];
             foreach($consultaBanco as $linha){
                 $linhasRetorno[] = [
@@ -51,18 +51,18 @@
         }
         private function buscarDadosDeUmProdutoDoCarrinho(string $idVariacao) :array{
             $dados = [];
-            $dados["dados"] = (new CUVariacao($idVariacao, $this->dadosParaBuscarDasVariacoes))->executar();
-            $dados["imagens"] = $this->buscarImagensDeUmProduto($idVariacao, $dados["dados"]["ParentId"]);
+            $dados["dadosSecundarios"] = (new CUVariacao($idVariacao, $this->dadosParaBuscarDasVariacoes))->executar();
+            $dados["imagens"] = $this->buscarImagensDeUmProduto($idVariacao, $dados["dadosSecundarios"]["ParentId"]);
             return $dados;
         }
         private function mapearCarrinho(string $conteudoCarrinho) :array{
             $carrinho = json_decode($conteudoCarrinho, true);
             $dadosCarrinho = [];
-            foreach($carrinho as $linha){
-                foreach($linha as $item){
-                    $dadosCarrinho[] = $this->buscarDadosDeUmProdutoDoCarrinho($item["produto"]);
+            foreach($carrinho as $item){
+                    $dadosItem = $this->buscarDadosDeUmProdutoDoCarrinho($item["produto"]);
+                    $dadosItem["dadosPrimarios"] = (new CUProduto($dadosItem["dadosSecundarios"]["ParentId"]))->getResposta();
+                    $dadosCarrinho[] = $dadosItem;
                 }
-            }
             return $dadosCarrinho;
         }
         function getResposta(){
