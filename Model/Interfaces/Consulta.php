@@ -6,7 +6,7 @@
 	abstract class Consulta{
 		protected array $queriesConsulta = [
 			"select `Id`, `Nome`, `Classificacoes` from `ProdutoPrimario`",
-            "select `Id`, `Preco`, `Qtd`, `Disponibilidade`, `Descricao` from `produtosecundario` where `Id` = ?"
+            "select `Id`, `preco/peca`, `Qtd`, `Disponibilidade`, `Descricao` from `produtosecundario` where `Id` = ?"
 		];
 		protected function buscarDadosPrincipaisDoBanco(ServicoInterno $consultaImagens) :array|bool{
             try{

@@ -1,15 +1,15 @@
 <?php
     namespace App\Servicos\Arquivos\Produtos\Descricoes;
 
-    class CacheDescicoes{
+    class CacheDescricoes{
         private static array $descricoesSalvas;
         public static function setCache(string $nomeCache, string $cache){
             self::$descricoesSalvas[$nomeCache] = $cache;
         }
         public static function getCache(string $nomeCache) :string{
-            return self::$descricoesSalvas[$nome];
+            return self::$descricoesSalvas[$nomeCache];
         }
         public static function inCache(string $nomeCache) :bool{
-            return isset(self::$descricoesSalvas[$nome]);
+            return isset(self::$descricoesSalvas[$nomeCache]);
         }
     }
