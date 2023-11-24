@@ -47,11 +47,13 @@
     display: grid;
     justify-content: center;
     grid-template-areas: 'cardsFerramentas cardsFerramentas cardsFerramentas';
+   // align-items: center;
     gap: 10px;
 }
 
 .cardsFerramentas {
     width: 200px;
+    height: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
