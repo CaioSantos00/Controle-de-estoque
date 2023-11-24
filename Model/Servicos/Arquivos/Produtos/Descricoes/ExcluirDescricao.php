@@ -1,7 +1,7 @@
 <?php
 	namespace App\Servicos\Arquivos\Produtos\Descricoes;
 	use App\Interfaces\ServicoInterno;
-	
+
 	class ExcluirDescricao implements ServicoInterno{
 		private string $nomeArquivoDescricao;
 		function __construct(string $idProduto){
@@ -12,16 +12,13 @@
 				scandir("arqvsSecundarios/Produtos/Descricoes"),
 				['.','..']
 			);
-			foreach($todasDescricoes as $descricao){
-				if($descricao == $this->nomeArquivoDescricao) return true;
-			}
-			return false;
+			return in_array($this->nomeArquivoDescricao, $todasDescricoes);
 		}
 		private function excluirArquivo() :bool{
 			return unlink("arqvsSecundarios/Produtos/Descricoes/{$this->nomeArquivoDescricao}");
 		}
-		function executar() :bool{
+		function executar(){
 			if($this->verificarSeDescricaoExiste()) return $this->excluirArquivo();
-			return false;			
+			return false;
 		}
 	}

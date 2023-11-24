@@ -12,16 +12,17 @@
 		];
 		private array $dadosParaExecutar;
 		function __construct(string $paraEditar, string $novoValor){
-			parent::__construct();			
+			parent::__construct();
 			$this->dadosParaExecutar = array(
 				"novo" => $novoValor,
 				"velho" => $paraEditar
 			);
 		}
-		private function getAllClassificacoesNoBanco() :\PDOStatement|bool{
+		private function getAllClassificacoesNoBanco() :array|bool{
 			try{
 				$select = CB::getConexao()
 					->query($this->querys[0]);
+				$select = $select->fetchAll();
 			}
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na conexao da consulta: {$e->getMessage()}");
@@ -35,7 +36,7 @@
 				return $select;
 			}
 		}
-		private function triagemProdutosComClassificacaoVelha(\PDOStatement $resultadoConsultaGeral) :bool{
+		private function triagemProdutosComClassificacaoVelha(array $resultadoConsultaGeral) :bool{
 			try{
 				CB::getConexao()->beginTransaction();
 				$query = CB::getConexao()->prepare($this->querys[1]);
@@ -51,7 +52,7 @@
 				$GLOBALS['ERRO']->setErro("Edicao de classificação", "Na triagem de produtos com classificação velha, {$e->getMessage()}");
 				CB::voltaTudo();
 				$retorno = false;
-			}finally{				
+			}finally{
 				return $retorno;
 			}
 		}
