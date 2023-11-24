@@ -36,7 +36,8 @@
                 $query = CB::getConexao()->prepare($this->query);
                 $query->execute($dados);
                 $this->idVariacao = CB::getConexao()->lastInsertId();
-                if($query->rowCount() != 1) throw new \Exception("algo deu errado ao inserir");
+                if($query->rowCount() != 1)
+                    throw new \Exception("algo deu errado ao inserir");
                 return true;
             }
             catch(\Exception $e){
