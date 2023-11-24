@@ -4,16 +4,16 @@
 	use App\Servicos\Conexao\ConexaoBanco as CB;
 	use App\Servicos\Arquivos\Produtos\Classificacoes\Classificacoes;
 	use App\Interfaces\ServicoInterno;
+	use App\Exceptions\UserException;
 
 	class Excluir extends Classificacoes implements ServicoInterno{
 		private string $classificacaoParaExcluir;
-		private array $querys;
+		private array $querys = [
+			"select `Id`,`Classificacoes` from `produtoprimario`",
+			"update `produtoprimario` set `Classificacoes` = ? where `Id` = ? "
+		];
 		function __construct(string $qual){
 			parent::__construct();
-			$this->querys = [
-				"select `Id`,`Classificacoes` from `produtoprimario`",
-				"update `produtoprimario` set `Classificacoes` = ? where `Id` = ? "
-			];
 			$this->classificacaoParaExcluir = $qual;
 		}
 		private function getTodosDoBanco() :array{
@@ -21,20 +21,14 @@
 				if(is_bool($select)) throw new \Exception("na consulta de classificacoes no banco");
 			return $select->fetchAll();
 		}
-		private function resetarIndicesArrayBaseadoEmOutro(array $array1, array $array2){
-			$x = 0; $linhaDeClassesComIndicesResetados = [];
-
-			$linhaDeClasses = array_diff($array1,[$array2]);
-			foreach($linhaDeClasses as $valor) $linhaDeClassesComIndicesResetados[$x++] = $valor;
-			return $linhaDeClassesComIndicesResetados;
-		}
 		private function encontraApenasOsComAClassificacao(array $resultadoConsulta) :array{
 			$paraAlterar = [];
 			foreach($resultadoConsulta as $linha){
 				$classes = json_decode($linha['Classificacoes'], true);
 				foreach($classes as $classi){
 					if($classi == $this->classificacaoParaExcluir) {
-						$paraAlterar[] = [$this->resetarIndicesArrayBaseadoEmOutro($classes, $classi), $linha['Id']];
+						$classesParaSalvar = json_encode(array_values(array_diff($classes, [$this->classificacaoParaExcluir])),1);
+						$paraAlterar[] = [$classesParaSalvar,$linha['Id']];
 					}
 				}
 			}
@@ -42,6 +36,10 @@
 		}
 		private function alteraArquivo(){
 			$this->classificacoesSalvas = array_values(array_diff($this->classificacoesSalvas, [$this->classificacaoParaExcluir]));
+		}
+		private function verificaSeClassificacaoExiste(){
+			if(!in_array($this->classificacaoParaExcluir,$this->classificacoesSalvas))
+			 	throw new UserException("classificação não encontrada, atualize suas classificações e tente novamente");
 		}
 		private function alteraOsQuePrescisa(array $paraAlterar){
 			CB::getConexao()->beginTransaction();
@@ -51,16 +49,19 @@
 				}
 			CB::getConexao()->commit();
 		}
-		private function executarQuerys() :bool{
+		private function executarQuerys() :bool|string{
 			try{
 				$resultado = true;
-				$dados = $this->getTodosDoBanco();
+				$dadosDoBanco = $this->getTodosDoBanco();
 				$dadosComClassificacaoAlteravel =
-					$this->encontraApenasOsComAClassificacao($dados);
+					$this->encontraApenasOsComAClassificacao($dadosDoBanco);
 				$this->alteraOsQuePrescisa($dadosComClassificacaoAlteravel);
 				$this->alteraArquivo();
 			}
-			catch(\PDOException|\Exception $ex){
+			catch(UserException $ex){
+				$resultado = $ex->getMessage();
+			}
+			catch(\Exception $ex){
 				$GLOBALS['ERRO']->setErro("Excluir Classificações", "nas das querys, {$ex->getMessage()}");
 				CB::voltaTudo();
 				$resultado = false;
@@ -70,7 +71,13 @@
 			}
 		}
 		function executar(){
-			if($this->executarQuerys()) return "tudo certo";
-			return "algo deu errado";
+			$response = $this->executarQuerys();
+
+			return match(true){
+				is_string($response) => $response,
+				is_bool($response) and $response => "tudo certo",
+				is_bool($response) and !$response => "algo deu errado",
+				default => "algo inesperado ocorreu"
+			};
 		}
 	}
