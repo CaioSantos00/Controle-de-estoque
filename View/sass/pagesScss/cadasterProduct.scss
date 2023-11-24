@@ -1,45 +1,57 @@
-.divHoldCards {
+#formProduto {
+    background-color: $corHeaderFooter;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+#divHoldSelect {
+    display: flex;
+    flex-direction: column;
+}
+
+#newClass {
+    color: $corSecundaria;
+}
+
+.divHoldCards {
+}
+
+#divHoldClassifi {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .cardsClassificacoes {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 5px;
+    background-color: $corPrimaria;
     padding: 5px;
     border-radius: 5px;
-    background-color: #185dd4;
 }
 
 .cardsVariacoes {
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #185dd4;
 }
 
 .holdInputs {
-    display: flex;
-    gap: 5px;
 }
 
 .inputVari {
-    border: none;
-    border-radius: 5px;
-    width: 126px;
 }
 
 .variacoesTextArea {
-    width: 97%;
-    margin: 10px 0px 0px;
 }
 
 .btnsCancel {
     @include buttons(0.9em, $btnsCancel, $corSecundaria);
     padding: 5px;
     &:hover {
-        background-color: rgb(161, 16, 16);
+        background-color: $bolinhaStatusRuim;
     }
 }
 
@@ -47,13 +59,9 @@
     @include buttons(0.9em, $btnsConfirm, $corSecundaria);
     padding: 5px;
     &:hover {
-        background-color: rgb(16, 161, 16);
+        background-color: $bolinhaStatusBom;
     }
 }
 
 .divTextAreaFile {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    flex-direction: column;
 }

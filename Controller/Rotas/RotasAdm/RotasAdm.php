@@ -36,6 +36,12 @@
 		function consultarUsuario($data){
 			parent::renderizar("pagesAdm/consultaUser.html");
 		}
+		function cadastroClassificacao($data){
+			parent::renderizar("pagesAdm/cadastroClassificacao.html");
+		}
+		function consultaClass($data){
+			parent::renderizar("pagesAdm/consultaClass.html");
+		}
 			/*
 			$minificador = new M\JS();
 			$scripts = explode(',',$data['nomesDosModulosSeparadosPorVirgula']);

@@ -6,19 +6,33 @@
     <title>Cadastrar Produto</title>
     <link rel="stylesheet" href="/estaticos/estilo" />
     <script src="/estaticos/js/elementos/header.js" defer></script>
-    <script src="/estaticos/js/cadasterProductCreation/creationElements.js" defer></script>
+    <script type="module"  src="/estaticos/js/cadasterProductCreation/classificacao.js" defer></script>
 </head>
 <body>
     <header class="header-container"></header>
-    <section id="sectionForms">
-        <div id="form">
+    <section id="sectionFormProduto">
+        <div id="formProduto">
           <div id="titleForms">Cadastrar Produto</div>
           <input
             type="text"
-            name=""
-            placeholder="Digite "
+            name="produto"
+            placeholder="Nome do Produto"
             class="inputs"
           />
+          <input
+            type="text"
+            name="preco"
+            placeholder="Preço do Produto"
+            class="inputs"
+          />
+          <div id="divHoldSelect">
+            <label for="classificacao">Selecionar Classificação:</label>
+            <select name="classificacao" id="selectClassi" class="inputs">
+  
+            </select>
+            <a href="admin/cadastrarClassificacao" id="newClass">Clique aqui para criar uma classificação</a>
+          </div>
+
           <input
             type="file"
             name=""
@@ -26,15 +40,6 @@
             class="inputFile inputs"
           />
           <textarea class="inputs"></textarea>
-          <select id="selectClassi" class="inputs">
-
-          </select>
-          <button id="criaClassi" class="btnsCria">Criar classificação</button>
-          <div  id="divHoldClassifi"  class="divHoldCards">
-            <!--<div class="cardsClassificacoes">
-                <input type="text" class="inputs"><button class="btnsCancel">Cancelar</button><button class="btnsConfirm">Confirmar</button>
-            </div>-->
-          </div>
           <button id="criaVari" class="btnsCria">Criar Variação</button>
           <div id="divHoldVari" class="divHoldCards">
             <!--<div class="cardsVariacoes">

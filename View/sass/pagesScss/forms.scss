@@ -10,6 +10,10 @@
     gap:10px ;
 }
 
+label {
+    color: $corSecundaria;
+}
+
 
 #sectionForms {
     display: flex;
@@ -18,6 +22,7 @@
 }
 
 .inputs {
+    text-transform: capitalize;
     border-radius: 5px;
     padding: 5px;
     border: none;

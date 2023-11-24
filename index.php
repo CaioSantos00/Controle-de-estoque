@@ -57,6 +57,8 @@
 	$router->get("/mensagens", "RotasAdm:mensagens");
 	$router->get("/detalhesMensagens", "RotasAdm:detalhesMensagens");
 	$router->get("/consultarUsuario", "RotasAdm:consultarUsuario");
+	$router->get("/cadastrarClassificacao", "RotasAdm:cadastroClassificacao");
+	$router->get("/consultaClassificacao", "RotasAdm:consultaClass");
 	$router->get("/erros", "RotasAdm:consultaErros");	
 
 

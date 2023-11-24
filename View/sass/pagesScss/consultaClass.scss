@@ -1,0 +1,28 @@
+.cardsClass {
+    background-color: $corHeaderFooter;
+    width: 270px;
+    color: $corSecundaria;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.btnsExcluClass {
+    width: 50%;
+    @include buttons(1em, $btnsCancel, $corSecundaria);
+    padding: 5px;
+    &:hover{
+        background-color: rgb(255, 63, 63);
+    }   
+}
+
+.btnsEditClass {
+    width: 50%;
+    @include buttons(1em, $btnsConfirm, $corSecundaria);
+    padding: 5px;
+    &:hover{
+        background-color: rgb(0, 175, 0);
+    } 
+}
