@@ -18,7 +18,7 @@
 			return in_array($this->nomeImagem, $fotos);
 		}
 		function executar() :string{
-			if($this->verificaExistenciaDeFoto()) return "{$this->caminhoImagemPerfil}/{$this->nomeImagem}";
+			if($this->verificaExistenciaDeFoto()) return $this->nomeImagem;
 			return "";
 		}
 	}
