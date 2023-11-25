@@ -26,6 +26,7 @@
 	//------------------------------------------------------------------------------------------------------------------------------------
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
+	$router->get('/fotoPerfilUser/{nomeFoto}',"RotasEstaticas:fotoPerfil");
 	$router->get('/estilo', "RotasEstaticas:estilos");
 	$router->get('/componentes/{nome}',"RotasEstaticas:elementos");
 	$router->get('/imgs/{qual}', "RotasEstaticas:img");
@@ -46,6 +47,8 @@
 	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
 	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
 	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");
+	$router->get('/perfil',"UserRequests:perfil");	
+	
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 
 	$router->namespace("Controladores\Rotas\RotasAdm");

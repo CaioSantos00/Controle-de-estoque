@@ -10,14 +10,14 @@
 
 	class UserRequests{
 		function __construct(){
-			if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
-			if(count($_POST) > 0) array_map('trim',$_POST);
+			if(count($_POST) > 0){
+				if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
+				if(count($_POST) > 0) array_map('trim',$_POST);
+			}
 		}
 		private function verificarExiste(string|array $dados) :bool{
 			if(is_array($dados)){
-				foreach($dados as $dado){
-					if(!isset($dado)) return false;
-				}
+				foreach($dados as $dado) if(!isset($dado)) return false;
 				return true;
 			}
 			if(!isset($dados)) return false;
@@ -39,7 +39,13 @@
 		}
 		function perfil($data) :void{
 			if(!$this->verificarExiste($_COOKIE['login'])) exit("não esta logado");
-			echo new Perfil($_COOKIE['login']);
+			$dados = (new Perfil($_COOKIE['login']))->getResposta();
+			if(is_string($dados[1])) exit("não encontrado");
+			$retorno = [$dados[0],[]];
+			for($x = 0; $x != 5; $x++){
+				$retorno[1][] = $dados[1][0][$x];
+			}
+			echo json_encode($retorno);
 		}
 		function excluirPerfil($data){
 			if($this->verificarExiste([$_POST['idUsuario'],$_COOKIE['login']]) and $_POST['idUsuario'] == hex2bin($_COOKIE['login'])){
@@ -54,5 +60,5 @@
 		}
 		function consultaUnica($data) :void{
 			echo new CU($data['id']);
-		}
+		}		
 	}
