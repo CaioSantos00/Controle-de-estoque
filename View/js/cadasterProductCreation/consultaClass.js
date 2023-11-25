@@ -25,6 +25,12 @@ let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
         let btnsExcluClass = document.createElement('button')
         btnsExcluClass.classList.add('btnsExcluClass')
         btnsExcluClass.innerText = 'Excluir'
+        btnsExcluClass.onclick = async () => {
+            const newTexto = nomeClass.innerText = nomeDaClass.trim()
+            console.log(newTexto)
+            sectionProducts.removeChild(cardsClass)
+            await excluiClassi(newTexto)
+        }
 
         let btnsEditClass = document.createElement('button')
         btnsEditClass.classList.add('btnsEditClass')
@@ -33,13 +39,6 @@ let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
 
         cardsClass.append(nomeClass, divEditExclu)
         sectionProducts.appendChild(cardsClass)
-
-        btnsExcluClass.onclick = async () => {
-            const newTexto = nomeClass.innerText.trim()
-            console.log(newTexto)
-            sectionProducts.removeChild(cardsClass)
-            await excluiClassi(newTexto)
-        }
     }
 
     let opcoes = await consultarClassificacoes();

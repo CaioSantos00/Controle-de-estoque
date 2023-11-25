@@ -49,33 +49,4 @@ criaVari.addEventListener('click', () => {
     criaVariacao()
 });
 
-async function salvarClassificacao(){
 
-}
-
-async function editarClassificacao(antigo, novo){    
-        antigo = antigo.trim()
-        novo = novo.trim()
-        if(novo == "" || antigo == "") return false;
-        let serv = await fetch("/envio/editarClassificacao", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            "paraEditar": antigo,
-            "novoValor": novo
-        })
-    });
-    let resp = await serv.text() == "tudo certo"
-        ? true
-        : false;
-    if(resp){
-        selectClassi.innerText = "";
-        let opcoes = await consultarClassificacoes();
-        opcoes = JSON.parse(opcoes);
-        opcoes.forEach((e) => {
-            selectClassi.append(criaOption(e))     
-        });
-    }
-}
