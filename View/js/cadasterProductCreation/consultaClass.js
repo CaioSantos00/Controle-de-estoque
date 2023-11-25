@@ -1,22 +1,31 @@
-import {consultarClassificacoes, transformaMaiusculo} from "./functionsProducts.js"
+import {consultarClassificacoes, transformaMaiusculo, excluiClassi} from "./functionsProducts.js"
 
 let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
     inputBusca = document.getElementById('inputBusca'),
     sectionProducts = document.getElementById('sectionProducts')
 
     function criaCardDaConsulta(nomeDaClass) {
+        let limiteCaracteres = 19
         let cardsClass = document.createElement('div')
         cardsClass.classList.add('cardsClass')
 
         let nomeClass = document.createElement('div')
         nomeClass.classList.add('nomeClass')
-        nomeClass.innerText = nomeDaClass
+        //nomeClass.innerText = nomeDaClass
+        
+        if (nomeDaClass.length > limiteCaracteres) {
+            let parteDoNome = nomeDaClass.substring(0, limiteCaracteres);
+            nomeClass.innerText = parteDoNome + '...';
+        } else {
+            nomeClass.innerText = nomeDaClass
+        }
 
         let divEditExclu = document.createElement('div')
         divEditExclu.classList.add('divEditExclu')
         let btnsExcluClass = document.createElement('button')
         btnsExcluClass.classList.add('btnsExcluClass')
         btnsExcluClass.innerText = 'Excluir'
+
         let btnsEditClass = document.createElement('button')
         btnsEditClass.classList.add('btnsEditClass')
         btnsEditClass.innerText = 'Editar'
@@ -24,6 +33,13 @@ let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
 
         cardsClass.append(nomeClass, divEditExclu)
         sectionProducts.appendChild(cardsClass)
+
+        btnsExcluClass.onclick = async () => {
+            const newTexto = nomeClass.innerText.trim()
+            console.log(newTexto)
+            sectionProducts.removeChild(cardsClass)
+            await excluiClassi(newTexto)
+        }
     }
 
     let opcoes = await consultarClassificacoes();

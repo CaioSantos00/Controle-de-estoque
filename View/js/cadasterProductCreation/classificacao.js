@@ -1,7 +1,6 @@
-import {criaBtnCancel, btnCancel, consultarClassificacoes, criaOption, transformaMaiusculo} from "./functionsProducts.js"
+import {criaBtnCancel, btnCancel, criaOption, transformaMaiusculo} from "./functionsProducts.js"
 
-let selectClassi = document.getElementById('selectClassi'),
-    btnCriaClassi = document.getElementById('criaClassi'),
+let btnCriaClassi = document.getElementById('criaClassi'),
     divHoldClassifi = document.getElementById('divHoldClassifi')
 
 function criaClassificacao() {
@@ -49,28 +48,4 @@ function criaClassificacao() {
 btnCriaClassi.addEventListener('click', () => {
     criaClassificacao()
 })
-
-
-async function excluiClassi(classi){
-    classi = classi.trim();    
-    if(classi == "") return false;
-    let serv = await fetch("/envio/excluirClassificacao", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({"paraExcluir": classi})
-    });
-    let resp = await serv.text() == "tudo certo"
-        ? true
-        : false;
-    if(resp){
-        selectClassi.innerText = "";
-        let opcoes = await consultarClassificacoes();
-        opcoes = JSON.parse(opcoes);
-        opcoes.forEach((e) => {
-            selectClassi.append(criaOption(e))     
-        });
-    }
-}
 
