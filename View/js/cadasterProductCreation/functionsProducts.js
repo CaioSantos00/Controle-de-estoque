@@ -12,6 +12,9 @@ export function btnCancel(divPai, apagaDiv) {
 
 export async function consultarClassificacoes(){
     let classificacoes = await fetch("/envio/consultarClassificacoes")
+    if(!classificacoes.ok) {
+        Error("ERRO NA SOLICITAÇÃO")
+    }
     return await classificacoes.json()
 }
 

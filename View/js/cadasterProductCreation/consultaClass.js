@@ -26,6 +26,11 @@ let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
         sectionProducts.appendChild(cardsClass)
     }
 
+    let opcoes = await consultarClassificacoes();
+    opcoes.forEach((e) => {
+            criaCardDaConsulta(e)
+    });
+
     btnBuscaPedido.addEventListener('click', async ()=>{
         let limpaStr = inputBusca.value.trim()
         if (limpaStr == '') {
