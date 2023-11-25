@@ -30,7 +30,7 @@
 			}
 			catch(\Exception|\PDOException $e){
 				$GLOBALS['ERRO']->setErro("Carrinho", "no salvamento de carrinho, {$e->getMessage()}");
-				if(CB::getConexao()->inTransaction()) CB::getConexao()->rollBack(); CB::getConexao()->commit();				
+				CB::voltaTudo();
 				$resultado = false;
 			}
 			finally{

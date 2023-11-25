@@ -10,6 +10,9 @@
 
 	class Cadastro implements Model{
 		private array $dadosPrincipais;
+		private string $idProduto;
+		private string $descricaoGeralProduto;
+		private string $jsonDadosSecundarios;
 		private array $dadosSecundarios = [];
 		private array $querysInsercao= [
 		    "Insert into `ProdutoPrimario`
@@ -22,9 +25,6 @@
 				values
 				(?,?,?,?,?)"
 		];
-		private string $idProduto;
-		private string $descricaoGeralProduto;
-		private string $jsonDadosSecundarios;
 
 		function __construct(string $nome, string $classificacoes, string $descricaoGeral, string $jsonDadosSecundarios){
 			$this->descricaoGeralProduto = $descricaoGeral;
