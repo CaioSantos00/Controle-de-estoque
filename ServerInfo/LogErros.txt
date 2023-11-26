@@ -16,3 +16,6 @@
 <<<>>>{"quando":"24-11-23 as 08:57","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
 <<<>>>{"quando":"24-11-23 as 08:57","onde":"Conex\u00e3o","mensagem":"SQLSTATE[HY000] [2002] Nenhuma conex\u00e3o p\u00f4de ser feita porque a m\u00e1quina de destino as recusou ativamente"}
 <<<>>>{"quando":"24-11-23 as 08:57","onde":"Login de usu\u00e1rio","mensagem":"Falha na Conex\u00e3o PDOConexao"}
+<<<>>>{"quando":"25-11-23 as 09:17","onde":"renderiza\u00e7\u00e3o de template","mensagem":"na chamada do template FotosUsuarios\/36.png.png, The template \"FotosUsuarios\/36.png.png\" could not be found at \"arqvsSecundarios\/FotosUsuarios\/36.png.png\"."}
+<<<>>>{"quando":"25-11-23 as 09:18","onde":"renderiza\u00e7\u00e3o de template","mensagem":"na chamada do template FotosUsuarios\/36.png.png, The template \"FotosUsuarios\/36.png.png\" could not be found at \"arqvsSecundarios\/FotosUsuarios\/36.png.png\"."}
+<<<>>>{"quando":"25-11-23 as 09:18","onde":"renderiza\u00e7\u00e3o de template","mensagem":"na chamada do template FotosUsuarios\/36.png.png, The template \"FotosUsuarios\/36.png.png\" could not be found at \"arqvsSecundarios\/FotosUsuarios\/36.png.png\"."}

@@ -26,7 +26,7 @@
 	//------------------------------------------------------------------------------------------------------------------------------------
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
-	$router->get('/fotoPerfilUser/{nomeFoto}',"RotasEstaticas:fotoPerfil");
+	$router->get('/fotoPerfilUser/{idUser}',"RotasSecundarias:fotoUsuario");
 	$router->get('/estilo', "RotasEstaticas:estilos");
 	$router->get('/componentes/{nome}',"RotasEstaticas:elementos");
 	$router->get('/imgs/{qual}', "RotasEstaticas:img");
@@ -38,7 +38,7 @@
 	$router->get(
 		'/js/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}',
 		"RotasEstaticas:scriptModularizado"
-	);
+	);	
 
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");
 	$router->group("usuario");

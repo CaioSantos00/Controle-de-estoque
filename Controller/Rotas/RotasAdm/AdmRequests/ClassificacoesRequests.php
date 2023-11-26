@@ -1,11 +1,11 @@
 <?php
 	namespace Controladores\Rotas\RotasAdm\AdmRequests;
-
-	use App\Servicos\Arquivos\Produtos\Classificacoes\Cadastro;
-	use App\Servicos\Arquivos\Produtos\Classificacoes\Edicao;
-	use App\Servicos\Arquivos\Produtos\Classificacoes\Excluir;
-	use App\Servicos\Arquivos\Produtos\Classificacoes\Classificacoes;
-	use App\Servicos\Arquivos\Produtos\Classificacoes\AtualizarArqv;
+	
+	use App\Servicos\Arquivos\Produtos\Classificacoes\{
+		Cadastro,Edicao,
+		Excluir,Classificacoes,
+		AtualizarArqv
+	};
 
 	class ClassificacoesRequests{
 		function __construct(){
@@ -34,7 +34,9 @@
 			echo $consulta;
 		}
 		function atualizarArqv($data){
-			$atualizacao = new AtualizarArqv();
-			echo $atualizacao->executar();
+			return (new AtualizarArqv())->executar();
+		}
+		function __destruct(){
+			$this->atualizarArqv();
 		}
 	}

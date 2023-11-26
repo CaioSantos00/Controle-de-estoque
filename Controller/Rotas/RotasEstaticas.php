@@ -35,7 +35,4 @@
 			}
 			parent::renderizar("js/{$data['contexto']}/{$data['scriptPrincipal']}.js");
 		}
-		function fotoPerfil($data){
-			parent::renderizar("../arqvsSecundarios/FotosUsuarios/{$data['nomeFoto']}");
-		}
 	}	
