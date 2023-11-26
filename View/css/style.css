@@ -1020,12 +1020,18 @@ a #btnCon:hover {
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
   border-radius: 5px;
 }
 
+.inputClass {
+  width: 120px;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+}
+
 .btnsExcluClass {
-  width: 50%;
   font-size: 1em;
   background-color: rgb(231, 2, 2);
   color: rgb(255, 255, 255);
@@ -1045,7 +1051,6 @@ a #btnCon:hover {
 }
 
 .btnsEditClass {
-  width: 50%;
   font-size: 1em;
   background-color: green;
   color: rgb(255, 255, 255);

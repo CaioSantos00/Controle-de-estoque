@@ -8,7 +8,7 @@ export function criaBtnCancel(divPai ,divQualApagar) {
     return btnsCancel
 }
 
-async function editarClassificacao(antigo, novo){    
+export async function editarClassificacao(antigo, novo){    
     antigo = antigo.trim()
     novo = novo.trim()
     if(novo == "" || antigo == "") return false;
