@@ -1,4 +1,4 @@
-import {consultarClassificacoes, transformaMaiusculo, excluiClassi} from "./functionsProducts.js"
+import {consultarClassificacoes, transformaMaiusculo, excluiClassi, editarClassificacao} from "./functionsProducts.js"
 
 let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
     inputBusca = document.getElementById('inputBusca'),
@@ -26,7 +26,7 @@ let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
         btnsExcluClass.classList.add('btnsExcluClass')
         btnsExcluClass.innerText = 'Excluir'
         btnsExcluClass.onclick = async () => {
-            const newTexto = nomeClass.innerText = nomeDaClass.trim()
+            const newTexto = nomeDaClass.trim()
             console.log(newTexto)
             sectionProducts.removeChild(cardsClass)
             await excluiClassi(newTexto)
@@ -35,8 +35,43 @@ let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
         let btnsEditClass = document.createElement('button')
         btnsEditClass.classList.add('btnsEditClass')
         btnsEditClass.innerText = 'Editar'
-        divEditExclu.append(btnsExcluClass, btnsEditClass)
+        btnsEditClass.onclick = async () => {
+            let inputNomeClass = document.createElement('input')
+            inputNomeClass.value = nomeDaClass
+            inputNomeClass.classList.add('inputClass')
 
+            let divHoldEditClass = document.createElement('div')
+            divHoldEditClass.classList.add('divEditExclu')
+            let btnsSalveEdit = document.createElement('button')
+            btnsSalveEdit.classList.add('btnsEditClass')
+            btnsSalveEdit.innerText = 'Salvar'
+            btnsSalveEdit.onclick = async () => {
+                let limpaStr = inputNomeClass.value.trim()
+                if (limpaStr == '') {
+                    alert("Digite algum valor")
+                }
+                inputNomeClass.remove()
+                divHoldEditClass.remove()
+                divEditExclu.append(btnsExcluClass, btnsEditClass)
+                cardsClass.append(limpaStr, divEditExclu)
+                await editarClassificacao(nomeDaClass, limpaStr)
+            }
+            let btnsCancelEdit = document.createElement('button')
+            btnsCancelEdit.classList.add('btnsExcluClass')
+            btnsCancelEdit.innerText = 'Cancelar'
+            btnsCancelEdit.onclick = () => {
+                inputNomeClass.remove()
+                divHoldEditClass.remove()
+                divEditExclu.append(btnsExcluClass, btnsEditClass)
+                cardsClass.append(nomeClass, divEditExclu)
+            }
+            nomeClass.remove()
+            divEditExclu.remove(btnsExcluClass, btnsEditClass)
+            divHoldEditClass.append(btnsCancelEdit, btnsSalveEdit)
+            cardsClass.append(inputNomeClass, divHoldEditClass)
+        }
+
+        divEditExclu.append(btnsExcluClass, btnsEditClass)
         cardsClass.append(nomeClass, divEditExclu)
         sectionProducts.appendChild(cardsClass)
     }
