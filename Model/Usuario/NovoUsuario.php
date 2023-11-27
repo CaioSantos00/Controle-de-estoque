@@ -16,30 +16,31 @@
 			insert into `Usuario`
 			(`Nome`, `Email`, `Senha`, `Telefone`, `TipoConta`)
 			values
-			(?,?,?,?,?)
+			(:nome,:email,:senha,:telefone,:tipoConta)
 		";
 		function __construct(ServicoInterno $imagem){
 			$this->imagem = $imagem;
 		}
 		function setDadosUsuario(array $dadosUsuario){
 			$dados = [
-				$dadosUsuario[0],
+				'nome' => $dadosUsuario[0],
 				'email' => $dadosUsuario[1],
-				$dadosUsuario[2],
+				'senha' => $dadosUsuario[2],				
 				'telefone' => $dadosUsuario[3],
-				$dadosUsuario[4]
+				'tipoConta' => (string) $dadosUsuario[4]
 			];
 			$this->validar($dados);
 			$this->dadosUsuario = $this->valido
-				? array_values($dadosUsuario)
-				: [1 => ""];			
+				? $dados
+				: [];
 		}
 		private function enviaParaOBanco(array $dadosUsuario){
-			try{
-				if(!array_is_list($dadosUsuario)) throw new UException("contém dados errados");
+			try{				
+				if(count($dadosUsuario) == 0) throw new UException("contém dados errados");
+				Conexao::getConexao()->beginTransaction();
 				$queryExec = Conexao::getConexao()->prepare($this->queryParaExecutar);
 				$queryExec->execute($dadosUsuario);
-				$this->idUsuario = $conexao->lastInsertId();
+				$this->idUsuario = Conexao::getConexao()->lastInsertId();
 				$this->resposta["envio"] = "ok";
 			}
 			catch(UException $e){
@@ -52,12 +53,17 @@
 			}			
 		}
 		function executar(){
-			$this->enviaParaOBanco($this->dadosUsuarios);
+			$this->enviaParaOBanco($this->dadosUsuario);
 			if($this->resposta["envio"] == "ok"){
 				$this->imagem->setIdUsuario($this->idUsuario);
 				$this->imagem->executar();
 				$this->resposta["imagem"] = $this->imagem->getResposta();
+				if($this->resposta["imagem"]){
+					Conexao::getConexao()->commit();
+					return;
+				}
 			}
+			Conexao::voltaTudo();			
 		}
 		function getResposta(){
 			return $this->resposta;

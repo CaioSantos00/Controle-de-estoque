@@ -5,20 +5,15 @@
 	use App\Servicos\Arquivos\UploadsManager;
 	
 	class Buscar extends UploadsManager implements ServicoInterno{
-		protected string $nomeImagem;
-		private string $caminhoImagemPerfil = "arqvsSecundarios/FotosUsuarios";
+		private string $caminhoImagemPerfil = "arqvsSecundarios/FotosUsuarios/";
+		public bool $temImagem;
 		function __construct(string $idUsuario){
-			$this->nomeImagem = $idUsuario.".png";
+			$this->caminhoImagemPerfil .= $idUsuario.".png";
 		}
 		private function verificaExistenciaDeFoto() :bool{
-			$fotos = array_diff(
-				scandir($this->caminhoImagemPerfil),
-				['.','..']
-			);
-			return in_array($this->nomeImagem, $fotos);
+			return file_exists($this->caminhoImagemPerfil);
 		}
-		function executar() :string{
-			if($this->verificaExistenciaDeFoto()) return $this->nomeImagem;
-			return "";
+		function executar(){
+			$this->temImagem = $this->verificaExistenciaDeFoto();
 		}
 	}

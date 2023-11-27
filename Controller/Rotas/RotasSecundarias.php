@@ -1,25 +1,19 @@
 <?php
 	namespace Controladores\Rotas;	
+	use Intervention\Image\ImageManagerStatic as Img;
 	
-	use League\Plates\Engine;
-	
-	class RotasSecundarias{
-		private Engine $templates;
-		function __construct(){
-			$this->templates = new Engine('arqvsSecundarios');
-			$this->templates->setFileExtension(null);			
-		}
+	class RotasSecundarias{		
 		private function renderizar(string $nome){
-			try{
-				echo $this->templates->render($nome);
-			}
-			catch(\Exception $ex){
-				$GLOBALS['ERRO']->setErro("renderização de template", "na chamada do template {$nome}, {$ex->getMessage()}");
-				echo "não encontrado";			
-			}
+			if(file_exists($nome))
+				echo Img::make($nome)->response();			
 		}
 		function fotoUsuario($data){
-			$this->renderizar("FotosUsuarios/{$data['idUser']}.png");
+			$this->renderizar("arqvsSecundarios/FotosUsuarios/{$data['idUser']}");
 		}
+		function img($data){
+			$this->renderizar("View/imgs/{$data['qual']}");
+		}
+		function fotoMensagem($data){
+		}		
 	}
 	

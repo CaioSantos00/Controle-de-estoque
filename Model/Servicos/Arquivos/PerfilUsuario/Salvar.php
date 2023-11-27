@@ -11,23 +11,15 @@
         
         function setIdUsuario(string $idUsuario){
             $this->idUsuario = $idUsuario;
+            $nomeFoto = explode(".",basename($_FILES['fotoUsuario']['name']));
+            $nomeFoto = $nomeFoto[count($nomeFoto) - 2];
             $this->destinoDoArquivo =
-                $this->caminhoArqvsSecundarios."FotosUsuarios/".
-                basename($_FILES['fotoUsuario']['name']);        
-        }
-        private function moverParaDiretorio(){
-            $this->resposta = move_uploaded_file(
-				$_FILES['fotoUsuario']['tmp_name'],
-				$this->destinoDoArquivo
-			);
-			$this->testarResposta('no envio do arquivo para seu devido diretório');
-        }
+                $this->caminhoArqvsSecundarios."FotosUsuarios/".$nomeFoto;        
+        }        
         private function salvaFormatoPadrao(){            
-            $imagem = $this->getInterventionImageInstance($this->destinoDoArquivo); //Gera instancia da Classe
+            $imagem = $this->getInterventionImageInstance($_FILES['fotoUsuario']['tmp_name']); //Gera instancia da Classe
             $imagem->fit(300, 300);//Redimensiona a imagem para um tamanho padrão
-            $imagem->save($this->destinoDoArquivo.".png");
-            
-            $this->testarResposta('no envio do arquivo para seu diretório');
+            $imagem->save($this->destinoDoArquivo, 80, 'png');
         }        
         private function renomeiaParaIdDoDono(){            
             $this->nomeParaSalvarArquivo = $this->caminhoArqvsSecundarios."FotosUsuarios/".$this->idUsuario.".png";
@@ -36,7 +28,6 @@
         }
         function executar(){
 			try{                
-                $this->moverParaDiretorio();
                 $this->salvaFormatoPadrao();  
                 $this->renomeiaParaIdDoDono();
 			}

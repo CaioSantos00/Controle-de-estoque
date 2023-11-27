@@ -36,8 +36,8 @@
 			$cadastro = new User(new FotoUser);
 			$dadosUsuario = [
 				$_POST['Nome'],
-				$senha,
 				$_POST['Email'],
+				$senha,				
 				$_POST['Telefone'],
 				0
 			];
