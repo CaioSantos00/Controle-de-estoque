@@ -81,7 +81,12 @@
 			exit("Bela tentativa, hacker...");
 		}
 		function deslogar($data) {
-			if($this->verificarExiste($_COOKIE['login'])) echo setcookie("login",$_COOKIE['login'],time()-3600,"/");
+			$saida = $this->verificarExiste($_COOKIE['login'])
+				? (setcookie("login",$_COOKIE['login'],time()-3600,"/")
+					? "ok"
+					: "erro")
+				: "erro interno";
+			exit($saida);
 		}
 		function consultaGeral($data):void {
 			echo new CG;
