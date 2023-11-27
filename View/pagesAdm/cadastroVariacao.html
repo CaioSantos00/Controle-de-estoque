@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto</title>
+    <link rel="stylesheet" href="/estaticos/estilo" />
+    <script src="/estaticos/js/elementos/header.js" defer></script>
+    <script type="module"  src="/estaticos/js/cadasterProductCreation/creationElements.js" defer></script>
+</head>
+<body>
+    <header class="header-container"></header>
+    <section id="sectionFormProduto">
+        <div id="formProduto">
+          <div id="titleForms">Cadastrar Produto</div>
+         
+          <button id="criaVari" class="btnsCria">Criar Variação</button>
+          <div id="divHoldVari">
+            <div class="cardsVariacoes">
+              <div class="holdInputs">
+                <input type="number" min="1" class="inputVari" placeholder="Qtd">
+                <input type="text" class="inputVari" placeholder="Preço">
+              </div>
+              <div class="divTextAreaFile">
+                <textarea class="inputs variacoesTextArea"></textarea>
+                <input type="file" class="inputFileVari inputs">
+              </div>
+              <button class="btnsCancel">Cancelar</button>
+              <button  class="btnsConfirm">Salvar</button>
+            </div>
+          </div>
+</div>
+      </section>
+</body>
+</html>

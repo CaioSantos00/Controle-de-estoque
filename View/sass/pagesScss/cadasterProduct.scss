@@ -17,9 +17,6 @@
     color: $corSecundaria;
 }
 
-.divHoldCards {
-}
-
 #divHoldClassifi {
     display: flex;
     flex-direction: column;
@@ -33,18 +30,6 @@
     background-color: $corPrimaria;
     padding: 5px;
     border-radius: 5px;
-}
-
-.cardsVariacoes {
-}
-
-.holdInputs {
-}
-
-.inputVari {
-}
-
-.variacoesTextArea {
 }
 
 .btnsCancel {
@@ -61,7 +46,4 @@
     &:hover {
         background-color: $bolinhaStatusBom;
     }
-}
-
-.divTextAreaFile {
 }

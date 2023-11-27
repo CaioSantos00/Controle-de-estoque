@@ -13,39 +13,42 @@ function criaVariacao() {
     let inputQtd = document.createElement('input')
     inputQtd.classList.add('inputVari')
     inputQtd.type = 'number'
+    inputQtd.placeholder = 'Qtd'
     inputQtd.min = 1
     inputQtd.name = ''
 
     let inputPreco = document.createElement('input')
     inputPreco.type = ''
     inputPreco.name = ''
+    inputPreco.placeholder = 'Preço'
     inputPreco.classList.add('inputVari')
 
-    let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes)
-    holdInputs.append(inputQtd, inputPreco, btnsCancel)
-
+    
     let divTextAreaFile = document.createElement('div')
     divTextAreaFile.classList.add('divTextAreaFile')
-
+    
     let variacoesTextArea = document.createElement('textarea')
     variacoesTextArea.classList.add('inputs', 'variacoesTextArea')
-
+    
     let inputFile = document.createElement('input')
-    inputFile.classList.add('inputFile', 'inputs')
+    inputFile.classList.add('inputFileVari', 'inputs')
     inputFile.type = 'file'
     inputFile.name = ''
     
+    let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes)
     let buttonConfirm = document.createElement('button')
     buttonConfirm.classList.add('btnsConfirm')
     buttonConfirm.innerText = 'Salvar'
     buttonConfirm.onclick = () => {}
 
-    divTextAreaFile.append(variacoesTextArea, inputFile, buttonConfirm)
-    cardsVariacoes.append(holdInputs, divTextAreaFile)
+    holdInputs.append(inputQtd, inputPreco)
+    divTextAreaFile.append(variacoesTextArea, inputFile)
+    cardsVariacoes.append(holdInputs, divTextAreaFile, btnsCancel, buttonConfirm)
     divHoldVari.appendChild(cardsVariacoes)
 }
 
 criaVari.addEventListener('click', () => {
+    console.log('Apertou')
     criaVariacao()
 });
 
