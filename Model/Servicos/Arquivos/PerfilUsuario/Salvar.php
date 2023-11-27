@@ -8,10 +8,12 @@
         private string $destinoDoArquivo;
         private string $idUsuario;
         private string $nomeParaSalvarArquivo;
-
-        function __construct(string $idUsuario){            
+        
+        function setIdUsuario(string $idUsuario){
             $this->idUsuario = $idUsuario;
-            $this->destinoDoArquivo = $this->caminhoArqvsSecundarios."FotosUsuarios/".$_FILES['fotoUsuario']['name'];
+            $this->destinoDoArquivo =
+                $this->caminhoArqvsSecundarios."FotosUsuarios/".
+                basename($_FILES['fotoUsuario']['name']);        
         }
         private function moverParaDiretorio(){
             $this->resposta = move_uploaded_file(
@@ -20,23 +22,22 @@
 			);
 			$this->testarResposta('no envio do arquivo para seu devido diretório');
         }
+        private function salvaFormatoPadrao(){            
+            $imagem = $this->getInterventionImageInstance($this->destinoDoArquivo); //Gera instancia da Classe
+            $imagem->fit(300, 300);//Redimensiona a imagem para um tamanho padrão
+            $imagem->save($this->destinoDoArquivo.".png");
+            
+            $this->testarResposta('no envio do arquivo para seu diretório');
+        }        
         private function renomeiaParaIdDoDono(){            
             $this->nomeParaSalvarArquivo = $this->caminhoArqvsSecundarios."FotosUsuarios/".$this->idUsuario.".png";
 			$this->resposta = rename($this->destinoDoArquivo,$this->nomeParaSalvarArquivo);
 			$this->testarResposta('na mudança do nome da imagem');            
         }
-        private function salvaFormatoPadrao(){            
-            $imagem = ($this->getInterventionImageInstance())->make($this->destinoDoArquivo); //Gera instancia da Classe
-            $imagem->scale(300, 300);//Redimensiona a imagem para um tamanho padrão
-            $imagem = $imagem->toPng(80);
-            $imagem->save($this->destinoDoArquivo);
-
-            $this->testarResposta('no envio do arquivo para seu diretório');
-        }
         function executar(){
 			try{                
-                $this->moverParaDiretorio();                				
-                $this->salvaFormatoPadrao();
+                $this->moverParaDiretorio();
+                $this->salvaFormatoPadrao();  
                 $this->renomeiaParaIdDoDono();
 			}
 			catch(\Exception $ex){

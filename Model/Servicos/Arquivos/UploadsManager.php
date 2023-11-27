@@ -1,7 +1,7 @@
 <?php
 	namespace App\Servicos\Arquivos;
 
-	use Intervention\Image\ImageManager;
+	use Intervention\Image\ImageManagerStatic as ImageManager;
 
 	class UploadsManager{
 		protected string $caminhoArqvsSecundarios = "arqvsSecundarios/";
