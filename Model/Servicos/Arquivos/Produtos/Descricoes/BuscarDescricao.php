@@ -6,17 +6,18 @@
 
 	class BuscarDescricao implements ServicoInterno, \Stringable{
 		private string $idProduto;
+		private string $file = "arqvsSecundarios/Produtos/Descricoes/";
 		function __construct(string $idProduto){
 			$this->idProduto = $idProduto;
+			$this->file .= "{$this->idProduto}.txt";
 		}
 		function __toString(){
 			return $this->executar();
 		}
 		function executar(){
 			if(CDescricoes::inCache($this->idProduto)) return CDescricoes::getCache($this->idProduto);
-			$file = "arqvsSecundarios/Produtos/Descricoes/{$this->idProduto}.txt";
 			if(!file_exists($file)) return "descrição não encontrada";
-			$descricao = file_get_contents($file);
+			$descricao = file_get_contents($this->file);
 			CDescricoes::setCache($this->idProduto, $descricao);
 			return $descricao;
 		}

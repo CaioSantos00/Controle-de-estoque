@@ -38,7 +38,7 @@
 	$router->get(
 		'/js/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}',
 		"RotasEstaticas:scriptModularizado"
-	);	
+	);
 
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");
 	$router->group("usuario");
@@ -49,9 +49,8 @@
 	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");
 	$router->get('/perfil',"UserRequests:perfil");
 	$router->get('/logoff', "UserRequests:deslogar");
-	
-/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
 	$router->get("/", "RotasAdm:inicio");
@@ -65,8 +64,6 @@
 	$router->get("/cadastrarClassificacao", "RotasAdm:cadastroClassificacao");
 	$router->get("/consultaClassificacao", "RotasAdm:consultaClass");
 	$router->get("/erros", "RotasAdm:consultaErros");
-
-
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");

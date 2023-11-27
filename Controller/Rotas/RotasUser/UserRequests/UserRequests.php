@@ -5,12 +5,13 @@
 		NovoUsuario as User,
 		Perfil,
 		Login,
-		ExcluirPerfil as EP
+		ExcluirPerfil as EP,
+		EditarDados as EDUser
 	};
 	use App\Produtos\{
 		ConsultaGeral as CG,
 		ConsultaUnica as CU
-	};	
+	};
 	use App\Servicos\Arquivos\PerfilUsuario\Salvar as FotoUser;
 
 	class UserRequests{
@@ -28,8 +29,19 @@
 			if(!isset($dados)) return false;
 			return true;
 		}
+		function editar($data){
+			if(!$this->verificarExiste([$_COOKIE['login'],$_POST['nome'],$_POST['email'],$_POST['senha'],$_POST['telefone']])) exit("Bela tentativa, hacker...");
+			$dados = [
+				'nome' => 	$_POST['nome'],
+				'email' => 	$_POST['email'],
+				'senha' => 	$_POST['senha'],
+				'telefone'=>$_POST['telefone']
+			];
+			$edicao = new EDUser(hex2bin($_COOKIE['login']), $dados);
+			echo $edicao->getResposta();
+		}
 		function cadastro($data) :void{
-			if(!$this->verificarExiste([$_POST['Nome'],$_POST['Email'],$_POST['Telefone'],$_POST['Senha']])) exit("Bela tentativa, hacker...");			
+			if(!$this->verificarExiste([$_POST['Nome'],$_POST['Email'],$_POST['Telefone'],$_POST['Senha']])) exit("Bela tentativa, hacker...");
 			if(is_bool(
 				$senha = password_hash($_POST['Senha'], PASSWORD_DEFAULT))
 			) exit("erro interno");
@@ -37,13 +49,13 @@
 			$dadosUsuario = [
 				$_POST['Nome'],
 				$_POST['Email'],
-				$senha,				
+				$senha,
 				$_POST['Telefone'],
 				0
 			];
 			$cadastro->setDadosUsuario($dadosUsuario);
 			$cadastro->executar();
-			exit(json_encode($cadastro->getResposta()));			
+			exit(json_encode($cadastro->getResposta()));
 		}
 		function login($data) :void{
 			if(!$this->verificarExiste([$_POST['Email'],$_POST['Senha']])) exit("Bela tentativa, hacker...");
@@ -76,5 +88,5 @@
 		}
 		function consultaUnica($data) :void{
 			echo new CU($data['id']);
-		}		
+		}
 	}
