@@ -84,6 +84,7 @@ export function transformaMaiusculo(texto) {
 (async () => {
     try{
       let opcoes = await consultarClassificacoes();
+      console.log(opcoes)
           opcoes.forEach((e) => {
               selectClassi.append(criaOption(e))     
           });

@@ -41,6 +41,9 @@
 		}
 		function consultaClass($data){
 			parent::renderizar("pagesAdm/consultaClass.html");
+		}		
+		function cadastroVariacao($data){
+			parent::renderizar("pagesAdm/cadastroVariacao.html");
 		}
 			/*
 			$minificador = new M\JS();

@@ -1,0 +1,47 @@
+#divHoldVari {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardsVariacoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background-color: $corPrimaria;
+    border-radius: 5px;    
+    padding: 5px;
+}
+
+.inputFileVari {
+    background-color: $corSecundaria;
+    color: $corPrimaria;
+}
+
+.inputFileVari::file-selector-button {
+    background-color: $corPrimaria;
+    color: $corSecundaria;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.holdInputs {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inputVari {
+    border: none;
+    padding: 5px;
+    margin: 3px 0px;
+    border-radius: 5px;
+}
+
+.divTextAreaFile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
