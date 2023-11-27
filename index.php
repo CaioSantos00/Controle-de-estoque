@@ -47,7 +47,8 @@
 	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
 	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
 	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");
-	$router->get('/perfil',"UserRequests:perfil");	
+	$router->get('/perfil',"UserRequests:perfil");
+	$router->get('/logoff', "UserRequests:deslogar");
 	
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 

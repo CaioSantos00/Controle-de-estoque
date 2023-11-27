@@ -68,6 +68,9 @@
 			}
 			exit("Bela tentativa, hacker...");
 		}
+		function deslogar($data) {
+			if($this->verificarExiste($_COOKIE['login'])) echo setcookie("login",$_COOKIE['login'],time()-3600,"/");
+		}
 		function consultaGeral($data):void {
 			echo new CG;
 		}
