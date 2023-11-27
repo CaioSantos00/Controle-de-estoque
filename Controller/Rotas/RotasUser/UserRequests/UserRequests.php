@@ -1,12 +1,17 @@
 <?php
 	namespace Controladores\Rotas\RotasUser\UserRequests;
 
-	use App\Usuario\NovoUsuario as User;
-	use App\Usuario\Perfil;
-	use App\Usuario\Login;
-	use App\Produtos\ConsultaGeral as CG;
-	use App\Produtos\ConsultaUnica as CU;
-	use App\Usuario\ExcluirPerfil as EP;
+	use App\Usuario\{
+		NovoUsuario as User,
+		Perfil,
+		Login,
+		ExcluirPerfil as EP
+	};
+	use App\Produtos\{
+		ConsultaGeral as CG,
+		ConsultaUnica as CU
+	};	
+	use App\Servicos\Arquivos\PerfilUsuario\Salvar as FotoUser;
 
 	class UserRequests{
 		function __construct(){
@@ -24,13 +29,21 @@
 			return true;
 		}
 		function cadastro($data) :void{
-			if(!$this->verificarExiste([$_POST['Nome'],$_POST['Email'],$_POST['Telefone'],$_POST['Senha']])) exit("Bela tentativa, hacker...");
-			$senha = password_hash($_POST['Senha'], PASSWORD_DEFAULT);
-			if(is_bool($senha)) exit("erro interno");
-			$cadastro = new User;
-			$dadosUsuario = [$_POST['Nome'],$senha,$_POST['Email'],$_POST['Telefone'],0];
+			if(!$this->verificarExiste([$_POST['Nome'],$_POST['Email'],$_POST['Telefone'],$_POST['Senha']])) exit("Bela tentativa, hacker...");			
+			if(is_bool(
+				$senha = password_hash($_POST['Senha'], PASSWORD_DEFAULT))
+			) exit("erro interno");
+			$cadastro = new User(new FotoUser);
+			$dadosUsuario = [
+				$_POST['Nome'],
+				$_POST['Email'],
+				$senha,				
+				$_POST['Telefone'],
+				0
+			];
 			$cadastro->setDadosUsuario($dadosUsuario);
-			echo $cadastro->getResposta();
+			$cadastro->executar();
+			exit(json_encode($cadastro->getResposta()));			
 		}
 		function login($data) :void{
 			if(!$this->verificarExiste([$_POST['Email'],$_POST['Senha']])) exit("Bela tentativa, hacker...");
@@ -54,6 +67,9 @@
 				return;
 			}
 			exit("Bela tentativa, hacker...");
+		}
+		function deslogar($data) {
+			if($this->verificarExiste($_COOKIE['login'])) echo setcookie("login",$_COOKIE['login'],time()-3600,"/");
 		}
 		function consultaGeral($data):void {
 			echo new CG;

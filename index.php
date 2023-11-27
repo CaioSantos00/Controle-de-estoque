@@ -29,7 +29,7 @@
 	$router->get('/fotoPerfilUser/{idUser}',"RotasSecundarias:fotoUsuario");
 	$router->get('/estilo', "RotasEstaticas:estilos");
 	$router->get('/componentes/{nome}',"RotasEstaticas:elementos");
-	$router->get('/imgs/{qual}', "RotasEstaticas:img");
+	$router->get('/imgs/{qual}', "RotasSecundarias:img");
 	$router->get('/js/{contexto}/{nome}', "RotasEstaticas:script");
 	$router->get(
 		'/js/subdir/{contexto}/{nomeSubDir}/{nomesArquivosSeparadosPorVirgula}',
@@ -47,7 +47,8 @@
 	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
 	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
 	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");
-	$router->get('/perfil',"UserRequests:perfil");	
+	$router->get('/perfil',"UserRequests:perfil");
+	$router->get('/logoff', "UserRequests:deslogar");
 	
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 

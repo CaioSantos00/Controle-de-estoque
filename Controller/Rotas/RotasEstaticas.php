@@ -9,10 +9,7 @@
 		public function estilos($data){
 			header('Content-type: text/css');
 			parent::renderizar('css/style.css');
-		}
-		public function img($data){
-			parent::renderizar('imgs/'.$data['qual']);
-		}
+		}		
 		public function script($data){
 			header('Content-type: application/javascript');			
 			parent::renderizar("js/{$data['contexto']}/{$data['nome']}");
