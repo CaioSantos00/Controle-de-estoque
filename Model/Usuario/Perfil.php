@@ -15,7 +15,9 @@
 		}
 		private function getImagemDePerfil() :string{
 			$img = (new ImgPerfil($this->idUsuario))->executar();
-			return $img != "" ? $img : "imagem não encontrada";
+			return $img != ""
+				? $img
+				: "imagem não encontrada";
 		}
 		private function getDadosDoBanco(\PDO $conn) :array|string{
 			try{
@@ -33,7 +35,7 @@
 			}
 			finally{
 				return (is_array($dados) and count($dados) > 0)
-					? $dados
+					? $dados[0]
 					: "perfil não encontrado";
 			}
 		}
@@ -42,8 +44,8 @@
 		}
 		function getResposta() :array{
 			return [
-				$this->getImagemDePerfil(),
-				$this->getDadosDoBanco(Conn::getConexao())
+				"imagem" => $this->getImagemDePerfil(),
+				"dados" => $this->getDadosDoBanco(Conn::getConexao())
 			];
 		}
 	}

@@ -3,6 +3,8 @@
 
     use App\Mensagem\EnviarMensagem as EMsg;
     use App\Mensagem\Consultar\UsuarioEspecifico as CMUEscfo;
+    use App\Servicos\Arquivos\Mensagens\SalvarImagem as SI;
+
     class MensagensRequests{
         function __construct(){
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
@@ -20,7 +22,8 @@
             $msg = new EMsg(
                 hex2bin($_COOKIE['login']),
                 json_encode($conteudo),
-                count($_FILES['imgs']['name']) > 0
+                count($_FILES['imgs']['name']) > 0,
+                new SI
             );
             echo $msg->getResposta();
         }

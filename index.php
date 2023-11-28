@@ -74,6 +74,8 @@
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
 	$router->get("/consultarClassificacoes", "ClassificacoesRequests:consultar");
 	$router->get("/atualizarClassificacoes", "ClassificacoesRequests:atualizarArqv");
+	$router->get("/consultaMensagens", "MensagensRequests:todas");
+	$router->get("/usuarioEspecifico/{idUser}","MensagensRequests:usuarioEspecifico");
 /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");
 	$router->get("/{erro}", function($data){

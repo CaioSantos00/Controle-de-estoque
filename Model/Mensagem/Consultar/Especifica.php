@@ -6,7 +6,7 @@
   use App\Interfaces\ServicoInterno;
 
   class Especifica implements ServicoInterno{
-    public array $arquivos;
+    public array $arquivos = [];
     public array $mensagem;
     public bool $temArqvs;
     public string $erro;
@@ -38,7 +38,7 @@
       return $this->temArqvs;
     }
     private function getArquivos() :array{
-      return array_diff(
+      $this->arquivos = array_diff(
         [".",".."],
         scandir($this->diretorio)
       );
@@ -48,15 +48,14 @@
         $resposta = true;
         $mensagem = $this->getDadosBanco();
         if(is_bool($mensagem)) throw new \Exception("não encontrada");
-        $this->mensagem = $mensagem;        
-        if(!$this->temArquivos()) throw new UserException("não tem arquivos");
-        $this->arquivos = $this->getArquivos();
+        $this->mensagem = $mensagem;
+        if($this->temArquivos()) $this->getArquivos();        
       }
       catch(UserException $ex){
         $this->erro = $ex->getMessage();
       }
       catch(\Exception|\PDOException $e){
-        $resposta = false;        
+        $resposta = false;
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());
         $this->erro = "erro interno";
       }

@@ -6,7 +6,7 @@
     class SalvarImagem implements ServicoInterno{
         private string $idMensagem;
         private string $diretorioMensagem = "arqvsSecundarios/Mensagens/";
-        function __construct(string $idUsuario, string $idMensagem){
+        function setDados(string $idUsuario, string $idMensagem){
             $this->idMensagem = $idMensagem;
             $this->diretorioMensagem .= $this->idMensagem;
         }
