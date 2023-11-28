@@ -33,7 +33,7 @@
 			$consulta = new Classificacoes();
 			echo $consulta;
 		}
-		function atualizarArqv($data){
+		function atualizarArqv($data = []){
 			return (new AtualizarArqv())->executar();
 		}
 		function __destruct(){
