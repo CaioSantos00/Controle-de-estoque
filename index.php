@@ -64,6 +64,7 @@
 	$router->get("/cadastrarClassificacao", "RotasAdm:cadastroClassificacao");
 	$router->get("/consultaClassificacao", "RotasAdm:consultaClass");
 	$router->get("/cadastroVariacao", "RotasAdm:cadastroVariacao");
+	$router->get("/consultaVariacao", "RotasAdm:consultaVariacao");
 	$router->get("/erros", "RotasAdm:consultaErros");
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");

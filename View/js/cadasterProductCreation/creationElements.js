@@ -10,6 +10,10 @@ function criaVariacao() {
     let holdInputs = document.createElement('div')
     holdInputs.classList.add('holdInputs')
 
+    let inputNomeVar = document.createElement('input')
+    inputNomeVar.classList.add('inputVari')
+    inputNomeVar.placeholder = 'Nome da Variação'
+
     let inputQtd = document.createElement('input')
     inputQtd.classList.add('inputVari')
     inputQtd.type = 'number'
@@ -41,7 +45,7 @@ function criaVariacao() {
     buttonConfirm.innerText = 'Salvar'
     buttonConfirm.onclick = () => {}
 
-    holdInputs.append(inputQtd, inputPreco)
+    holdInputs.append(inputNomeVar, inputQtd, inputPreco)
     divTextAreaFile.append(variacoesTextArea, inputFile)
     cardsVariacoes.append(holdInputs, divTextAreaFile, btnsCancel, buttonConfirm)
     divHoldVari.appendChild(cardsVariacoes)

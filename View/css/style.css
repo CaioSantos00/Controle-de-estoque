@@ -204,6 +204,7 @@ label {
 
 #sectionForms {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 10%;
 }
@@ -588,6 +589,13 @@ textarea {
 .divSvg {
   display: flex;
   justify-content: center;
+}
+
+#volteInicio {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  color: #0c409a;
 }
 
 #formProduto {
@@ -1114,6 +1122,22 @@ a #btnCon:hover {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.cardsVaris {
+  background-color: rgb(0, 0, 0);
+  width: 270px;
+  color: rgb(255, 255, 255);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+.nomeVar {
+  text-align: center;
 }
 
 @media screen and (max-width: 1115px) {
