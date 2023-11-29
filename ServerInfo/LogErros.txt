@@ -1,0 +1,2 @@
+<<<>>>{"quando":"28-11-23 as 10:19","onde":"Cadastro Usuario","mensagem":"No envio da Foto do usu\u00e1rio, Unable to init from given binary data."}
+<<<>>>{"quando":"28-11-23 as 10:19","onde":"Conex\u00e3o","mensagem":"alguma conex\u00e3o prescisou voltar"}

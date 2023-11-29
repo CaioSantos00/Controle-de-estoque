@@ -45,6 +45,10 @@
 		function cadastroVariacao($data){
 			parent::renderizar("pagesAdm/cadastroVariacao.html");
 		}
+		function consultaVariacao($data){
+			parent::renderizar("pagesAdm/consultaVar.html");
+		}
+
 			/*
 			$minificador = new M\JS();
 			$scripts = explode(',',$data['nomesDosModulosSeparadosPorVirgula']);

@@ -1,0 +1,15 @@
+.cardsVaris {
+    background-color: $corHeaderFooter;
+    width: 270px;
+    color: $corSecundaria;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+.nomeVar {
+    text-align: center;
+}
