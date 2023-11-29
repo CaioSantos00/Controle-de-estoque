@@ -16,9 +16,9 @@ Envio.xhr.addEventListener("load", () => {
 	console.log(Envio.xhr.responseText)
 	switch (Envio.xhr.responseText) {
 		case "logou certinho":
+			location.href = "home";
 			form.style.display = 'none'
 			qualMensagem.src = '/estaticos/imgs/correct.png'
-			location.href = "home";
 			break;
 		case "usuario não encontrado":
 		form.style.display = 'none'

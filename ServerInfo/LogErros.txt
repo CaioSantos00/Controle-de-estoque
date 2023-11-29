@@ -6,3 +6,7 @@
 <<<>>>{"quando":"29-11-23 as 02:27","onde":"Conex\u00e3o","mensagem":"alguma conex\u00e3o prescisou voltar"}
 <<<>>>{"quando":"29-11-23 as 02:28","onde":"Cadastro Usuario","mensagem":"No envio da Foto do usu\u00e1rio, Unable to init from given binary data."}
 <<<>>>{"quando":"29-11-23 as 02:28","onde":"Conex\u00e3o","mensagem":"alguma conex\u00e3o prescisou voltar"}
+<<<>>>{"quando":"29-11-23 as 06:49","onde":"Cadastro Usuario","mensagem":"No envio da Foto do usu\u00e1rio, Unable to init from given binary data."}
+<<<>>>{"quando":"29-11-23 as 06:49","onde":"Conex\u00e3o","mensagem":"alguma conex\u00e3o prescisou voltar"}
+<<<>>>{"quando":"29-11-23 as 06:50","onde":"Cadastro Usuario","mensagem":"No envio da Foto do usu\u00e1rio, Unable to init from given binary data."}
+<<<>>>{"quando":"29-11-23 as 06:50","onde":"Conex\u00e3o","mensagem":"alguma conex\u00e3o prescisou voltar"}
