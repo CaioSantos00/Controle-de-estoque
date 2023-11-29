@@ -196,6 +196,7 @@
   flex-direction: column;
   background-color: rgb(0, 0, 0);
   gap: 10px;
+  transition: 0.5s;
 }
 
 label {
@@ -203,14 +204,13 @@ label {
 }
 
 #sectionForms {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   justify-content: center;
+  gap: 10px;
   margin: 10%;
 }
 
 .inputs {
-  text-transform: capitalize;
   border-radius: 5px;
   padding: 5px;
   border: none;
@@ -281,6 +281,26 @@ textarea {
   background-color: #2460c9;
 }
 
+#mensagensCadaster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+#aSetinhaBoa {
+  color: rgb(0, 194, 0);
+}
+
+#aSetinhaRuim {
+  color: red;
+}
+
+@media screen and (max-width: 390px) {
+  #form {
+    width: 280px;
+  }
+}
 #sectionError {
   text-align: center;
   margin: 5% 0%;

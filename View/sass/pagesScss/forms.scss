@@ -8,6 +8,7 @@
     flex-direction: column;
     background-color: $corPreto;
     gap:10px ;
+    transition: .5s;
 }
 
 label {
@@ -16,14 +17,14 @@ label {
 
 
 #sectionForms {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     justify-content: center;
+    gap: 10px;
     margin: 10%;
 }
 
 .inputs {
-    text-transform: capitalize;
+    //text-transform: capitalize;
     border-radius: 5px;
     padding: 5px;
     border: none;
@@ -72,4 +73,25 @@ textarea {
 .btnsCria {
     @include buttons(1.2em, $corPrimaria, $corSecundaria);
     padding: 3px;
+}
+
+#mensagensCadaster {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+#aSetinhaBoa {
+    color: $bolinhaStatusBom;
+}
+
+#aSetinhaRuim {
+    color: $bolinhaStatusRuim;
+}
+
+@media screen and (max-width: 390px) {
+    #form {
+        width: 280px;
+    }
 }
