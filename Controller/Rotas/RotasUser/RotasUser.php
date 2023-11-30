@@ -31,7 +31,9 @@
 		public function Carrinho($data){
 			parent::renderizar('pages/carrinho.html');
 		}
-		
+		public function MinhaConta($data){
+			parent::renderizar('pagesUser/MinhaConta.html');
+		}			
 		public function EditarEndereco($data){
 			parent::renderizar('pages/editarEndereco.html');
 		}

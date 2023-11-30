@@ -23,6 +23,7 @@
 	$router->get('/MinhasCompras', "RotasUser:MinhasCompras");
 	$router->get('/DetalhesMensagens', "RotasUser:DetalhesMensagens");
 	$router->get('/MeuPerfil', "RotasUser:MeuPerfil");
+	$router->get('/MinhaConta', "RotasUser:MinhaConta");
 	//------------------------------------------------------------------------------------------------------------------------------------
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
