@@ -2,15 +2,29 @@
     namespace Controladores\Rotas\RotasUser\UserRequests;
 
     use App\Mensagem\EnviarMensagem as EMsg;
-    use App\Mensagem\Consultar\UsuarioEspecifico as CMUEscfo;
+    use App\Mensagem\Consultar\{
+        UsuarioEspecifico as CMUEscfo,
+        Especifica as CMEspecifica
+    };
+    use App\Interfaces\ServicoInterno;
     use App\Servicos\Arquivos\Mensagens\{
         SalvarImagem as SI,
         BuscarImagens as BIMsg
     };
-    
+
     class MensagensRequests{
         function __construct(){
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
+        }
+        private function buscarImagensMsg(string $idMsg, ServicoInterno $consulta){
+            $imagens = new BIMsg;            
+            $imagens->setIdMsg($idMsg);
+            $imagens->executar();
+            $resposta = [$consulta->mensagem];
+            $resposta["arquivos"] = count($imagens->getImagens) > 0
+                ? $imagens->getImagens()
+                : "sem imagens";
+            echo json_encode($resposta);            
         }
         function enviarMensagem($data){
             if(
@@ -36,5 +50,13 @@
                 new BIMsg
             );
             echo json_encode($consulta->getResposta());
+        }
+        function consultarMensagemEspecifica($data){
+            $idMsg = hex2bin($data['codMsg']);
+            $consulta = new CMEspecifica($idMsg);
+            if(!$consulta->executar()) exit($consulta->erro);
+            if(empty($consulta->mensagem)) exit("não encontrada");
+            if($data['arqvs'] != "sim") exit(json_encode($consulta->mensagem));
+            $this->buscarImagensMsg($idMsg, $consulta);
         }
     }

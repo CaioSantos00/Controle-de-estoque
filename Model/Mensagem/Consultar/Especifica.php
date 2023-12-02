@@ -9,7 +9,7 @@
     public array $mensagem;
     public string $erro;
     private string $idMensagem;
-    private string $query = "select `parentId`,`conteudo`,`DataEnvio` from `mensagens` where `Id` = ?";
+    private string $query = "select `Id`,`parentId`,`conteudo`,`DataEnvio` from `mensagens` where `Id` = ?";
     function __construct(string $idMensagem){
       $this->idMensagem = $idMensagem;
     }
@@ -19,9 +19,9 @@
         $query = CB::getConexao()->prepare($this->query);
         $query->execute([$this->idMensagem]);
         $consulta = $query->fetchAll();
-        $resposta = [];
         foreach($consulta as $linha)
-          $resposta[] = [
+          $resposta = [
+            "codMsg" => bin2hex($linha["Id"]),
             "parentId" => $linha["parentId"],
             "conteudo" => json_decode($linha["conteudo"], true),
             "DataEnvio" => $linha["DataEnvio"]
@@ -42,10 +42,7 @@
         $mensagem = $this->getDadosBanco();
         if(is_bool($mensagem)) throw new \Exception("não encontrada");
         $this->mensagem = $mensagem;
-      }
-      catch(UserException $ex){
-        $this->erro = $ex->getMessage();
-      }
+      }      
       catch(\Exception|\PDOException $e){
         $resposta = false;
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());

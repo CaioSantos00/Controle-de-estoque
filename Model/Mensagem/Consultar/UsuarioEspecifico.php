@@ -28,7 +28,7 @@
 				$this->msgErro = $e->getMessage();
 				$resultado = false;
 			}
-			catch(\PDOException $e){
+			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("consulta de mensagens de determinado usuario", $e->getMessage());
 				$this->msgErro = "erro interno";
 				$resultado = false;

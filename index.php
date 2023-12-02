@@ -47,10 +47,15 @@
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
 	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
-	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");
+	//daqui vc vai receber o "codMsg" pra usar nas próximas requisições que envolve as mensagens
+	//to pensando em separar em outro group, pensando ainda
+	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");	
 	$router->get('/perfil',"UserRequests:perfil");
 	$router->get('/logoff', "UserRequests:deslogar");
-
+	$router->get('/minhaMensagem/{codMsg}/{arqvs}',"MensagensRequests:consultarMensagemEspecifica");
+						//codMsg é o mesmo que vc recebe na requisição da "minhasMensagens"
+						//arqvs é seguinte: pra mandar os arqvs tenq passar um "sim",
+						//tudo diferente disso nn vai mandar os arqvs
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");

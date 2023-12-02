@@ -1,0 +1,1 @@
+<<<>>>{"quando":"02-12-23 as 05:55","onde":"alguma Imagem","mensagem":"Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
