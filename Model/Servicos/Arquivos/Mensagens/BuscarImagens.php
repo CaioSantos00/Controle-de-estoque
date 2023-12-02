@@ -24,7 +24,9 @@
 		}
 	
 		public function getImagens(): array{
-			return $this->cacheImagens[$this->idMensagem] ?? [];
+			return count($this->cacheImagens[$this->idMensagem]) > 0
+				? array_values($this->cacheImagens[$this->idMensagem])
+				: [];
 		}
 	
 		public function executar(){

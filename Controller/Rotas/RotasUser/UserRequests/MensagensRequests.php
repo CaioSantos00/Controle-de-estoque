@@ -16,15 +16,16 @@
         function __construct(){
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
         }
-        private function buscarImagensMsg(string $idMsg, ServicoInterno $consulta){
+        private function buscarImagensMsg(string $idMsg, ServicoInterno $consulta) :array{
             $imagens = new BIMsg;            
             $imagens->setIdMsg($idMsg);
             $imagens->executar();
-            $resposta = [$consulta->mensagem];
-            $resposta["arquivos"] = count($imagens->getImagens) > 0
+            return [
+                $consulta->mensagem,
+                (count($imagens->getImagens) > 0
                 ? $imagens->getImagens()
-                : "sem imagens";
-            echo json_encode($resposta);            
+                : "sem imagens")
+            ];
         }
         function enviarMensagem($data){
             if(

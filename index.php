@@ -53,9 +53,9 @@
 	$router->get('/perfil',"UserRequests:perfil");
 	$router->get('/logoff', "UserRequests:deslogar");
 	$router->get('/minhaMensagem/{codMsg}/{arqvs}',"MensagensRequests:consultarMensagemEspecifica");
-						//codMsg é o mesmo que vc recebe na requisição da "minhasMensagens"
-						//arqvs é seguinte: pra mandar os arqvs tenq passar um "sim",
-						//tudo diferente disso nn vai mandar os arqvs
+	//codMsg é o mesmo que vc recebe na requisição da "minhasMensagens"
+	//arqvs é seguinte: pra mandar os arqvs tenq passar um "sim",
+	//tudo diferente disso nn vai mandar os arqvs
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
