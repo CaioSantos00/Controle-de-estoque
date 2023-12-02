@@ -8,7 +8,11 @@
 
   class TodosUsuarios implements Model{
     private string $erro;
-    private string $query = "select `Id`, `parentId`,`conteudo`,`DataEnvio` from `mensagens`";
+    private string $query = "SELECT
+    mensagens.Id, mensagens.Status, mensagens.DataEnvio, mensagens.conteudo, usuario.Nome
+    from `mensagens`
+    inner JOIN `usuario`
+    on mensagens.parentId = usuario.Id";
     private function buscarMsgsNoBanco() :bool|array{
       try{
         $query = CB::getConexao()->query($this->query);
@@ -28,27 +32,17 @@
         return $query;
       }
     }
-    private function getInfoUsuario(string $idUsuario) :array{
-        return (new User($idUsuario, false))->getResposta();
-    }
     private function combinarInformacoes(array $resultadoConsulta) :array{
         $linhas = [];
-        foreach ($resultadoConsulta as $linha){
+        foreach ($resultadoConsulta as $linha)
             $linhas[] = [
-                "Id" => $linha['Id'],
-                "parentId" => $linha['parentId'],
+                "Id" => $linha['Id'],                
                 "conteudo" => $linha['conteudo'],
-                "DataEnvio" => $linha['DataEnvio']
+                "DataEnvio" => $linha['DataEnvio'],
+                "NomeUsuario" => $linha['Nome'],
+                "Status" => $linha['Status']
             ];
-        }
-        $usuarios = array_unique(array_column($linhas,'parentId'));
-        foreach($usuarios as $chav => $usuario)
-            $usuarios[$usuario] = $this->getInfoUsuario($usuario);
-
-        return [
-            "mensagens" => $linhas,
-            "usuarios" => $usuarios
-        ];
+        return $linhas;
     }
     function getResposta(){
         $msgs = $this->buscarMsgsNoBanco();

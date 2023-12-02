@@ -1,8 +1,7 @@
 let form = document.getElementById('form'),
 	btnEnvio = document.getElementById('btnsForms');
-	
+		
 let Envio = new EnvioDadosUsuario(form, btnEnvio, "mensagem");
-
 	Envio.xhr.addEventListener("progress", () => {
 		console.log("adicionar rodinha girando dizendo que ta carregando/enviando sla");
 	})

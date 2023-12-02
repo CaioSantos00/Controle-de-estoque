@@ -21,6 +21,9 @@
 				if(count($_POST) > 0) array_map('trim',$_POST);
 			}
 		}
+		private function removeCookie(string $nomeCookie) :bool{
+			return setcookie($nomeCookie,$_COOKIE[$nomeCookie],time()-3600,"/");				
+		}
 		private function verificarExiste(string|array $dados) :bool{
 			if(is_array($dados)){
 				foreach($dados as $dado) if(!isset($dado)) return false;
@@ -82,13 +85,11 @@
 			}
 			exit("Bela tentativa, hacker...");
 		}
-		function deslogar($data) {
-			$saida = $this->verificarExiste($_COOKIE['login'])
-				? (setcookie("login",$_COOKIE['login'],time()-3600,"/")
-					? "ok"
-					: "erro")
-				: "erro interno";
-			exit($saida);
+		function deslogar($data){
+			$foi = false;
+			if(isset($_COOKIE['login'])) $foi = $this->removeCookie('login');			
+			if(isset($_COOKIE['TipoConta']) and $foi) $foi = $this->removeCookie('TipoConta');
+			exit($foi);
 		}
 		function consultaGeral($data):void {
 			echo new CG;
