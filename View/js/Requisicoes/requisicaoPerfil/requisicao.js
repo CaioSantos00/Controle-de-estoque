@@ -4,16 +4,17 @@ let camposDados = {
 	"foto" : document.getElementById("imgPerfil").firstChild
 },dadosPerfil;
 function populaInputs(dadosPerfil){
-	camposDados.nome.innerText = dadosPerfil[1][0]
-	camposDados.email.innerText = dadosPerfil[1][1]
-	camposDados.foto.src = dadosPerfil[0]
+	camposDados.nome.innerText = dadosPerfil.Nome
+	camposDados.email.innerText = dadosPerfil.Email
+	camposDados.foto.src = `/estaticos/fotoPerfilUser/${dadosPerfil.imagem}`;
 }
-(async (dadosPerfil) => {	
-	let dados = await fetch("/usuario/perfil");	
-	let resposta = await dados.text();
-	dadosPerfil = JSON.parse(resposta);
-	let foto = await fetch(`/estaticos/fotoPerfilUser/${dadosPerfil[0]}`);
-	dadosPerfil[0] = await foto.text();
-	populaInputs(dadosPerfil)
-	console.log(dadosPerfil)	
+(async (dadosPerfil) => {
+	try{
+		let dados = await fetch("/usuario/perfil");	
+		let resposta = await dados.text();
+		dadosPerfil = JSON.parse(resposta);
+		populaInputs(dadosPerfil)
+	}catch(e){
+		console.log("deu ruim aq");
+	}
 })(dadosPerfil)

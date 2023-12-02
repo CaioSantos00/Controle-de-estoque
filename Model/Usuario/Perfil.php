@@ -14,9 +14,10 @@
 				: $cookieIdUsuario;
 		}
 		private function getImagemDePerfil() :string{
-			$img = (new ImgPerfil($this->idUsuario))->executar();
-			return $img != ""
-				? $img
+			$img = new ImgPerfil($this->idUsuario);
+			$img->executar();
+			return $img->temImagem
+				? "{$this->idUsuario}"
 				: "imagem não encontrada";
 		}
 		private function getDadosDoBanco(\PDO $conn) :array|string{

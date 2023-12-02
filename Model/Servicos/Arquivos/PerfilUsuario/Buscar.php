@@ -2,9 +2,8 @@
 	namespace App\Servicos\Arquivos\PerfilUsuario;
 	
 	use App\Interfaces\ServicoInterno;
-	use App\Servicos\Arquivos\UploadsManager;
 	
-	class Buscar extends UploadsManager implements ServicoInterno{
+	class Buscar implements ServicoInterno{
 		private string $caminhoImagemPerfil = "arqvsSecundarios/FotosUsuarios/";
 		public bool $temImagem;
 		function __construct(string $idUsuario){

@@ -65,11 +65,13 @@
 		function perfil($data) :void{
 			if(!$this->verificarExiste($_COOKIE['login'])) exit("não esta logado");
 			$dados = (new Perfil($_COOKIE['login']))->getResposta();
-			if(is_string($dados[1])) exit("não encontrado");
-			$retorno = [$dados[0],[]];
-			for($x = 0; $x != 5; $x++){
-				$retorno[1][] = $dados[1][0][$x];
-			}
+			if(is_string($dados['dados'])) exit("não encontrado");
+			$retorno = [				
+				'imagem' => $dados['imagem'],
+				'Nome' => $dados['dados']['Nome'],
+				'Email' => $dados['dados']['Email'],
+				'TipoConta' => $dados['dados']['TipoConta']				
+			];			
 			echo json_encode($retorno);
 		}
 		function excluirPerfil($data){
