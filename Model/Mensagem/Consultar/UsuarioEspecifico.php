@@ -1,7 +1,7 @@
 <?php
 	namespace App\Mensagem\Consultar;
 
-	use App\Interfaces\{Model,Mostravel};
+	use App\Interfaces\{Model, ServicoInterno};
 	use App\Mensagem\Consultar\Especifica;
 	use App\Servicos\Conexao\ConexaoBanco as CB;
 	use App\Exceptions\UserException;
@@ -10,9 +10,11 @@
 		private string $idUsuario;
 		private array $idMensagens;
 		private string $msgErro;
+		private ServicoInterno $BIMsg;
 		private string $query = "select `Id` from `mensagens` where `parentId` = ?";
-		function __construct(string $idUsuario){
+		function __construct(string $idUsuario, ServicoInterno $BIMsg){
 			$this->idUsuario = $idUsuario;
+			$this->BIMsg = $BIMsg;
 		}
 		private function getIdsMensagensDoUsuario() :bool{
 			try{
@@ -37,6 +39,8 @@
 		}
 		private function getDadosMensagem(string $idMensagem) :array{
 			$msg = new Especifica($idMensagem);
+			$this->BIMsg->setIdMsg($idMensagem);
+			$this->BIMsg->executar();
 			if(!$msg->executar()) return [
 				"temErro" => true,
 				"erro" => $msg->erro
@@ -46,9 +50,10 @@
 				"mensagem" => $msg->mensagem,
 				"temArqvs" => false
 			];
-			if($msg->temArqvs){
+			
+			if(count($this->BIMsg->getImagens()) > 0){
 				$retorno["temArqvs"] = true;
-				$retorno["arquivos"] = $msg->arquivos;
+				$retorno["arquivos"] = $this->BIMsg->getImagens();
 			}
 			return $retorno;
 		}

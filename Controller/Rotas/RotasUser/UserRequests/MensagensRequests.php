@@ -3,8 +3,11 @@
 
     use App\Mensagem\EnviarMensagem as EMsg;
     use App\Mensagem\Consultar\UsuarioEspecifico as CMUEscfo;
-    use App\Servicos\Arquivos\Mensagens\SalvarImagem as SI;
-
+    use App\Servicos\Arquivos\Mensagens\{
+        SalvarImagem as SI,
+        BuscarImagens as BIMsg
+    };
+    
     class MensagensRequests{
         function __construct(){
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
@@ -28,7 +31,10 @@
             echo $msg->getResposta();
         }
         function consultarMensagens($data){
-            $consulta = new CMUEscfo(hex2bin($_COOKIE['login']));
+            $consulta = new CMUEscfo(
+                hex2bin($_COOKIE['login']),
+                new BIMsg
+            );
             echo json_encode($consulta->getResposta());
         }
     }
