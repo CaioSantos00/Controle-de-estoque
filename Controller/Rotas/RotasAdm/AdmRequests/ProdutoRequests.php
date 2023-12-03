@@ -2,8 +2,8 @@
 	namespace Controladores\Rotas\RotasAdm\AdmRequests;
 	
 	use App\Administracao\Produtos\{
-		Cadastro as CadastroProduto,
-		Exclusao as ExclusaoProduto
+		Exclusao as ExclusaoProduto,
+		SalvarPrimarios as SalvarDadosPrimarios
 	};
 	
 	class ProdutoRequests{
@@ -24,5 +24,13 @@
 		function excluirProduto($data){
 			$exclusao = new ExclusaoProduto(1);
 			echo json_encode($exclusao->getResposta());
+		}
+		function salvarDadosPrincipais($data){
+			$dados = new SalvarDadosPrimarios(
+				$_POST['Nome'],
+				$_POST['Classificacoes'],
+				$_POST['Descricao']
+			);
+			echo $dados->getResposta();
 		}
 	}

@@ -5,8 +5,8 @@
 
 	class CriarDescricao implements ServicoInterno{
 		private string $idProduto;
-		private string $descricao;
-		function __construct(string $idProduto, string $descricao){
+		private string $descricao;		
+		function setDados(string $idProduto, string $descricao){
 			$this->idProduto = $idProduto;
 			$this->descricao = $descricao;
 		}

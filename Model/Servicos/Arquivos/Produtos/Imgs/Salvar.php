@@ -11,13 +11,12 @@
 		private string $caminhoDiretorioImgsProduto;
 		private array $identificadoresDeVariacoes;
 
-		function __construct(string $idProduto, array $identificadoresDeVariacoes){
+		function setDados(string $idProduto, array $identificadoresDeVariacoes){
 			$this->idProduto = $idProduto;
 			$this->identificadoresDeVariacoes = $identificadoresDeVariacoes;
 			$this->caminhoDiretorioImgsProduto =
 				"{$this->caminhoArqvsSecundarios}Produtos/Fotos/{$this->idProduto}";
 		}
-
 		private function criaDiretorioFotosProduto(){
 			mkdir($this->caminhoDiretorioImgsProduto);
 			mkdir($this->caminhoDiretorioImgsProduto."/Principais");

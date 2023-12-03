@@ -15,38 +15,20 @@
 		private string $jsonDadosSecundarios;
 		private array $dadosSecundarios = [];
 		private array $querysInsercao= [
-		    "Insert into `ProdutoPrimario`
-				(`Nome`, `Classificacoes`)
-				values
-				(:Nome ,:Classificacoes)"
-		    ,
-		    "Insert into `ProdutoSecundario`
-				(`ParentId`, `Preco`, `Qtd`, `Disponibilidade`, `Descricao`)
+		    "Insert into `produtosecundario`
+				(`ParentId`, `Preco`, `Qtd`, `Disponibilidade`, `especificacoes`)
 				values
 				(?,?,?,?,?)"
 		];
 
 		function __construct(string $nome, string $classificacoes, string $descricaoGeral, string $jsonDadosSecundarios){
 			$this->descricaoGeralProduto = $descricaoGeral;
-			$this->jsonDadosSecundarios = $jsonDadosSecundarios;
-
-			$this->dadosPrincipais = array(
-				"Nome" => $nome,
-				"Classificacoes" => $classificacoes
-			);
+			$this->jsonDadosSecundarios = $jsonDadosSecundarios;			
 		}
 		private function salvarDescricaoPrincipal() :bool{
 			$salvador = new CriarDescricao($this->idProduto, $this->descricaoGeralProduto);
 			return $salvador->executar;
-		}
-		private function salvarDadosPrincipais(){
-			SalvarDados::$dado = $this->dadosPrincipais;
-			SalvarDados::$query = $this->querysInsercao[0];
-			SalvarDados::Executar();
-			$this->idProduto = SalvarDados::$ok
-				? (Conn::getConexao())->lastInsertId()
-				: "0";
-		}
+		}		
 		private function salvarDadoSecundario(array $dado) :string{
 			SalvarDados::$dado = [$this->idProduto, ...$dado];
 			SalvarDados::$query = $this->querysInsercao[1];
