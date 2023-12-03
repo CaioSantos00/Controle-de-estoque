@@ -28,7 +28,6 @@
                 CB::getConexao()->commit();
             }
             catch(\Exception|\PDOException $e){
-                CB::voltaTudo();
                 $GLOBALS['ERRO']->setErro("consulta multipla", $e->getMessage());
                 $this->condicoesQuery->tentouInstanciar = true;
                 throw new \Exception("não preparou a query");

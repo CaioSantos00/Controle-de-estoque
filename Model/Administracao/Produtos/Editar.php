@@ -27,17 +27,13 @@
 		private function salvaDadosPrimarios() :bool{
 			try{
 				$resultado = true;
-				CB::getConexao()->beginTransaction();
 					$query = CB::getConexao()->prepare($this->queries["primario"]);
 					if(!$query->execute($this->dadosPrimarios)) throw new UserException("erro interno");
-				CB::getConexao()->commit();
 			}
 			catch(UserException $e){
-				CB::voltaTudo();
 				$resultado = false;
 			}
 			catch(\PDOException|\Exception $e){
-				CB::voltaTudo();
 				$GLOBALS['ERRO']->setErro("Edição de produto", "no pdo: {$e->getMessage()}");
 				$resultado = false;
 			}
@@ -48,13 +44,11 @@
 		private function salvaDadosSecundarios() :bool{
 			try{
 				$resultado = true;				
-				CB::getConexao()->beginTransaction();
 				$query = CB::getConexao()->prepare($this->queries["secundario"]);
 				foreach($this->dadosSecundarios as $dado){
 					$query->execute($dado);
 					if($query->rowCount == 0) $this->dadosErrados[] = $dado['Id'];
 				}
-				CB::getConexao()->commit();
 				if(count($errados) != 0) throw new UserException("dados errados");
 			}
 			catch(UserException $e){
@@ -69,6 +63,18 @@
 			}
 		}
 		function getResposta(){
-			
+			try{
+				CB::getConexao()->beginTransaction();
+				if(!$this->salvaDadosPrimarios())
+					throw new \Exception("erro interno");
+				if(!$this->salvaDadosSecundarios())
+					throw new \Exception("erro interno");
+				CB::getConexao()->commit();
+				return true;
+			}
+			catch(\Exception $e){
+				CB::voltaTudo();
+				return false;
+			}
 		}
 	}

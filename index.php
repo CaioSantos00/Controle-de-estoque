@@ -68,8 +68,6 @@
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");
-	$router->post("/excluirProduto","ProdutoRequests:excluirProduto");
-	$router->post("/cadastrarProduto", "ProdutoRequests:cadastrarProduto");
 	$router->post("/cadastrarClassificacao", "ClassificacoesRequests:cadastrar");
 	$router->post("/editarClassificacao", "ClassificacoesRequests:edicao");
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
@@ -78,6 +76,15 @@
 	$router->get("/consultaMensagens", "MensagensRequests:todas");
 	$router->get("/usuarioEspecifico/{idUser}","MensagensRequests:usuarioEspecifico");
 	$router->get("/visualizarMensagem/{idMsg}", "MensagensRequests:visualizarMsg");
+	
+	$router->group("produto");
+	$router->post("/excluirProduto","ProdutoRequests:excluirProduto");
+	$router->post("/cadastrarProduto", "ProdutoRequests:cadastrarProduto");
+	$router->post("/editarTodosOsDados", "ProdutoRequests:editarTodosDados");
+	$router->post("/criarDadoSecundario", "ProdutoRequests:criarDadoSecundario");
+	$router->post("/editarDadoSecundario", "ProdutoRequests:editarDadoSecundario");
+	$router->post("/excluirVariacao", "ProdutoRequests:excluirVariacao");
+	
 /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");
 	$router->get("/{erro}", function($data){

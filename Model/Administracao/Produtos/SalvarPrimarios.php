@@ -31,13 +31,22 @@
 			$this->idProduto = Conn::getConexao()->lastInsertId()
 			return true;
 		}
-		private function salvarArquivos() :bool{
+		private function salvarArquivos(){
 			$this->SalvarDescricao->setDados($this->idProduto, $this->descricao);
-			$this->SalvarImagens->setDados()
+			$this->SalvarImagens->setDados($this->idProduto);
 			
 			$this->SalvarDescricao->executar();
+			$this->SalvarImagens->executar();
 		}
 		function getResposta(){
-
+			try{
+				if(!$this->salvarNoBanco()) return "erro interno";
+				$this->salvarArquivos();
+				return "ok";
+			}
+			catch(\Exception $e){
+				$GLOBALS['ERRO']->setErro("Cadastro Produto Primarios", $e->getMessage());
+				echo "erro interno";
+			}
 		}
 	}
