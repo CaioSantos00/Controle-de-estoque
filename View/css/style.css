@@ -550,6 +550,12 @@ textarea {
   gap: 10px;
 }
 
+#imgFoto {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+
 #imgPerfil {
   width: 35px;
   height: 35px;
