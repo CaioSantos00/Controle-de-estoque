@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/estaticos/estilo" />
     <script src="/estaticos/js/elementos/header.js" defer></script>
     <script type="module"  src="/estaticos/js/cadasterProductCreation/classificacao.js" defer></script>
+    <script src="/estaticos/js/cadasterProductCreation/envioDadosProdutoPrimario.js" defer></script>
 </head>
 <body>
     <header class="header-container"></header>
@@ -20,15 +21,9 @@
             placeholder="Nome do Produto"
             class="inputs"
           />
-          <input
-            type="text"
-            name="preco"
-            placeholder="Preço do Produto"
-            class="inputs"
-          />
           <div id="divHoldSelect">
             <label for="classificacao">Selecionar Classificação:</label>
-            <select name="classificacao" id="selectClassi" class="inputs">
+            <select name="classificacao" id="selectClassi" class="inputs"><!--cade pra selecionar mais de uma classificação?-->
   
             </select>
             <a href="/admin/cadastrarClassificacao" id="newClass">Clique aqui para criar uma classificação</a>
@@ -36,13 +31,12 @@
 
           <input
             type="file"
-            name=""
-            placeholder="Digite "
+            name="fotosPrimarias"
             class="inputFile inputs"
           />
-          <textarea class="inputs"></textarea>
+          <textarea class="inputs" name="descricao" placeholder="Descricao geral do produto"></textarea>
   <div id="divEsqueceBtnEntre">
-      <input type="submit" id="btnsForms" value="Cadastrar" />
+      <input type="submit" id="btnsForms" value="Cadastrar variações" />
   </div>
 </div>
       </section>

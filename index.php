@@ -68,7 +68,8 @@
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");
-	$router->post("/cadastrarProduto", "AdmRequests:cadastrarProduto");
+	$router->post("/excluirProduto","ProdutoRequests:excluirProduto");
+	$router->post("/cadastrarProduto", "ProdutoRequests:cadastrarProduto");
 	$router->post("/cadastrarClassificacao", "ClassificacoesRequests:cadastrar");
 	$router->post("/editarClassificacao", "ClassificacoesRequests:edicao");
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
