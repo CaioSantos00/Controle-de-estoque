@@ -5,6 +5,8 @@
         TodosUsuarios as TdsMsgs,
         UsuarioEspecifico as MsgnsDele
     };
+    use App\Mensagem\VisualizarMensagem;
+    
     use App\Servicos\Arquivos\Mensagens\BuscarImagens as BIMsg;
     class MensagensRequests{
         function todas($data){
@@ -18,5 +20,8 @@
                 is_array($msgs) => json_encode($msgs, JSON_PRETTY_PRINT),
                 default => "erro interno"                
             };
+        }
+        function visualizarMsg($data){
+            echo (new VisualizarMensagem($data['idMsg']))->getResposta();
         }
     }

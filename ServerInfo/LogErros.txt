@@ -1,3 +1,0 @@
-<<<>>>{"quando":"02-12-23 as 05:55","onde":"alguma Imagem","mensagem":"Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}<<<>>>{"quando":"02-12-23 as 08:31","onde":"Consulta mensagem","mensagem":"n\u00e3o encontrada"}
-<<<>>>{"quando":"02-12-23 as 08:35","onde":"Consulta mensagem","mensagem":"n\u00e3o encontrada"}
-<<<>>>{"quando":"02-12-23 as 08:36","onde":"Consulta mensagem","mensagem":"n\u00e3o encontrada"}

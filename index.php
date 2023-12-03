@@ -83,6 +83,7 @@
 	$router->get("/atualizarClassificacoes", "ClassificacoesRequests:atualizarArqv");
 	$router->get("/consultaMensagens", "MensagensRequests:todas");
 	$router->get("/usuarioEspecifico/{idUser}","MensagensRequests:usuarioEspecifico");
+	$router->get("/visualizarMensagem/{idMsg}", "MensagensRequests:visualizarMsg");
 /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
