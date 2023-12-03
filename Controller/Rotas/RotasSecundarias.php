@@ -10,7 +10,7 @@
 			}
 			catch(\Exception $e){
 				echo 'erro interno';
-				$GLOBALS['ERRO']->setErro("alguma Imagem", $e->getMessage());
+				$GLOBALS['ERRO']->setErro("alguma Imagem", "img: {$nome}, erro: {$e->getMessage()}");
 			}
 		}
 		function fotoUsuario($data){
@@ -18,5 +18,9 @@
 		}
 		function img($data){
 			$this->renderizar("View/imgs/{$data['qual']}");
-		}		
+		}
+		function imgMsg($data){
+			if(!is_numeric($data['idMsg'])) exit("erro interno");
+			$this->renderizar("arqvsSecundarios/Mensagens/{$data['idMsg']}/{$data['nomeFoto']}");
+		}
 	}

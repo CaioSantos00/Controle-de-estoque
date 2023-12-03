@@ -21,7 +21,7 @@
         $consulta = $query->fetchAll();
         foreach($consulta as $linha)
           $resposta = [
-            "codMsg" => bin2hex($linha["Id"]),
+            "idMsg" => $linha["Id"],
             "parentId" => $linha["parentId"],
             "conteudo" => json_decode($linha["conteudo"], true),
             "DataEnvio" => $linha["DataEnvio"]

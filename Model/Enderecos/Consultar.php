@@ -23,7 +23,7 @@
 		        $resultadoConsulta = $query->fetchAll();
         		$resultado = $resultadoConsulta === [] ? ["sem enderecos cadastrados"] : $resultadoConsulta;
             }
-            catch(\PDOException|\Exception $ex){
+            catch(\Exception $ex){
                 $GLOBALS['ERRO']->setErro("consulta de endereco", $ex->getMessage());
                 $resultado = [];
             }              
@@ -32,7 +32,8 @@
             }
         }
         function getResposta(){
-            if(empty($this->resultadoConsulta)) $this->resultadoConsulta = $this->consultarBanco();
+            if(empty($this->resultadoConsulta))
+				$this->resultadoConsulta = $this->consultarBanco();
             return $this->resultadoConsulta;
         }
     }

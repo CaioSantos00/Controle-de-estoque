@@ -53,7 +53,7 @@
             echo json_encode($consulta->getResposta());
         }
         function consultarMensagemEspecifica($data){
-            if(is_bool($idMsg = @hex2bin($data['codMsg']))) exit("erro interno");
+            $idMsg =& $data['idMsg'];
             $consulta = new CMEspecifica($idMsg);
             if(!$consulta->executar()) exit($consulta->erro);
             if(empty($consulta->mensagem)) exit("não encontrada");

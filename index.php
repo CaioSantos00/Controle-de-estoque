@@ -30,32 +30,23 @@
 	$router->get('/fotoPerfilUser/{idUser}',"RotasSecundarias:fotoUsuario");
 	$router->get('/estilo', "RotasEstaticas:estilos");
 	$router->get('/componentes/{nome}',"RotasEstaticas:elementos");
-	$router->get('/imgs/{qual}', "RotasSecundarias:img");	
+	$router->get('/imgs/{qual}', "RotasSecundarias:img");
+	$router->get('/imgs/mensagem/{idMsg}/{nomeFoto}',"RotasSecundarias:imgMsg");
 	$router->get('/js/{contexto}/{nome}', "RotasEstaticas:script");
-	$router->get(
-		'/js/subdir/{contexto}/{nomeSubDir}/{nomesArquivosSeparadosPorVirgula}',
-		 "RotasEstaticas:subdir"
-	);
-	$router->get(
-		'/js/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}',
-		"RotasEstaticas:scriptModularizado"
-	);
-
+	$router->get('/js/subdir/{contexto}/{nomeSubDir}/{nomesArquivosSeparadosPorVirgula}',"RotasEstaticas:subdir");
+	$router->get('/js/modulos/{contexto}/{scriptPrincipal}/{nomesDosModulosSeparadosPorVirgula}',"RotasEstaticas:scriptModularizado");
+	
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");
 	$router->group("usuario");
 	$router->post("/login", "UserRequests:login");
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->post("/mensagem", "MensagensRequests:enviarMensagem");
 	$router->get('/minhasMensagens',"MensagensRequests:consultarMensagens");
-	//daqui vc vai receber o "codMsg" pra usar nas próximas requisições que envolve as mensagens
-	//to pensando em separar em outro group, pensando ainda
+	
 	$router->get('/finalizadosUsuarioEspecifico',"CarrinhoRequests:finalizados");	
 	$router->get('/perfil',"UserRequests:perfil");
 	$router->get('/logoff', "UserRequests:deslogar");
-	$router->get('/minhaMensagem/{codMsg}/{arqvs}',"MensagensRequests:consultarMensagemEspecifica");
-	//codMsg é o mesmo que vc recebe na requisição da "minhasMensagens"
-	//arqvs é seguinte: pra mandar os arqvs tenq passar um "sim",
-	//tudo diferente disso nn vai mandar os arqvs
+	$router->get('/minhaMensagem/{idMsg}/{arqvs}',"MensagensRequests:consultarMensagemEspecifica");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
