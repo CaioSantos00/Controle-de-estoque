@@ -17,7 +17,8 @@
 				return $this->cacheImagens[$this->idMensagem];
 	
 			if(is_dir($diretorio)){				
-				$this->cacheImagens[$this->idMensagem] = array_diff(scandir($diretorio),['.', '..']);
+				$this->cacheImagens[$this->idMensagem] =
+					array_diff(scandir($diretorio),['.', '..']);
 				return $this->buscarArquivos($diretorio);
 			}	
 			return [];

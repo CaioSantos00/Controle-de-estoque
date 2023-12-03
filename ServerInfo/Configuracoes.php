@@ -5,7 +5,7 @@
 
 	date_default_timezone_set('America/Sao_Paulo'); //Localização atual da empresa
 
-	$GLOBALS['ERRO'] = new ErroHand(); //Define globalmente uma instancia da classe manipuladora de erros
+	$GLOBALS['ERRO'] = new ErroHand(); //Define globalmente uma instancia da classe manipuladora de erros	
 
 	define('URL_SITE', 'http://localhost/');
 

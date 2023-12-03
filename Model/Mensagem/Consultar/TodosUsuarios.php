@@ -36,11 +36,11 @@
         $linhas = [];
         foreach ($resultadoConsulta as $linha)
             $linhas[] = [
-                "Id" => $linha['Id'],                
-                "conteudo" => $linha['conteudo'],
+                "Id" => $linha['Id'],
                 "DataEnvio" => $linha['DataEnvio'],
                 "NomeUsuario" => $linha['Nome'],
-                "Status" => $linha['Status']
+                "Status" => $linha['Status'],
+                ...json_decode($linha['conteudo'], true)
             ];
         return $linhas;
     }
