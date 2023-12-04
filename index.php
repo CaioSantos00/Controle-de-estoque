@@ -79,6 +79,7 @@
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
 	$router->get("/consultarClassificacoes", "ClassificacoesRequests:consultar");
 	$router->get("/atualizarClassificacoes", "ClassificacoesRequests:atualizarArqv");
+	$router->get("/consultarCarrinhoFinalizados","AdmRequests:consultarCarrinhosFinalizados");
 	$router->get("/consultaMensagens", "MensagensRequests:todas");
 	$router->get("/usuarioEspecifico/{idUser}","MensagensRequests:usuarioEspecifico");
 	$router->get("/visualizarMensagem/{idMsg}", "MensagensRequests:visualizarMsg");
