@@ -86,6 +86,6 @@
 		}
 		function getResposta(){
 			if($this->atualizarNoBanco()) return true;
-			return (count($this->dadosErrados) > 0) ? $this->dadosErrados : false;
+			return (count($this->dadosErrados) > 0) ? json_encode($this->dadosErrados) : false;
 		}
 	}

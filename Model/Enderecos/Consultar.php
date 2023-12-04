@@ -3,7 +3,8 @@
 
     use App\Servicos\Conexao\ConexaoBanco as CB;
     use App\Interfaces\Model;
-
+	use App\Exceptions\UserException;
+	
     class Consultar implements Model{
         private string $idUsuario;
         private array $resultadoConsulta;        
@@ -14,16 +15,44 @@
         function __construct(string $idUsuario){
             $this->idUsuario = $idUsuario;
         }
-
+		private function separaDadosDoBanco(array &$resul, array $resultadoDaConsulta){
+			$x = 0;
+			foreach($resultadoDaConsulta as $consulta){
+				$resul[$x] = [];
+				foreach($consulta as $chav => $valor){
+					if(!is_string($chav)) continue;
+					$resul[$x][] = $valor;
+				}
+				$x++;
+			}
+		}
+		/*
+		
+						"Id" => $consulta["Id"],
+						"nomeEndereco" => $consulta["nomeEndereco"],
+						"Cep" => $consulta["Cep"],
+						"Cidade" => $consulta["Cidade"],
+						"Rua" => $consulta["Rua"],
+						"Bairro" => $consulta["Bairro"],
+						"Numero" => $consulta["Numero"],
+						"DataCriacao" => $consulta["DataCriacao"],
+						"InstrucoesEntrega" => $consulta["InstrucoesEntrega"],
+						"dataModificacao" => $consulta["dataModificacao"]
+					];
+		*/
         private function consultarBanco() :array{            
             try{
                 $resultado = [];
                 $query = CB::getConexao()->prepare($this->query);
         		if(!$query->execute([$this->idUsuario])) throw new \Exception("execução da query falhou");
 		        $resultadoConsulta = $query->fetchAll();
-        		$resultado = $resultadoConsulta === [] ? ["sem enderecos cadastrados"] : $resultadoConsulta;
+				if($resultadoConsulta === []) throw new UserException("sem enderecos cadastrados");
+				$this->separaDadosDoBanco($resultado, $resultadoConsulta);
             }
-            catch(\Exception $ex){
+			catch(UserException $e){
+				$resultado = [$e->getMessage()];
+			}
+			catch(\Exception $ex){
                 $GLOBALS['ERRO']->setErro("consulta de endereco", $ex->getMessage());
                 $resultado = [];
             }              

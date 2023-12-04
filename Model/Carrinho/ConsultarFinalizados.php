@@ -15,25 +15,23 @@
 				? []
 				: $retorno->fetchAll();
 		}
-		private function getDadosDonoCarrinho(string $idUsuario) :array{
-			$dono = (new Perfil(bin2hex($carrinho['IdDono'])))->getResposta();
-			foreach($dono[1] as $user){
-				$dados = [
-					$user['Nome'],
-					$user['Email'],
-					$user['Telefone']
-				];
-			}			
-			return [$dono[0], $dados];
+		private function getDadosDonoCarrinho(string $idUsuario) :array|string{
+			$dono = (new PerfilUser($idUsuario +1,false))->getResposta();
+			
+			return is_array($dono["dados"])
+				? [$dono["imagem"],$dono["dados"]['Nome'],$dono["dados"]['Email'],$dono["dados"]['Telefone']]
+				: "dono do carrinho não encontrado";
 		}
 		private function getCarrinhosComDonos(array $carrinhos) :array{
 			$retorno = [];
-			foreach($carrinhos as $carrinho){				
+			foreach($carrinhos as $carrinho){
+				if(is_string($dadosDono = $this->getDadosDonoCarrinho($carrinho['IdDono']))) continue;
+				
 				$retorno[] = [
 					$carrinho['Id'],
 					$carrinho['Data'],
 					json_decode($carrinho['Conteudo']),
-					$this->getDadosDonoCarrinho($carrinho['IdDono'])
+					$dadosDono
 				];
 			}
 			return $retorno;
