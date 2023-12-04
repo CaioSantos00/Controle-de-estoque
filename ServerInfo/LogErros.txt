@@ -2,3 +2,4 @@
 <<<>>>{"quando":"02-12-23 as 10:51","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
 <<<>>>{"quando":"04-12-23 as 12:32","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
 <<<>>>{"quando":"04-12-23 as 12:34","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"04-12-23 as 08:53","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}

@@ -2,7 +2,7 @@ import {consultarClassificacoes, transformaMaiusculo, excluiClassi, editarClassi
 
 let btnBuscaPedido = document.getElementById('btnBuscaPedido'),
     inputBusca = document.getElementById('inputBusca'),
-    sectionProducts = document.getElementById('sectionProducts')
+    sectionProducts = document.getElementById('holdTodosPedidos')
 
     function criaCardDaConsulta(nomeDaClass) {
         let limiteCaracteres = 19
