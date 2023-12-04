@@ -19,7 +19,7 @@
 				$carrinhos->execute([$this->idUsuario]);
 				$carrinhos = $carrinhos->fetchAll();
 				$retorno = count($carrinhos) > 0
-					? json_decode($carrinhos[0]['Carrinho'], 1)
+					? json_decode($carrinhos[0]['Carrinho'])
 					: [];
 			}
 			catch(\Exception $e){

@@ -16,16 +16,14 @@
         function __construct(){
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
         }
-        private function buscarImagensMsg(string $idMsg, ServicoInterno $consulta) :array{
+        private function buscarImagensMsg(string $idMsg) :array|string{
             $imagens = new BIMsg;            
             $imagens->setIdMsg($idMsg);
             $imagens->executar();
-            return [
-                $consulta->mensagem,
-                (count($imagens->getImagens) > 0
+            return (count($imagens->getImagens()) > 0
                 ? $imagens->getImagens()
                 : "sem imagens")
-            ];
+            ;
         }
         function enviarMensagem($data){
             if(
@@ -58,6 +56,6 @@
             if(!$consulta->executar()) exit($consulta->erro);
             if(empty($consulta->mensagem)) exit("não encontrada");
             if($data['arqvs'] != "sim") exit(json_encode($consulta->mensagem));
-            $this->buscarImagensMsg($idMsg, $consulta);
+            echo json_encode(array_merge(["imagens" => $this->buscarImagensMsg($idMsg)],$consulta->mensagem));
         }
     }

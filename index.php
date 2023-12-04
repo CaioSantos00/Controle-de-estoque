@@ -49,6 +49,12 @@
 	// DAQUI CE VAI CONSULTAR UMA MENSAGEM ESPECIFICA, ESSA É PRAS TELAS DO USUARIO.
 	//pra buscar os arquivos da mensagem tenq passar um sim no final da requisição. se quizer dps explica,
 	//mas vai lendo a função MensagensRequests:consultarMensagemEspecifica
+	$router->group("carrinho");
+	$router->get("/consultar","CarrinhoRequests:consultar");
+	$router->get("/adicionar/{idVariacao}/{qtd}","CarrinhoRequests:adicionarItem");
+	$router->get("/removerItem/{idVariacao}/{qtd}","CarrinhoRequests:removerItem");
+	$router->get("/consultar","CarrinhoRequests:consultar");
+	$router->get("/finalizar","CarrinhoRequests:finalizar");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");

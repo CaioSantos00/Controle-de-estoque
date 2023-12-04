@@ -15,6 +15,9 @@
 	};
 
 	class ProdutoRequests{
+		function __construct(){
+			if(count($_POST) == 0) exit("erro interno");
+		}
 		function excluirProduto($data){
 			$exclusao = new ExclusaoProduto($_POST['idProduto']);
 			echo json_encode($exclusao->getResposta());

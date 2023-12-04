@@ -3,10 +3,9 @@
 
 	use App\Servicos\Conexao\ConexaoBanco as CB;
 	use App\Carrinho\Consultar as CCarrinho;
-	use App\Interfaces\ServicoInterno as ServicoInterno;
+	use App\Interfaces\{ServicoInterno,Model};
 	use App\Produtos\Variacoes\ConsultaMultipla as CMVariacoes;
-	use App\Interfaces\Model;
-
+	use App\Exceptions\UserException;
 
 	class Finalizar implements Model, \Stringable{
 		private Model $carrinho;
@@ -14,7 +13,9 @@
 		private string $idUsuario;
 		private array $queries = [
 			"update `usuario` set `Carrinho` = '[]' where `Id` = ?",
-			"insert into `carrinhosfinalizados`(`IdDono`, `Data`, `Conteudo`) values(?,?,?)"
+			"insert into `carrinhosfinalizados`(`IdDono`, `Data`, `Conteudo`) values(?,?,?)",
+			"update `produtosecundario` set `qtd` = ? where `Id` = ?",
+			"update `produtosecundario` set `qtd` = ?, `Disponibilidade` = ? where `Id` = ?"
 		];
 		function __construct(string $idUsuario){
 			$this->idUsuario = $idUsuario;
@@ -44,28 +45,36 @@
 				return true;
 			}
 		}
-		private function verificacaoItemUnico(\stdClass $item) :bool|string{
+		private function verificacaoItemUnico(\stdClass $item) :array|string{
 			$this->consultaMultipla->idVariacao = $item->produto;
 			$dadosItem = $this->consultaMultipla->executar();
-			$GLOBALS['ERRO']->setErro("finalizar", json_encode($item));
 			if(is_bool($dadosItem)) throw new \Exception("não preparou a consulta");
 			return match(true){
 				($dadosItem[0]["qtd"] < $item->quantidade) => "tentou pedir mais doque tem",
 				($dadosItem[0]["disponibilidade"] == "0") => "produto indisponivel",
-				default => true
+				default => ["qtd" => $dadosItem[0]["qtd"]]
 			};
 		}
 		private function verificacaoItemAItem() :array|bool{
 			try{
 				$carrinho = $this->carrinho->getResposta();
-				$itensErrados = [];$resposta = false;
+				$itensErrados = [];
+				$resposta = false;
 				foreach($carrinho as $item){
 					$verificacao = $this->verificacaoItemUnico($item);
-					if(is_string($verificacao))
+					if(is_string($verificacao)){
 						$itensErrados[] = [
 							"causa" => $verificacao,
 							"item" 	=> $item->produto
 						];
+						continue;
+					}
+					$novaQuantidade = (int)$verificacao["qtd"] - (int) $item->quantidade;
+					if($novaQuantidade == 0){
+						$this->zerarQtdEAlterarDisponibilidade($item->produto);
+						continue;
+					}
+					$this->consomeQtdDeProdutoNoBanco((string) $novaQuantidade, $item->produto);
 				}
 				$resposta = (count($itensErrados) > 0) ? $itensErrados : true;
 			}
@@ -98,19 +107,37 @@
 				$this->idUsuario
 			]);
 		}
-		function getResposta() :bool{
+		private function consomeQtdDeProdutoNoBanco(string $qtdAtual, string $idVariacao) :bool{
+			return $this->executaQuery($this->queries[2],[
+				$qtdAtual,
+				$idVariacao
+			]);
+		}
+		private function zerarQtdEAlterarDisponibilidade(string $idVariacao) :bool{
+			return $this->executaQuery($this->queries[3],[
+				"0",
+				"0",
+				$idVariacao	
+			]);
+		}
+		function getResposta(){
 			try{
-				$verificacao = $this->verificacaoItemAItem();
-				$retorno = match(true){
-					(is_array($verificacao)) => "algum item deu errado",
-					(!$verificacao)	=> "deu tudo errado",
-					(!$this->verificaSeCarrinhoPodeFinalizar()) => "carrinho vazio",
-					(!$this->insereCarrinhoNaTabelaFinalizados())=> "não enviou para a tabela de finalizados",
-					(!$this->esvaziaCarrinhoInicial()) => "não esvaziou o carrinho do usuario",
-					default => true
-				};
-				if(is_string($retorno)) throw new \Exception($retorno);
+				$retorno = true;
+				$verificacao = $this->verificacaoItemAItem();				
+				if(is_array($verificacao))
+					throw new UserException(json_encode(["mensagem" => "item errado", $verificacao]));
+				if(!$verificacao)
+					throw new \Exception("deu tudo errado");
+				if(!$this->verificaSeCarrinhoPodeFinalizar())
+					throw new UserException("carrinho vazio");
+				if(!$this->insereCarrinhoNaTabelaFinalizados())
+					throw new \Exception("não enviou para a tabela de finalizados");
+				if(!$this->esvaziaCarrinhoInicial())
+					throw new \Exception("não esvaziou o carrinho do usuario");
 			}
+			catch(UserException $e){
+				$retorno = $e->getMessage();
+			}			
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("finalização de carrinho", $e->getMessage(). "no {$this->idUsuario}");
 				$retorno = false;

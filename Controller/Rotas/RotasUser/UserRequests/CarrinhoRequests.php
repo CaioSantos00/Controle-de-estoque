@@ -9,20 +9,24 @@
 	use App\Produtos\Variacoes\ConsultaMultipla as CUVariacoes;
 
 	class CarrinhoRequests{
-		//function __construct(){
-		//	if(!isset($_POST['Submit'])) exit("Bela tentativa, hacker...");
-		//	if(isset($_COOKIE['login'])) $this->logado = true;
-		//}
+		private string $idUsuario;
+		function __construct(){
+			if(isset($_COOKIE['login'])){
+				$this->idUsuario = @hex2bin($_COOKIE['login']) ?? "0";
+				return;
+			}
+			exit("usuario não esta logado");
+		}
 		function adicionarItem($data){
-			return (string) new AdicionarItem(
-				$data['login'],
+			echo new AdicionarItem(
+				$this->idUsuario,
 				$data['idVariacao'],
 				$data['qtd']
 			);
 		}
 		function removerItem($data){
-			return (string) new RemoverItem(
-				$data['login'],
+			echo new RemoverItem(
+				$this->idUsuario,
 				$data['idVariacao'],
 				$data['qtd']
 			);
@@ -31,22 +35,23 @@
 			$carrinho = new Consultar;
 			$consulta = new CUVariacoes();
 
-			$carrinho = ($carrinho->executar(hex2bin($data['login'])))->getResposta();
-
+			$carrinho->executar($this->idUsuario);
+			$carrinho = $carrinho->getResposta();
+			
 			$retorno = [];
 			foreach($carrinho as $item){
-				$consulta->idVariacao = $item->produto;
+				$consulta->idVariacao = $item['produto'];
 				$retorno[] = $consulta->executar();
 			}
-			return json_encode($retorno);
+			echo json_encode($retorno, JSON_PRETTY_PRINT);
 		}
 		function finalizar($data){
-			return (string) Finalizar(
-				$data['login']
+			echo (string) new Finalizar(
+				$this->idUsuario
 			);
 		}
 		function finalizados($data){
-			$ca = (new CFEspecifico(hex2bin($_COOKIE['login'])))->getResposta();
+			$ca = (new CFEspecifico($this->idUsuario))->getResposta();
 			$resul = [];
 			foreach($ca as $item)
 				$resul[] = $item[0];
