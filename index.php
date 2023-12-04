@@ -55,12 +55,20 @@
 	// DAQUI CE VAI CONSULTAR UMA MENSAGEM ESPECIFICA, ESSA É PRAS TELAS DO USUARIO.
 	//pra buscar os arquivos da mensagem tenq passar um sim no final da requisição. se quizer dps explica,
 	//mas vai lendo a função consultarMensagemEspecifica do arquivo MensagensRequests da parte de usuario
+	
 	$router->group("carrinho");
 	$router->get("/consultar","CarrinhoRequests:consultar");
+	//Consulta do carrinho do usuário que estiver logado no momento
 	$router->get("/adicionar/{idVariacao}/{qtd}","CarrinhoRequests:adicionarItem");
+	// Aqui é pra adicionar um item no carrinho do usuário logado, tenq passar o id da variação e a quantidade.
 	$router->get("/removerItem/{idVariacao}/{qtd}","CarrinhoRequests:removerItem");
-	$router->get("/consultar","CarrinhoRequests:consultar");
+	//Aqui é pra remover ou diminuir a quantidade de um item no carrinho do usuário logado, tenq passar o id da variação e a quantidade.		
 	$router->get("/finalizar","CarrinhoRequests:finalizar");
+	//Aqui é pra finalizar o carrinho do usuário logado no momento
+	
+	$router->group("endereco");
+	$router->post("/cadastrar", "EnderecoRequests:");
+	$router->post("/cadastrar", "EnderecoRequests:");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");

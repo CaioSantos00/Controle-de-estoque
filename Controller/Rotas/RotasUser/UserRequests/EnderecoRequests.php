@@ -8,13 +8,13 @@
 	class EnderecoRequests{
 		private string $idUsuario;
 		function __construct(){
-			$this->idUsuario = $_COOKIE['user'];
+			$this->idUsuario = @hex2bin($_COOKIE['login']);
 		}
 		function cadastrar($data){
 		    $cadastro = new Cadastrar(
 				$this->idUsuario,
-				$data['idEndereco'],
-				$data['dadosEndereco']
+				$_POST['nomeEndereco'],
+				$_POST['dadosEndereco']
 			);
 			echo $cadastro->getResposta();
 		}
@@ -27,7 +27,7 @@
 		function excluir($data){
 			$excluir = new Excluir(
 				$this->idUsuario,
-				$data['idsEndereco']
+				$_POST['idEndereco']
 			);
 			echo $excluir->getResposta();
 		}
