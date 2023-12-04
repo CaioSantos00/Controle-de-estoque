@@ -22,20 +22,20 @@
 		    $consulta = new Consultar(
 				$this->idUsuario	
 			);
-			echo $consulta->getResposta();
+			echo json_encode($consulta->getResposta());
 		}
 		function excluir($data){
 			$excluir = new Excluir(
 				$this->idUsuario,
-				$_POST['idEndereco']
+				$_POST['idsEnderecos']
 			);
 			echo $excluir->getResposta();
 		}
 		function editar($data){
 			$editar = new Editar(
 				$this->idUsuario,
-				$data['idEndereco'],
-				$data['dadosEndereco']	
+				$_POST['idEndereco'],
+				$_POST['dadosEndereco']	
 			);
 			echo $editar->getResposta();
 		}

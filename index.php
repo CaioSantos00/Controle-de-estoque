@@ -67,8 +67,10 @@
 	//Aqui é pra finalizar o carrinho do usuário logado no momento
 	
 	$router->group("endereco");
-	$router->post("/cadastrar", "EnderecoRequests:");
-	$router->post("/cadastrar", "EnderecoRequests:");
+	$router->post("/cadastrar", "EnderecoRequests:cadastrar");
+	$router->get("/consultar", "EnderecoRequests:consultar");
+	$router->post("/excluir", "EnderecoRequests:excluir");
+	$router->post("/editar", "EnderecoRequests:editar");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
