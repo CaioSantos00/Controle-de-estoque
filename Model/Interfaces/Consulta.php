@@ -6,20 +6,20 @@
 	abstract class Consulta{
 		protected array $queriesConsulta = [
 			"select `Id`, `Nome`, `Classificacoes` from `ProdutoPrimario`",
-            "select `Id`, `preco/peca`, `Qtd`, `Disponibilidade`, `Descricao` from `produtosecundario` where `Id` = ?"
+            "select `Id`, `preco/peca`, `Qtd`, `Disponibilidade`, `especificacoes` from `produtosecundario` where `Id` = ?"
 		];
 		protected function buscarDadosPrincipaisDoBanco(ServicoInterno $consultaImagens) :array|bool{
             try{
-                    $primarios = CB::getConexao()->query($this->queriesConsulta[0]);
-					$resultados = [];
-                    foreach($primarios as $primario){
-						$resultado = array(
-                            "primarios" => $this->organizaDadosPrimarios($primario),
-							"secundarios" 	=> $this->getDadosSecundariosDoBanco($primario['Id']),
-                            "fotos"			=>$this->getFotos($primario['Id'], $consultaImagens)
-                        );
-						$resultados[] = $resultado;
-                    }
+				$primarios = CB::getConexao()->query($this->queriesConsulta[0]);
+				$resultados = [];
+				foreach($primarios as $primario){
+					$resultado = array(
+						"primarios" => $this->organizaDadosPrimarios($primario),
+						"secundarios" 	=> $this->getDadosSecundariosDoBanco($primario['Id']),
+						"fotos"			=>$this->getFotos($primario['Id'], $consultaImagens)
+					);
+					$resultados[] = $resultado;
+				}
             }
             catch(\Exception|\PDOException $ex){
                 $GLOBALS['ERRO']->setErro("Consulta produto", "na busca dos dados no banco, {$ex->getMessage()}");
@@ -47,7 +47,7 @@
 					"Preco" => $secundarioInteiro['Preco'],
 					"Qtd" 	=> $secundarioInteiro['Qtd'],
 					"Disponibilidade" 	=> $secundarioInteiro['Disponibilidade'],
-					"Descricao" 		=> $secundarioInteiro['Descricao']
+					"especificacoes" 		=> $secundarioInteiro['especificacoes']
 			);
 		}
 		private function getFotos(string $idProdutoPrimario, ServicoInterno $consUniq){

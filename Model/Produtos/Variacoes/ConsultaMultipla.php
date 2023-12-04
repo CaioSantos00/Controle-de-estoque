@@ -6,9 +6,9 @@
 
     class ConsultaMultipla implements ServicoInterno{
         private \PDOStatement $queryPreparada;
+        private \stdClass $condicoesQuery;        
         public string $idVariacao;
         private string $queryString = 'select `parentId`, `especificacoes`, `preco/peca`, `qtd` from `produtosecundario` where `Id` = ?';
-        private \stdClass $condicoesQuery;
         function __construct(bool $soDisponiveis = true, bool $getDisponibilidades = false){
             if($soDisponiveis) $this->queryString .= " and `disponibilidade` = 1";
             if($getDisponibilidades) $this->queryString = str_replace("`qtd`","`qtd`,`disponibilidade`", $this->queryString);
@@ -28,7 +28,6 @@
                 CB::getConexao()->commit();
             }
             catch(\Exception|\PDOException $e){
-                CB::voltaTudo();
                 $GLOBALS['ERRO']->setErro("consulta multipla", $e->getMessage());
                 $this->condicoesQuery->tentouInstanciar = true;
                 throw new \Exception("não preparou a query");

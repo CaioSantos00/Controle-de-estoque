@@ -23,6 +23,7 @@
             foreach($paraTestar as $valor)
                 if(!is_numeric($this->dados[$valor]))
                     $dadosErrados[] = $valor;
+                    
             if(strlen($this->dados['disponivel']) > 1)
                 $dadosErrados[] = "disponivel";            
             if(preg_match('/,\d{2}$/', $this->dados['preco']))

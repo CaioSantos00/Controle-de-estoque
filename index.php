@@ -49,6 +49,12 @@
 	// DAQUI CE VAI CONSULTAR UMA MENSAGEM ESPECIFICA, ESSA É PRAS TELAS DO USUARIO.
 	//pra buscar os arquivos da mensagem tenq passar um sim no final da requisição. se quizer dps explica,
 	//mas vai lendo a função MensagensRequests:consultarMensagemEspecifica
+	$router->group("carrinho");
+	$router->get("/consultar","CarrinhoRequests:consultar");
+	$router->get("/adicionar/{idVariacao}/{qtd}","CarrinhoRequests:adicionarItem");
+	$router->get("/removerItem/{idVariacao}/{qtd}","CarrinhoRequests:removerItem");
+	$router->get("/consultar","CarrinhoRequests:consultar");
+	$router->get("/finalizar","CarrinhoRequests:finalizar");
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
@@ -68,8 +74,6 @@
 
 	$router->namespace("Controladores\Rotas\RotasAdm\AdmRequests");
 	$router->group("envio");
-	$router->post("/excluirProduto","ProdutoRequests:excluirProduto");
-	$router->post("/cadastrarProduto", "ProdutoRequests:cadastrarProduto");
 	$router->post("/cadastrarClassificacao", "ClassificacoesRequests:cadastrar");
 	$router->post("/editarClassificacao", "ClassificacoesRequests:edicao");
 	$router->post("/excluirClassificacao", "ClassificacoesRequests:excluir");
@@ -78,6 +82,15 @@
 	$router->get("/consultaMensagens", "MensagensRequests:todas");
 	$router->get("/usuarioEspecifico/{idUser}","MensagensRequests:usuarioEspecifico");
 	$router->get("/visualizarMensagem/{idMsg}", "MensagensRequests:visualizarMsg");
+	
+	$router->group("produto");
+	$router->post("/excluirProduto","ProdutoRequests:excluirProduto");
+	$router->post("/cadastrarProduto", "ProdutoRequests:cadastrarProduto");
+	$router->post("/editarTodosOsDados", "ProdutoRequests:editarTodosDados");
+	$router->post("/criarDadoSecundario", "ProdutoRequests:criarDadoSecundario");
+	$router->post("/editarDadoSecundario", "ProdutoRequests:editarDadoSecundario");
+	$router->post("/excluirVariacao", "ProdutoRequests:excluirVariacao");
+	
 /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");
 	$router->get("/{erro}", function($data){
