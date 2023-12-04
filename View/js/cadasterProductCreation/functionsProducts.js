@@ -1,4 +1,5 @@
 let selectClassi = document.getElementById('selectClassi')
+let divChecks = document.getElementById('divChecks')
 
 export function criaBtnCancel(divPai ,divQualApagar) {
     let btnsCancel = document.createElement('button')
@@ -77,6 +78,23 @@ export function criaOption(valor){
     return options;
 }
 
+export function  criaCheckbox(resul) {
+    let cardsChecks = document.createElement('div')
+    cardsChecks.classList.add('cardsChecks')
+
+    let inputCheck = document.createElement('input')
+    inputCheck.type = 'checkbox'
+    let limpaStr = resul.trim()
+    inputCheck.id = limpaStr
+    
+    let labelElement = document.createElement('label')
+    labelElement.innerText = resul
+    labelElement.htmlFor = limpaStr
+    cardsChecks.append(inputCheck, labelElement)
+    return cardsChecks
+    
+}
+
 export function transformaMaiusculo(texto) {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
@@ -86,9 +104,14 @@ export function transformaMaiusculo(texto) {
       let opcoes = await consultarClassificacoes();
       console.log(opcoes)
           opcoes.forEach((e) => {
-              selectClassi.append(criaOption(e))     
+            if (selectClassi) {
+                selectClassi.append(criaOption(e))     
+            }
+            if (divChecks) {
+                divChecks.append(criaCheckbox(e))
+            }
+              
           });
-      console.log(opcoes)
     }
     catch(e){
       console.log(e)

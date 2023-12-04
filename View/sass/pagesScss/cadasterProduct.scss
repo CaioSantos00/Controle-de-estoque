@@ -1,4 +1,10 @@
+#sectionFormProduto {
+    display: grid;
+    justify-content: center;
+}
+
 #formProduto {
+    width: 290px;
     background-color: $corHeaderFooter;
     display: flex;
     flex-direction: column;
