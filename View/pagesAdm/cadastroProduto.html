@@ -8,7 +8,8 @@
     <script src="/estaticos/js/elementos/header.js" defer></script>
     <script type="module"  src="/estaticos/js/cadasterProductCreation/classificacao.js" defer></script>
     <script src="/estaticos/js/cadasterProductCreation/envioDadosProdutoPrimario.js" defer></script>
-    <script src="/estaticos/js/animations/classificacoes.js" defer></script>
+    <script src="/estaticos/js/animations/description.js" defer></script>
+    <!--<script src="/estaticos/js/animations/classificacoes.js" defer></script>-->
 </head>
 <body>
     <header class="header-container"></header>
@@ -36,7 +37,7 @@
                 <div class="cardsChecks"><input type="checkbox" name="" id="slim"><label for="slim">slim</label></div>-->
               </div>
             </div>
-            <a href="/admin/cadastrarClassificacao" id="newClass">Clique aqui para criar uma classificação</a>
+            <a href="/admin/cadastrarClassificacao" class="newClass">Clique aqui para criar uma classificação</a>
           </div>
           <input
             type="file"
@@ -45,6 +46,16 @@
             multiple
           />
           <textarea class="inputs" name="descricao" placeholder="Descricao geral do produto"></textarea>
+          <div>
+          <div id="divHoldSelectVari">
+            <label id="selectVaria">Clique para selecionar a variação:</label>
+            <div id="divChecksVar">
+              <div class="cardsChecks"><input type="checkbox" name="" id="over"><label for="over">over</label></div>
+              <div class="cardsChecks"><input type="checkbox" name="" id="slim"><label for="slim">slim</label></div>
+              </div>
+            </div>
+            <a href="/admin/cadastroVariacao" class="newClass">Clique aqui para criar uma variação</a>
+          </div>
   <div id="divEsqueceBtnEntre">
       <input type="submit" id="btnsForms" value="Cadastrar Produto" />
   </div>

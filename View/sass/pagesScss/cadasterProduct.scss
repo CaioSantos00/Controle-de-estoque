@@ -18,6 +18,9 @@
     display: none;
 }
 
+#divChecksVar {
+    display: none;
+}
 
 #divHoldSelect {
     display: flex;
@@ -27,7 +30,11 @@
     border: 2px solid $corPrimaria;
 }
 
-#newClass {
+#divHoldSelectVari {
+    @extend #divHoldSelect;
+}
+
+.newClass {
     color: $corSecundaria;
 }
 

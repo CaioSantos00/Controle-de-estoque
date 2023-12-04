@@ -645,7 +645,11 @@ textarea {
   display: none;
 }
 
-#divHoldSelect {
+#divChecksVar {
+  display: none;
+}
+
+#divHoldSelect, #divHoldSelectVari {
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -653,7 +657,7 @@ textarea {
   border: 2px solid #0c409a;
 }
 
-#newClass {
+.newClass {
   color: rgb(255, 255, 255);
 }
 
