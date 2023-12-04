@@ -14,9 +14,17 @@
     border-radius: 8px;
 }
 
+#divChecks {
+    display: none;
+}
+
+
 #divHoldSelect {
     display: flex;
     flex-direction: column;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid $corPrimaria;
 }
 
 #newClass {
