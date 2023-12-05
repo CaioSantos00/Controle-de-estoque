@@ -41,7 +41,7 @@
                 "DataEnvio" => $linha['DataEnvio'],
                 "NomeUsuario" => $linha['Nome'],
                 "Status" => $linha['Status'],
-                ...json_decode($linha['conteudo'], true)
+                json_decode($linha['conteudo'], true)
             ];
         return $linhas;
     }
