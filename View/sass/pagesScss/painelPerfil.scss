@@ -35,8 +35,19 @@
     background-color: $corSecundaria;
 }
 
+#namePerfil {
+    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 130px;
+}
+
 #emailPerfil {
+    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
     font-size: 0.9em;
+    width: 130px;
 }
 
 #btnEditPerfil {
@@ -47,6 +58,8 @@
         background-color: $corHoverCinza;
     }
 }
+
+
 
 #divFerramentas {
     margin: 20px 0px;
