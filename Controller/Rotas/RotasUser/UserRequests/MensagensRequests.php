@@ -17,7 +17,7 @@
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
         }
         private function buscarImagensMsg(string $idMsg) :array|string{
-            $imagens = new BIMsg;            
+            $imagens = new BIMsg;
             $imagens->setIdMsg($idMsg);
             $imagens->executar();
             return (count($imagens->getImagens()) > 0
