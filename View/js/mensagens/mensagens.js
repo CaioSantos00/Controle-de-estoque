@@ -1,4 +1,4 @@
-let mensagemInput = document.getElementById('mensagemInput'),
+/*let mensagemInput = document.getElementById('mensagemInput'),
     btnBuscaPedido = document.getElementById('btnBuscaPedido'),
     holdTodosPedidos = document.getElementById('holdTodosPedidos')
 
@@ -7,7 +7,8 @@ let mensagemInput = document.getElementById('mensagemInput'),
     if (!resposta.ok) {
         console.log("Erro na API " + resposta.ok)
     }
-    
+    console.log(resposta)
     }
 
     buscaMensagem()
+*/
