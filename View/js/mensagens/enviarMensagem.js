@@ -1,13 +1,9 @@
-let btnEnvio = document.getElementById('btnsForms'),
-    qualMensagem = document.getElementById('qualMensagem'),
-	form = document.getElementById('form')
-	eventosRequisicao = {};
+	/*eventosRequisicao = {};
 	let dados = [
 		["motivo",document.getElementsByName('Motivo')[0]],
 	    ["conteudo" , document.getElementsByName('Conteudo')[0]],
 	    ["imgs" ,document.getElementsByName('imgs[]')[0]]
 	];
-	qualMensagem.style.display = 'none';
 
 	eventosRequisicao.progress = [
 		"progress", () => {
@@ -43,23 +39,42 @@ let btnEnvio = document.getElementById('btnsForms'),
 			mensagensCadaster.appendChild(linkLogar)
 			console.log("adicionar Xis vermelho dizendo 'deu errado meu nobre'");
 		}
-	]
+	]*/
 
-	async function enviarMensagem(dados){
-		this.xhr = new XMLHttpRequest();
-		this.form = new FormData();
-		this.form.append('Submit', '');
-		dados.forEach((cada) => {
-			this.form.append(cada[0],cada[1].value ?? cada[1].files);
-		});
+	let btnEnvio = document.getElementById('btnsForms'),
+    	qualMensagem = document.getElementById('qualMensagem'),
+		motivo = document.getElementById('motivo'),
+		descricao = document.getElementById('descricao'),
+		imgMensagem = document.getElementById('imgMensagem')
 
-		this.xhr.open("POST", `mensagens/enviarMensagem`);
-		this.xhr.addEventListener(...eventosRequisicao.progress);
-		this.xhr.addEventListener(...eventosRequisicao.load);
-		this.xhr.addEventListener(...eventosRequisicao.erro);
-		this.xhr.setRequestHeader("Content-type", "multipart-formdata");
-		this.xhr.send(this.form);
-	}
+	qualMensagem.style.display = 'none';
+
+	async function enviarMensagem() {
+		let motivoFim = motivo.value.trim()
+		let descricaoFinal = descricao.value.trim()
+		if (motivoFim == '' || descricaoFinal == '') {
+			alert("Preencha todos os campos")
+		} else {
+		console.log(motivoFim)
+		let formula = new FormData()
+		formula.append("Motivo", motivoFim)
+		formula.append("Conteudo", descricaoFinal)
+		let guarda = imgMensagem.files
+		console.log(guarda)
+		for (let x = 0; x < guarda.length; x++) {
+			formula.append("imgs[]", guarda[x])
+		}
+		formula.append('Submit', '')
+		
+		const url = await fetch("/mensagens/enviarMensagem", {
+			method: 'POST',
+			body: formula
+		})
+		if (!url.ok) {
+            console.log('Erro na requisição')
+        }
+	}}
+
 	btnEnvio.addEventListener('click', async (e) => {
 		e.preventDefault();
 		enviarMensagem();

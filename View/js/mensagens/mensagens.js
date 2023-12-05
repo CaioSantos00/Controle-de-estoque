@@ -3,7 +3,7 @@ let mensagemInput = document.getElementById('mensagemInput'),
     holdTodosPedidos = document.getElementById('holdTodosPedidos')
 
     async function buscaMensagem() {
-    let resposta = await fetch('/envio/consultaMensagens')
+    let resposta = await fetch('/admin/mensagens/consultaMensagens')
     let respon = await resposta.json()
     if (!resposta.ok) {
         console.log("Erro na API " + resposta.ok)

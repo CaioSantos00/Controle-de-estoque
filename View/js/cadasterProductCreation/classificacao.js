@@ -34,6 +34,9 @@ function criaClassificacao() {
             },
             body: JSON.stringify({"nome": newTexto})
         }) 
+        if (!urlBusca.ok) {
+            console.log('Erro na requisição')
+        }
         alert('Cadastrado')
         selectClassi.append(criaOption(newTexto))
         cardsClassificacoes.remove()
