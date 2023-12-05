@@ -13,11 +13,11 @@ function separaOsCookies(){
 }
 function transformaLinkParaCarrinho(header){
     let link = header.querySelector('a[href="/login"]');
-        link.href = "/carrinho";
-        link.innerText = "Carrinho"
+        link.href = "/MeuPerfil";
+        link.innerText = "Perfil"
 }
 function adicionaLinkPainelAdm(header){
-    let link = header.querySelector('a[href="/carrinho"]');
+    let link = document.getElementById('login')
         link.href = "/admin";
         link.innerText = "Admin"
 }
