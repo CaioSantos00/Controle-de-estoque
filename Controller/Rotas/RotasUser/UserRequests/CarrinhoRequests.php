@@ -37,7 +37,7 @@
 
 			$carrinho->executar($this->idUsuario);
 			$carrinho = $carrinho->getResposta();
-			
+
 			$retorno = [];
 			foreach($carrinho as $item){
 				$consulta->idVariacao = $item['produto'];
@@ -51,10 +51,10 @@
 			);
 		}
 		function finalizados($data){
-			$ca = (new CFEspecifico($this->idUsuario))->getResposta();
-			$resul = [];
-			foreach($ca as $item)
-				$resul[] = $item[0];
-			print_r($resul);
+			echo json_encode(
+				(new CFEspecifico($this->idUsuario))->getResposta(),
+				JSON_PRETTY_PRINT
+			);
+
 		}
 	}

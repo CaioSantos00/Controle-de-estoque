@@ -1,9 +1,18 @@
 let form = document.getElementById('form'),
 	btnEnvio = document.getElementById('btnsForms'),
-    qualMensagem = document.getElementById('qualMensagem');
-	qualMensagem.style.display = 'none'
-		
-let Envio = new EnvioDadosUsuario(form, btnEnvio, "mensagem");
+    qualMensagem = document.getElementById('qualMensagem'),
+	qualMensagem.style.display = 'none',
+	eventosRequisicao = {};
+
+
+	async function prepararRequisicao(){
+		this.xhr = new XMLHttpRequest();
+		this.form = new FormData(this.formulario);
+		this.form.append('Submit', '');
+		this.xhr.open("POST", `usuario/${this.alvo}`);
+		this.xhr.setRequestHeader("Content-type", "multipart-formdata");
+		this.xhr.send(this.form);
+	}
 	Envio.xhr.addEventListener("progress", () => {
 		qualMensagem.style.display = 'flex'
 		qualMensagem.src = '/estaticos/imgs/loader.gif'

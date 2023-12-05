@@ -16,7 +16,7 @@
 		}
 		function executar(){
 			if(CDescricoes::inCache($this->idProduto)) return CDescricoes::getCache($this->idProduto);
-			if(!file_exists($file)) return "descrição não encontrada";
+			if(!file_exists($this->file)) return "descrição não encontrada";
 			$descricao = file_get_contents($this->file);
 			CDescricoes::setCache($this->idProduto, $descricao);
 			return $descricao;
