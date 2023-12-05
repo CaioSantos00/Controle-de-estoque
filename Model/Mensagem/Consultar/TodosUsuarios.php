@@ -18,12 +18,13 @@
         $query = CB::getConexao()->query($this->query);
         if(is_bool($query)) throw new UserException("erro interno");
         $query = $query->fetchAll();
+        if(count($query) == 0) throw new UserException("sem registros");
       }
       catch(UserException $e){
         $this->erro = $e->getMessage();
         $query = false;
       }
-      catch(\PDOException|\Exception $e){
+      catch(\Exception $e){
         $GLOBALS['ERRO']->setErro("Consulta de mensagens", $e->getMessage());
         $this->erro = "erro interno";
         $query = false;
