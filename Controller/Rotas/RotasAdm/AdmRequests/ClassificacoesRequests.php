@@ -1,6 +1,6 @@
 <?php
 	namespace Controladores\Rotas\RotasAdm\AdmRequests;
-	
+
 	use App\Servicos\Arquivos\Produtos\Classificacoes\{
 		Cadastro,Edicao,
 		Excluir,Classificacoes,
@@ -9,7 +9,10 @@
 
 	class ClassificacoesRequests{
 		function __construct(){
-			if(!isset($_COOKIE['TipoConta'])) exit("sai pra lá hacker");
+			if(!isset($_COOKIE['TipoConta'])){
+				$this->consultar();
+				exit;
+			}
 		}
 		function cadastrar($data){
 			if(!isset($_SERVER['CONTENT_TYPE'])) exit("sai pra la hacker");
@@ -29,7 +32,7 @@
 			$exclusao = new Excluir($_POST['paraExcluir']);
 			echo $exclusao->executar();
 		}
-		function consultar($data){
+		function consultar($data = []){
 			$consulta = new Classificacoes();
 			echo $consulta;
 		}
