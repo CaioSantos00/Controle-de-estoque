@@ -12,16 +12,14 @@
             try{
 				$primarios = CB::getConexao()->query($this->queriesConsulta[0]);
 				$resultados = [];
-				foreach($primarios as $primario){
-					$resultado = array(
+				foreach($primarios as $primario)
+					$resultados[] = array(
 						"primarios" => $this->organizaDadosPrimarios($primario),
 						"secundarios" 	=> $this->getDadosSecundariosDoBanco($primario['Id']),
 						"fotos"			=>$this->getFotos($primario['Id'], $consultaImagens)
 					);
-					$resultados[] = $resultado;
-				}
             }
-            catch(\Exception|\PDOException $ex){
+            catch(\Exception $ex){
                 $GLOBALS['ERRO']->setErro("Consulta produto", "na busca dos dados no banco, {$ex->getMessage()}");
                 $resultados = false;
             }

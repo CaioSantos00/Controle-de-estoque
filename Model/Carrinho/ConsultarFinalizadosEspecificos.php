@@ -32,13 +32,13 @@
         }
         private function organizaConsultaDoBanco(array $consultaBanco) :array{
             $linhasRetorno = [];
-            foreach($consultaBanco as $linha){
+            foreach($consultaBanco as $linha)
                 $linhasRetorno[] = [
                     "idCarrinho" => $linha["Id"],
                     "Conteudo" => $linha["Conteudo"],
                     "Data" => $linha["Data"]
                 ];
-            }
+
             return $linhasRetorno;
         }
         private function buscarImagensDeUmProduto(string $idVariacao, string $idProduto) :array{
@@ -49,20 +49,21 @@
             ? $this->buscarImagens->imagens
             : [];
         }
-        private function buscarDadosDeUmProdutoDoCarrinho(string $idVariacao) :array{
-            $dados = [];
-            $dados["dadosSecundarios"] = (new CUVariacao($idVariacao, $this->dadosParaBuscarDasVariacoes))->executar();
-            $dados["imagens"] = $this->buscarImagensDeUmProduto($idVariacao, $dados["dadosSecundarios"]["ParentId"]);
-            return $dados;
+        private function getDadoProduto(array $idVariacao) :array{
+            $this
+            return $dadosItem;
+        }
+        private function getDadosDeTodosOsProdutos(array $carrinho) :array{
+            $idsVariacos = array_unique(array_column($carrinho, "produto"));
+            foreach ($idsVariacos as $idVariacao){
+                print_r($this->getDadoProduto($idVariacao));
+            }
+            return [$idsVariacos];
+
         }
         private function mapearCarrinho(string $conteudoCarrinho) :array{
             $carrinho = json_decode($conteudoCarrinho, true);
             $dadosCarrinho = [];
-            foreach($carrinho as $item){
-                    $dadosItem = $this->buscarDadosDeUmProdutoDoCarrinho($item["produto"]);
-                    $dadosItem["dadosPrimarios"] = (new CUProduto($dadosItem["dadosSecundarios"]["ParentId"]))->getResposta();
-                    $dadosCarrinho[] = $dadosItem;
-                }
             return $dadosCarrinho;
         }
         function getResposta(){
@@ -73,6 +74,6 @@
             foreach($dadosCarrinhos as $dadoCarrinho){
                 $resposta[] = $this->mapearCarrinho($dadoCarrinho["Conteudo"]);
             }
-            return $resposta;
+            return [];// $resposta;
         }
     }
