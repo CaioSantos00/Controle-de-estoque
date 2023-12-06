@@ -114,6 +114,8 @@
 	$router->get("/usuarioEspecifico/{idUser}","MensagensRequests:usuarioEspecifico");
 	// Todas as mensagens de um usuário específico, mas para a parte de admin
 	$router->get("/visualizarMensagem/{idMsg}", "MensagensRequests:visualizarMsg");
+	//marca a mensagem como visualizada
+	$router->get("/infoMsgEspecifica/{idMsg}", "MensagensRequests:mensagemEspecifica");
 	// Informações de uma mensagem específica para a parte de admin
 
 	$router->group("produto");

@@ -1,8 +1,10 @@
+
 let mensagemInput = document.getElementById('mensagemInput'),
     btnBuscaPedido = document.getElementById('btnBuscaPedido'),
-    holdTodosPedidos = document.getElementById('holdTodosPedidos')
+    holdTodosPedidos = document.getElementById('holdTodosPedidos'),
+    todasMensagens = '';
     
-    function criaCardMensagem(nome, motivo, date, status) {
+    function criaCardMensagem(nome, motivo, date, status, idmsg) {
         let cardPedido = document.createElement('div')
         cardPedido.classList.add('cardPedido')
         let nomeDiv = document.createElement('div')
@@ -40,40 +42,64 @@ let mensagemInput = document.getElementById('mensagemInput'),
         situacaoPedido.append(statusMensagens, spanLidaNao)
 
         let aBtn = document.createElement('a')
-        aBtn.href = '/admin/detalhesMensagens'
+            aBtn.href = '/admin/detalhesMensagens'
+            aBtn.onclick = () => {
+                sessionStorage.setItem("msgBusca", idmsg)
+            }
         let btnMaisDetails = document.createElement('button')
-        btnMaisDetails.classList.add('btnMaisDetails')
-        btnMaisDetails.innerText = 'Ver mensagem'
-        aBtn.appendChild(btnMaisDetails)
+            btnMaisDetails.classList.add('btnMaisDetails')
+            btnMaisDetails.innerText = 'Ver mensagem'
+        
+            aBtn.appendChild(btnMaisDetails)
         cardPedido.append(nomeDiv, motivoMsg, dateDiv, situacaoPedido, aBtn)
         holdTodosPedidos.appendChild(cardPedido)
     }
 
-    async function buscaMensagem() {
-    let strLimpa = mensagemInput.value.trim()
-    holdTodosPedidos.innerHTML = '';
-    let resposta = await fetch('/admin/mensagens/consultaMensagens')
-    let respon = await resposta.json()
-    if (!resposta.ok) {
-        console.log("Erro na API " + resposta.ok)
-    }
+function buscaMensagem(respon, contexto = '') {
+        console.log(respon)
+        console.log(contexto)
+    let strLimpa = mensagemInput.value.trim().toLowerCase();
+    let retornou = false    
+    holdTodosPedidos.innerHTML = '';    
     respon.forEach(cada => {     
-        if (strLimpa == cada.NomeUsuario.toLowerCase() || cada.NomeUsuario.toLowerCase().startsWith(strLimpa)) {
-            mensagemInput.value = ''
-            criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status)
-        } else {
-            strLimpa = ''
-            alert('Usuário não encontrado')
+        if (strLimpa === cada.NomeUsuario.toLowerCase() || cada.NomeUsuario.toLowerCase().startsWith(strLimpa)) {
+            criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status, cada.Id)
+            retornou = true
+            return;
         }
     });
+    if(!retornou){
+        strLimpa = '';     
+        respon.forEach(cada => criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status, cada.Id));
+        alert('Usuário não encontrado')
     }
+}
 
-    buscaMensagem()
-btnBuscaPedido.addEventListener('click', ()=> {
+function setTodas(todas){
+    todasMensagens = todas;
+}
+function dividiMensagens(valorInput, funcaoBusca, respon){
     console.log('Passou aqui')
-    if (mensagemInput.value == '') {
+    if (valorInput == '') {
         alert('Preencha o campo')
-    } else {
-    buscaMensagem()
-    }
-})
+        return;
+    } 
+    funcaoBusca(respon, "dividindo mensagens")     
+}
+    (async () => {
+        let resposta = await fetch('/admin/mensagens/consultaMensagens')
+        let respon = await resposta.json()
+        setTodas(respon)
+        if (!resposta.ok) {
+            console.log("Erro na API " + resposta.ok)
+        }
+        buscaMensagem(respon, "consultaInicial")
+
+        btnBuscaPedido.addEventListener('click', ()=> dividiMensagens(mensagemInput.value, buscaMensagem, respon))
+                
+        mensagemInput.addEventListener('keydown', (e) => {
+            if(e.key == "Enter")
+                dividiMensagens(mensagemInput.value, buscaMensagem,respon)  
+        })
+    
+    })();

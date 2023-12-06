@@ -3,8 +3,10 @@
 
     use App\Mensagem\Consultar\{
         TodosUsuarios as TdsMsgs,
-        UsuarioEspecifico as MsgnsDele
+        UsuarioEspecifico as MsgnsDele,
+        Especifica as MsgUnica
     };
+    use App\Servicos\Arquivos\Mensagens\BuscarImagens as ImgMsg;
     use App\Mensagem\VisualizarMensagem;
     
     use App\Servicos\Arquivos\Mensagens\BuscarImagens as BIMsg;
@@ -13,7 +15,7 @@
             $msgs = new TdsMsgs;
             echo json_encode($msgs->getResposta());
         }
-        function usuarioEspecifico($data){
+        function usuarioEspecifico($data){            
             $msgs = (new MsgnsDele($data['idUser'], new BIMsg))->getResposta();
             echo match(true){
                 is_string($msgs) => $msgs,
@@ -22,6 +24,18 @@
             };
         }
         function visualizarMsg($data){
+            if($data['idMsg'] == "nenhuma") exit("sem mensagem é foda");
             echo (new VisualizarMensagem($data['idMsg']))->getResposta();
+        }
+        function mensagemEspecifica($data){
+            if($data['idMsg'] == "nenhuma") exit( "sem mensagem é foda");
+            $msg = new MsgUnica($data['idMsg']);
+            $imgs = new ImgMsg;
+            $imgs->setIdMsg($data['idMsg']);
+            $imgs->executar();
+            echo $msg->executar()
+                ? json_encode([...$msg->mensagem, "imagens" => $imgs->getImagens()])
+                : $msg->erro;
+
         }
     }

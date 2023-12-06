@@ -21,6 +21,6 @@
 		}
 		function imgMsg($data){
 			if(!is_numeric($data['idMsg'])) exit("erro interno");
-			$this->renderizar("arqvsSecundarios/Mensagens/{$data['idMsg']}/{$data['nomeFoto']}");
+				$this->renderizar("arqvsSecundarios/Mensagens/{$data['idMsg']}/{$data['nomeFoto']}");
 		}
 	}

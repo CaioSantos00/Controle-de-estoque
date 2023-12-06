@@ -73,7 +73,8 @@
 				'imagem' => $dados['imagem'],
 				'Nome' => $dados['dados']['Nome'],
 				'Email' => $dados['dados']['Email'],
-				'TipoConta' => $dados['dados']['TipoConta']				
+				'TipoConta' => $dados['dados']['TipoConta'],
+				'telefone' => $dados['dados']['Telefone']
 			];			
 			echo json_encode($retorno);
 		}
