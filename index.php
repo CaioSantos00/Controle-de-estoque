@@ -64,7 +64,7 @@
 	// Aqui é pra adicionar um item no carrinho do usuário logado, tenq passar o id da variação e a quantidade.
 	$router->get("/removerItem/{idVariacao}/{qtd}","CarrinhoRequests:removerItem");
 	//Aqui é pra remover ou diminuir a quantidade de um item no carrinho do usuário logado, tenq passar o id da variação e a quantidade.
-	$router->get("/finalizar","CarrinhoRequests:finalizar");
+	$router->get("/finalizar/{IdEndereco}","CarrinhoRequests:finalizar");
 	//Aqui é pra finalizar o carrinho do usuário logado no momento
 	$router->get('/finalizados',"CarrinhoRequests:finalizados");
 	//Aqui é pra consultar os carrinhos finalizados do usuario logado no momento

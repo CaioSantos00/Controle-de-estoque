@@ -47,7 +47,8 @@
 		}
 		function finalizar($data){
 			echo (string) new Finalizar(
-				$this->idUsuario
+				$this->idUsuario,
+				$data['IdEndereco']
 			);
 		}
 		function finalizados($data){

@@ -11,16 +11,18 @@
 		private Model $carrinho;
 		private ServicoInterno $consultaMultipla;
 		private string $idUsuario;
+		private string $IdEndereco;
 		private array $queries = [
 			"update `usuario` set `Carrinho` = '[]' where `Id` = ?",
-			"insert into `carrinhosfinalizados`(`IdDono`, `Data`, `Conteudo`) values(?,?,?)",
+			"insert into `carrinhosfinalizados`(`IdDono`, `IdEndereco`, `Data`, `Conteudo`) values(?,?,?,?)",
 			"update `produtosecundario` set `qtd` = ? where `Id` = ?",
 			"update `produtosecundario` set `qtd` = ?, `Disponibilidade` = ? where `Id` = ?"
 		];
-		function __construct(string $idUsuario){
+		function __construct(string $idUsuario, string $IdEndereco){
 			$this->idUsuario = $idUsuario;
+			$this->IdEndereco = $IdEndereco;
 			$this->consultaMultipla = new CMVariacoes(false, true);
-			
+
 			$this->carrinho = new CCarrinho;
 			$this->carrinho->executar($idUsuario);
 		}
@@ -91,13 +93,14 @@
 				return $resposta;
 			}
 		}
-		private function verificaSeCarrinhoPodeFinalizar() :bool{			
+		private function verificaSeCarrinhoPodeFinalizar() :bool{
 			if((string) $this->carrinho == "[]") return false;
 			return true;
 		}
 		private function insereCarrinhoNaTabelaFinalizados() :bool{
 			return $this->executaQuery($this->queries[1], [
 				$this->idUsuario,
+				$this->IdEndereco,
 				date("d.m.y \\ g:i"),
 				(string) $this->carrinho
 			]);
@@ -117,13 +120,13 @@
 			return $this->executaQuery($this->queries[3],[
 				"0",
 				"0",
-				$idVariacao	
+				$idVariacao
 			]);
 		}
 		function getResposta(){
 			try{
 				$retorno = true;
-				$verificacao = $this->verificacaoItemAItem();				
+				$verificacao = $this->verificacaoItemAItem();
 				if(is_array($verificacao))
 					throw new UserException(json_encode(["mensagem" => "item errado", $verificacao]));
 				if(!$verificacao)
@@ -137,7 +140,7 @@
 			}
 			catch(UserException $e){
 				$retorno = $e->getMessage();
-			}			
+			}
 			catch(\Exception $e){
 				$GLOBALS['ERRO']->setErro("finalização de carrinho", $e->getMessage(). "no {$this->idUsuario}");
 				$retorno = false;
