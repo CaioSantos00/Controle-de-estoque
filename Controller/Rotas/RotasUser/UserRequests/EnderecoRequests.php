@@ -3,8 +3,8 @@
 	use App\Enderecos\Consultar;
 	use App\Enderecos\Cadastrar;
 	use App\Enderecos\Editar;
-	use App\Enderecos\Excluir;	
-    
+	use App\Enderecos\Excluir;
+
 	class EnderecoRequests{
 		private string $idUsuario;
 		function __construct(){
@@ -20,7 +20,13 @@
 		}
 		function consultar($data){
 		    $consulta = new Consultar(
-				$this->idUsuario	
+				$this->idUsuario
+			);
+			echo json_encode($consulta->getResposta());
+		}
+		function consultarEsse($data){
+			$consulta = new Consultar(
+				$data['id']
 			);
 			echo json_encode($consulta->getResposta());
 		}
@@ -35,7 +41,7 @@
 			$editar = new Editar(
 				$this->idUsuario,
 				$_POST['idEndereco'],
-				$_POST['dadosEndereco']	
+				$_POST['dadosEndereco']
 			);
 			echo $editar->getResposta();
 		}

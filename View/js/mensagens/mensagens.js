@@ -3,7 +3,7 @@ let mensagemInput = document.getElementById('mensagemInput'),
     btnBuscaPedido = document.getElementById('btnBuscaPedido'),
     holdTodosPedidos = document.getElementById('holdTodosPedidos'),
     todasMensagens = '';
-    
+
     function criaCardMensagem(nome, motivo, date, status, idmsg) {
         let cardPedido = document.createElement('div')
         cardPedido.classList.add('cardPedido')
@@ -28,7 +28,7 @@ let mensagemInput = document.getElementById('mensagemInput'),
         situacaoPedido.innerText = 'Status: '
         let statusMensagens = document.createElement('div')
         statusMensagens.classList.add('statusMensagens')
-        
+
         let spanLidaNao = document.createElement('span')
         if (status == 'Lida') {
             spanLidaNao.innerText = 'Lida'
@@ -44,12 +44,13 @@ let mensagemInput = document.getElementById('mensagemInput'),
         let aBtn = document.createElement('a')
             aBtn.href = '/admin/detalhesMensagens'
             aBtn.onclick = () => {
+                sessionStorage.removerItem("msgBusca");
                 sessionStorage.setItem("msgBusca", idmsg)
             }
         let btnMaisDetails = document.createElement('button')
             btnMaisDetails.classList.add('btnMaisDetails')
             btnMaisDetails.innerText = 'Ver mensagem'
-        
+
             aBtn.appendChild(btnMaisDetails)
         cardPedido.append(nomeDiv, motivoMsg, dateDiv, situacaoPedido, aBtn)
         holdTodosPedidos.appendChild(cardPedido)
@@ -59,9 +60,9 @@ function buscaMensagem(respon, contexto = '') {
         console.log(respon)
         console.log(contexto)
     let strLimpa = mensagemInput.value.trim().toLowerCase();
-    let retornou = false    
-    holdTodosPedidos.innerHTML = '';    
-    respon.forEach(cada => {     
+    let retornou = false
+    holdTodosPedidos.innerHTML = '';
+    respon.forEach(cada => {
         if (strLimpa === cada.NomeUsuario.toLowerCase() || cada.NomeUsuario.toLowerCase().startsWith(strLimpa)) {
             criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status, cada.Id)
             retornou = true
@@ -69,7 +70,7 @@ function buscaMensagem(respon, contexto = '') {
         }
     });
     if(!retornou){
-        strLimpa = '';     
+        strLimpa = '';
         respon.forEach(cada => criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status, cada.Id));
         alert('Usuário não encontrado')
     }
@@ -83,12 +84,13 @@ function dividiMensagens(valorInput, funcaoBusca, respon){
     if (valorInput == '') {
         alert('Preencha o campo')
         return;
-    } 
-    funcaoBusca(respon, "dividindo mensagens")     
+    }
+    funcaoBusca(respon, "dividindo mensagens")
 }
     (async () => {
         let resposta = await fetch('/admin/mensagens/consultaMensagens')
         let respon = await resposta.json()
+        if(respon == "sem registros") return
         setTodas(respon)
         if (!resposta.ok) {
             console.log("Erro na API " + resposta.ok)
@@ -96,10 +98,10 @@ function dividiMensagens(valorInput, funcaoBusca, respon){
         buscaMensagem(respon, "consultaInicial")
 
         btnBuscaPedido.addEventListener('click', ()=> dividiMensagens(mensagemInput.value, buscaMensagem, respon))
-                
+
         mensagemInput.addEventListener('keydown', (e) => {
             if(e.key == "Enter")
-                dividiMensagens(mensagemInput.value, buscaMensagem,respon)  
+                dividiMensagens(mensagemInput.value, buscaMensagem,respon)
         })
-    
+
     })();

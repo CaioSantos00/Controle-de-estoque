@@ -72,8 +72,10 @@
 	$router->group("endereco");
 	$router->post("/cadastrar", "EnderecoRequests:cadastrar");
 	$router->get("/consultar", "EnderecoRequests:consultar");
+	$router->get("/consultarEsse/{id}", "EnderecoRequests:consultarEsse");
 	$router->post("/excluir", "EnderecoRequests:excluir");
 	$router->post("/editar", "EnderecoRequests:editar");
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
 	$router->group("admin");
@@ -106,7 +108,7 @@
 
 	$router->group("admin/consulta");
 	$router->get("/consultarProdutosPrimarios", "AdmRequests:consultarProdutosPrimarios");
-	
+
 	$router->group("admin/mensagens");
 	//Todos os carrinhos finalizados de todos os usuários
 	$router->get("/consultaMensagens", "MensagensRequests:todas");
