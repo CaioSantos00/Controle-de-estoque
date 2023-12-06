@@ -40,14 +40,35 @@
 			console.log("adicionar Xis vermelho dizendo 'deu errado meu nobre'");
 		}
 	]*/
-
 	let btnEnvio = document.getElementById('btnsForms'),
     	qualMensagem = document.getElementById('qualMensagem'),
 		motivo = document.getElementById('motivo'),
 		descricao = document.getElementById('descricao'),
-		imgMensagem = document.getElementById('imgMensagem')
+		imgMensagem = document.getElementById('imgMensagem'),
+		form = document.getElementById('form'),
+		mensagensCadaster = document.getElementById('mensagensCadaster')
 
-	qualMensagem.style.display = 'none';
+		function deuBom() {
+			form.style.display = 'none'
+				qualMensagem.src = '/estaticos/imgs/correct.png'
+				let linkLogar = document.createElement('a')
+				linkLogar.innerText = 'Enviado, clique para enviar novamente.'
+				linkLogar.href = '/Mensagens'
+				linkLogar.id = 'aSetinhaBoa'
+				mensagensCadaster.appendChild(linkLogar)
+		}
+
+		function deuRuim() {
+			form.style.display = 'none'
+			qualMensagem.src = '/estaticos/imgs/incorrect.png'
+			let linkLogar = document.createElement('a')
+			linkLogar.innerText = 'Tente novamente mais tarde.'
+			linkLogar.href = '/Mensagens'
+			linkLogar.id = 'aSetinhaRuim'
+			mensagensCadaster.appendChild(linkLogar)
+		}
+
+		qualMensagem.style.display = 'none';
 
 	async function enviarMensagem() {
 		let motivoFim = motivo.value.trim()
@@ -55,7 +76,7 @@
 		if (motivoFim == '' || descricaoFinal == '') {
 			alert("Preencha todos os campos")
 		} else {
-		console.log(motivoFim)
+			deuBom()
 		let formula = new FormData()
 		formula.append("Motivo", motivoFim)
 		formula.append("Conteudo", descricaoFinal)
@@ -72,6 +93,7 @@
 		})
 		if (!url.ok) {
             console.log('Erro na requisição')
+			deuRuim()
         }
 	}}
 
