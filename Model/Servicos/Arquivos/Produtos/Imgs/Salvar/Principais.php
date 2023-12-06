@@ -1,10 +1,10 @@
 <?php
-	namespace App\Servicos\Arquivos\Imgs\Salvar
+	namespace App\Servicos\Arquivos\Produtos\Imgs\Salvar;
 
 	use App\Interfaces\ServicoInterno;
 
 	class Principais implements ServicoInterno{
-		const string INPUT_ARQVS = "fotosPrincipais";
+		const INPUT_ARQVS = "fotosPrincipais";
 		private string $dirArqvs = "arqvsSecundarios/Produtos/Fotos/";
 		private string $idProduto;
 		function setDados(string $idProduto){

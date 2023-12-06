@@ -27,7 +27,7 @@ function criaClassificacao() {
         if (limpaStr == "") alert('Digite o valor')
         if (limpaStr) {
             let newTexto = transformaMaiusculo(limpaStr)
-        const urlBusca = await fetch('/envio/cadastrarClassificacao', {
+        const urlBusca = await fetch('/admin/classificacoes/cadastrarClassificacao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

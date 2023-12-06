@@ -6,7 +6,7 @@
 		Exclusao as ExclusaoProduto,
 		SalvarPrimarios as SalvarDadosPrimarios
 	};
-	use App\Servicos\Arquivos\Produtos\Imgs\Salvar as ImgProd;
+	use App\Servicos\Arquivos\Produtos\Imgs\Salvar\Principais as ImgProd;
 	use App\Servicos\Arquivos\Produtos\Descricoes\CriarDescricao as DcsProd;
 	use App\Produtos\Variacoes\{
 		Salvar as 	SlvVar,
@@ -23,7 +23,7 @@
 			echo json_encode($exclusao->getResposta());
 		}
 		function salvarDadosPrincipais($data){
-			$dados = new SalvarDadosPrimarios(new ImgProd, new DcsProd);
+			$dados = new SalvarDadosPrimarios(new DcsProd,new ImgProd);
 			$dados->setDadosParaSalvar($_POST['Nome'],$_POST['Classificacoes'],$_POST['Descricao']);
 			echo $dados->getResposta();
 		}

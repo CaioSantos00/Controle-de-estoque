@@ -3,7 +3,8 @@
 	
 	use App\Produtos\{
 		ConsultaGeral as ConsultaProdutos,
-		ConsultaUnica as ConsultaProduto
+		ConsultaUnica as ConsultaProduto,
+		ConsultaPrimarios
 	};
 	use App\Usuario\ConsultarTodos as ConsultaUsuarios;
 	use App\Carrinho\ConsultarFinalizados as ConsultaCarrinhosTerminados;
@@ -15,6 +16,11 @@
 		}*/		
 		function consultarProdutos($data){
 			echo new ConsultaProdutos;
+		}
+		function consultarProdutosPrimarios($data){
+			$primarios = new ConsultaPrimarios;
+			$primarios->executar();
+			echo json_encode($primarios->getPrimarios());
 		}
 		function consultarProduto($data){
 			echo new ConsultaProduto($data['id']);

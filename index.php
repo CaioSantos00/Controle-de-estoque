@@ -104,6 +104,9 @@
 	$router->group("admin/carrinhos");
 	$router->get("/consultarCarrinhoFinalizados","AdmRequests:consultarCarrinhosFinalizados");
 
+	$router->group("admin/consulta");
+	$router->get("/consultarProdutosPrimarios", "AdmRequests:consultarProdutosPrimarios");
+	
 	$router->group("admin/mensagens");
 	//Todos os carrinhos finalizados de todos os usuários
 	$router->get("/consultaMensagens", "MensagensRequests:todas");
@@ -120,6 +123,7 @@
 	$router->post("/criarDadoSecundario", "ProdutoRequests:criarDadoSecundario");
 	$router->post("/editarDadoSecundario", "ProdutoRequests:editarDadoSecundario");
 	$router->post("/excluirVariacao", "ProdutoRequests:excluirVariacao");
+	$router->post("/salvarPrincipais", "ProdutoRequests:salvarDadosPrincipais");
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->group("ops");

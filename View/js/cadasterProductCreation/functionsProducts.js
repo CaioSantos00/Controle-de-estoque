@@ -13,7 +13,7 @@ export async function editarClassificacao(antigo, novo){
     antigo = antigo.trim()
     novo = novo.trim()
     if(novo == "" || antigo == "") return false;
-    let serv = await fetch("/envio/editarClassificacao", {
+    let serv = await fetch("/admin/classificacoes/editarClassificacao", {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ if(resp){
 export async function excluiClassi(classi){
     classi = classi.trim();    
     if(classi == "") return false;
-    let serv = await fetch("/envio/excluirClassificacao", {
+    let serv = await fetch("/admin/classificacoes/excluirClassificacao", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export function btnCancel(divPai, apagaDiv) {
 }
 
 export async function consultarClassificacoes(){
-    let classificacoes = await fetch("/envio/consultarClassificacoes")
+    let classificacoes = await fetch("/classificacoes/consultarClassificacoes")
     if(!classificacoes.ok) {
         Error("ERRO NA SOLICITAÇÃO")
     }

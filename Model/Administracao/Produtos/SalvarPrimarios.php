@@ -11,7 +11,7 @@
 		private string $descricao;
 		private ServicoInterno $SalvarDescricao;
 		private ServicoInterno $SalvarImagens;
-		const string QUERY = "Insert into `ProdutoPrimario` (`Nome`, `Classificacoes`) values (:Nome ,:Classificacoes)";
+		const QUERY = "Insert into `ProdutoPrimario` (`Nome`, `Classificacoes`) values (:Nome ,:Classificacoes)";
 		function __construct(ServicoInterno $SalvarDescricao, ServicoInterno $SalvarImagens){
 			$this->SalvarDescricao = $SalvarDescricao;
 			$this->SalvarImagens = $SalvarImagens;
@@ -28,7 +28,7 @@
 			SalvarDados::$query = self::QUERY;
 			SalvarDados::Executar();
 			if(!SalvarDados::$ok) return false;
-			$this->idProduto = Conn::getConexao()->lastInsertId()
+			$this->idProduto = Conn::getConexao()->lastInsertId();
 			return true;
 		}
 		private function salvarArquivos(){
