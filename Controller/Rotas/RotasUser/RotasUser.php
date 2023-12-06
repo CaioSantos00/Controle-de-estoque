@@ -25,6 +25,7 @@
 			parent::renderizar('pages/cadastro.html');
 		}
 		public function telaMsgs($data){
+			$this->prescisaEstarLogado();
 			parent::renderizar('pages/telaMensagens.html');
 		}
 		public function Error($data){
