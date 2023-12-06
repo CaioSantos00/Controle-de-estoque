@@ -5,7 +5,7 @@ let divDescription = document.getElementById('divDescription'),
     selectClassifi = document.getElementById('selectClassifi'),
     selectVaria = document.getElementById('selectVaria'),
     divChecksVar = document.getElementById('divChecksVar')
- 
+
 /*divDescription.addEventListener('click', () => {
     descriptionProductFalseTrue = !descriptionProductFalseTrue
     descriptionProduct.style.display = 'flex'
@@ -23,12 +23,13 @@ function abreEfecha(divPai, divEscondida) {
         }
     })
 }
-
-if (divDescription && descriptionProduct) {
-    abreEfecha(divDescription, descriptionProduct)
-} else {
+(() =>{
+    if (divDescription && descriptionProduct) {
+        abreEfecha(divDescription, descriptionProduct)
+        return
+    }
     console.log('Elemento não existe')
-}
+})()
 
 abreEfecha(selectClassifi, divChecks)
 abreEfecha(selectVaria, divChecksVar)
