@@ -1,7 +1,7 @@
 let mensagemInput = document.getElementById('mensagemInput'),
     btnBuscaPedido = document.getElementById('btnBuscaPedido'),
     holdTodosPedidos = document.getElementById('holdTodosPedidos')
-
+    
     function criaCardMensagem(nome, motivo, date, status) {
         let cardPedido = document.createElement('div')
         cardPedido.classList.add('cardPedido')
@@ -49,27 +49,31 @@ let mensagemInput = document.getElementById('mensagemInput'),
         holdTodosPedidos.appendChild(cardPedido)
     }
 
-    let strLimpa = mensagemInput.value.trim()
     async function buscaMensagem() {
-        holdTodosPedidos.innerHTML = '';
+    let strLimpa = mensagemInput.value.trim()
+    holdTodosPedidos.innerHTML = '';
     let resposta = await fetch('/admin/mensagens/consultaMensagens')
     let respon = await resposta.json()
     if (!resposta.ok) {
         console.log("Erro na API " + resposta.ok)
     }
-    respon.forEach(cada => {
-       //console.log(cada)
-       criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status)
-     
-        if (strLimpa == cada.NomeUsuario || strLimpa.startsWith(cada.NomeUsuario)) {
+    respon.forEach(cada => {     
+        if (strLimpa == cada.NomeUsuario.toLowerCase() || cada.NomeUsuario.toLowerCase().startsWith(strLimpa)) {
+            mensagemInput.value = ''
             criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status)
+        } else {
+            strLimpa = ''
+            alert('Usuário não encontrado')
         }
-        //console.log(cada.NomeUsuario)
     });
     }
 
     buscaMensagem()
 btnBuscaPedido.addEventListener('click', ()=> {
     console.log('Passou aqui')
+    if (mensagemInput.value == '') {
+        alert('Preencha o campo')
+    } else {
     buscaMensagem()
+    }
 })
