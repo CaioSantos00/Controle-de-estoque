@@ -17,7 +17,8 @@
 	$router->get('/Mensagens', "RotasUser:telaMsgs");
 	$router->get('/Error', "RotasUser:Error");
 	$router->get('/Carrinho', "RotasUser:Carrinho");
-	$router->get('/EditarEndereco', "RotasUser:EditarEndereco");   
+	$router->get('/EditarEndereco', "RotasUser:EditarEndereco");
+	$router->get('/CadastrarEndereco', "RotasUser:CadastrarEndereco");
 	$router->get('/FinalCarrinho', "RotasUser:FinalCarrinho");
 	$router->get('/MinhasMensagens', "RotasUser:MinhasMensagems");
 	$router->get('/MinhasCompras', "RotasUser:MinhasCompras");

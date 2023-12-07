@@ -14,7 +14,11 @@
             from `enderecos` where `IdDono` = ?";
         function __construct(string $idUsuario){
             $this->idUsuario = $idUsuario;
+			$this-
         }
+		function setParametro(string $parametro = "IdDono"){
+			
+		}
 		private function separaDadosDoBanco(array &$resul, array $resultadoDaConsulta){
 			$x = 0;
 			foreach($resultadoDaConsulta as $consulta){
@@ -26,19 +30,17 @@
 				$x++;
 			}
 		}
-		/*
-		
-						"Id" => $consulta["Id"],
-						"nomeEndereco" => $consulta["nomeEndereco"],
-						"Cep" => $consulta["Cep"],
-						"Cidade" => $consulta["Cidade"],
-						"Rua" => $consulta["Rua"],
-						"Bairro" => $consulta["Bairro"],
-						"Numero" => $consulta["Numero"],
-						"DataCriacao" => $consulta["DataCriacao"],
-						"InstrucoesEntrega" => $consulta["InstrucoesEntrega"],
-						"dataModificacao" => $consulta["dataModificacao"]
-					];
+		/*		
+			"Id" => $consulta["Id"],
+			"nomeEndereco" => $consulta["nomeEndereco"],
+			"Cep" => $consulta["Cep"],
+			"Cidade" => $consulta["Cidade"],
+			"Rua" => $consulta["Rua"],
+			"Bairro" => $consulta["Bairro"],
+			"Numero" => $consulta["Numero"],
+			"DataCriacao" => $consulta["DataCriacao"],
+			"InstrucoesEntrega" => $consulta["InstrucoesEntrega"],
+			"dataModificacao" => $consulta["dataModificacao"]
 		*/
         private function consultarBanco() :array{            
             try{

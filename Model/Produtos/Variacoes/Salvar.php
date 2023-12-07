@@ -12,7 +12,7 @@
         private string $query = "insert into `produtosecundario`
         (`ParentId`,`preco/peca`,`qtd`,`Disponibilidade`,`especificacoes`) values
         (:idProduto, :preco, :qtd, :disponivel, :especificacoes)";
-        function __construct(array $dados, string $nomeInput){            
+        function __construct(array $dados, string $nomeInput){     
             $this->dados = array_map('trim', $dados);
             $this->nomeInput = $nomeInput;
         }
