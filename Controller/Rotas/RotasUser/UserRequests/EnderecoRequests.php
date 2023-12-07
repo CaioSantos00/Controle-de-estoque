@@ -22,6 +22,7 @@
 		    $consulta = new Consultar(
 				$this->idUsuario
 			);
+			$consulta->setParametro();
 			echo json_encode($consulta->getResposta());
 		}
 		function consultarEsse($data){

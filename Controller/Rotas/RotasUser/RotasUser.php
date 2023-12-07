@@ -41,6 +41,12 @@
 		}
 		public function EditarEndereco($data){
 			$this->prescisaEstarLogado();
+			setcookie("operacao","edicao");
+			parent::renderizar('pages/editarEndereco.html');
+		}
+		public function CadastrarEndereco($data){
+			$this->prescisaEstarLogado();
+			setcookie("operacao","cadastro");
 			parent::renderizar('pages/editarEndereco.html');
 		}
 		public function MinhasMensagems($data){
