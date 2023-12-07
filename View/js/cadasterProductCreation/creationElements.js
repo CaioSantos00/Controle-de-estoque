@@ -1,81 +1,112 @@
-import {criaBtnCancel, btnCancel, consultarClassificacoes, criaOption} from "./functionsProducts.js"
+import { criaBtnCancel, btnCancel, consultarClassificacoes, criaOption } from "./functionsProducts.js"
 
 let divHoldVari = document.getElementById('divHoldVari');
 let criaVari = document.getElementById('criaVari');
-let x = 0;
+let selectProdutoPertenceVariacao = document.getElementById('selectProdutoPertenceVariacao')
 
-async function enviaVariacao(arrayDadosVariacao, arquivos){
-    // deve conter: idProduto, preco, qtd, disponivel, especificacoes
-    let form = new FormData;
-    arrayDadosVariacao.forEach(cada => form.append(...cada));
-    for(let x = 0;x != arquivos.length;x++) form.append("fotosSecundarias[]", arquivos[x]);
-
-    let server = await fetch("/produto/criarDadoSecundario", {
-        method: "POST",
-        body: form
-    })
-    console.log(await server.text());
-}
-function criaCheckBoxDisponivel(){
+let dis = 0;
+function criaCheckBoxDisponivel() {
     let checkDispo = document.createElement('input');
-        checkDispo.type ="checkbox"
-        checkDispo.id = x;
+    checkDispo.type = "checkbox"
+    checkDispo.id = dis;
 
     let spanCheckDispo = document.createElement('span');
-        spanCheckDispo.innerText = "disponivel";
+    spanCheckDispo.innerText = "disponivel";
 
     let labelCheckDispo = document.createElement('label');
-        labelCheckDispo.for = x++;
-        labelCheckDispo.append(checkDispo, spanCheckDispo);
+    labelCheckDispo.for = dis++;
+    labelCheckDispo.append(checkDispo, spanCheckDispo);
     return labelCheckDispo;
 }
 function criaVariacao() {
     let cardsVariacoes = document.createElement('div');
-        cardsVariacoes.classList.add('cardsVariacoes');
+    cardsVariacoes.classList.add('cardsVariacoes');
 
     let holdInputs = document.createElement('div');
-        holdInputs.classList.add('holdInputs');
+    holdInputs.classList.add('holdInputs');
 
     let inputQtd = document.createElement('input');
-        inputQtd.classList.add('inputVari');
-        inputQtd.type = 'number';
-        inputQtd.placeholder = 'Qtd';
-        inputQtd.min = 1;
+    inputQtd.classList.add('inputVari');
+    inputQtd.type = 'number';
+    inputQtd.placeholder = 'Qtd';
+    inputQtd.min = 1;
 
     let inputPreco = document.createElement('input');
-        inputPreco.placeholder = 'Preço';
-        //inputPreco.maxLength = '5';
-        inputPreco.classList.add('inputVari');
-        inputPreco.addEventListener ('input', function() {
-            let valorFinal = inputPreco.value
-            valorFinal = valorFinal.replace(/,/g, '')
-            valorFinal = valorFinal.replace(/(\d{2})$/, ',$1')
-            inputPreco.value = valorFinal
-        })
+    inputPreco.placeholder = 'Preço';
+    //inputPreco.maxLength = '5';
+    inputPreco.classList.add('inputVari');
+    inputPreco.addEventListener('input', function () {
+        let valorFinal = inputPreco.value
+        valorFinal = valorFinal.replace(/,/g, '')
+        valorFinal = valorFinal.replace(/(\d{2})$/, ',$1')
+        inputPreco.value = valorFinal
+    })
 
     let labelCheckDispo = criaCheckBoxDisponivel();
 
     let divTextAreaFile = document.createElement('div');
-        divTextAreaFile.classList.add('divTextAreaFile');
+    divTextAreaFile.classList.add('divTextAreaFile');
 
     let variacoesTextArea = document.createElement('textarea');
-        variacoesTextArea.classList.add('inputs', 'variacoesTextArea');
-        variacoesTextArea.placeholder = "Especificações";
+    variacoesTextArea.classList.add('inputs', 'variacoesTextArea');
+    variacoesTextArea.placeholder = "Especificações";
 
     let inputFile = document.createElement('input');
-        inputFile.classList.add('inputFileVari', 'inputs');
-        inputFile.type = 'file';
+    inputFile.classList.add('inputFileVari', 'inputs');
+    inputFile.type = 'file';
 
     let btnsCancel = criaBtnCancel(divHoldVari, cardsVariacoes);
 
     let buttonConfirm = document.createElement('button');
-        buttonConfirm.classList.add('btnsConfirm');
-        buttonConfirm.innerText = 'Salvar';
-        buttonConfirm.onclick = async () => {
+    buttonConfirm.classList.add('btnsConfirm');
+    buttonConfirm.innerText = 'Salvar';
 
+    async function salvaVari() {
+        let qtdFim = inputQtd.value.trim()
+    let precoFim = inputPreco.value.trim()
+    let specsFim = variacoesTextArea.value.trim()
+    let idProduto = selectProdutoPertenceVariacao.value;
+    
+        let form = new FormData()
+        form.append('idProduto', idProduto)
+        form.append('qtd', qtdFim)
+        form.append('preco', precoFim)
+        form.append('especificacoes', specsFim)
+
+        console.log(idProduto)
+
+        // Demorei para fazer por conta disso aqui ""labelCheckDispo.checked" e não funcionou
+        console.log(labelCheckDispo.checked)
+        if (labelCheckDispo.checked) {
+            dis = 1
+            form.append('disponivel', dis)
+        } else {
+            dis = 0
+           form.append('disponivel', dis)
         }
+        
+        
+        let guardaImg = inputFile.files
+        for (let x = 0; x < guardaImg.length; x++) {
+            form.append("imgs[]", guardaImg[x])
+        }
+        form.append('Submit', '')
 
-    holdInputs.append(labelCheckDispo,  inputQtd, inputPreco);
+        const requi = await fetch('/produto/criarDadoSecundario', {
+            method: 'POST',
+            body: form
+        })
+        if (!requi.ok) {
+            console.log('Erro na requisição')
+        }
+    }
+    
+
+    buttonConfirm.onclick = async () => {
+    salvaVari()
+    }
+
+    holdInputs.append(labelCheckDispo, inputQtd, inputPreco);
     divTextAreaFile.append(variacoesTextArea, inputFile);
     cardsVariacoes.append(holdInputs, divTextAreaFile, btnsCancel, buttonConfirm);
     divHoldVari.appendChild(cardsVariacoes);

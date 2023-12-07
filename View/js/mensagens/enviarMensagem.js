@@ -76,7 +76,7 @@
 		if (motivoFim == '' || descricaoFinal == '') {
 			alert("Preencha todos os campos")
 		} else {
-			deuBom()
+		deuBom()
 		let formula = new FormData()
 		formula.append("Motivo", motivoFim)
 		formula.append("Conteudo", descricaoFinal)
