@@ -2,6 +2,7 @@
 	namespace App\Interfaces;
 
 	use App\Servicos\Conexao\ConexaoBanco as CB;
+	use App\Servicos\Arquivos\Produtos\Descricoes\BuscarDescricao;
 
 	abstract class Consulta{
 		protected array $queriesConsulta = [
@@ -37,7 +38,7 @@
 			return $dadosSecundarios;
 		}
 		private function organizaDadosPrimarios(array $primarioInteiro) :array{
-			return [$primarioInteiro['Id'],$primarioInteiro['Nome'], $primarioInteiro['Classificacoes']];
+			return [$primarioInteiro['Id'],$primarioInteiro['Nome'], json_decode($primarioInteiro['Classificacoes'], true), (string)(new BuscarDescricao($primarioInteiro['Id']))];
 		}
 		private function organizaDadosSecundarios(array $secundarioInteiro) :array{
 			return array(

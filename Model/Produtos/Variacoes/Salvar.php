@@ -12,22 +12,24 @@
         private string $query = "insert into `produtosecundario`
         (`ParentId`,`preco/peca`,`qtd`,`Disponibilidade`,`especificacoes`) values
         (:idProduto, :preco, :qtd, :disponivel, :especificacoes)";
-        function __construct(array $dados, string $nomeInput){     
-            $this->dados = array_map('trim', $dados);
+        function __construct(array $dados, string $nomeInput){
+            $this->dados = array_diff(array_map('trim', $dados), ["Submit" => ""]);
+            
             $this->nomeInput = $nomeInput;
         }
         private function validarDados() :array|bool{
             $dadosErrados = [];
             $paraTestar = ['qtd','idProduto','disponivel'];
-                        
+
             foreach($paraTestar as $valor)
                 if(!is_numeric($this->dados[$valor]))
                     $dadosErrados[] = $valor;
-                    
+
             if(strlen($this->dados['disponivel']) > 1)
-                $dadosErrados[] = "disponivel";            
-            if(preg_match('/,\d{2}$/', $this->dados['preco']))
+                $dadosErrados[] = "disponivel";
+            if(!preg_match('/^\d+,\d{2}$/', $this->dados['preco']))
                 $dadosErrados[] = "preco";
+
             if(count($dadosErrados) > 0)
                 return $dadosErrados;
             return false;
@@ -54,8 +56,8 @@
         function getResposta(){
             $dadosValidados = $this->validarDados();
             return match(true){
-                is_array($dadosValidados) => json_encode($this->dadosValidados),
-                $this->salvarDadosNoBanco($this->dados) => $this->salvarArquivos(),                
+                is_array($dadosValidados) => $dadosValidados,
+                $this->salvarDadosNoBanco($this->dados) => $this->salvarArquivos(),
                 default => "erro inesperado"
             };
         }

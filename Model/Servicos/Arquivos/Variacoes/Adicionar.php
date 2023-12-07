@@ -14,6 +14,10 @@
             $this->idProduto = $idProduto;
             $this->idVariacao = $idVariacao;
         }
+        private function verificaDiretorio(string $diretorio){
+            if(!is_dir($diretorio))
+                mkdir($diretorio, 0777, true);
+        }
         private function salvarImgs(string $nomeInput){
             $qtdFotos = count($_FILES[$nomeInput]['tmp_name']);
             $caminhoVariacao = "arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$this->idVariacao}/";
@@ -23,23 +27,20 @@
 					$caminhoVariacao.$_FILES[$nomeInput]['name'][$x]
 				);
 				$this->padronizarFoto(
-                    $caminhoVariacao.$_FILES[$nomeInput]['name'][$x],
-                    $this->getInterventionImageInstance()
+                    $this->getInterventionImageInstance($caminhoVariacao.$_FILES[$nomeInput]['name'][$x]),
+                    $caminhoVariacao.$_FILES[$nomeInput]['name'][$x]
                 );
 			}
         }
         function executar(){
             try{
-                $retorno = true;
-                $this->gerarMarcaDagua($this->getInterventionImageInstance());
+                $this->verificaDiretorio("arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$this->idVariacao}");
                 $this->salvarImgs($this->nomeInput);
+                return true;
             }
             catch(\Exception $e){
                 $GLOBALS['ERRO']->setErro("Adicionar arquivos a variação específica", $e->getMessage());
-                $retorno = false;
-            }
-            finally{
-                return $retorno;
+                return false;
             }
         }
     }

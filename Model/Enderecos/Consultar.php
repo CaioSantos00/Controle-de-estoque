@@ -4,21 +4,18 @@
     use App\Servicos\Conexao\ConexaoBanco as CB;
     use App\Interfaces\Model;
 	use App\Exceptions\UserException;
-	
+
     class Consultar implements Model{
         private string $idUsuario;
-        private array $resultadoConsulta;        
-        private string $query = "select 
-            `Id`,`nomeEndereco`,`Cep`,`Cidade`,`Rua`,`Bairro`,`Numero`,
-            `DataCriacao`,`InstrucoesEntrega`,`dataModificacao` 
-            from `enderecos` where `IdDono` = ?";
-        function __construct(string $idUsuario){
+        private array $resultadoConsulta;
+        private string $query;
+        function __construct(string $idUsuario, string $buscarPor = "IdDono"){
             $this->idUsuario = $idUsuario;
-			$this-
-        }
-		function setParametro(string $parametro = "IdDono"){
-			
-		}
+			$this->query = "select
+	            `Id`,`nomeEndereco`,`Cep`,`Cidade`,`Rua`,`Bairro`,`Numero`,
+	            `DataCriacao`,`InstrucoesEntrega`,`dataModificacao`
+	            from `enderecos` where `{$buscarPor}` = ?";
+        }		
 		private function separaDadosDoBanco(array &$resul, array $resultadoDaConsulta){
 			$x = 0;
 			foreach($resultadoDaConsulta as $consulta){
@@ -30,7 +27,7 @@
 				$x++;
 			}
 		}
-		/*		
+		/*
 			"Id" => $consulta["Id"],
 			"nomeEndereco" => $consulta["nomeEndereco"],
 			"Cep" => $consulta["Cep"],
@@ -42,7 +39,7 @@
 			"InstrucoesEntrega" => $consulta["InstrucoesEntrega"],
 			"dataModificacao" => $consulta["dataModificacao"]
 		*/
-        private function consultarBanco() :array{            
+        private function consultarBanco() :array{
             try{
                 $resultado = [];
                 $query = CB::getConexao()->prepare($this->query);
@@ -57,7 +54,7 @@
 			catch(\Exception $ex){
                 $GLOBALS['ERRO']->setErro("consulta de endereco", $ex->getMessage());
                 $resultado = [];
-            }              
+            }
             finally{
                 return $resultado;
             }
@@ -68,4 +65,3 @@
             return $this->resultadoConsulta;
         }
     }
- 

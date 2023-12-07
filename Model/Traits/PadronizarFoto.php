@@ -2,17 +2,16 @@
     namespace App\Traits;
 
     trait PadronizarFoto{
-        private $marcaDagua;
-
-        private function gerarMarcaDagua($instanciaInterventionImage){
-            $this->marcaDagua = $instanciaInterventionImage
-                ("ServerInfo/marcaDagua.png")
-                ->resize(50,50);
+        private  $marcaDagua = "ServerInfo/marcaDagua.png";
+        private function redimensionaMarcaDagua(){
+            $this->marcaDagua = $this->getInterventionImageInstance($this->marcaDagua);
+            $this->marcaDagua->resize(50,50);
         }
-        private function padronizarFoto(string $caminhoImg, $instanciaInterventionImage){
-			$img = $instanciaInterventionImage($caminhoImg);
-			$img->resize(350,350);
-			$img->insert($this->marcaDagua, 'bottom-right');
-			$img->save($caminhoImg, 80, 'jpg');
+        private function padronizarFoto($instanciaInterventionImage, $caminhoImg){
+            if(is_string($this->marcaDagua)) $this->redimensionaMarcaDagua();
+            $img =& $instanciaInterventionImage;
+			$img->resize(500,500);
+			$img->insert($this->marcaDagua, 'bottom-right', 30, 30);
+			$img->save($caminhoImg, 80);
 		}
     }

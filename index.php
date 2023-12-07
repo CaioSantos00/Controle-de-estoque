@@ -109,6 +109,7 @@
 
 	$router->group("admin/consulta");
 	$router->get("/consultarProdutosPrimarios", "AdmRequests:consultarProdutosPrimarios");
+	$router->get("/consultaProdutoGeral", "AdmRequests:consultarProdutos");
 
 	$router->group("admin/mensagens");
 	//Todos os carrinhos finalizados de todos os usuários

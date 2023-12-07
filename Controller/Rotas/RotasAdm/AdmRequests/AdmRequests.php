@@ -1,6 +1,6 @@
 <?php
 	namespace Controladores\Rotas\RotasAdm\AdmRequests;
-	
+
 	use App\Produtos\{
 		ConsultaGeral as ConsultaProdutos,
 		ConsultaUnica as ConsultaProduto,
@@ -13,9 +13,10 @@
 		/*function __construct(){
 			if(!isset($_COOKIE['TipoConta'])) exit("sai fora, Hacker!");
 			if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
-		}*/		
+		}*/
 		function consultarProdutos($data){
 			echo new ConsultaProdutos;
+
 		}
 		function consultarProdutosPrimarios($data){
 			$primarios = new ConsultaPrimarios;
