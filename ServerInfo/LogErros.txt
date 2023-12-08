@@ -25,3 +25,10 @@
 <<<>>>{"quando":"07-12-23 as 12:07","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
 <<<>>>{"quando":"07-12-23 as 12:26","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
 <<<>>>{"quando":"07-12-23 as 12:27","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"07-12-23 as 09:03","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"08-12-23 as 03:21","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"08-12-23 as 03:22","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"08-12-23 as 03:22","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"08-12-23 as 03:23","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"08-12-23 as 03:25","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"08-12-23 as 03:25","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
