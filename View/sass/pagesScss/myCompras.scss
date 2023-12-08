@@ -7,6 +7,13 @@
     gap: 10px;
 }
 
+.imgsCarFim {
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
 .buyAgain {
     @include buttons(1em, $btnsConfirm, $corSecundaria);
     padding: 5px;
@@ -24,6 +31,12 @@
     #sectionMyCompras {
         margin: 20px 100px;
     }
+    .nomeProductCarDetails {
+        text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 130px;
+    }
 }
 
 @media screen and (max-width:540px){
@@ -35,5 +48,11 @@
 @media screen and (max-width:490px){
     #sectionMyCompras {
         margin: 20px 10px;
+    }
+    .imgsCarFim {
+        width: 90px;
+        height: 90px;
+        border-radius: 5px;
+        margin-right: 10px;
     }
 }

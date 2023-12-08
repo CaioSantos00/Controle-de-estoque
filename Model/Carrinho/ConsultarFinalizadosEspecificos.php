@@ -50,7 +50,7 @@
             : [];
         }
         private function getDadoProduto(array $idVariacao) :array{
-            $this
+            $this;
             return $dadosItem;
         }
         private function getDadosDeTodosOsProdutos(array $carrinho) :array{

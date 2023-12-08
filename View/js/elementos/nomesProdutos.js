@@ -1,4 +1,4 @@
-let nomeProductCarDetails = document.querySelectorAll('.nomeProductCarDetails');
+/*let nomeProductCarDetails = document.querySelectorAll('.nomeProductCarDetails');
 
 nomeProductCarDetails.forEach(function (cadaLetra) {
     let textoCompleto = cadaLetra.textContent;
@@ -8,4 +8,4 @@ nomeProductCarDetails.forEach(function (cadaLetra) {
         let textoExibido = textoCompleto.substring(0, limiteCaracteres) + '...';
         cadaLetra.textContent = textoExibido;
     }
-});
+});*/
