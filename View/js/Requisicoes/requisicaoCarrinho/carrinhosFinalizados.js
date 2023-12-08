@@ -68,6 +68,11 @@ function criaMinhasCompras() {
         holdOutrosCards.append(cardsCar)
     });
 
+    let btnComprar = document.createElement('button')
+    btnComprar.classList.add('buyAgain')
+    btnComprar.innerText = 'Comprar novamente'
+    holdOutrosCards.append(btnComprar)
+
     CardsMyPedidos.append(titleDetalhes, holdOutrosCards)
     holdCardsPedidos.append(CardsMyPedidos)
 }
