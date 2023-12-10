@@ -1,12 +1,11 @@
 <?php
 	namespace App\Produtos;
 
-	use App\Interfaces\Consulta;
+	use App\Interfaces\{Consulta, Model};
 	use App\Servicos\Conexao\ConexaoBanco as CB;
-	use App\Servicos\Arquivos\Produtos\Imgs\ConsultaUnica as CU;
-	use App\Servicos\Arquivos\Produtos\Descricoes\BuscarDescricao as BD;
-
-	class ConsultaUnica extends Consulta implements \Stringable{
+	use App\Servicos\Arquivos\Produtos\Imgs\ConsultaUnica as CU;	
+	
+	class ConsultaUnica extends Consulta implements \Stringable, Model{
 		private string $idProduto;
 		function __construct(string $idProduto){
 			$this->idProduto = $idProduto;
@@ -19,10 +18,7 @@
 		function __toString(){
 			return json_encode($this->getResposta());
 		}
-		function getResposta() :array{
-			return array(
-				"dadosProduto" => $this->buscarDadosPrincipaisDoBanco(new CU),
-				"descricao" => (string) new BD($this->idProduto)
-			);
+		function getResposta(){
+			return $this->buscarDadosPrincipaisDoBanco(new CU);
 		}
 	}

@@ -1,13 +1,17 @@
 <?php
 	namespace Controladores\Rotas\RotasUser\UserRequests;
 
-	use App\Carrinho\ConsultarFinalizadosEspecificos as CFEspecifico;
-	use App\Carrinho\AdicionarItem;
-	use App\Carrinho\RemoverItem;
-	use App\Carrinho\Consultar;
-	use App\Carrinho\Finalizar;
+	use App\Carrinho\{
+		ConsultarFinalizadosEspecificos as CFEspecifico,
+		AdicionarItem,
+		RemoverItem,
+		Consultar,
+		Finalizar	
+	};
 	use App\Produtos\Variacoes\ConsultaMultipla as CUVariacoes;
-
+	use App\Servicos\Arquivos\Variacoes\Consultar as CIVariacao;
+	use App\Enderecos\Consultar as CEnderecos;
+	
 	class CarrinhoRequests{
 		private string $idUsuario;
 		function __construct(){
@@ -52,10 +56,12 @@
 			);
 		}
 		function finalizados($data){
-			echo json_encode(
-				(new CFEspecifico($this->idUsuario))->getResposta(),
-				JSON_PRETTY_PRINT
+			$consulta = new CFEspecifico(
+					$this->idUsuario,
+					new CIVariacao,
+					new CEnderecos
 			);
+			echo json_encode($consulta->getResposta());
 
 		}
 	}

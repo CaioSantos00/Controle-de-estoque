@@ -1,9 +1,12 @@
 <?php
 	namespace Controladores\Rotas\RotasUser\UserRequests;
-	use App\Enderecos\Consultar;
-	use App\Enderecos\Cadastrar;
-	use App\Enderecos\Editar;
-	use App\Enderecos\Excluir;
+	
+	use App\Enderecos\{	
+		Consultar,
+		Cadastrar,
+		Editar,
+		Excluir	
+	};
 
 	class EnderecoRequests{
 		private string $idUsuario;
@@ -19,16 +22,13 @@
 			echo $cadastro->getResposta();
 		}
 		function consultar($data){
-		    $consulta = new Consultar(
-				$this->idUsuario
-			);
-			$consulta->setParametro();
+		    $consulta = new Consultar;
+			$consulta->setConsulta($this->idUsuario);		
 			echo json_encode($consulta->getResposta());
 		}
 		function consultarEsse($data){
-			$consulta = new Consultar(
-				$data['id']
-			);
+			$consulta = new Consultar;
+			$consulta->setConsulta($data['id'],"Id");
 			echo json_encode($consulta->getResposta());
 		}
 		function excluir($data){

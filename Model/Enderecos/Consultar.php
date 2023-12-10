@@ -6,16 +6,16 @@
 	use App\Exceptions\UserException;
 
     class Consultar implements Model{
-        private string $idUsuario;
-        private array $resultadoConsulta;
-        private string $query;
-        function __construct(string $idUsuario, string $buscarPor = "IdDono"){
-            $this->idUsuario = $idUsuario;
+        private string $idConsulta;
+		private array $resultadosConsultas;
+        private string $query;        
+		function setNovaConsulta(string $idUsuario, string $buscarPor = "IdDono"){
+            $this->idConsulta = $idConsulta;
 			$this->query = "select
 	            `Id`,`nomeEndereco`,`Cep`,`Cidade`,`Rua`,`Bairro`,`Numero`,
 	            `DataCriacao`,`InstrucoesEntrega`,`dataModificacao`
-	            from `enderecos` where `{$buscarPor}` = ?";
-        }		
+	            from `enderecos` where `{$buscarPor}` = ?";			
+		}
 		private function separaDadosDoBanco(array &$resul, array $resultadoDaConsulta){
 			$x = 0;
 			foreach($resultadoDaConsulta as $consulta){
@@ -26,24 +26,12 @@
 				}
 				$x++;
 			}
-		}
-		/*
-			"Id" => $consulta["Id"],
-			"nomeEndereco" => $consulta["nomeEndereco"],
-			"Cep" => $consulta["Cep"],
-			"Cidade" => $consulta["Cidade"],
-			"Rua" => $consulta["Rua"],
-			"Bairro" => $consulta["Bairro"],
-			"Numero" => $consulta["Numero"],
-			"DataCriacao" => $consulta["DataCriacao"],
-			"InstrucoesEntrega" => $consulta["InstrucoesEntrega"],
-			"dataModificacao" => $consulta["dataModificacao"]
-		*/
+		}	
         private function consultarBanco() :array{
             try{
                 $resultado = [];
                 $query = CB::getConexao()->prepare($this->query);
-        		if(!$query->execute([$this->idUsuario])) throw new \Exception("execução da query falhou");
+        		if(!$query->execute([$this->idConsulta])) throw new \Exception("execução da query falhou");
 		        $resultadoConsulta = $query->fetchAll();
 				if($resultadoConsulta === []) throw new UserException("sem enderecos cadastrados");
 				$this->separaDadosDoBanco($resultado, $resultadoConsulta);
@@ -58,10 +46,10 @@
             finally{
                 return $resultado;
             }
-        }
+        }		
         function getResposta(){
-            if(empty($this->resultadoConsulta))
-				$this->resultadoConsulta = $this->consultarBanco();
-            return $this->resultadoConsulta;
+            if(!array_key_exists($this->idConsulta, $this->resultadoConsulta))
+				$this->resultadosConsultas[$this->idConsulta] = $this->consultarBanco();
+            return $this->resultadosConsultas[$this->idConsulta];
         }
     }

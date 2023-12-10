@@ -5,11 +5,11 @@
 	use App\Interfaces\ServicoInterno;
 	
 	class ConsultaPrimarios implements ServicoInterno{
-		const QUERY = "select * from `produtoprimario`";
+		private string $query = "select * from `produtoprimario`";
 		private array $primarios = [];
 		private function getDadosBanco() :array{
 			try{
-				$query = CB::getConexao()->query(self::QUERY);
+				$query = CB::getConexao()->query($this->query);
 				return $query->fetchAll();
 			}
 			catch(\Exception $e){
@@ -26,9 +26,13 @@
 					"Classificacoes" => json_decode($linha['Classificacoes'], true)
 				];
 			return $resultados;
-		}
+		}		
 		function getPrimarios() :array{
 			return $this->primarios;
+		}
+		function setEspecificos(array $quais){
+			$ids = implode(",", $quais);
+			$this->query .= " where `Id` in ({$ids}}";
 		}
 		function executar(){
 			$this->primarios = $this->organizaDadosDoBanco(
