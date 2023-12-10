@@ -72,4 +72,12 @@
 		public function visualizarProduto($data){
 			parent::renderizar('pages/visualizarProduto.html');
 		}
+		public function ConsultarEndereco($data){
+			$this->prescisaEstarLogado();
+			parent::renderizar('pages/consultarEnd.html');
+		}
+		public function MeusEnderecos($data){
+			$this->prescisaEstarLogado();
+			parent::renderizar('pagesUser/meuEnd.html');
+		}
 	}

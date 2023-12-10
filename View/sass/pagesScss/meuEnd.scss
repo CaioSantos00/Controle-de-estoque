@@ -1,0 +1,35 @@
+#sectionMeuEnd {
+    margin: 20px 280px;
+}
+
+#meusEnd {
+    display: grid;
+    gap: 10px;
+}
+
+.cardMyEnd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $corPrimaria;
+    color: $corSecundaria;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.infosEnd {
+    display: flex;
+    flex-direction: column;
+}
+
+.holdInfos {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.divBtns {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

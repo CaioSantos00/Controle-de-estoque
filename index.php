@@ -25,6 +25,8 @@
 	$router->get('/DetalhesMensagens', "RotasUser:DetalhesMensagens");
 	$router->get('/MeuPerfil', "RotasUser:MeuPerfil");
 	$router->get('/MinhaConta', "RotasUser:MinhaConta");
+	$router->get('/ConsultarEndereco', "RotasUser:ConsultarEndereco");
+	$router->get('/MeusEnderecos', "RotasUser:MeusEnderecos");
 	//------------------------------------------------------------------------------------------------------------------------------------
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
