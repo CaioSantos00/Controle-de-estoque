@@ -36,6 +36,6 @@
             $resuSecunda = $this->getSecundarios();
             $resuPrima = $this->getPrimarioDele($resuSecunda['ParentId'])[0];
             $resuPrima->Classificacoes = json_decode($resuPrima->Classificacoes, true);
-            return [$resuPrima,$resuSecunda];
+            return array_merge((array)$resuPrima,$resuSecunda);
         }
     }
