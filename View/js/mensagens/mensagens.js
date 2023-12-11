@@ -44,7 +44,7 @@ let mensagemInput = document.getElementById('mensagemInput'),
         let aBtn = document.createElement('a')
             aBtn.href = '/admin/detalhesMensagens'
             aBtn.onclick = () => {
-                sessionStorage.removerItem("msgBusca");
+                sessionStorage.removeItem("msgBusca");
                 sessionStorage.setItem("msgBusca", idmsg)
             }
         let btnMaisDetails = document.createElement('button')

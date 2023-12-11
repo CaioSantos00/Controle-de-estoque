@@ -1,6 +1,7 @@
 let btnEsquerda = document.getElementById('btnEsquerda'),
     btnDireita = document.getElementById('btnDireita'),
     mudaImg = document.getElementById('mudaImg'),
+    fot = document.getElementById('fot'),
     dom = {
         cliente: {
             nome: document.getElementById('nomeCliente'),
@@ -17,7 +18,12 @@ let btnEsquerda = document.getElementById('btnEsquerda'),
 
     
 function setEventosCarrosel(){
-    let arrayImgs = dadosMsg.imagens ?? ['/estaticos/imgs/amortecedor.jpg', '/estaticos/imgs/amortecedor2.jpg'];
+    let arrayImgs = dadosMsg.imagens
+    console.log (arrayImgs)
+    if (arrayImgs.length == 0){
+        fot.style.display = 'none'
+    }
+    // ?? ['/estaticos/imgs/amortecedor.jpg', '/estaticos/imgs/amortecedor2.jpg'];
     let i = 0,
         caminhoImgsMsgs = (idMsg, nomeImg) => `/estaticos/imgs/mensagem/${idMsg}/${nomeImg}`;
         //sinta caio, sinta a lambda no JS
@@ -43,7 +49,7 @@ function setDadosDom(){
     dom.cliente.nroPedido.innerText = dadosMsg.idMsg;
     dom.cliente.dataPedido.innerText = dadosMsg.DataEnvio;
     dom.msg.conteudo.innerText = dadosMsg.conteudo.conteudo;
-    dom.msg.motivo.innerText = dadosMsg.conteudo.motivo
+    dom.msg.motivo.innerText = "Motivo: " + dadosMsg.conteudo.motivo
 }
 async function getMsg(){
     let idMsg = sessionStorage.getItem("msgBusca") ?? "nenhuma";
