@@ -45,6 +45,7 @@
 	$router->namespace("Controladores\Rotas\RotasUser\UserRequests");
 	$router->group("usuario");
 	$router->post("/login", "UserRequests:login");
+	$router->post("/editar", "UserRequests:editar");
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->get('/perfil',"UserRequests:perfil");
 	// DAQUI CE VAI RECUPARAR DADOS DO USUARIO LOGADO NO MOMENTO

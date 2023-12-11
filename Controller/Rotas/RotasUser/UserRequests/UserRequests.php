@@ -22,7 +22,7 @@
 			}
 		}
 		private function removeCookie(string $nomeCookie) :bool{
-			return setcookie($nomeCookie,$_COOKIE[$nomeCookie],time()-3600,"/");				
+			return setcookie($nomeCookie,$_COOKIE[$nomeCookie],time()-3600,"/");
 		}
 		private function verificarExiste(string|array $dados) :bool{
 			if(is_array($dados)){
@@ -69,13 +69,13 @@
 			if(!$this->verificarExiste($_COOKIE['login'])) exit("não esta logado");
 			$dados = (new Perfil($_COOKIE['login']))->getResposta();
 			if(is_string($dados['dados'])) exit("não encontrado");
-			$retorno = [				
+			$retorno = [
 				'imagem' => $dados['imagem'],
 				'Nome' => $dados['dados']['Nome'],
 				'Email' => $dados['dados']['Email'],
 				'TipoConta' => $dados['dados']['TipoConta'],
 				'telefone' => $dados['dados']['Telefone']
-			];			
+			];
 			echo json_encode($retorno);
 		}
 		function excluirPerfil($data){
@@ -86,9 +86,12 @@
 			}
 			exit("Bela tentativa, hacker...");
 		}
+		function consultaDadosPraEdicao(){
+
+		}
 		function deslogar($data){
 			$foi = false;
-			if(isset($_COOKIE['login'])) $foi = $this->removeCookie('login');			
+			if(isset($_COOKIE['login'])) $foi = $this->removeCookie('login');
 			if(isset($_COOKIE['TipoConta']) and $foi) $foi = $this->removeCookie('TipoConta');
 			exit($foi);
 		}

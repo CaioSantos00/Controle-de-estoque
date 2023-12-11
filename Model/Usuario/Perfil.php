@@ -6,7 +6,7 @@
 
 	class Perfil implements Model, \Stringable{
 		private string $idUsuario;
-		private array $querysParaChamar = ["select `Nome`, `Email`,`Telefone`, `Carrinho`, `TipoConta` from `Usuario` where `Id` = ?"];
+		private array $querysParaChamar = ["select `Nome`, `Email`,`Telefone`, `Carrinho`, `TipoConta` from `Usuario` where `Id` = ?","select `Nome`,`Senha`,`Email`,`Telefone`, `Carrinho`, `TipoConta` from `Usuario` where `Id` = ?"];
 
 		function __construct(string $cookieIdUsuario, bool $feito = true){
 			$this->idUsuario = $feito
