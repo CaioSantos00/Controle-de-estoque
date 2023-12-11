@@ -3,7 +3,7 @@ let holdTodosPedidos = document.getElementById('holdTodosPedidos'),
 	btnBuscaPedido = document.getElementById('btnBuscaPedido'), 
 	msg = document.getElementById('mensagemErro')
 
-function criaCardMyMensagens(motivo, data, status) {
+function criaCardMyMensagens(motivo, data, status, id) {
 	let cardPedido = document.createElement('div')
 	cardPedido.classList.add('cardPedido')
 
@@ -22,6 +22,10 @@ function criaCardMyMensagens(motivo, data, status) {
 	let btnVerMais = document.createElement('button')
 	btnVerMais.classList.add('btnMaisDetails')
 	btnVerMais.innerText = "Ver Mensagem"
+		btnVerMais.onclick = () => {
+			location.href = "/DetalhesMensagens"
+			sessionStorage.setItem('msgBusca', id)
+		}
 	cardPedido.append(motivoMensa, dataMensa, situacaoPedido, btnVerMais)
 	holdTodosPedidos.append(cardPedido)
 }
@@ -40,7 +44,7 @@ function criaCardMyMensagens(motivo, data, status) {
 	msg.innerText = ''	
 
 	response.forEach(cada => {
-		criaCardMyMensagens(cada.mensagem.conteudo.motivo, cada.mensagem.DataEnvio, cada.mensagem.Status)
+		criaCardMyMensagens(cada.mensagem.conteudo.motivo, cada.mensagem.DataEnvio, cada.mensagem.Status, cada.mensagem.idMsg)
 		console.log()
 	});
 	console.log(response)
