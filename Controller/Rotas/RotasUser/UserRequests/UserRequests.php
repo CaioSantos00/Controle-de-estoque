@@ -86,9 +86,6 @@
 			}
 			exit("Bela tentativa, hacker...");
 		}
-		function consultaDadosPraEdicao(){
-
-		}
 		function deslogar($data){
 			$foi = false;
 			if(isset($_COOKIE['login'])) $foi = $this->removeCookie('login');

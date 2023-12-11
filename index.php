@@ -48,6 +48,7 @@
 	$router->post("/editar", "UserRequests:editar");
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->get('/perfil',"UserRequests:perfil");
+	$router->get('/perfilEdicao',"UserRequests:consultaDadosPraEdicao");
 	// DAQUI CE VAI RECUPARAR DADOS DO USUARIO LOGADO NO MOMENTO
 	// DAQUI CE VAI DESLOGAR O USUARIO QUE TIVER LOGADO
 	$router->get('/logoff', "UserRequests:deslogar");
@@ -76,9 +77,9 @@
 	$router->group("endereco");
 	$router->post("/cadastrar", "EnderecoRequests:cadastrar");
 	$router->get("/consultar", "EnderecoRequests:consultar");
-	$router->get("/consultarEsse/{id}", "EnderecoRequests:consultarEsse");
 	$router->post("/excluir", "EnderecoRequests:excluir");
 	$router->post("/editar", "EnderecoRequests:editar");
+	$router->get("/consultarEsse/{id}", "EnderecoRequests:consultarEsse");
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 	$router->namespace("Controladores\Rotas\RotasAdm");
@@ -126,6 +127,9 @@
 	// Informações de uma mensagem específica para a parte de admin
 
 	$router->group("produto");
+	$router->get("/consultar/{idPrimario}", "AdmRequests:consultarProduto");
+	$router->get("/consultarEsse/{idVariacao}","AdmRequests:consultarVariacao");
+	$router->get("/consultarTodos", "AdmRequests:consultarProdutos");
 	$router->post("/excluirProduto","ProdutoRequests:excluirProduto");
 	$router->post("/cadastrarProduto", "ProdutoRequests:cadastrarProduto");
 	$router->post("/editarTodosOsDados", "ProdutoRequests:editarTodosDados");

@@ -39,11 +39,10 @@
 		private function retornarDadosEscolhidosParaBuscar() :array{
 			$dados = $this->getDadosBanco();
 			$resultado = [];
-			foreach($dados as $dado){
-				foreach($this->dadosParaBuscar as $paraReceber){
+			foreach($dados as $dado)
+				foreach($this->dadosParaBuscar as $paraReceber)
 					$resultado[$paraReceber] = $dado[$paraReceber];
-				}
-			}
+
 			return $resultado;
 		}
 		function executar(){

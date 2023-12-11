@@ -7,7 +7,7 @@
 	abstract class Consulta{
 		protected array $queriesConsulta = [
 			"select `Id`, `Nome`, `Classificacoes` from `ProdutoPrimario`",
-            "select `Id`, `preco/peca` as `Preco`, `Qtd`, `Disponibilidade`, `especificacoes` from `produtosecundario` where `Id` = ?"
+            "select `Id`, `preco/peca` as `Preco`, `Qtd`, `Disponibilidade`, `especificacoes` from `produtosecundario` where `ParentId` = ?"
 		];
 		protected function buscarDadosPrincipaisDoBanco(ServicoInterno $consultaImagens) :array|bool{
             try{
@@ -38,7 +38,12 @@
 			return $dadosSecundarios;
 		}
 		private function organizaDadosPrimarios(array $primarioInteiro) :array{
-			return [$primarioInteiro['Id'],$primarioInteiro['Nome'], json_decode($primarioInteiro['Classificacoes'], true), (string)(new BuscarDescricao($primarioInteiro['Id']))];
+			return [
+				$primarioInteiro['Id'],
+				$primarioInteiro['Nome'],
+				json_decode($primarioInteiro['Classificacoes'], true),
+				(string)(new BuscarDescricao($primarioInteiro['Id']))
+			];
 		}
 		private function organizaDadosSecundarios(array $secundarioInteiro) :array{
 			return array(

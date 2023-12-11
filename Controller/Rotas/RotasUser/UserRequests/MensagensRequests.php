@@ -15,8 +15,7 @@
     class MensagensRequests{
         function __construct(){
             if(!isset($_COOKIE['login'])) exit("manda o usuario se logar primeiro");
-            print_r($_POST);
-            print_r($_FILES);
+            //print_r($_FILES);
 
         }
         private function buscarImagensMsg(string $idMsg) :array|string{

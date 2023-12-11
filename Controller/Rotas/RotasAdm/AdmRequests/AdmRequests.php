@@ -10,13 +10,21 @@
 	use App\Carrinho\ConsultarFinalizados as ConsultaCarrinhosTerminados;
 
 	class AdmRequests{
-		/*function __construct(){
+		function __construct(){
 			if(!isset($_COOKIE['TipoConta'])) exit("sai fora, Hacker!");
 			if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
-		}*/
+		}
 		function consultarProdutos($data){
-			echo new ConsultaProdutos;
-
+			foreach((new ConsultaProdutos)->getResposta() as $prod){
+				echo "<hr>";
+				print_r($prod);
+			};
+		}
+		function consultarVariacao($data){
+			$busca = new CUVariacao($data['idVariacao'],[
+				"ParentId","preco/peca",
+				"qtd","especificacoes"
+			]);
 		}
 		function consultarProdutosPrimarios($data){
 			$primarios = new ConsultaPrimarios;
@@ -24,7 +32,7 @@
 			echo json_encode($primarios->getPrimarios());
 		}
 		function consultarProduto($data){
-			echo new ConsultaProduto($data['id']);
+			echo new ConsultaProduto($data['idPrimario']);
 		}
 		function consultarUsuarios($data){
 			echo new ConsultaUsuarios;
