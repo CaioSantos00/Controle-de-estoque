@@ -8,23 +8,22 @@
     };
     use App\Servicos\Arquivos\Mensagens\BuscarImagens as ImgMsg;
     use App\Mensagem\VisualizarMensagem;
-    
+
     use App\Servicos\Arquivos\Mensagens\BuscarImagens as BIMsg;
     class MensagensRequests{
         function todas($data){
-            $msgs = new TdsMsgs;
-            echo json_encode($msgs->getResposta());
+            echo json_encode((new TdsMsgs)->getResposta());
         }
-        function usuarioEspecifico($data){            
+        function usuarioEspecifico($data){
             $msgs = (new MsgnsDele($data['idUser'], new BIMsg))->getResposta();
             echo match(true){
                 is_string($msgs) => $msgs,
                 is_array($msgs) => json_encode($msgs, JSON_PRETTY_PRINT),
-                default => "erro interno"                
+                default => "erro interno"
             };
         }
         function visualizarMsg($data){
-            if($data['idMsg'] == "nenhuma") exit("sem mensagem é foda");
+            if($data['idMsg'] == "nenhuma" or !is_numeric($data['idMsg'])) exit("sem mensagem é foda");
             echo (new VisualizarMensagem($data['idMsg']))->getResposta();
         }
         function mensagemEspecifica($data){
@@ -36,6 +35,5 @@
             echo $msg->executar()
                 ? json_encode([...$msg->mensagem, "imagens" => $imgs->getImagens()])
                 : $msg->erro;
-
         }
     }

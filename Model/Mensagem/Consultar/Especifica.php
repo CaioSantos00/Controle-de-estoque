@@ -28,7 +28,7 @@
             "Status" => $linha["Status"]
           ];
       }
-      catch(\PDOException|\Exception $e){
+      catch(\Exception $e){
         $resposta = false;
         CB::voltaTudo();
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());
@@ -44,7 +44,7 @@
         if(is_bool($mensagem)) throw new \Exception("não encontrada");
         $this->mensagem = $mensagem;
       }
-      catch(\Exception|\PDOException $e){
+      catch(\Exception $e){
         $resposta = false;
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());
         $this->erro = "erro interno";

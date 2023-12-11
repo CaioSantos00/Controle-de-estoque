@@ -62,16 +62,17 @@ function buscaMensagem(respon, contexto = '') {
     let strLimpa = mensagemInput.value.trim().toLowerCase();
     let retornou = false
     holdTodosPedidos.innerHTML = '';
+    console.log(respon);
     respon.forEach(cada => {
         if (strLimpa === cada.NomeUsuario.toLowerCase() || cada.NomeUsuario.toLowerCase().startsWith(strLimpa)) {
-            criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status, cada.Id)
+            criaCardMensagem(cada.NomeUsuario, cada.conteudo.motivo, cada.DataEnvio, cada.Status, cada.Id)
             retornou = true
             return;
         }
     });
     if(!retornou){
         strLimpa = '';
-        respon.forEach(cada => criaCardMensagem(cada.NomeUsuario, 'Faltou motivo no JSON', cada.DataEnvio, cada.Status, cada.Id));
+        respon.forEach(cada => criaCardMensagem(cada.NomeUsuario, cada.conteudo.motivo, cada.DataEnvio, cada.Status, cada.Id));
         alert('Usuário não encontrado')
     }
 }

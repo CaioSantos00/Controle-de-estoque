@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Endereço</title>    
+    <title>Editar Endereço</title>
     <link rel="stylesheet" href="/estaticos/estilo" />
-    <script src="/estaticos/js/elementos/header.js" defer></script>    
+    <script src="/estaticos/js/elementos/header.js" defer></script>
+    <script src="/estaticos/js/subdir/Requisicoes/requisicaoEndereco/endereco" type="module"></script>
 </head>
 <body>
     <div vw class="enabled">
@@ -20,21 +21,21 @@
       </script>
     <header class="header-container"></header>
     <main>
-        <section id="sectionCar"> 
+        <section id="sectionCar">
             <div id="divInfoEndereco">
                 <div class="titleEndereco">Editar Endereço</div>
                 <div id="formCadasterEndereco">
                     <div class="holdInputsInfos">
-                        <input type="text" placeholder="Nome Completo" class="inputsEndereco" id="nomeCompleto">
-                        <input type="text" placeholder="Telefone" class="inputsEndereco" id="telefone">
-                    </div>                    
+                        <input type="text" placeholder="Nome do Endereco (Casa, Trabalho...)" class="inputsEndereco" id="nomeEndereco">
+                        <input type="text" placeholder="CEP" class="inputsEndereco" id="cep">
+                    </div>
                     <div class="holdInputsInfos">
                         <input type="text" placeholder="Estado" class="inputsEndereco" id="estado">
                         <input type="text" placeholder="Cidade" class="inputsEndereco" id="cidade">
                     </div>
                     <div class="holdInputsInfos">
                         <input type="text" placeholder="Bairro" class="inputsEndereco" id="bairro">
-                        <input type="number" placeholder="CEP" class="numberInput"  min="0" id="cep"> 
+                        <input type="text" placeholder="Instruções de entrega" class="inputsEndereco">
                     </div>
                     <div  class="holdInputsInfos">
                         <input type="text" placeholder="Digite nome da rua" class="inputsEndereco" id="rua">

@@ -1,11 +1,11 @@
 <?php
 	namespace Controladores\Rotas\RotasUser\UserRequests;
-	
-	use App\Enderecos\{	
+
+	use App\Enderecos\{
 		Consultar,
 		Cadastrar,
 		Editar,
-		Excluir	
+		Excluir
 	};
 
 	class EnderecoRequests{
@@ -23,11 +23,12 @@
 		}
 		function consultar($data){
 		    $consulta = new Consultar;
-			$consulta->setNovaConsulta($this->idUsuario);		
+			$consulta->setNovaConsulta($this->idUsuario);
 			echo json_encode($consulta->getResposta());
 		}
 		function consultarEsse($data){
 			$consulta = new Consultar;
+			if(!is_numeric($data['id'])) exit("sem endereco é foda");
 			$consulta->setNovaConsulta($data['id'],"Id");
 			echo json_encode($consulta->getResposta());
 		}

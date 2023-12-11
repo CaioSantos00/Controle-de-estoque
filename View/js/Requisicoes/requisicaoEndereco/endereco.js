@@ -1,44 +1,73 @@
 const nomeEndereco = document.getElementById('nomeEndereco'),
-    telEndereco = document.getElementById('telEndereco'),
-    ruaEndereco = document.getElementById('ruaEndereco'),
-    numberEndereco = document.getElementById('numberEndereco'),
-    bairroEndereco = document.getElementById('bairroEndereco'),
-    estadoEndereco = document.getElementById('estadoEndereco'),
-    cityEndereco = document.getElementById('cityEndereco'),
-    aEdit = document.getElementById('aEdit')
+    ruaEndereco = document.getElementById('rua'),
+    numberEndereco = document.getElementById('numero'),
+    bairroEndereco = document.getElementById('bairro'),
+    estadoEndereco = document.getElementById('estado'),
+    cityEndereco = document.getElementById('cidade'),
+    titleEndereco = document.getElementsByClassName('titleEndereco')[0],
+    aEdit = document.getElementById('aEdit');
 
-function enviaDadosFront(respostaBusca) {
-    try {        
-        respostaBusca = JSON.parse(respostaBusca)        
-        nomeEndereco.innerText = respostaBusca.nome
-        telEndereco.innerText = respostaBusca.telefone
-        ruaEndereco.innerText = respostaBusca.endereco.rua + ','
-        numberEndereco.innerText = respostaBusca.endereco.numero + ','
-        bairroEndereco.innerText = respostaBusca.endereco.bairro + ','
-        estadoEndereco.innerText = respostaBusca.endereco.estado + ','
-        cityEndereco.innerText = respostaBusca.endereco.cidade
+function enviaDadosFront(respostaBusca, feito = true, daApi = false) {
+    try {
+        if(!feito) respostaBusca = JSON.parse(respostaBusca)
+
+        if(daApi){
+            bairroEndereco.value = respostaBusca.bairro
+            estadoEndereco.value = respostaBusca.uf
+            cityEndereco.value = respostaBusca.localidade
+            return;
+        }
+        ruaEndereco.value = respostaBusca.endereco.rua
+        nomeEndereco.value = respostaBusca.nome
+        numberEndereco.value = respostaBusca.endereco.numero
     }
     catch (e) {
         console.log(e)
     }
 }
+function ativaConsultaPorCep() {
+    const debounce = (func, delay) => {
+        let timer;
+        return function () {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, arguments);
+            }, delay);
+        };
+    };
 
-async function busca() {
-    const resposta = await fetch('http://localhost/Sites/Repositorios/tcc/Sistema-de-pedidos-TCC/View/js/jsonEndereco.json')
-    if (!resposta.ok) {
-        console.log("Erro de Solicitação !");
+    cep.addEventListener('input', debounce(async () => {
+        console.log("Consulta de CEP ativada");
+        let dados = await fetch(`https://viacep.com.br/ws/${cep.value.trim()}/json`);
+        enviaDadosFront(await dados.json(), true, true);
+    }, 1500));
+}
+function identificaOperacao(){
+    let operacao;
+    document.cookie.split(";").forEach((item) => {
+        let coo = item.split("=")
+        if(coo[0].trim() == "operacao") operacao = coo[1].trim()
+    });
+    return operacao
+}
+async function recuperaDadosEndereco(){
+    let endereco = sessionStorage.getItem("endereco");
+    let server = await fetch(`/enderecos/consultarEsse/${endereco ? endereco : "sem"}`)
+    let response = await server.text();
+    try {
+        return JSON.parse(response)
+    } catch (e) {
+        return response;
+    }
+}
+async function mudaNomeArqv(operacao){
+    if(operacao == "cadastro"){
+        titleEndereco.innerText = "Cadastrar endereco";
+        ativaConsultaPorCep()        
         return;
-    }    
-    const respostaBusca = await resposta.text();
-    console.log(respostaBusca)
-    sessionStorage.setItem("requisicao", respostaBusca);
-    console.log(JSON.parse(sessionStorage.getItem("requisicao")))
-    enviaDadosFront(respostaBusca)
+    }
+    let endereco = await recuperaDadosEndereco();
+    console.log(endereco)
 }
 
-busca()
-aEdit.addEventListener('click', () => {
-    let urlBuscaId = location.href.split('?')
-    
-    console.log('E')
-})
+mudaNomeArqv(await identificaOperacao())

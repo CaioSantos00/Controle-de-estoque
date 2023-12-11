@@ -1,5 +1,5 @@
-const dados = sessionStorage.getItem("requisicao");
-console.log(dados);
+const operacao = sessionStorage.getItem("operacao");
+
 let nomeCompleto = document.getElementById("nomeCompleto"),
   telefone = document.getElementById("telefone"),
   estado = document.getElementById("estado"),
@@ -23,25 +23,31 @@ function enviaDadosFront(respostaBusca) {
     estado.value = respostaBuscaJSON.endereco.estado;
     cidade.value = respostaBuscaJSON.endereco.cidade;
     cep.value = respostaBuscaJSON.endereco.cep;
-  } catch (errorQual) {
+  }catch (errorQual){
     console.log(respostaBusca);
     console.log("Erro" + errorQual);
     console.log(errorQual);
   }
 }
+switch (operacao) {
+    case "edicao":
 
-if (dados) {
-  enviaDadosFront(dados);
-} else {
-  (async () => {
-    const resposta = await fetch(
-      "estaticos/js/jsonEndereco.json"
-    );
-    const respostaBusca = await resposta.text();
-    if (!resposta.ok) {
-      console.log("Erro de Solicitação na API!");
-      return;
-    }
-    enviaDadosFront(respostaBusca);
-  })();
+        break;
+    case "cadastro":
+
+        break;
+    default:
+
 }
+
+(async () => {
+const resposta = await fetch(
+  "estaticos/js/jsonEndereco.json"
+);
+const respostaBusca = await resposta.text();
+if (!resposta.ok) {
+  console.log("Erro de Solicitação na API!");
+  return;
+}
+enviaDadosFront(respostaBusca);
+})();
