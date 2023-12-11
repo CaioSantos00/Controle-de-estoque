@@ -10,6 +10,6 @@ function criaOption(valor, texto){
 	let server = await fetch("/admin/consulta/consultarProdutosPrimarios");
 	let primarios =  await server.json();
 
-	if(!Array.isArray(primarios)) return false; // faz mostrar uma mensagem top aq sla
+	if(!Array.isArray(primarios)) alert('Algo deu errado.'); // faz mostrar uma mensagem top aq sla
 	primarios.forEach(primario => selectProdutosPrimarios.append(criaOption(primario.Id, primario.Nome)));
 })()

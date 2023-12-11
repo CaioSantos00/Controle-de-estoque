@@ -1,5 +1,10 @@
 let holdTodosPedidos = document.getElementById('holdTodosPedidos')
 let inputBusca = document.getElementById('inputBusca')
+let btnBuscaPedido = document.getElementById('btnBuscaPedido')
+
+/*(async () => {
+	let resposta = await fetch('')
+})()*/
 
 function  criaCardVar(nomeVar, imgSrc) {
     let cardsVaris = document.createElement('div')
@@ -32,4 +37,4 @@ function  criaCardVar(nomeVar, imgSrc) {
     holdTodosPedidos.append(cardsVaris)
 }
 
-criaCardVar()
+criaCardVar("Variação", "SEIol")

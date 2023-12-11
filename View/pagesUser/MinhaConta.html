@@ -7,7 +7,7 @@
   <title>Minha Conta</title>
   <link rel="stylesheet" href="/estaticos/estilo" />
   <script src="/estaticos/js/elementos/header.js" defer></script>
-  <script src="/estaticos/js/Requisicoes/requisicaoPerfil/editUser.js" defer></script>
+  <script src="/estaticos/js/subdir/Requisicoes/requisicaoPerfil/editUser" defer></script>
 </head>
 
 <body>
@@ -28,11 +28,11 @@
       <form id="form">
         <div id="titleForms">Editar informações</div>
 
-        <input type="text" name="Nome" placeholder="Digite seu nome" class="inputs" />
-        <input type="email" name="Email" placeholder="Digite seu email" class="inputs" />
-        <input type="password" name="Senha" placeholder="Digite sua senha" class="inputs" />
-        <input type="text" name="Telefone" placeholder="Digite seu telefone" class="inputs" />
-        <input type="file" name="fotoUsuario" class="inputs inputFile" />
+        <input type="text" name="Nome" placeholder="Digite seu nome" id="nome" class="inputs" />
+        <input type="email" name="Email" placeholder="Digite seu email" id="email" class="inputs" />
+        <input type="text" name="Senha" placeholder="Digite sua senha" id="senha" class="inputs" />
+        <input type="text" name="Telefone" placeholder="Digite seu telefone" id="telefone" class="inputs" />
+        <input type="file" name="fotoUsuario" class="inputs inputFile" id="img" />
         <div id="divEsqueceBtnEntre">
           <input type="submit" class="btnsEditClass" id="" value="Salvar" />
         </div>
