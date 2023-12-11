@@ -1243,6 +1243,7 @@ a #btnCon:hover {
   display: flex;
   gap: 3px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .divBtns {
@@ -1251,6 +1252,16 @@ a #btnCon:hover {
   gap: 8px;
 }
 
+@media screen and (max-width: 980px) {
+  #sectionMeuEnd {
+    margin: 20px;
+  }
+}
+@media screen and (max-width: 440px) {
+  #sectionMeuEnd {
+    margin: 10px;
+  }
+}
 @media screen and (max-width: 1115px) {
   #divCardInit {
     gap: 10px;
