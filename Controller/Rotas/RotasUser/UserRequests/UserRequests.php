@@ -78,6 +78,19 @@
 			];
 			echo json_encode($retorno);
 		}
+		function perfilMsg($data) :void{
+			if(!$this->verificarExiste($_COOKIE['login'])) exit("não esta logado");
+			$dados = (new Perfil($_COOKIE['login'], true))->getResposta();
+			if(is_string($dados['dados'])) exit("não encontrado");
+			$retorno = [
+				'imagem' => $dados['imagem'],
+				'Nome' => $dados['dados']['Nome'],
+				'Email' => $dados['dados']['Email'],
+				'TipoConta' => $dados['dados']['TipoConta'],
+				'telefone' => $dados['dados']['Telefone']
+			];
+			echo json_encode($retorno);
+		}
 		function excluirPerfil($data){
 			if($this->verificarExiste([$_POST['idUsuario'],$_COOKIE['login']]) and $_POST['idUsuario'] == hex2bin($_COOKIE['login'])){
 				$perfil = new EP($_POST['idUsuario']);

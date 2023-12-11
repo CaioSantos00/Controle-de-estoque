@@ -48,6 +48,7 @@
 	$router->post("/editar", "UserRequests:editar");
 	$router->post("/cadastro", "UserRequests:cadastro");
 	$router->get('/perfil',"UserRequests:perfil");
+	$router->get('/perfilMensagem',"UserRequests:perfilMsg");
 	$router->get('/perfilEdicao',"UserRequests:consultaDadosPraEdicao");
 	// DAQUI CE VAI RECUPARAR DADOS DO USUARIO LOGADO NO MOMENTO
 	// DAQUI CE VAI DESLOGAR O USUARIO QUE TIVER LOGADO

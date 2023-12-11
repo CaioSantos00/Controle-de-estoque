@@ -16,7 +16,7 @@ let btnEsquerda = document.getElementById('btnEsquerda'),
     },
     dadosMsg;
 
-    
+
 function setEventosCarrosel(){
     let arrayImgs = dadosMsg.imagens
     console.log (arrayImgs)
@@ -33,12 +33,12 @@ function setEventosCarrosel(){
         if (arrayImgs.length === i) {
             i = 0
         }
-    })    
+    })
     btnEsquerda.addEventListener('click', ()=> {
         if (i == 0) {
            i = arrayImgs.length - 1
            return
-        } 
+        }
         i--
         mudaImg.src = caminhoImgsMsgs(dadosMsg.idMsg, arrayImgs[i])
     })
@@ -55,7 +55,7 @@ async function getMsg(){
     let idMsg = sessionStorage.getItem("msgBusca") ?? "nenhuma";
     let server = await fetch(`/admin/mensagens/infoMsgEspecifica/${idMsg}`);
     dadosMsg = await server.json();
-    dadosMsg.dadosUsuario = await (await fetch("/usuario/perfil")).json();    
+    dadosMsg.dadosUsuario = await (await fetch("/usuario/perfilMensagem")).json();    
     setEventosCarrosel()
     setDadosDom()
     console.log(dadosMsg);
