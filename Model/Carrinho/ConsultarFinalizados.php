@@ -8,10 +8,11 @@
 	class ConsultarFinalizados implements Model, \Stringable{
 		use ODC;
 		private string $query = "select carrinhosfinalizados.Id as idCarrinho, carrinhosfinalizados.Data, usuario.Nome as nomeUsuario from carrinhosfinalizados INNER JOIN usuario on carrinhosfinalizados.IdDono = usuario.Id";
-		private function consultarCarrinhos() :array{			
-			return (($retorno = CB::getConexao()->query($this->query)) === false)
-				? []
-				: $this->organizar($retorno->fetchAll());
+		private function consultarCarrinhos() :array{
+			$retorno = [];
+			if(($resultado = (CB::getConexao()->query($this->query))) === false) return $retorno;
+			$this->organizar($retorno, $resultado);
+			return $retorno;
 		}
 
 		function __toString(){

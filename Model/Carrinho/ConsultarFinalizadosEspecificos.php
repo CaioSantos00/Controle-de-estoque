@@ -51,9 +51,8 @@
             $this->buscarImagens->idVariacao = $idVariacao;
             $this->buscarImagens->executar();
             return $this->buscarImagens->ok
-<<<<<<< Updated upstream
-            ? $this->buscarImagens->imagens
-            : [];
+                ? $this->buscarImagens->imagens
+                : [];
         }
         private function getDadoProduto(array $idVariacao) :array{
             $this;
@@ -65,14 +64,12 @@
                 print_r($this->getDadoProduto($idVariacao));
             }
             return [$idsVariacos];
-
-=======
                 ? $this->buscarImagens->imagens
                 : [];
         }        
         private function dadosVariacao(string $idVariacao) :array{
             $dados = $this->consultarBanco($this->querys[1], [$idVariacao]);
->>>>>>> Stashed changes
+
         }
         private function mapearCarrinho(string $conteudoCarrinho) :array{
             $dadosCarrinho = [];
