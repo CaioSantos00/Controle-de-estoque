@@ -4,12 +4,12 @@
   use App\Servicos\Conexao\ConexaoBanco as CB;
   use App\Exceptions\UserException;
   use App\Interfaces\ServicoInterno;
-  
+
   class Especifica implements ServicoInterno{
     public array $mensagem;
     public string $erro;
     private string $idMensagem;
-    private string $query = "select `Id`,`parentId`,`conteudo`,`DataEnvio` from `mensagens` where `Id` = ?";
+    private string $query = "select `Id`,`parentId`,`conteudo`,`DataEnvio`,`Status` from `mensagens` where `Id` = ?";
     function __construct(string $idMensagem){
       $this->idMensagem = $idMensagem;
     }
@@ -24,7 +24,8 @@
             "idMsg" => $linha["Id"],
             "parentId" => $linha["parentId"],
             "conteudo" => json_decode($linha["conteudo"], true),
-            "DataEnvio" => $linha["DataEnvio"]
+            "DataEnvio" => $linha["DataEnvio"],
+            "Status" => $linha["Status"]
           ];
       }
       catch(\PDOException|\Exception $e){
@@ -35,14 +36,14 @@
       finally{
         return $resposta;
       }
-    }    
+    }
     function executar(){
       try{
         $resposta = true;
         $mensagem = $this->getDadosBanco();
         if(is_bool($mensagem)) throw new \Exception("não encontrada");
         $this->mensagem = $mensagem;
-      }      
+      }
       catch(\Exception|\PDOException $e){
         $resposta = false;
         $GLOBALS['ERRO']->setErro("Consulta mensagem", $e->getMessage());

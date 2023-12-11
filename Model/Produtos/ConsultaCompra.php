@@ -1,4 +1,4 @@
-<<?php
+<?php
     namespace App\Produtos;
 
     use App\Servicos\Conexao\ConexaoBanco as CB;
@@ -25,7 +25,7 @@
                 $resul = [];
                 $query = CB::getConexao()->prepare($this->query);
                 $query->execute([$idPrimario]);
-                $this->organizar($resul, $query->fetchAll())
+                $this->organizar($resul, $query->fetchAll());
                 return $resul;
             } catch (\Exception $e) {
                 $GLOBALS['ERRO']->setErro("Consulta para Compra", $e->getMessage());
@@ -33,7 +33,9 @@
             }
         }
         function getResposta(){
-            $resul = $this->getSecundarios();
-            +
+            $resuSecunda = $this->getSecundarios();
+            $resuPrima = $this->getPrimarioDele($resuSecunda['ParentId'])[0];
+            $resuPrima->Classificacoes = json_decode($resuPrima->Classificacoes, true);
+            return [$resuPrima,$resuSecunda];
         }
     }

@@ -4,7 +4,8 @@
 	use App\Produtos\{
 		ConsultaGeral as ConsultaProdutos,
 		ConsultaUnica as ConsultaProduto,
-		ConsultaPrimarios
+		ConsultaPrimarios,
+		ConsultaCompra
 	};
 	use App\Usuario\ConsultarTodos as ConsultaUsuarios;
 	use App\Carrinho\ConsultarFinalizados as ConsultaCarrinhosTerminados;
@@ -12,7 +13,7 @@
 	class AdmRequests{
 		function __construct(){
 			if(!isset($_COOKIE['TipoConta'])) exit("sai fora, Hacker!");
-			if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
+			//if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
 		}
 		function consultarProdutos($data){
 			foreach((new ConsultaProdutos)->getResposta() as $prod){
@@ -21,10 +22,8 @@
 			};
 		}
 		function consultarVariacao($data){
-			$busca = new CUVariacao($data['idVariacao'],[
-				"ParentId","preco/peca",
-				"qtd","especificacoes"
-			]);
+			$busca = new ConsultaCompra($data['idVariacao']);
+			echo json_encode($busca->getResposta());
 		}
 		function consultarProdutosPrimarios($data){
 			$primarios = new ConsultaPrimarios;
