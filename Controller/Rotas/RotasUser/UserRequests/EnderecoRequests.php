@@ -34,7 +34,7 @@
 		function excluir($data){
 			$excluir = new Excluir(
 				$this->idUsuario,
-				$_POST['idsEnderecos']
+				json_decode($_POST['idsEnderecos'],true)
 			);
 			echo $excluir->getResposta();
 		}

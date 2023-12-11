@@ -4,8 +4,10 @@
     use App\Servicos\Conexao\ConexaoBanco as CB;
     use App\Interfaces\Model;
 	use App\Exceptions\UserException;
-
+	use App\Traits\OrganizarDadosConsulta as ODC;
+	
     class Consultar implements Model{
+		use ODC;
         private string $idConsulta;
 		private array $resultadosConsultas = [];
         private string $query;        
@@ -16,17 +18,6 @@
 	            `DataCriacao`,`InstrucoesEntrega`,`dataModificacao`
 	            from `enderecos` where `{$buscarPor}` = ?";			
 		}
-		private function separaDadosDoBanco(array &$resul, array $resultadoDaConsulta){
-			$x = 0;
-			foreach($resultadoDaConsulta as $consulta){
-				$resul[$x] = new \stdClass;
-				foreach($consulta as $chav => $valor){
-					if(!is_string($chav)) continue;
-					$resul[$x]->$chav = $valor;
-				}
-				$x++;
-			}
-		}	
         private function consultarBanco() :array{
             try{
                 $resultado = [];
@@ -34,7 +25,7 @@
         		if(!$query->execute([$this->idConsulta])) throw new \Exception("execução da query falhou");
 		        $resultadoConsulta = $query->fetchAll();
 				if($resultadoConsulta === []) throw new UserException("sem enderecos cadastrados");
-				$this->separaDadosDoBanco($resultado, $resultadoConsulta);
+				$this->organizar($resultado, $resultadoConsulta);
             }
 			catch(UserException $e){
 				$resultado = [$e->getMessage()];
