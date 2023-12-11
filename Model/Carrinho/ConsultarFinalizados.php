@@ -2,22 +2,18 @@
 	namespace App\Carrinho;
 	
 	use App\Servicos\Conexao\ConexaoBanco as CB;
-	use App\Usuario\Perfil as PerfilUser;
 	use App\Interfaces\Model;
-	use App\Enderecos\Consultar as CEndereco;
 	
 	class ConsultarFinalizados implements Model, \Stringable{
-		private string $query = "select * from `carrinhosfinalizados`";
-		
+		private string $query = "select carrinhosfinalizados.Id as idCarrinho, carrinhosfinalizados.Data, usuario.Nome as nomeUsuario from carrinhosfinalizados INNER JOIN usuario on carrinhosfinalizados.IdDono = usuario.Id";
 		private function consultarCarrinhos() :array{
 			$retorno = CB::getConexao()->query($this->query);
-			
 			return ($retorno === false)
 				? []
 				: $retorno->fetchAll();
 		}
 		private function getDadosDonoCarrinho(string $idUsuario) :array|string{
-			$dono = (new PerfilUser($idUsuario +1,false))->getResposta();
+			$dono = (new PerfilUser($idUsuario,false))->getResposta();
 			
 			return is_array($dono["dados"])
 				? [$dono["imagem"],$dono["dados"]['Nome'],$dono["dados"]['Email'],$dono["dados"]['Telefone']]

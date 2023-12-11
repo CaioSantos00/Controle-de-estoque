@@ -7,9 +7,9 @@
 
     class Consultar implements Model{
         private string $idConsulta;
-		private array $resultadosConsultas;
+		private array $resultadosConsultas = [];
         private string $query;        
-		function setNovaConsulta(string $idUsuario, string $buscarPor = "IdDono"){
+		function setNovaConsulta(string $idConsulta, string $buscarPor = "IdDono"){
             $this->idConsulta = $idConsulta;
 			$this->query = "select
 	            `Id`,`nomeEndereco`,`Cep`,`Cidade`,`Rua`,`Bairro`,`Numero`,
@@ -48,7 +48,7 @@
             }
         }		
         function getResposta(){
-            if(!array_key_exists($this->idConsulta, $this->resultadoConsulta))
+            if(!array_key_exists($this->idConsulta, $this->resultadosConsultas))
 				$this->resultadosConsultas[$this->idConsulta] = $this->consultarBanco();
             return $this->resultadosConsultas[$this->idConsulta];
         }

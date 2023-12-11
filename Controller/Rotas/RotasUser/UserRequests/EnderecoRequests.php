@@ -23,12 +23,12 @@
 		}
 		function consultar($data){
 		    $consulta = new Consultar;
-			$consulta->setConsulta($this->idUsuario);		
+			$consulta->setNovaConsulta($this->idUsuario);		
 			echo json_encode($consulta->getResposta());
 		}
 		function consultarEsse($data){
 			$consulta = new Consultar;
-			$consulta->setConsulta($data['id'],"Id");
+			$consulta->setNovaConsulta($data['id'],"Id");
 			echo json_encode($consulta->getResposta());
 		}
 		function excluir($data){

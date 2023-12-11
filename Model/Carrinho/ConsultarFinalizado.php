@@ -5,6 +5,7 @@
 	use App\Interfaces\Model;
 	
 	class ConsultarFinalizado implements Model{
+		private static array $queries = ["select `Nome`, `Telefone`"];
 		private static string $query = "SELECT		
 		usuario.Nome as NomeUsuario,
 		usuario.Telefone as Telefone,
