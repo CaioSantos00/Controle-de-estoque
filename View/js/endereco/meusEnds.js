@@ -19,7 +19,7 @@ let pessoas = [
 
 let meusEnd = document.getElementById('meusEnd')
 
-function criaCardEnd(nome, rua, numero, bairro, cidade, estado) {
+function criaCardEnd(id, nome, rua, numero, bairro, cidade, estado) {
     let cardMyEnd = document.createElement('div')
     cardMyEnd.classList.add('cardMyEnd')
 
@@ -37,9 +37,9 @@ function criaCardEnd(nome, rua, numero, bairro, cidade, estado) {
     ruaPerson.innerText = rua + ','
     let numberPerson = document.createElement('div')
     numberPerson.innerText = numero + ','
-    
+
     holdInfosOne.append(nomePerson, ruaPerson, numberPerson)
-    
+
     let holdInfosTwo = document.createElement('div')
     holdInfosTwo.classList.add('holdInfos')
 
@@ -50,7 +50,7 @@ function criaCardEnd(nome, rua, numero, bairro, cidade, estado) {
     cidadePerson.innerText = cidade + ','
     let statePerson = document.createElement('div')
     statePerson.innerText = estado + '.'
-    
+
     holdInfosTwo.append(bairroPerson, cidadePerson, statePerson)
     infosEnd.append(holdInfosOne, holdInfosTwo)
 
@@ -59,17 +59,51 @@ function criaCardEnd(nome, rua, numero, bairro, cidade, estado) {
     let btnsExcluClass = document.createElement('button')
     btnsExcluClass.classList.add('btnsExcluClass')
     btnsExcluClass.innerText = 'Excluir'
-    btnsExcluClass.onclick = () => {}
+    let arrayExclu = []
+    btnsExcluClass.onclick = async () => {
+        cardMyEnd.remove()
+        arrayExclu.push(id)
+        console.log(arrayExclu)
+        let form = new FormData();
+        form.append("idsEnderecos", JSON.stringify(arrayExclu))
+        let resposta = await fetch('/endereco/excluir', {
+            method: 'POST',
+            body: form
+        })
+        console.log(resposta)
+        console.log(await resposta.text())
+        if (!resposta.ok) {
+            console.log("Erro na API " + resposta.ok)
+        }
+    }
     let btnsEditClass = document.createElement('button')
     btnsEditClass.classList.add('btnsEditClass')
     btnsEditClass.innerText = 'Editar'
-    btnsEditClass.onclick = () => {}
+    btnsEditClass.onclick = () => { }
     divBtns.append(btnsExcluClass, btnsEditClass)
 
     cardMyEnd.append(infosEnd, divBtns)
     meusEnd.append(cardMyEnd)
 }
 
-pessoas.forEach(cada => {
-    criaCardEnd(cada.nome, cada.rua, cada.numero, cada.bairro, cada.cidade, cada.estado)
-});
+async function buscaEnds() {
+    let resposta = await fetch('/endereco/consultar')
+    if (!resposta.ok) {
+        console.log("Erro na API " + resposta.ok)
+    }
+    let respon = await resposta.json()
+    console.log(respon)
+    if (respon == 'sem enderecos cadastrados') {
+        let msg = document.createElement('div')
+        msg.innerText = "Sem endereços cadastrados."
+        msg.style.textAlign = 'Center'
+        meusEnd.append(msg)
+        console.log('Sem endereços cadastrados.')
+    } else {
+    respon.forEach(cada => {
+        criaCardEnd(cada.Id, cada.nomeEndereco, cada.Rua, cada.Numero, cada.Bairro, cada.Cidade, cada.Cep)
+    });
+}
+}
+
+buscaEnds()

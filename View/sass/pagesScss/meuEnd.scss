@@ -26,10 +26,23 @@
     display: flex;
     gap: 3px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .divBtns {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+@media screen and (max-width: 980px){
+    #sectionMeuEnd {
+        margin: 20px;
+    }
+}
+
+@media screen and (max-width: 440px){
+    #sectionMeuEnd {
+        margin: 10px;
+    }
 }
