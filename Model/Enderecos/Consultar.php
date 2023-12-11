@@ -19,10 +19,10 @@
 		private function separaDadosDoBanco(array &$resul, array $resultadoDaConsulta){
 			$x = 0;
 			foreach($resultadoDaConsulta as $consulta){
-				$resul[$x] = [];
+				$resul[$x] = new \stdClass;
 				foreach($consulta as $chav => $valor){
 					if(!is_string($chav)) continue;
-					$resul[$x][] = $valor;
+					$resul[$x]->$chav = $valor;
 				}
 				$x++;
 			}

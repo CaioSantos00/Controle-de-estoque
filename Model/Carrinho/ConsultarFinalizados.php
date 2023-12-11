@@ -6,32 +6,17 @@
 	
 	class ConsultarFinalizados implements Model, \Stringable{
 		private string $query = "select carrinhosfinalizados.Id as idCarrinho, carrinhosfinalizados.Data, usuario.Nome as nomeUsuario from carrinhosfinalizados INNER JOIN usuario on carrinhosfinalizados.IdDono = usuario.Id";
-		private function consultarCarrinhos() :array{
-			$retorno = CB::getConexao()->query($this->query);
-			return ($retorno === false)
+		private function consultarCarrinhos() :array{			
+			return (($retorno = CB::getConexao()->query($this->query)) === false)
 				? []
 				: $retorno->fetchAll();
 		}
-		private function getDadosDonoCarrinho(string $idUsuario) :array|string{
-			$dono = (new PerfilUser($idUsuario,false))->getResposta();
-			
-			return is_array($dono["dados"])
-				? [$dono["imagem"],$dono["dados"]['Nome'],$dono["dados"]['Email'],$dono["dados"]['Telefone']]
-				: "dono do carrinho não encontrado";
-		}
-		private function getCarrinhosComDonos(array $carrinhos) :array{
-			$retorno = [];
-			foreach($carrinhos as $carrinho){
-				if(is_string($dadosDono = $this->getDadosDonoCarrinho($carrinho['IdDono']))) continue;
-				$retorno[] = [
-					$carrinho['Id'],
-					$carrinho['Data'],
-					$carrinho['IdEndereco'],
-					json_decode($carrinho['Conteudo']),
-					$dadosDono
-				];
-			}
-			return $retorno;
+		private function organizaCarrinhos(array $carrinhos) :array{
+			$resul = [];
+			foreach($carrinhos as $carrinho)
+				foreach($carrinho as $chav => $item)
+					if(!is_string($chav)) continue;
+						$resul[] = $
 		}
 		function __toString(){
 			return json_encode($this->getResposta());
