@@ -99,3 +99,42 @@
     color: $corPrimaria;
     margin: auto;
 }
+
+#myChart {
+    max-width: 100%;
+    height: auto;
+}
+
+#grafo {
+    width: 800px;
+}
+
+@media  screen and (max-width: 830px) {
+    #grafo {
+        width: 700px;
+    }
+}
+
+@media  screen and (max-width: 720px) {
+    #grafo {
+        width: 600px;
+    }
+}
+
+@media  screen and (max-width: 613px) {
+    #grafo {
+        width: 500px;
+    }
+}
+
+@media  screen and (max-width: 513px) {
+    #grafo {
+        width: 400px;
+    }
+}
+
+@media  screen and (max-width: 413px) {
+    #grafo {
+        width: 300px;
+    }
+}
