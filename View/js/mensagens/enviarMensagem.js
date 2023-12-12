@@ -50,6 +50,7 @@
 
 		function deuBom() {
 			form.style.display = 'none'
+			qualMensagem.style.display = 'block'
 				qualMensagem.src = '/estaticos/imgs/correct.png'
 				let linkLogar = document.createElement('a')
 				linkLogar.innerText = 'Enviado, clique para enviar novamente.'
@@ -60,6 +61,7 @@
 
 		function deuRuim() {
 			form.style.display = 'none'
+			qualMensagem.style.display = 'block'
 			qualMensagem.src = '/estaticos/imgs/incorrect.png'
 			let linkLogar = document.createElement('a')
 			linkLogar.innerText = 'Tente novamente mais tarde.'
