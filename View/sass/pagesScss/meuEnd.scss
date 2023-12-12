@@ -35,6 +35,17 @@
     gap: 8px;
 }
 
+#separa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#newEnd {
+    @include buttons(1em, $corSecundaria, $corPrimaria);
+    padding: 5px;
+}
+
 @media screen and (max-width: 980px){
     #sectionMeuEnd {
         margin: 20px;

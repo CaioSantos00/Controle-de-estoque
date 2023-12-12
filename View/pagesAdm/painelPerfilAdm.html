@@ -8,6 +8,8 @@
     <script src="/estaticos/js/elementos/header.js" defer></script>
     <script src="/estaticos/js/subdir/Requisicoes/requisicaoPerfil/requisicao" defer></script>
     <script src="/estaticos/js/deslogar/deslogar.js" defer></script>
+    <script src="/estaticos/js/grafico/grafico.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
 </head>
 <body>
     <header class="header-container"></header>
@@ -68,6 +70,12 @@
                 <a href="/admin/">Minha conta</a>
                 <a href=""></a>
             </div>
+        </div>
+        <div>
+            <div class="titleDetalhes">Vendas Mensais</div>
+            <div>
+                <canvas id="myChart"></canvas>
+              </div>
         </div>
     </section>
 </body>

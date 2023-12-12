@@ -78,7 +78,7 @@ function criaMinhasCompras() {
 }
 
 criaMinhasCompras()
-/*
+
 
 async function buscaCar() {
     let resposta = await fetch('/carrinho/finalizados')
@@ -96,6 +96,4 @@ async function buscaCar() {
 
     });
 }
-
 buscaCar()
-*/

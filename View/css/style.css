@@ -1252,6 +1252,28 @@ a #btnCon:hover {
   gap: 8px;
 }
 
+#separa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#newEnd {
+  font-size: 1em;
+  background-color: rgb(255, 255, 255);
+  color: #0c409a;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: 0;
+  transition: 0.5s;
+  padding: 5px;
+}
+#newEnd:hover {
+  background-color: #2460c9;
+}
+
 @media screen and (max-width: 980px) {
   #sectionMeuEnd {
     margin: 20px;
