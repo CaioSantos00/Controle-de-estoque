@@ -9,13 +9,13 @@
             $this->idProduto = $idProduto;
             return array(
                 "Principais" => $this->getTodasFotosDeUmDiretorio("Principais"),
-                "Secundarios" => $this->getTodasFotosDeUmDiretorio("Secundarios")
+                "Secundarias" => $this->getTodasFotosDeUmDiretorio("Secundarias")
             );
         }
         protected function getTodasFotosDeUmDiretorio(string $caminho) :array|bool{
             $dir = "arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/{$caminho}";
             if(!is_dir($dir)) return false;
-            return array_diff(scandir($dir),['.','..']);
+            return array_values(array_diff(scandir($dir),['.','..']));
         }
         function executar(){
             return $this->getImagens($this->idProduto);

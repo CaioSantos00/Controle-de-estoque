@@ -23,4 +23,8 @@
 			if(!is_numeric($data['idMsg'])) exit("erro interno");
 				$this->renderizar("arqvsSecundarios/Mensagens/{$data['idMsg']}/{$data['nomeFoto']}");
 		}
+		function imgVariacao($data){
+			if(!is_numeric($data['idPrimario']) or !is_numeric($data['idVariacao']))) exit("erro interno");
+			$this->renderizar("arqvsSecundarios/Produtos/Fotos/{$data['idPrimario']}/Secundarias/{$data['idVariacao']}/{nomeImagem}");
+		}
 	}

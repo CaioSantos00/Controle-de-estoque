@@ -63,7 +63,7 @@
             foreach ($idsVariacos as $idVariacao){
                 print_r($this->getDadoProduto($idVariacao));
             }
-            return [$idsVariacos];
+            return [$idsVariacos]
                 ? $this->buscarImagens->imagens
                 : [];
         }        

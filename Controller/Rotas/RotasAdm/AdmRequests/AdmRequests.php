@@ -16,10 +16,7 @@
 			//if(!isset($_POST['submit'])) exit("continua aqui? Hacker!");
 		}
 		function consultarProdutos($data){
-			foreach((new ConsultaProdutos)->getResposta() as $prod){
-				echo "<hr>";
-				print_r($prod);
-			};
+			echo new ConsultaProdutos;
 		}
 		function consultarVariacao($data){
 			$busca = new ConsultaCompra($data['idVariacao']);

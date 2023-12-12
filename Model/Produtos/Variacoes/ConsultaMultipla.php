@@ -19,13 +19,10 @@
         private function preparaQuery(bool $disponiveis = true, bool $getDisponiveis = false){
             try{
                 if($this->condicoesQuery->tentouInstanciar) return;
-
-                CB::getConexao()->beginTransaction();
-                    $query = CB::getConexao()->prepare($this->queryString);
-                    if(is_bool($query)) throw new \Exception("falhou quando foi preparar query");
-                    $this->queryPreparada = $query;
-                    $this->condicoesQuery->temQuery = true;
-                CB::getConexao()->commit();
+                $query = CB::getConexao()->prepare($this->queryString);
+                if(is_bool($query)) throw new \Exception("falhou quando foi preparar query");
+                $this->queryPreparada = $query;
+                $this->condicoesQuery->temQuery = true;
             }
             catch(\Exception|\PDOException $e){
                 $GLOBALS['ERRO']->setErro("consulta multipla", $e->getMessage());

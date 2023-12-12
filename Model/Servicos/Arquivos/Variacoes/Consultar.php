@@ -11,9 +11,11 @@
         private function buscarImagens() :bool|array{
             $dir = "arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$this->idVariacao}";
             if(!is_dir($dir)) return false;
-            $fotos = array_diff(
-                scandir($dir),
-                ['.','..']
+            $fotos = array_values(
+                array_diff(
+                    scandir($dir),
+                    ['.','..']
+                )
             );
             return $fotos;
         }
@@ -28,7 +30,3 @@
              $this->imagens = [];
         }
     }
-    /*
-Console.Write("oi");
-Console.Write("oi");
-*/

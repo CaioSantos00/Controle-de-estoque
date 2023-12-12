@@ -31,11 +31,10 @@
 	$router->namespace("Controladores\Rotas");
 	$router->group("estaticos");
 	$router->get('/fotoPerfilUser/{idUser}',"RotasSecundarias:fotoUsuario");
-	// ROTA PARA RECUPERAR IMAGENS DE PERFIL DE UM USUARIO, É PELO ID DELE
 	$router->get('/estilo', "RotasEstaticas:estilos");
 	$router->get('/componentes/{nome}',"RotasEstaticas:elementos");
 	$router->get('/imgs/{qual}', "RotasSecundarias:img");
-	//ESSA AQ CE JÁ SABE
+	$router->get('/imgs/variacao/{idPrimario}/{idVariacao}/{nomeImagem}', "RotasSecundarias:imgVariacao");
 	$router->get('/imgs/mensagem/{idMsg}/{nomeFoto}',"RotasSecundarias:imgMsg");
 	// ESSA AQ É PRA RECUPERAR IMAGENS DE UMA MENSAGEM, TENQ TER O ID DA MSG E O NOME DA IMAGEM
 	$router->get('/js/{contexto}/{nome}', "RotasEstaticas:script");

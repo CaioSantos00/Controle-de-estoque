@@ -2,10 +2,22 @@ let holdTodosPedidos = document.getElementById('holdTodosPedidos')
 let inputBusca = document.getElementById('inputBusca')
 let btnBuscaPedido = document.getElementById('btnBuscaPedido')
 
-/*(async () => {
-	let resposta = await fetch('')
-})()*/
-
+async function excluirVari(idVari, parentId){
+    let form = new FormData();
+        form.append("idVariacao", idVari);
+        form.append("idProduto", parentId);
+    let server = await fetch("/produto/excluirVariacao",{
+        method:"POST",
+        body: form
+    });
+    return await server.json();
+}
+async function buscaVaris(){
+    let server = await fetch("/produto/consultarTodos");
+    let response = await server.text();
+    sessionStorage.setItem("produtos", response);
+    return JSON.parse(response);
+}
 function  criaCardVar(nomeVar, imgSrc) {
     let cardsVaris = document.createElement('div')
     cardsVaris.classList.add('cardsVaris')
@@ -36,5 +48,12 @@ function  criaCardVar(nomeVar, imgSrc) {
     cardsVaris.append(nomeVarPes, divImgProdu, divEditExclu)
     holdTodosPedidos.append(cardsVaris)
 }
-
+async function populaContainer(){
+    let produtos = await buscaVaris();
+    produtos.forEach((produto) => {
+        produto.secundarios.forEach((variacao) => {
+            criaCardVar(produto.primarios[1], `/estaticos/imgs/variacao/${produto.primarios[0]}/${variacao.Id}/`)  
+        })        
+    })
+}
 criaCardVar("Variação", "SEIol")

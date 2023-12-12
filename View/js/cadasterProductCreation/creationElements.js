@@ -60,23 +60,23 @@ function criaVariacao() {
         buttonConfirm.classList.add('btnsConfirm');
         buttonConfirm.innerText = 'Salvar';
 
-    async function salvaVari() {
-        let qtdFim = inputQtd.value.trim()
-        let precoFim = inputPreco.value.trim()
-        let specsFim = variacoesTextArea.value.trim()
+    async function salvaVari(){
+        let qtdFim = inputQtd.value.trim();
+        let precoFim = inputPreco.value.trim();
+        let specsFim = variacoesTextArea.value.trim();
         let idProduto = selectProdutoPertenceVariacao.value;
         let guardaImg = inputFile.files, qtd = guardaImg.length;
-        console.log(guardaImg)
-        let form = new FormData()
-            form.append('idProduto', idProduto)
-            form.append('qtd', qtdFim)
-            form.append('preco', precoFim)
-            form.append('especificacoes', specsFim)
-            form.append("disponivel", (checkDispo.checked ? 1 : 0))
-            form.append('Submit', '')
+        console.log(guardaImg);
+        let form = new FormData();
+            form.append('idProduto', idProduto);
+            form.append('qtd', qtdFim);
+            form.append('preco', precoFim);
+            form.append('especificacoes', specsFim);
+            form.append("disponivel", (checkDispo.checked ? 1 : 0));
+            form.append('Submit', '');
 
         for(let x = 0; x < qtd; x++)
-            form.append("fotosSecundarias[]", guardaImg[x])
+            form.append("fotosSecundarias[]", guardaImg[x]);
 
 
         const requi = await fetch('/produto/criarDadoSecundario', {
@@ -91,10 +91,11 @@ function criaVariacao() {
     }
 
 
-    buttonConfirm.onclick = () => {
+    buttonConfirm.onclick = async () => {
         if(selectProdutoPertenceVariacao.value != "nn tem"){
-            salvaVari();
-            return
+            await salvaVari();
+            cardsVariacoes.remove();
+            return;
         }
         let antes = selectProdutoPertenceVariacao.style.backgroundColor;
         selectProdutoPertenceVariacao.style.backgroundColor = "red";
