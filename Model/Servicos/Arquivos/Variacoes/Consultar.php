@@ -19,6 +19,18 @@
             );
             return $fotos;
         }
+        private function setDiretorios(array $imagens){            
+            $dir = "arqvsSecundarios/Produtos/Fotos/{$this->idProduto}/Secundarias/{$this->idVariacao}/";
+            foreach($imagens as $img){
+                $img = array_values(
+                array_diff(
+                    scandir($dir.$img),
+                    ['.','..']
+                )
+            );
+            }
+            return $imagens;
+        }
         function executar(){
              $fotos = $this->buscarImagens();
              if($fotos){

@@ -35,6 +35,7 @@
 	$router->get('/componentes/{nome}',"RotasEstaticas:elementos");
 	$router->get('/imgs/{qual}', "RotasSecundarias:img");
 	$router->get('/imgs/variacao/{idPrimario}/{idVariacao}/{nomeImagem}', "RotasSecundarias:imgVariacao");
+	$router->get('/imgs/variacao/{idPrimario}/{idVariacao}', "RotasSecundarias:imgVariacaoPorId");
 	$router->get('/imgs/mensagem/{idMsg}/{nomeFoto}',"RotasSecundarias:imgMsg");
 	// ESSA AQ É PRA RECUPERAR IMAGENS DE UMA MENSAGEM, TENQ TER O ID DA MSG E O NOME DA IMAGEM
 	$router->get('/js/{contexto}/{nome}', "RotasEstaticas:script");

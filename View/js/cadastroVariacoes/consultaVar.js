@@ -48,12 +48,26 @@ function  criaCardVar(nomeVar, imgSrc) {
     cardsVaris.append(nomeVarPes, divImgProdu, divEditExclu)
     holdTodosPedidos.append(cardsVaris)
 }
+async function buscarImgs(idPrincipal, arrayIdsComFotos){
+    let imgs = []
+    let serv
+    arrayIdsComFotos.forEach(async (cada) => {
+        serv = await fetch(`/imgs/variacao/${idPrincipal}/${cada}`);
+        imgs.push([cada, await serv.json()]);
+    })
+    
+}
 async function populaContainer(){
     let produtos = await buscaVaris();
-    produtos.forEach((produto) => {
-        produto.secundarios.forEach((variacao) => {
-            criaCardVar(produto.primarios[1], `/estaticos/imgs/variacao/${produto.primarios[0]}/${variacao.Id}/`)  
-        })        
+    let imgs = [];
+    produtos.forEach(async (produto) => {
+        let img = await buscarImgs(produto.primarios[0], produto.fotos.Secundarias);
+        imgs.push(img)
+        /*produto.secundarios.forEach((variacao) => {            
+            criaCardVar(produto.primarios[1], `/estaticos/imgs/variacao/${produto.primarios[0]}/${variacao.Id}/${}`)            
+        })*/
     })
+    console.log(imgs)
 }
-criaCardVar("Variação", "SEIol")
+populaContainer()
+//criaCardVar("Variação", "SEIol")

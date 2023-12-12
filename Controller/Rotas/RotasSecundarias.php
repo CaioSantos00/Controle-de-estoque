@@ -23,6 +23,18 @@
 			if(!is_numeric($data['idMsg'])) exit("erro interno");
 				$this->renderizar("arqvsSecundarios/Mensagens/{$data['idMsg']}/{$data['nomeFoto']}");
 		}
+		function imgVariacaoPorId($data){
+			if(!is_numeric($data['idPrimario']) or !is_numeric($data['idVariacao'])) exit("erro interno");
+			$dir = "arqvsSecundarios/Produtos/Fotos/{$data['idPrimario']}/Secundarias/{$data['idVariacao']}";
+            if(!is_dir($dir)) exit("nn tem");
+            $fotos = array_values(
+                array_diff(
+                    scandir($dir),
+                    ['.','..']
+                )
+            );
+			echo json_encode($fotos)
+		}
 		function imgVariacao($data){
 			if(!is_numeric($data['idPrimario']) or !is_numeric($data['idVariacao'])) exit("erro interno");
 			$this->renderizar("arqvsSecundarios/Produtos/Fotos/{$data['idPrimario']}/Secundarias/{$data['idVariacao']}/{nomeImagem}");
