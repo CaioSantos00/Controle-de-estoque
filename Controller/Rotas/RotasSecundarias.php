@@ -33,7 +33,7 @@
                     ['.','..']
                 )
             );
-			echo json_encode($fotos)
+			echo json_encode($fotos);
 		}
 		function imgVariacao($data){
 			if(!is_numeric($data['idPrimario']) or !is_numeric($data['idVariacao'])) exit("erro interno");

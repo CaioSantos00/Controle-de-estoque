@@ -19,7 +19,7 @@ function recuperaClassificacoesSelecionadas(){
 	return selecionadas;
 }
 async function enviarDadosPrimarios(dados, fotos){
-	let form = new FormData;	
+	let form = new FormData;
 	dados.forEach(cada => form.append(...cada));
 	// Da o append em todos os dados
 	for(let x = 0; x != fotos.length; x++) form.append("fotosPrincipais[]", fotos[x])
@@ -28,15 +28,14 @@ async function enviarDadosPrimarios(dados, fotos){
 		method: "POST",
 		body: form
 	});
-	let response = await server.text();
-	console.log(response)
+	return await server.text();
 }
 
-dom.btnEnviar.addEventListener('click', () => {
+dom.btnEnviar.addEventListener('click', async () => {
 	let dados = [
 		["Nome", dom.nome.value.trim()],
 		["Descricao", dom.descricao.value.trim()],
 		["Classificacoes", JSON.stringify(recuperaClassificacoesSelecionadas())]
 	];
-	enviarDadosPrimarios(dados,dom.imagens.files);
+	await enviarDadosPrimarios(dados,dom.imagens.files);
 })
