@@ -11,7 +11,7 @@
         private Model $buscarEnderecos;        
         private array $querys = [
             "select `Id`,`IdEndereco`,`Conteudo`,`Data` from `carrinhosfinalizados` where `IdDono`= :idUsuario",
-            "select produtoprimario.Nome as Nome, produtoprimario.Classificacoes from produtoprimario inner JOIN produtoprimario.Id = produtosecundario.ParentId and produtosecundario.ParentId in (?)"
+            "select produtoprimario.Nome as Nome, produtoprimario.Classificacoes from produtoprimario inner JOIN produtoprimario.Id = produtosecundario.ParentId and produtosecundario.ParentId in (?)",
             "SELECT produtoprimario.Nome as Nome,produtosecundario.`preco/peca` as preco from produtosecundario inner JOIN produtoprimario on produtosecundario.ParentId = produtoprimario.Id and produtosecundario.Id = ?;"
         ];
 

@@ -174,3 +174,6 @@
 <<<>>>{"quando":"11-12-23 as 03:32","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
 <<<>>>{"quando":"11-12-23 as 03:32","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
 <<<>>>{"quando":"11-12-23 as 03:32","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"11-12-23 as 07:25","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"11-12-23 as 07:25","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
+<<<>>>{"quando":"11-12-23 as 07:26","onde":"alguma Imagem","mensagem":"img: View\/imgs\/amortece.webp, erro: Unable to read image type. GD driver is only able to decode JPG, PNG or GIF files."}
