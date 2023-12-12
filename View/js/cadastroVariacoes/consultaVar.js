@@ -18,7 +18,7 @@ async function buscaVaris(){
     sessionStorage.setItem("produtos", response);
     return JSON.parse(response);
 }
-function  criaCardVar(nomeVar, imgSrc) {
+function  criaCardVar(nomeVar, imgSrc, id, produto) {
     let cardsVaris = document.createElement('div')
     cardsVaris.classList.add('cardsVaris')
 
@@ -37,7 +37,9 @@ function  criaCardVar(nomeVar, imgSrc) {
     let btnsExcluClass = document.createElement('button')
     btnsExcluClass.classList.add('btnsExcluClass')
     btnsExcluClass.innerText = "Excluir"
-    btnsExcluClass.onclick = () => {}
+    btnsExcluClass.onclick = () => {
+        excluirVari(id,produto )
+    }
 
     let btnsEditClass = document.createElement('button')
     btnsEditClass.classList.add('btnsEditClass')
@@ -49,22 +51,25 @@ function  criaCardVar(nomeVar, imgSrc) {
     holdTodosPedidos.append(cardsVaris)
 }
 async function buscarImgs(idPrincipal, arrayIdsComFotos){
-    let imgs = false, serv;
+    let imgs = [], serv;
+    if(!arrayIdsComFotos) return false;
     arrayIdsComFotos.forEach(async (cada) => {
         serv = await fetch(`/estaticos/imgs/variacao/${idPrincipal}/${cada}`);
-        imgs = await serv.json();
+        let response = await serv.json();
+        imgs.push(response);
     })
-    return imgs ? imgs : [];
+    return imgs.length == 0 ? false : imgs;
 }
 async function populaContainer(){
     let produtos = await buscaVaris();
     produtos.forEach(async (produto) => {
         let img = await buscarImgs(produto.primarios[0], produto.fotos.Secundarias);
-        console.log(img)
+        console.log(img);
         produto.secundarios.forEach((variacao) => {
-            criaCardVar(produto.primarios[1], `/estaticos/imgs/variacao/${produto.primarios[0]}/${variacao.Id}/${img[0]}`);
+            let i =  `/estaticos/imgs/variacao/${produto.primarios[0]}/${variacao.Id}/${img[0]}`;
+            console.log(i)
+            criaCardVar(produto.primarios[1],i, variacao.Id, produto.primarios[0]);
         })
     })
 }
 populaContainer()
-//criaCardVar("Variação", "SEIol")

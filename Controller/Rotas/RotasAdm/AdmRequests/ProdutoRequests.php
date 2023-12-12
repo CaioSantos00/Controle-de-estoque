@@ -11,7 +11,7 @@
 	use App\Produtos\Variacoes\{
 		Salvar as 	SlvVar,
 		Editar as 	EdtVar,
-		Excluir as 	ExcVar
+		Excluir
 	};
 
 	class ProdutoRequests{
@@ -40,7 +40,7 @@
 			echo json_encode($dados->getResposta());
 		}
 		function excluirVariacao($data){
-			$excluir = new ExcVar($_POST['idVariacao'],$_POST['idProduto']);
+			$excluir = new Excluir($_POST['idVariacao'],$_POST['idProduto']);
 			echo json_encode($excluir->getResposta());
 		}
 	}

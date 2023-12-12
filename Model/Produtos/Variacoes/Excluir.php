@@ -13,7 +13,7 @@
         function __construct(string $idVariacao, string $idProduto){
             $this->idVariacao = $idVariacao;
             $this->idProduto= $idProduto;
-            $this->dir .= $this->idProduto."/Secundarias/".$this->idVariacao
+            $this->dir .= $this->idProduto."/Secundarias/".$this->idVariacao;
         }
         private function excluirDadosNoBanco() :bool{
             $query = CB::getConexao()->prepare($this->query);
@@ -40,7 +40,8 @@
                 $resultado = ["status" => "ok"];
                 CB::getConexao()->beginTransaction();
                     $imagens = $this->excluirImagens($this->mapeiaImagens());
-                    if(!$imagens[0]) throw new UserException(json_encode($imagens[1]));
+                    if(!$imagens[0])
+                        throw new UserException(json_encode($imagens[1]));
                     if(!$this->excluirDadosNoBanco()) throw new \Exception("erro mt interno");
                 CB::getConexao()->commit();
             }
