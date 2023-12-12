@@ -1,0 +1,2 @@
+<<<>>>{"quando":"12-12-23 as 08:28","onde":"salvar dados de varia\u00e7\u00e3o","mensagem":"SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens"}
+<<<>>>{"quando":"12-12-23 as 08:28","onde":"salvar dados de varia\u00e7\u00e3o","mensagem":"SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens"}

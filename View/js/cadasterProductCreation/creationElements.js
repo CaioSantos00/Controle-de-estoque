@@ -83,6 +83,7 @@ function criaVariacao() {
             method: 'POST',
             body: form
         });
+        alert('Produto enviado com sucesso')
         const response = await requi.json();
         if(Array.isArray(response)){
             console.log("dados errados")
